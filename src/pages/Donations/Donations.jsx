@@ -1,8 +1,11 @@
 import React from 'react'
+import BtnQuantityMoney from '../../components/donations/btnQuantityMoney/BtnQuantityMoney'
 
 const Donations = () => {
   return (
-    <div>Donations</div>
+    <>
+    <BtnQuantityMoney amount={'50.000'}/>
+    </>
   )
 }
 
