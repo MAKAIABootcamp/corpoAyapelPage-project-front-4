@@ -6,7 +6,6 @@ const BtnQuantityMoney = ({amount}) => {
 
   const handleClick = () => {
     setIsActive(!isActive);
-
   };
 
   return (
