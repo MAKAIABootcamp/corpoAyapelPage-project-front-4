@@ -1,0 +1,21 @@
+.mainNav{
+    position: absolute;
+    width: 100vw;
+    z-index: 1;
+    padding-top: 20px;
+   &__nav{
+       margin: 0;
+       padding: 0;
+       overflow: hidden;
+       background-color: transparent;
+       ul{
+           display: flex;
+           list-style-type: none;
+           align-items: center;
+           justify-content: space-evenly;
+           color: white;
+           font-family: 'Mulish', sans-serif;
+           
+        }
+    }
+}
