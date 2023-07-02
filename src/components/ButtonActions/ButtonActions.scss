@@ -5,4 +5,17 @@
     border-radius: 10px;
     font-family: 'Mulish', sans-serif;
     color: white;
+    font-size: 0.9rem;
+}
+
+.btn-link{
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+.btn{
+    cursor: none;
+    height: 39px;
+    display: flex;
+    text-decoration: none;
 }
