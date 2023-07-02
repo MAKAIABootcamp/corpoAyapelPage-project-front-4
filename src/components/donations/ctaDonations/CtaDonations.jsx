@@ -3,19 +3,18 @@ import React from 'react'
 const CtaDonations = ({ onClick, label, width, height, borderRadius, isSelected, color, labelAfter }) => {
     const handleClick = () => {
         if (isSelected === null) {
-            alert('Seleccionar monto'); // Emitir alerta si isSelected es null
+            alert('Seleccionar monto');
           } else {
             onClick();
           }
       };
-
 
     const buttonStyle = {
         width: width,
         height: height,
         borderRadius: borderRadius,
         color: isSelected ? '#FFF' : 'black',
-        backgroundColor: isSelected ? 'orange' : '#FFF', // Cambia el color de fondo aquí
+        backgroundColor: isSelected ? 'orange' : '#FFF', 
         transform: isSelected ? 'translateY(5px) scale(1.25)' : '',
       };
   

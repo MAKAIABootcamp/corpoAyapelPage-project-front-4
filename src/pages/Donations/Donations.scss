@@ -28,13 +28,9 @@
         }
 
         background: rgba(255, 255, 255, 0.15);
-        /* Fondo translúcido */
         backdrop-filter: blur(10px);
-        /* Difuminado del fondo */
         border-radius: 20px;
-        /* Borde redondeado */
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        /* Sombra suave */
         margin: 7rem 3rem 3rem 3rem;
         padding: 3rem 2rem 2rem 3rem;
 
@@ -57,7 +53,6 @@
 
         &__ppl {
             width: auto;
-            //  height: 300px;
             border-radius: 1rem;
         }
     }

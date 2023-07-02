@@ -12,3 +12,23 @@ html {
   html.dark-mode {
     --cursor-color: #fff
   }
+
+
+  body {
+
+    --dusk: #6600ff;
+    --purple: #6EBE4A;
+
+  }
+  .privacy-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--purple); // Usando el color morado definido
+    z-index: 2;
+    transition: background-color 0.5s ease; // Agrega la transición para el background-color
+  }
+  
+  

@@ -3,8 +3,16 @@ import './Donations.scss'
 import BtnQuantityMoney from '../../components/donations/btnQuantityMoney/BtnQuantityMoney'
 import CtaDonations from '../../components/donations/ctaDonations/CtaDonations'
 import Swal from 'sweetalert2';
+import BtnKnowMore from '../../components/donations/btnKnowMore/BtnKnowMore';
+import { motion, useIsPresent } from "framer-motion";
+import { Link } from "react-router-dom";
+import Testimonials from '../../components/donations/testimonials/Testimonials';
 
 const Donations = () => {
+
+  const [showTestimonialsComponent, setShowTestimonialsComponent] = useState(false);
+
+  const isPresent = useIsPresent();
 
   const [selectedAmount, setSelectedAmount] = useState(null)
 
@@ -48,7 +56,6 @@ const Donations = () => {
           window.open('https://payco.link/1371333', '_blank');
           break;
         default:
-          // Handle "Otro Valor" case or any other custom amount
           window.open('https://secure.payco.co/checkoutopen/44371', '_blank');
           break;
       }
@@ -68,27 +75,27 @@ const Donations = () => {
   return (
     <>
       <div className='donations__background'>
-        <div className='donations__container'>
-          <div className='donations__columnOne'>
+        <main className='donations__container'>
+          <section className='donations__columnOne'>
             <div className='donations__btns'>
               {donationAmounts.slice(0, 3).map((item, index) => (
                 <BtnQuantityMoney
                   key={index}
                   amount={item.amount}
                   isSelected={selectedAmount === item.amount}
-                  onClick={handleConfirmGoToDonate} // Verifica esta línea
+                  onClick={handleConfirmGoToDonate}
                 />
               ))}
             </div>
-          </div>
-          <div className='donations__columnTwo'>
+          </section>
+          <section className='donations__columnTwo'>
             {selectedAmount === null ?
               <div className='donations__image'>
                 <video width='540' height='360' controls className='donations__image__ppl'>
                   <source src='https://youtu.be/1KzRhryHfLI' type='video/mp4' />
                 </video>
               </div>
-              : 
+              :
               <div className='donations__columnTwo-selected'>
                 <h3 className='donations__title'>¿Quieres ser un donador recurrente?</h3>
                 <p>Al donar COP {formattedDonation} diarios ayudas a ...</p>
@@ -113,24 +120,33 @@ const Donations = () => {
                 height={'3rem'}
                 borderRadius={'2rem'}
                 labelAfter={'CONFIRMAR DONACIÓN'}
-                isSelected={selectedAmount !== null} // Aquí establece isSelected a true si selectedAmount no es null (un monto está seleccionado), de lo contrario, será false.
+                isSelected={selectedAmount !== null}
               />
             </div>
-          </div>
-          <div className='donations__columnThree'>
+          </section>
+          <section className='donations__columnThree'>
             <div className='donations__btns'>
               {donationAmounts.slice(3).map((item, index) => (
                 <BtnQuantityMoney
                   key={index}
                   amount={item.amount}
                   isSelected={selectedAmount === item.amount}
-                  onClick={handleConfirmGoToDonate} // Verifica esta línea
+                  onClick={handleConfirmGoToDonate}
                 />
               ))}
             </div>
-          </div>
-        </div>
+          </section>
+          {/* <BtnKnowMore/> */}
+          <BtnKnowMore />
+        </main>
       </div>
+      <motion.div
+        initial={{ scaleX: 1 }}
+        animate={{ scaleX: 0, transition: { duration: 0.5, ease: "circOut" } }}
+        exit={{ scaleX: 1, transition: { duration: 0.5, ease: "circIn" } }}
+        style={{ transformOrigin: isPresent ? "0" : "100%" }}
+        className="privacy-screen"
+      />
     </>
   )
 };
