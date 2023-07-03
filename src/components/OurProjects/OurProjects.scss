@@ -1,0 +1,58 @@
+.mainProjects{
+    &__title{
+        font-family: 'Mulish', sans-serif;
+        h2{
+            font-size: 3rem;
+            color: white;
+            font-family: 'Mulish', sans-serif;
+        }
+        span{
+            font-size: 14px;
+            color: #777779;
+            font-family: 'Mulish', sans-serif;
+        }
+   
+    }
+    &__container{
+        display: flex;
+        flex-direction: column;
+        height: 60vh;
+        align-items: center;
+    justify-content: center;
+    position: relative;
+    }
+    &__cards{
+        height: 50vh;
+        display: flex;
+        flex-direction: row;
+        width: 90vw;
+        align-items: center;
+        justify-content: center;
+        transform: translateY(90px);
+    }
+}
+
+.background-3{
+    background-image: url('https://res.cloudinary.com/dgnwqr93n/image/upload/v1688177235/paisa-3_vm6dq6.jpg');
+    // background-color: #6ebe4a;
+    position: relative; 
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+}
+.background-3::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.396);
+}
+.texto{
+    font-size: 1rem;
+    color: #eee;
+}

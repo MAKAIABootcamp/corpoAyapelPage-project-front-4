@@ -16,32 +16,44 @@
     right: 0px;
     bottom: 0px;
     left: 0px;
-    background-color: rgba(0, 0, 0, 0.396);
+    background-color: rgba(0, 0, 0, 0.436);
 }
 .mainHome{
     display: flex;
     flex-direction: row;
     font-size: 18px;
     align-items: center;
-    padding: 0px 50px;
+    padding: 0px 80px;
     width: 100vw;
     justify-content: space-between;
     &__button{
         display: flex;
         position: relative;
     }
+   
     &__text{
         position: relative;
-        color: #ffffff;  
+        color: white;  
         font-size: 3.5rem;
         line-height: 1;
         text-align: center;
         text-align: left;
         font-family: 'Mulish', sans-serif;
         p{
-            width: 60vw;
-            height:40%;
+            width: 55vw;
+            height:45%;
+            //  background-color: #6ebe4a;
+            // padding: 15px;
+            // border-radius: 14px;
+            // box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
         }
     }
+}
+.btn-bottom{
+        top:26vh;
+        display: flex;
+        position: relative;
+        right: 35px;
+
 }
 

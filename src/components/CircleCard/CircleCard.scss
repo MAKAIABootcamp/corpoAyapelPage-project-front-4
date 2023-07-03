@@ -1,0 +1,55 @@
+.mainCircleCard {
+  height: 60vh;
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0px 20px;
+  align-items: center;
+  &__title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #535353;
+    font-family: 'Mulish', sans-serif;
+  }
+  &__text {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Mulish', sans-serif;
+    height: 125px;
+    overflow: auto;
+  }
+  &__img {
+    z-index: 2;
+    figure {
+      img {
+        border-radius: 100%;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border: 2.5px solid #6ebe4a;
+      }
+    }
+  }
+  &__content {
+    background-color: white;
+    height: 350px;
+    transform: translateY(-80px);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 270px;
+    padding: 5px 20px 10px 20px;
+    gap: 5px;
+    justify-content: flex-end;
+  }
+  &__gestion{
+    h2{
+        color: white;
+        font-family: 'Mulish', sans-serif;
+    }
+  }
+}

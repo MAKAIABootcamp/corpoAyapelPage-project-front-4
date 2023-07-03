@@ -1,37 +1,3 @@
-.mainWeAre{
-    display: flex;
-    flex-direction: column;
-    font-size: 18px;
-    justify-content: center;
-    align-items: center;
-    width: 80vw;
-    // background-image:url('https://res.cloudinary.com/dgnwqr93n/image/upload/v1688177236/paisa-1_sxyk42.jpg') ;
-    // background-repeat: no-repeat;
-    // background-size: cover;
-    &__title{
-        h2{
-            font-size: 2rem;
-        }
-    }
-    &__text{
-        p{
-            font-size: 1rem;
-            color: white;
-        }
-    }
-    &__container{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 50vw;
-        gap: 20px;
-    }
-    &__buttons{
-        display: flex;
-        
-    }
-}
-
 .background-2{
     background-image: url('https://res.cloudinary.com/dgnwqr93n/image/upload/v1688177236/paisa-1_sxyk42.jpg');
     // background-color: #6ebe4a;
@@ -52,3 +18,69 @@
     left: 0px;
     background-color: rgba(0, 0, 0, 0.396);
 }
+
+.mainWeAre{
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    // background-image:url('https://res.cloudinary.com/dgnwqr93n/image/upload/v1688177236/paisa-1_sxyk42.jpg') ;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    &__title{
+        h2{
+            font-size: 3rem;
+            color: white;
+            font-family: 'Mulish', sans-serif;
+        }
+    }
+    &__text{
+        p{
+            font-size: 1rem;
+            color: white;
+            font-family: 'Mulish', sans-serif;
+        }
+    }
+    &__container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50vw;
+        gap: 20px;
+        position: relative;
+    }
+    &__buttons{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        font-family: 'Mulish', sans-serif;
+        button{
+
+            &:hover{
+                background-color: white;
+                color: #6ebe4a;
+                border:1px solid #6ebe4a;
+
+            }
+        }
+ 
+        
+    }
+    &__btn-donacion{
+        position: absolute;
+    right: 0;
+
+    }
+}
+
+.btn{
+    cursor: none;
+    height: 39px;
+    display: flex;
+    text-decoration: none;
+}
+
