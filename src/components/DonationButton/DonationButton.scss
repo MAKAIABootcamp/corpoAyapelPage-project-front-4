@@ -1,7 +1,29 @@
 .App-logo {
-    height: 40vmin;
+    height: 30vmin;
     pointer-events: none;
     position: relative;
+  }
+
+  .app-logo{
+    height: 22vmin;
+    pointer-events: none;
+    position: relative;
+  }
+
+  .logo-text-2{
+    position: relative;
+    width: 165px;
+  }
+
+  .logo-text{
+    position: relative;
+    width: 230px;
+  }
+
+
+
+  .text-btn{
+    position: absolute;
   }
   
   @media (prefers-reduced-motion: no-preference) {
@@ -19,11 +41,23 @@
     }
   }
 
-  .logo-text{
-    position: relative;
-    width: 300px;
+  @media (prefers-reduced-motion: no-preference) {
+    .app-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
   }
-  .text-btn{
-    position: absolute;
+
+@keyframes app-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
-  
+
+ .mainHome__button-buttom{
+     top:20vh;
+    display: flex;
+    position: relative;    
+}
