@@ -5,16 +5,16 @@ import CtaDonations from '../../components/donations/ctaDonations/CtaDonations'
 import Swal from 'sweetalert2';
 import BtnKnowMore from '../../components/donations/btnKnowMore/BtnKnowMore';
 import { motion, useIsPresent } from "framer-motion";
-import { Link } from "react-router-dom";
-import Testimonials from '../../components/donations/testimonials/Testimonials';
+import ImpactIndicator from '../../components/donations/impactIndicator/ImpactIndicator';
 
 const Donations = () => {
-
-  const [showTestimonialsComponent, setShowTestimonialsComponent] = useState(false);
 
   const isPresent = useIsPresent();
 
   const [selectedAmount, setSelectedAmount] = useState(null)
+  const [showImpactIndicator, setShowImpactIndicator] = useState(false);
+ 
+  const formattedDonation = Math.round(Number(selectedAmount) * 1000 / 30).toLocaleString();
 
   const handleConfirmGoToDonate = (amount) => {
     setSelectedAmount(amount === selectedAmount ? null : amount);
@@ -71,9 +71,21 @@ const Donations = () => {
     { amount: 'Otro Valor' },
   ];
 
-  const formattedDonation = Math.round(Number(selectedAmount) * 1000 / 30).toLocaleString();
+  const handleToNextComponent = () => {
+    console.log('voy al next')
+    setShowImpactIndicator(true);
+  }
+
+  // const handleScroll = () => {
+  //   handleToNextComponent();
+  // }
+  // window.addEventListener('scroll', handleScroll);
+
+
   return (
     <>
+        {showImpactIndicator ? <ImpactIndicator /> : 
+        <>
       <div className='donations__background'>
         <main className='donations__container'>
           <section className='donations__columnOne'>
@@ -137,7 +149,7 @@ const Donations = () => {
             </div>
           </section>
           {/* <BtnKnowMore/> */}
-          <BtnKnowMore />
+          <BtnKnowMore onClick={handleToNextComponent} />
         </main>
       </div>
       <motion.div
@@ -147,6 +159,8 @@ const Donations = () => {
         style={{ transformOrigin: isPresent ? "0" : "100%" }}
         className="privacy-screen"
       />
+      </>
+              }
     </>
   )
 };

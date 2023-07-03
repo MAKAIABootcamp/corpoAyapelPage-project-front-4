@@ -2,10 +2,10 @@ import React from 'react'
 import { BsFillArrowDownCircleFill } from "react-icons/bs";
 import './btnKnowMore.scss';
 
-const BtnKnowMore = () => {
+const BtnKnowMore = ({ onClick }) => {
   return (
     <>  
-    <BsFillArrowDownCircleFill style={{width:'50px'}} className='icon__arrow'/>
+    <BsFillArrowDownCircleFill  onClick={onClick} style={{width:'50px'}} className='icon__arrow'/>
   
     </>
   )

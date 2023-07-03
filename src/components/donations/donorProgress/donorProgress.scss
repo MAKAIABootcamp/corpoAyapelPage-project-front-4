@@ -1,0 +1,94 @@
+.donorProgress {
+    &__background {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg');
+        //background-color: #e9ece7;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: cover;
+        z-index: .5;
+      // flex-wrap: wrap;
+    }
+    &__bar {
+        border-radius: 40px;
+    }
+
+    &__container__progress {
+        width: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 3rem;
+        gap: 2rem;
+        background-color: #fff;
+        border-radius: 50px;
+        box-shadow: 0px 1px 0px hsl(0, 0%, 46%), /* Change the blue color to gray */
+        0px 2px 0px hsl(0, 0%, 48%), /* Change the blue color to gray */
+        0px 3px 0px hsl(0, 0%, 49%), /* Change the blue color to gray */
+        0px 4px 0px hsl(0, 0%, 50%), /* Change the blue color to gray */
+        0px 5px 0px hsl(0, 0%, 51%), /* Change the blue color to gray */
+        0px 6px 0px hsl(0, 0%, 52%), /* Change the blue color to gray */
+        0px 7px 0px hsl(0, 0%, 53%), /* Change the blue color to gray */
+        0px 8px 0px hsl(0, 0%, 54%), /* Change the blue color to gray */
+        0px 9px 0px hsl(0, 0%, 55%), /* Change the blue color to gray */
+        0px 10px 0px hsl(0, 0%, 88%), /* Change the blue color to gray */
+        0px 11px 10px #777779;
+        //transform: translateY(5px) scale(1.25);
+        // height: var(--active-height);
+        // width: var(--active-width);
+
+    }
+    &__title {
+        margin-bottom: 3rem;
+        color: #fff;
+        font-size: 2rem;  
+        text-align: center;
+ 
+    }
+    &__init, &__goal{
+       width: 60px;
+        font-size: 1.5rem;
+    }
+    &__goal {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        gap: 1rem;
+        // p {
+        //     margin-right: 10px;
+        // }
+      
+    }
+    &__main {
+        display: flex;
+        flex-direction: column;
+        padding: 0 10rem 0 10rem;
+    }
+    &__ctaDonations {
+        display: flex;
+        justify-content: center;
+        margin-top: 5rem;
+    }
+    &__status {
+        text-align: center;
+        margin-top: 2rem;
+        font-size: 2rem;
+        color: #fff;
+    }
+}
+
+.imageAnimation {
+    animation: slideIn 1s forwards; /* 1s es la duración de la animación. Puedes ajustarla según tu preferencia. */
+}
+
+@keyframes slideIn {
+    from {
+        left: 0;
+    }
+    to {
+        left: 100%;
+    }
+}

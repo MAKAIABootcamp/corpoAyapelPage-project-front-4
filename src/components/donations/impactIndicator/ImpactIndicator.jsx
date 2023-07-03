@@ -7,65 +7,65 @@ import CtaDonations from '../ctaDonations/CtaDonations';
 
 const ImpactIndicator = () => {
 
-  const carouselData = [
-    {
-      imageSrc: 'https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg',
-      text: 'Texto para la primera imagen',
-    },
-    {
-        imageSrc: 'https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg',
-        text: 'Texto para la primera imagen',
-      },
-      {
-        imageSrc: 'https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg',
-        text: 'Texto para la primera imagen',
-      },
-      {
-        imageSrc: 'https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg',
-        text: 'Texto para la primera imagen',
-      },
-      {
-        imageSrc: 'https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg',
-        text: 'Texto para la primera imagen',
-      },
-      {
-        imageSrc: 'https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg',
-        text: 'Texto para la primera imagen',
-      },
-      {
-        imageSrc: 'https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg',
-        text: 'Texto para la primera imagen',
-      },
-  ];
+    const carouselData = [
+        {
+            imageSrc: 'https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg',
+            text: 'Texto para la primera imagen',
+        },
+        {
+            imageSrc: 'https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg',
+            text: 'Texto para la primera imagen',
+        },
+        {
+            imageSrc: 'https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg',
+            text: 'Texto para la primera imagen',
+        },
+        {
+            imageSrc: 'https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg',
+            text: 'Texto para la primera imagen',
+        },
+        {
+            imageSrc: 'https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg',
+            text: 'Texto para la primera imagen',
+        },
+        {
+            imageSrc: 'https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg',
+            text: 'Texto para la primera imagen',
+        },
+        {
+            imageSrc: 'https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg',
+            text: 'Texto para la primera imagen',
+        },
+    ];
 
 
-  const chunkedData = [];
-  for (let i = 0; i < carouselData.length; i += 3) {
-    chunkedData.push(carouselData.slice(i, i + 3));
-  }
+    const chunkedData = [];
+    for (let i = 0; i < carouselData.length; i += 3) {
+        chunkedData.push(carouselData.slice(i, i + 3));
+    }
 
-  return (
-    <div className='impactIndicator__background'>
-      <main className='impactIndicator__main'>
-        <div>
-        <h3 className='impactIndicador__title'>Con las donaciones recurrentes, creamos un impacto duradero.<br></br>Cada contribución constante nos acerca más a lograr nuestras metas<br/> y marcar la diferencia en la vida de aquellos a quienes servimos</h3>
+    return (
+        <div className='impactIndicator__background'>
+            <main className='impactIndicator__main'>
+                <div>
+                    <h3 className='impactIndicador__title'>Con las donaciones recurrentes, creamos un impacto duradero.</h3>
 
-        </div>
-        <section style={{maxWidth:'950px', maxHeight:'600px'}}>
-          <Carousel showThumbs={false}>
-            {chunkedData.map((group, index) => (
-              <div key={index} className='impactIndicator__carousel'>
-                {group.map((item, subIndex) => (
-                  <div key={subIndex} className="impactIndicator__circle__image">
-                    <img src={item.imageSrc} alt="" />
-                     <p>{item.text}</p> 
-                  </div>
-                ))}
-              </div>
-            ))}
-          </Carousel>
-        </section>
-        <article className='impactIndicator__ctaDonations'>
+                </div>
+                <section style={{ maxWidth: '950px', maxHeight: '600px' }}>
+                    <Carousel showThumbs={false}>
+                        {chunkedData.map((group, index) => (
+                            <div key={index} className='impactIndicator__carousel'>
+                                {group.map((item, subIndex) => (
+                                    <div key={subIndex} className="impactIndicator__circle__image">
+                                        <img src={item.imageSrc} alt="" />
+                                        <p>{item.text}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        ))}
+                    </Carousel>
+                </section>
+                <article className='impactIndicator__ctaDonations'>
                     <CtaDonations
                         label={'QUIERO DONAR'}
                         width={'15rem'}
@@ -76,10 +76,10 @@ const ImpactIndicator = () => {
                 <article className="testimonials__next">
                     <BtnKnowMore />
                 </article>
-        
-      </main>
-    </div>
-  )
+
+            </main>
+        </div>
+    )
 }
 
 export default ImpactIndicator;
