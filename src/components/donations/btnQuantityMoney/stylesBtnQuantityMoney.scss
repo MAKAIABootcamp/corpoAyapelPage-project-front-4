@@ -12,7 +12,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     box-shadow: 0px 1px 0px hsl(90, 100%, 40%),
         0px 2px 0px hsl(90, 100%, 38%),
         0px 3px 0px hsl(90, 100%, 37%),
@@ -27,8 +27,8 @@
 
     .gif-container {
         display: inline-block;
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
         background-image: url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688167470/ayapel/xhwaslf4c5sm8r6snozb.gif');
         background-size: cover;
         background-position: center;

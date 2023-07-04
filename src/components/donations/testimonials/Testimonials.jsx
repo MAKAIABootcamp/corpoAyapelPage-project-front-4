@@ -53,7 +53,7 @@ const Testimonials = () => {
     return (
         <>
 
-            <div className='donations__background'>
+            <div className='testimonials__background'>
                 <div>
                     <h3 className='testimonials__title'>QUIENES NOS APOYAN</h3>
 

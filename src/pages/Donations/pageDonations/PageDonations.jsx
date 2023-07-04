@@ -1,6 +1,6 @@
 import React from 'react'
 import Donations from '../Donations'
-//import './pageDonations.scss';
+import './pageDonations.scss';
 import Testimonials from '../../../components/donations/testimonials/Testimonials';
 import DonorProgress from '../../../components/donations/donorProgress/DonorProgress';
 import ImpactIndicator from '../../../components/donations/impactIndicator/ImpactIndicator';
