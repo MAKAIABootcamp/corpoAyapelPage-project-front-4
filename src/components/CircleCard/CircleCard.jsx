@@ -21,7 +21,7 @@ const CircleCard = ({title, text, img, sector}) => {
       .then((data) => setAllPostData(data))
       .catch(console.error)
   }, [])
-  console.log(allPostData)
+  // console.log(allPostData)
   
   return (
     <>

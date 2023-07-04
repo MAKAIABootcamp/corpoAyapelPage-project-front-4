@@ -1,21 +1,22 @@
 import React from 'react'
 import './Navbar.scss'
+import { NavLink } from 'react-router-dom'
 const Navbar = () => {
   return (
     <div className='mainNav'>
         <nav className='mainNav__nav'>
             <ul>
-                <li>Nosotros</li>
-                <li>Que hacemos</li>
-                <li>Artesanias</li>
-                <li>
+                <NavLink to={'/nosotros'}>Nosotros</NavLink>
+                <NavLink to={'/que-hacemos'}>Que hacemos</NavLink>
+                <NavLink to={'https://corpoayapelartesanias.com/'}>Artesanias</NavLink>
+                <NavLink to={'/'}>
                     <figure>
-                        <img src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1688153548/Untitled_design__1_-removebg-preview_1_kfahdd.png" alt="" />
+                        <img src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1688432976/logo-blanco_x4th99.svg" alt="" />
                     </figure>
-                </li>
-                <li>Donaciones</li>
-                <li>Documentos</li>
-                <li>Ayapel</li>
+                </NavLink>
+                <NavLink to={'/donaciones'}>Donaciones</NavLink>
+                <NavLink to={'/como-ayudar'}>¿Cómo puedo ayudar?</NavLink>
+                <NavLink to={'/ayapel'}>Ayapel</NavLink>
             </ul>
         </nav>
     </div>

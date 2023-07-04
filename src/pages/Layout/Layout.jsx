@@ -8,7 +8,7 @@ const Layout = () => {
     <>
     <Navbar/>
     <Outlet/>
-    <AnimatedCursor color='255,255,255' innerSize={30}/>
+    <AnimatedCursor color='110, 190, 74' innerSize={30}/>
     </>
   )
 }
