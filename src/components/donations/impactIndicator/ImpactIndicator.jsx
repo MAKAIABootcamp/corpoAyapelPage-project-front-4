@@ -1,48 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './impactIndicator.scss';
 import BtnKnowMore from '../btnKnowMore/BtnKnowMore';
 import CtaDonations from '../ctaDonations/CtaDonations';
+import client from '../../../sanity/client';
 
 const ImpactIndicator = () => {
 
-    const carouselData = [
-        {
-            imageSrc: 'https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg',
-            text: 'Texto para la primera imagen',
-        },
-        {
-            imageSrc: 'https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg',
-            text: 'Texto para la primera imagen',
-        },
-        {
-            imageSrc: 'https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg',
-            text: 'Texto para la primera imagen',
-        },
-        {
-            imageSrc: 'https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg',
-            text: 'Texto para la primera imagen',
-        },
-        {
-            imageSrc: 'https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg',
-            text: 'Texto para la primera imagen',
-        },
-        {
-            imageSrc: 'https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg',
-            text: 'Texto para la primera imagen',
-        },
-        {
-            imageSrc: 'https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg',
-            text: 'Texto para la primera imagen',
-        },
-    ];
-
+    const [allPostData, setAllPostData] = useState(null)
+    useEffect(() => {
+        client
+            .fetch(
+                `*[_type == "PersonasImpactadas"] {
+        title,
+          mainImage{
+            asset->{
+              _id,
+              url
+            }
+          }
+        }`
+            )
+            .then((data) => setAllPostData(data))
+            .catch(console.error)
+    }, [])
+    console.log(allPostData)
+    
 
     const chunkedData = [];
-    for (let i = 0; i < carouselData.length; i += 3) {
-        chunkedData.push(carouselData.slice(i, i + 3));
+    for (let i = 0; i < allPostData?.length; i += 3) {
+        chunkedData.push(allPostData?.slice(i, i + 3));
     }
+    console.log(chunkedData)
 
     return (
         <div className='impactIndicator__background'>
@@ -57,8 +47,8 @@ const ImpactIndicator = () => {
                             <div key={index} className='impactIndicator__carousel'>
                                 {group.map((item, subIndex) => (
                                     <div key={subIndex} className="impactIndicator__circle__image">
-                                        <img src={item.imageSrc} alt="" />
-                                        <p>{item.text}</p>
+                                        <img src={item.mainImage.asset.url} alt="" />
+                                        <p>{item.title}</p>
                                     </div>
                                 ))}
                             </div>

@@ -3,6 +3,7 @@ import './donorProgress.scss'
 import { GoGoal } from "react-icons/go";
 import BtnKnowMore from '../btnKnowMore/BtnKnowMore';
 import CtaDonations from '../ctaDonations/CtaDonations';
+import client from '../../../sanity/client';
 //import icon from '../../../../src/assets/animation_500_ljmbftnk.gif'
 
 const ProgressBar = ({ progress, goal, totalDonors, height }) => {
@@ -45,9 +46,25 @@ const ProgressBar = ({ progress, goal, totalDonors, height }) => {
 };
 
 const DonorProgress = () => {
+
+    const [allPostData, setAllPostData] = useState(null)
+    useEffect(() => {
+        client
+            .fetch(
+                `*[_type == "donorsGoals"] {
+          goal,
+          currentDonors
+        }`
+            )
+            .then((data) => setAllPostData(data))
+            .catch(console.error)
+    }, [])
+    console.log(allPostData)
+
+
     const [progress, setProgress] = useState(0);
-    const goal = 100; // Meta esperada de donadores
-    const totalDonors = 34; // Total de donadores actual
+    const goal = allPostData?.[0].goal; // Meta esperada de donadores
+    const totalDonors = allPostData?.[0].currentDonors; // Total de donadores actual
 
 
     // Calcula el progreso actual en base al total de donadores actual y la meta esperada
