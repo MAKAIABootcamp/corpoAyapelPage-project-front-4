@@ -1,0 +1,104 @@
+.mainFooter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90vw;
+    justify-content: space-between;
+    position: relative;
+    &__logo{
+        display: flex;
+        flex-direction: column;
+        figure{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+        }
+        img{
+            width: 350px;
+            height: auto;
+        }
+
+    }
+    &__form{
+        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+        color: #757575;
+        background-color: white;
+        border-radius: 5px;
+        height: 450px;
+        width: 350px;
+        padding: 15px 30px;
+        form{
+            display: flex;
+    flex-direction: column;
+    input{
+        height: 30px;
+        border-bottom: 1px solid green;
+        background-color: #e1e1e1;
+    }
+        }
+    }
+    &__form-input{
+        display: flex;
+        flex-direction: column;
+        font-size: 0.9rem;
+        padding-bottom: 10px;
+        font-weight: 400;
+        font-family: 'Mulish', sans-serif;
+        gap: 5px;
+        input{
+            font-family: 'Mulish', sans-serif;
+            // border-radius: 10px;
+            border: 0px;
+            
+        }
+    }
+    &__form-title{
+        font-size: 1.5rem;
+        color: #6ebe4a;
+    }
+    &__form-submit{
+        button{
+            background-color: #6fbe4a71;
+            border-radius: 5px;
+            color: #549138;
+            padding: 5px 10px;
+            border: 1px transparent;
+            
+        }
+
+    }
+}
+
+.background-5{
+    background-image: url('https://res.cloudinary.com/dgnwqr93n/image/upload/v1688430170/269982243_4667892963329024_8717849781660201760_n_drq3uv.jpg');
+    // background-color: #6ebe4a;
+    position: relative; 
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+}
+.background-5::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.396);
+}
+textarea{
+    resize: none;
+    height: 200px;
+    width: 100%;
+    border:1px solid green;
+    border-radius: 5px;
+    background-color: #e1e1e1;
+}

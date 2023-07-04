@@ -1,2 +1,3 @@
 import projects from './projects'
-export const schemaTypes = [projects]
+import news from './new.js'
+export const schemaTypes = [projects, news]
