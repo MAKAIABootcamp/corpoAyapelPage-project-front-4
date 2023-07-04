@@ -4,6 +4,7 @@ import "./FullPage.scss";
 import Donations from "../Donations/Donations";
 import Navbar from "../../components/Navbar/Navbar";
 import WeAre from "../../components/WeAre/WeAre";
+import OurProjects from "../../components/OurProjects/OurProjects";
 
 const FullPage = () => {
   return (
@@ -15,7 +16,7 @@ const FullPage = () => {
         <WeAre />
       </div>
       <div>
-        <Home />
+        <OurProjects />
       </div>
     </main>
   );
