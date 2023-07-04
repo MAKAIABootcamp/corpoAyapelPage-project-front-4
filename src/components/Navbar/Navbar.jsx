@@ -15,7 +15,7 @@ const Navbar = () => {
                     </figure>
                 </NavLink>
                 <NavLink to={'/donaciones'}>Donaciones</NavLink>
-                <NavLink to={'/documentos'}>¿Cómo puedo ayudar?</NavLink>
+                <NavLink to={'/como-ayudar'}>¿Cómo puedo ayudar?</NavLink>
                 <NavLink to={'/ayapel'}>Ayapel</NavLink>
             </ul>
         </nav>
