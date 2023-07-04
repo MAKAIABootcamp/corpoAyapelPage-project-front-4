@@ -14,9 +14,10 @@ const FullPage = () => {
   
   return (
     <main className="container">
+     
       <div id="section1">
         <Home />
-      </div>
+      </div> 
       <div id="section2">
         <WeAre />
       </div>

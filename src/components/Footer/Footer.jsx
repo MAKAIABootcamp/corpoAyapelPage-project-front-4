@@ -12,6 +12,9 @@ const Footer = () => {
     formId: "9b378b3a-c3fd-45fb-b429-af5f68038ab4",
     target: '#my-hubspot-form'
 });
+
+
+
 console.log(loaded, error, formCreated)
 console.log(useHubspotForm)
 

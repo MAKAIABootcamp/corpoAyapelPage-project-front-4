@@ -32,9 +32,7 @@ const AppRouter = () => {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<FullPage />} />
-
             <Route path="nosotros" Component={Us} />
-            <Route path="home" Component={Home} />
             <Route path="cultura" Component={Culture} />
             <Route path="novedades" Component={News} />
             <Route path="donaciones" Component={PageDonations} />

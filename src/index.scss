@@ -39,10 +39,14 @@ html {
   .css-4reedn-MuiSpeedDial-root {
    bottom: 20px !important;
     left: -90% !important;
+    display: flex;
 
   }
   .MuiFab-root {
     background-color:  var(--primaryColor) !important;
     color: #fff !important;
     font-size: 1.5rem !important;
+  }
+  .MuiSpeedDialIcon-root{
+    display: flex;
   }
