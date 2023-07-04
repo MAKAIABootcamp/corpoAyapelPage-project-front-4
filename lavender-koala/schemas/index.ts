@@ -1,2 +1,4 @@
 import projects from './projects'
-export const schemaTypes = [projects]
+import whatWeDo from './whatWeDo'
+
+export const schemaTypes = [projects, whatWeDo]
