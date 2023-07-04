@@ -9,7 +9,6 @@
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     scrollbar-width: thin;
-    scrollbar-color: rgba(219, 69, 219, 0.8) white;
   }
   
   .container div {
@@ -45,4 +44,9 @@
   .container::-webkit-scrollbar-thumb:hover {
     background-color: transparent;
   }
+
+  .hubspot-link__container sproket{
+    display: none !important;
+    visibility: hidden !important;
+}
   

@@ -6,7 +6,10 @@
     box-sizing: border-box;
 }
 html {
-    --cursor-color: #fff
+    --cursor-color: #fff;
+    scroll-behavior: smooth;
+    
+    
   }
   
   html.dark-mode {
@@ -15,10 +18,9 @@ html {
 
 
   body {
-
     --primaryColor: #6EBE4A;
-
   }
+
   .privacy-screen {
     position: fixed;
     top: 0;

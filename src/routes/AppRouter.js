@@ -31,19 +31,23 @@ const AppRouter = () => {
       <Provider slug={slug}>
         <Routes>
           <Route element={<Layout />}>
-          <Route path="/" element={<FullPage />} />
-          
+            <Route path="/" element={<FullPage />} />
+
             <Route path="nosotros" Component={Us} />
             <Route path="home" Component={Home} />
             <Route path="cultura" Component={Culture} />
             <Route path="novedades" Component={News} />
             <Route path="donaciones" Component={PageDonations} />
+            <Route path="novedades" Component={News} exact />
+            <Route path="novedades/:slug" Component={News} />
+            <Route path="donaciones" Component={Donations} />
             <Route path="programas" Component={Programs} />
             <Route path="conoce-ayapel" Component={Ayapel} />
             <Route path="que-hacemos" Component={WhatWeDo} />
             <Route path="documentos" Component={Documents} />
+            <Route path="historia" Component={Documents} />
+            <Route path="ayapel" Component={Ayapel} />
           </Route>
-
           <Route path="*" Component={Error404} />
         </Routes>
       </Provider>
