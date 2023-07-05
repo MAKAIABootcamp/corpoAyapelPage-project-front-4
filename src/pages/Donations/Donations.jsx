@@ -7,15 +7,23 @@ import BtnKnowMore from '../../components/donations/btnKnowMore/BtnKnowMore';
 import { motion, useIsPresent } from "framer-motion";
 import ImpactIndicator from '../../components/donations/impactIndicator/ImpactIndicator';
 import client from '../../sanity/client';
+//import HsForm from '../../components/donations/HsForm';
+import BasicModal from '../../components/BasicModal';
+import { HubspotForm } from 'react-hubspot-form';
+import HubspotContactForm from '../../components/hubspotContactForm/HubspotContactForm';
 
 const Donations = () => {
 
-  const isPresent = useIsPresent();
+    const isPresent = useIsPresent();
 
   const [selectedAmount, setSelectedAmount] = useState(null)
+  const [selectedCancelSuscripcion, setSelectedCancelSuscripcion] = useState(false)
   const [showImpactIndicator, setShowImpactIndicator] = useState(false);
 
-  const formattedDonation = Math.round(Number(selectedAmount) * 1000 / 30).toLocaleString();
+
+
+  const formattedDonation = (Math.round(Number(selectedAmount) / 30)).toLocaleString(undefined, { maximumFractionDigits: 0 });
+
 
   const handleConfirmGoToDonate = (amount) => {
     setSelectedAmount(amount === selectedAmount ? null : amount);
@@ -47,6 +55,7 @@ const Donations = () => {
 
   const handleCancelRecurrentDonation = () => {
     console.log('Cancelar donación')
+    setSelectedCancelSuscripcion(true)
   }
   const handleGoDonate = () => {
     if (selectedAmount === null) {
@@ -130,20 +139,26 @@ const Donations = () => {
                   :
                   <div className='donations__columnTwo-selected'>
                     <h3 className='donations__title'>¿Quieres ser un donador recurrente?</h3>
+                    {selectedAmount !== "Otro Valor" ? 
                     <p>Al donar COP {formattedDonation} diarios ayudas a ...</p>
+                    :  <p>Puedes decir cuanto donar y ayudar a...</p>
+                    }
                   </div>
                 }
+
+               
                 <div className='donations__container__ctaBtns'>
                   {selectedAmount === null &&
-                    <CtaDonations
-                      onClick={handleCancelRecurrentDonation}
-                      label={'Cancelar suscripción'}
-                      width={'12rem'}
-                      height={'3rem'}
-                      bgColor={'#FFF'}
-                      borderRadius={'2rem'}
-                      color={'black'}
-                    />
+                   <BasicModal />
+                    // <CtaDonations
+                    //   onClick={handleCancelRecurrentDonation}
+                    //   label={'Cancelar suscripción'}
+                    //   width={'12rem'}
+                    //   height={'3rem'}
+                    //   bgColor={'#FFF'}
+                    //   borderRadius={'2rem'}
+                    //   color={'black'}
+                    // />
                   }
                   <CtaDonations
                     onClick={handleGoDonate}
@@ -180,6 +195,7 @@ const Donations = () => {
           />
         </>
       }
+
     </>
   )
 };

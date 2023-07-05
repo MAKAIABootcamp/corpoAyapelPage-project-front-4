@@ -90,7 +90,7 @@ const DonorProgress = () => {
                         </div>
                     </article>
                     <div className='donorProgress__status'>
-                 <p> {progress} Donadores apoyan a Corpoayapel  </p> 
+                 <p> {totalDonors} Donadores apoyan a Corpoayapel  </p> 
                 </div>
 
                     <article className='donorProgress__ctaDonations'>

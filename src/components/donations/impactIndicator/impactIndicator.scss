@@ -16,6 +16,7 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
+        width: 100vw;
 
         h3 {
             color: #FFF;
@@ -26,6 +27,7 @@
     }
 
     &__title {
+        font-family: 'Mulish', sans-serif;
         font-size: 1rem;
         margin-bottom: 0;
     }
@@ -62,9 +64,13 @@
     &__carousel {
         display: flex;
         align-items: center;
-        justify-content: center;
+        //justify-content: center;
         height: 345px;
         gap: 3rem;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1rem;
 
     }
 
@@ -85,3 +91,10 @@
     width: 50px;
     margin: auto;
 }
+
+
+@media screen and (max-width: 770px) {
+    .impactIndicator__carousel {
+      grid-template-columns: 1fr;
+    }
+  }
