@@ -1,19 +1,23 @@
 import React from "react";
 import "./Footer.scss";
 import ButtonActions from "../ButtonActions/ButtonActions";
-import { useHubspotForm } from '@aaronhayes/react-use-hubspot-form';
+//import { useHubspotForm } from '@aaronhayes/react-use-hubspot-form';
 import {FaFacebook, FaInstagram, FaYoutube} from "react-icons/fa"
 import { Link } from "react-router-dom";
+import HubspotContactForm from "../hubspotContactForm/HubspotContactForm";
 
 const Footer = () => {
-  const { loaded, error, formCreated } = useHubspotForm({
-    region:"na1",
-    portalId: "40152509",
-    formId: "9b378b3a-c3fd-45fb-b429-af5f68038ab4",
-    target: '#my-hubspot-form'
-});
-console.log(loaded, error, formCreated)
-console.log(useHubspotForm)
+//   const { loaded, error, formCreated } = useHubspotForm({
+//     region:"na1",
+//     portalId: "40152509",
+//     formId: "9b378b3a-c3fd-45fb-b429-af5f68038ab4",
+//     target: '#my-hubspot-form'
+// });
+
+
+
+// console.log(loaded, error, formCreated)
+// console.log(useHubspotForm)
 
   return (
     <div className="background-5">
@@ -57,7 +61,8 @@ console.log(useHubspotForm)
            </section>
         </section>
         <section className="mainFooter__form">
-       <section id="my-hubspot-form"></section>
+       {/* <section id="my-hubspot-form"></section> */}
+       <HubspotContactForm id={"40152509"} idForm={"9b378b3a-c3fd-45fb-b429-af5f68038ab4"} targetForm={'#hubspotForm'} />
        </section>
       </main>
     </div>

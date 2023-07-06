@@ -35,13 +35,15 @@ const Testimonials = () => {
 
     const handleGoLeft = () => {
         if (testimoniosRef.current) {
-            testimoniosRef.current.scrollLeft -= 100;
+            const scrollAmount = -310; // Aumentar la cantidad de desplazamiento a -300
+            testimoniosRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         }
     };
 
     const handleGoRight = () => {
         if (testimoniosRef.current) {
-            testimoniosRef.current.scrollLeft += 100;
+            const scrollAmount = 310; // Aumentar la cantidad de desplazamiento a 300
+            testimoniosRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         }
     };
 
