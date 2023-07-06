@@ -1,0 +1,117 @@
+
+$checkColor: rgb(230, 230, 230);
+
+.form{
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    h1{
+        margin-bottom: 35px;
+        color: white;
+        font-family: "Mulish", sans-serif;
+    }
+
+    &__all{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    &__all__reverse{
+        display: flex;
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    &__information{
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        margin: 15px 30px;
+
+        p{
+            color: white;
+            font-size: 18px;
+            margin-top: 25px;
+            font-family: "Mulish", sans-serif;
+        }
+    }
+
+    &__imagen__div{
+        img{
+            width: 100%;
+            border-radius: 12px;
+        }
+    }
+
+    &__inputs__container{
+        display: flex;
+        flex-direction: column;
+        margin: 15px 0;
+        input{
+            width: 400px;
+            height: 35px;
+            margin-bottom: 50px;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 6px;
+            border: none;
+        }
+
+        button{
+            width: 400px;
+            height: 35px;
+            margin-bottom: 50px;
+            font-size: 18px;
+            border-radius: 6px;
+            border: 1px solid white;
+            background: none;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button:hover{
+            background-color: white;
+            color: #6ebe4a;
+            border: 1px solid #6ebe4a
+        }
+
+    }
+
+    .check__circles{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin: 15px 0;
+
+        .circle{
+            width: 35px;
+            height: 35px;
+            background-color: $checkColor;
+            border-radius: 50%;
+            margin: 0px 20px 50px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            font-weight: bold;
+            color: rgb(1, 183, 1);
+            font-family: "Mulish", sans-serif;
+        }
+
+        .bar{
+            position: absolute;
+            height: 250px;
+            top: 35px;
+            left: 36px;
+            width: 3px;
+            background-color: $checkColor;
+        }
+    }
+}
+
