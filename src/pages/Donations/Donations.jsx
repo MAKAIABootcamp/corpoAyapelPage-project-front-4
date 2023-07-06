@@ -132,9 +132,18 @@ const Donations = () => {
               <section className='donations__columnTwo'>
                 {selectedAmount === null ?
                   <div className='donations__image'>
-                    <video width='540' height='360' controls className='donations__image__ppl'>
-                      <source src='https://youtu.be/1KzRhryHfLI' type='video/mp4' />
-                    </video>
+                    
+                 <iframe
+                 width="auto"
+                 height="263"
+                 src="https://www.youtube.com/embed/nzSJh5Ucgvc?autoplay=1"
+                 title="YouTube video player"
+                 frameborder="0"
+                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                 allowfullscreen
+               ></iframe>
+               
+                  
                   </div>
                   :
                   <div className='donations__columnTwo-selected'>
