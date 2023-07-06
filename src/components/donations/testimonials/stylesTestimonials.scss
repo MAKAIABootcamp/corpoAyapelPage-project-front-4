@@ -1,4 +1,5 @@
 .testimonials {
+    font-family: 'Mulish', sans-serif;
     &__background {
         background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg');
         // background-color: #6ebe4a;
@@ -143,6 +144,8 @@
         font-size: 4rem;
         color: #535353;
        align-items: center;
+       justify-content: center;
+       margin-top: 1rem;
         &__rowLeft {
             font-size: 2rem;
             color: #535353;
@@ -154,6 +157,7 @@
             overflow-x: hidden;
             display: flex;
             flex-direction:row;
+            transition: scroll 2.9s ease;
         }
     }
     &__ctaDonations {
@@ -166,9 +170,57 @@
         margin-top: 2rem;
     }
     &__title {
-        margin: 2rem 0 2rem 0 ;
+        margin: auto;
         color: #FFF;
         text-align: center;
-        font-size: 3rem;
+        font-size: 1.5rem;
+    }
+}
+
+
+// ********************MEDIA QUERY**************************
+@media (max-width: 890px) {
+    .testimonials {
+        &__container {
+            display: flex;
+            flex-direction: row;
+            gap: 0;
+            font-size: 2rem;
+            color: #535353;
+           align-items: center;
+           width: 100vw;
+            &__rowLeft {
+                font-size: 2rem;
+                color: #535353;
+                
+            }
+            &__carousel {
+                width: 318px;
+            
+            }
+        }
+    }
+    .testimonials__container__rowLeft,
+    .testimonials__container__rowRight {
+        @media (max-width: 375px) {
+            display: inline-block;
+        }
+    }
+}
+
+@media (min-width: 891px) and (max-width: 1150px) {
+    .testimonials {
+        &__container {
+      
+            &__rowLeft {
+                font-size: 2rem;
+                color: #535353;
+                
+            }
+            &__carousel {
+                width: 624px;
+             
+            }
+        }
     }
 }

@@ -14,7 +14,7 @@ const PageDonations = () => {
     <div>
         <Donations style={{position:'relative'}}/>
     
-        <SocialMediaButton />
+        {/* <SocialMediaButton /> */}
 
     </div>
     <div>
