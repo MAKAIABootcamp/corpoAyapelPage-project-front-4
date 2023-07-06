@@ -8,6 +8,13 @@ export default {
       name: 'gestion',
       type: 'string',
       title: 'Tipo Gestion',
+      options:{
+        list:[
+          {title: 'Ambiental', value:'Ambiental'},
+          {title: 'Social', value:'Social'},
+          {title: 'Economica', value:'Economica'},
+        ]
+      }
     },
     {
       name: 'mainImage',
