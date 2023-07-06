@@ -32,22 +32,22 @@ const Footer = () => {
           <section className="mainFooter__colums">
             <section className="mainFooter__colums-content">
               <ul className="mainFooter__ul">
-                <li className="bold">Nosotros</li>
-                <li>Historia</li>
-                <li>Corporativo</li>
-                <li>Que hacemos</li>
+                <Link to={'/nosotros'} className="bold">Nosotros</Link>
+                <Link to={'/historia'}>Historia</Link>
+                <Link to={''}>Corporativo</Link>
+                <Link to={'/que-hacemos'}>Que hacemos</Link>
               </ul>
               <ul className="mainFooter__ul">
-                <li className="bold">Documentos</li>
-                <li>PQR</li>
+                <Link to={'/documentos'} className="bold">Documentos</Link>
+                <Link to={'/pqr'}>PQR</Link>
               </ul>
               <ul className="mainFooter__ul">
-                <li className="bold">Destino: Ayapel</li>
-                <li>Datos Importantes</li>
-                <li>Ubicacion</li>
-                <li>Que hacer en ayapel</li>
-                <li>Flora y fauna</li>
-                <li >¿Cómo puedo ayudar?</li>
+                <Link to={'/ayapel'} className="bold">Destino: Ayapel</Link>
+                <Link to={''}>Datos Importantes</Link>
+                <Link to={''}>Ubicacion</Link>
+                <Link to={''}>Que hacer en ayapel</Link>
+                <Link to={''}>Flora y fauna</Link>
+                <Link to={''} >¿Cómo puedo ayudar?</Link>
               </ul>
             </section>
        

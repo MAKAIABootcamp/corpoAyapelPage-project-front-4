@@ -1,9 +1,12 @@
 import React from 'react'
 import './Navbar.scss'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation, useParams } from 'react-router-dom'
 const Navbar = () => {
+    let { slug } = useParams();
+    let location = useLocation();
+
   return (
-    <div className='mainNav'>
+    <div className={slug ? 'mainNav bg-green' : (location.pathname === '/donaciones' ? 'mainNav bg-green' : 'mainNav')}>
         <nav className='mainNav__nav'>
             <ul>
                 <NavLink to={'/nosotros'}>Nosotros</NavLink>
