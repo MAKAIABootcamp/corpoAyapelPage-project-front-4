@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     &__container{
         display: flex;
     align-items: center;
@@ -15,6 +16,10 @@
         flex-direction: column;
         h2{
          font-size: 3.5rem;
+         color: #6ebe4a;
+        }
+        p{
+            color: white;
         }
     }
     &__stepper{
@@ -27,9 +32,32 @@
             font-size: 2.5rem;
             border: 0px;
             font-family: 'Mulish', sans-serif;
+            color: white;
            &:hover{
             color: #6ebe4a;;
            }
         }
     }
+}
+
+
+.backgroundUs{
+    background-image: url('https://res.cloudinary.com/dgnwqr93n/image/upload/v1688153550/slide-1_fgfpri.jpg');
+    // background-color: #6ebe4a;
+    position: relative; 
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+}
+.backgroundUs::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.436);
 }
