@@ -50,3 +50,11 @@ html {
   .MuiSpeedDialIcon-root{
     display: flex;
   }
+
+  .social-media-fixed {
+    position: fixed;
+    bottom: 0px;
+    left: 50px;
+    z-index: 9999;
+  }
+  

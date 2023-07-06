@@ -10,7 +10,9 @@ const Layout = () => {
     <Navbar/>
     <Outlet/>
     <AnimatedCursor color='110, 190, 74' innerSize={30}/>
-    <SocialMediaButton/>
+    <div className="social-media-fixed">
+        <SocialMediaButton />
+      </div>
     </>
   )
 }

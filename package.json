@@ -31,6 +31,7 @@
     "react-share": "^4.4.1",
     "sass": "^1.63.6",
     "sweetalert2": "^11.7.12",
+    "swiper": "^10.0.3",
     "web-vitals": "^2.1.4",
     "yup": "^1.2.0"
   },
