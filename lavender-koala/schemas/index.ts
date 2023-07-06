@@ -6,5 +6,6 @@ import socialsMediaUrl from './socialsMedialUrl'
 import donationAmount from './donationAmount'
 import whatWeDo from './whatWeDo'
 import news from './new.js'
+import documents from './documents.js'
 
-export const schemaTypes = [projects, testimonials, peopleImpacted, donorsGoals, socialsMediaUrl, donationAmount, news, whatWeDo]
+export const schemaTypes = [projects, testimonials, peopleImpacted, donorsGoals, socialsMediaUrl, donationAmount, news, whatWeDo, documents]
