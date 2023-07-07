@@ -15,7 +15,12 @@ export default {
       {
         name: 'content',
         type: 'string',
-        title: 'Contenido del Proyecto'
+        title: 'Title'
+      },
+      {
+        name: 'content2',
+        type: 'string',
+        title: 'title2'
       }
     
     ]
