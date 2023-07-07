@@ -21,7 +21,7 @@ const Home = () => {
         <DonationButton/>
         </Link>
       </main>
-      {/* <ArrowScroll/> */}
+      
     </div>
   );
 };

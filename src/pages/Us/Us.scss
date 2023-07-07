@@ -7,8 +7,10 @@
     position: relative;
     &__container{
         display: flex;
-    align-items: center;
-    justify-content: center;
+        align-items: center;
+        gap: 14vw;
+        justify-content: flex-start;
+        padding-left: 10vh;
     }
     &__content{
         width: 50%;
@@ -26,7 +28,7 @@
         display: flex;
         flex-direction: column;
         padding: 0px 20px;
-        gap: 20px;
+        gap: 50px;
         button{
             background-color: transparent;
             font-size: 2.5rem;
@@ -42,7 +44,7 @@
 
 
 .backgroundUs{
-    background-image: url('https://res.cloudinary.com/dgnwqr93n/image/upload/v1688153550/slide-1_fgfpri.jpg');
+    background-image: url('https://res.cloudinary.com/dgnwqr93n/image/upload/v1688679819/Untitled_design_2_vt8pcd.png');
     // background-color: #6ebe4a;
     position: relative; 
     height: 100vh;
@@ -51,6 +53,7 @@
     align-items: center;
     justify-content: center;
     background-size: cover;
+
 }
 .backgroundUs::before {
     content: "";
@@ -61,3 +64,18 @@
     left: 0px;
     background-color: rgba(0, 0, 0, 0.436);
 }
+
+.bird{
+    figure{
+        position: absolute;
+        height: 10vh;
+        top: 0;
+        right: 0;
+        img{
+            height: 89vh;
+            margin-top: 10vh;
+        }
+   }
+   
+   
+    }

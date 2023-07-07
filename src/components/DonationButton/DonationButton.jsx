@@ -5,7 +5,7 @@ const DonationButton = ({bottom}) => {
     <section className={bottom ? "btn-bottom" : "mainHome__button"}>
     <figure>
       <img
-        src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1688163693/Soft_Blue_Navy_Playful_Cute_Pet_Shop_Logo___3_-removebg-preview_mt791s.png"
+        src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1688695567/Soft_Blue_Navy_Playful_Cute_Pet_Shop_Logo___8_-removebg-preview_qsdq0h.png"
         alt=""
         className={bottom ? "app-logo" :"App-logo"}
       />

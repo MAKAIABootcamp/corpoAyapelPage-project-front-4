@@ -10,7 +10,7 @@ const Navbar = () => {
         <nav className='mainNav__nav'>
             <ul>
                 <NavLink to={'/nosotros'}>Nosotros</NavLink>
-                <NavLink to={'/que-hacemos'}>Que hacemos</NavLink>
+                <NavLink to={'/que-hacemos'}>¿Qué hacemos?</NavLink>
                 <NavLink to={'https://corpoayapelartesanias.com/'}>Artesanias</NavLink>
                 <NavLink to={'/'}>
                     <figure>
