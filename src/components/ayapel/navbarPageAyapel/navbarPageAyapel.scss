@@ -4,15 +4,21 @@
     font-weight: bold;
     //margin-top: 3%;
     background-color: #fff;
-    width: 900px;
+    width: auto;
     border: 2px solid grey;
-    height: 40px;
+    height: 100%;
     border-radius: 1rem 0 0 1rem;
     display: flex;
     justify-content: space-around;
-    padding: 0.5rem 1rem .5rem 1rem;
+    //padding: 0.5rem 1rem .5rem 1rem;
     flex-direction: row;
     color: gray;
+    font-size: 100%;
+    padding: auto;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
 
 
     ul {
@@ -22,9 +28,11 @@
       li {
         display: flex;
         flex-direction: row;
+        align-items: center;
         list-style: none;
         justify-content: space-around;
         background-color: transparent;
+        font-size: 100%;
 
         &.active {
           background-color: #6EBE4A;
@@ -33,6 +41,7 @@
           border-radius: 10px;
           color: #fff;
           transform: translateX(5px) scale(1.15);
+        //  margin: 0 20px;
         }
       }
     }
