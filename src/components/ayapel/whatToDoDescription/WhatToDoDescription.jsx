@@ -40,7 +40,7 @@ const WhatToDoDescription = ({ activeIndex, allPostData }) => {
 
           <div className="no">
 
-            <Swiper watchSlidesProgress={true} slidesPerView={3} className="mySwiper">
+            <Swiper watchSlidesProgress={true} slidesPerView={3} className="mySwiper" style={{cursor:'grab'}}>
               {allPostData[activeIndex].componentSwiper.map((contact, index) => (
                 <SwiperSlide index={index}>
                   <ContactCard

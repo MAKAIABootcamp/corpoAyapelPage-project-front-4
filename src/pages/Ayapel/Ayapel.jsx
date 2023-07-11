@@ -21,10 +21,10 @@ const Ayapel = () => {
             <NavbarPageAyapel activeIndexNavbar={activeIndexNavbar} setActiveIndexNavbar={setActiveIndexNavbar} />
           </div>
           {activeIndexNavbar === 0 &&
-            <MainWhatToDoInAyapel />
+            <MainLocationApel />
           }
           {activeIndexNavbar === 1 &&
-            <MainLocationApel />
+            <MainWhatToDoInAyapel />
           }
           {activeIndexNavbar === 2 &&
             <MainImportantData />

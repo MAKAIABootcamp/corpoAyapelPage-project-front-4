@@ -8,7 +8,7 @@ const NavbarPageAyapel = ({activeIndexNavbar, setActiveIndexNavbar}) => {
     setActiveIndexNavbar(index);
   };
 
-  const navbar = ['¿Qué Hacer en Ayapel?', 'Ubicación', 'Datos Importantes', 'Flora y Fauna'];
+  const navbar = ['Ubicación', '¿Qué Hacer en Ayapel?', 'Datos Importantes', 'Flora y Fauna'];
 
   return (
     <>
