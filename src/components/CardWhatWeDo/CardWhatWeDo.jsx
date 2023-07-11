@@ -2,14 +2,11 @@ import React from "react";
 import "./CardWhatWeDo.scss";
 
 export default function CardWhatWeDo() {
-  const images =
-    "https://corpoayapel.org/wp-content/uploads/2020/01/galeria-3-2.jpg";
-  const containerStyle = {
-    backgroundImage: `url(https://res.cloudinary.com/dgnwqr93n/image/upload/v1688153550/slide-1_fgfpri.jpg)`,
-  };
-
   const background =
     "https://res.cloudinary.com/dgnwqr93n/image/upload/v1688153550/slide-1_fgfpri.jpg";
+
+  const background2 =
+    "https://res.cloudinary.com/dgnwqr93n/image/upload/v1688430170/269982243_4667892963329024_8717849781660201760_n_drq3uv.jpg";
 
   return (
     <>
@@ -30,7 +27,7 @@ export default function CardWhatWeDo() {
           </div>
           <div className="contentImg">
             <img
-              src="https://yt3.googleusercontent.com/-H4bsnS3lUHCiaDtVcHxm9dJudoCyLdjnBCaIJZSsMJPNqIJFZFqs5iaTx0OjZcxwwCxycfEnA=s900-c-k-c0x00ffffff-no-rj"
+              src="https://res.cloudinary.com/drrpq9vlk/image/upload/v1689034065/que-hacemos_twlkys.svg"
               alt="QueHacemos"
             />
           </div>
@@ -59,11 +56,64 @@ export default function CardWhatWeDo() {
             </p>
           </div>
         </div>
+
+        <div
+          className="content__img2"
+          style={{
+            backgroundImage: `url(${background})`,
+          }}
+        >
+          <div className="contentGestion">
+            <h2>
+              Gestión <span>Social</span>
+            </h2>
+
+            <h3>Ayapel sin Basuras</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+        </div>
+
+        <div
+          className="content__img"
+          style={{
+            backgroundImage: `url(${background2})`,
+          }}
+        >
+          <div className="contentAmbiental">
+            <h2>
+              Gestión <span>Economica</span>
+            </h2>
+
+            <h3>Ayapel sin Basuras</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum
+            </p>
+          </div>
+        </div>
       </div>
 
       <div className="contentnone">
         <div>
-          <div className="contentnone__img" style={containerStyle}>
+          <div
+            className="contentnone__img"
+            style={{
+              backgroundImage: `url(${background})`,
+            }}
+          >
             <div className="textAmbiental">
               <h2>
                 Gestión <span>ambiental</span>
@@ -87,13 +137,51 @@ export default function CardWhatWeDo() {
           <div
             className="contentnone__img"
             style={{
-              backgroundImage: `url(${images})`,
+              backgroundImage: `url(${background})`,
             }}
           >
-            <p>
-              Entidad sin ánimo de lucro que promueve el desarrollo sostenible
-              del complejo cenagoso de Ayapel y de su comunidad.
-            </p>
+            <div className="textAmbiental">
+              <h2>
+                Gestión <span>Social</span>
+              </h2>
+
+              <h3>Ayapel sin Basuras</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div
+            className="contentnone__img"
+            style={{
+              backgroundImage: `url(${background2})`,
+            }}
+          >
+            <div className="textAmbiental">
+              <h2>
+                Gestión <span>Economica</span>
+              </h2>
+
+              <h3>Ayapel sin Basuras</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum
+              </p>
+            </div>
           </div>
         </div>
       </div>
