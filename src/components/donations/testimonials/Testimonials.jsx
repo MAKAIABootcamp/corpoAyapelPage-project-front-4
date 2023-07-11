@@ -67,21 +67,21 @@ const Testimonials = () => {
 
 
                             {allPostData && allPostData.map((data, index) => (
-                                <section className="mainCircleCard" key={index}>
-                                    <section className="mainCircleCard__gestion">
+                                <section className="testimonialsCard" key={index}>
+                                    <section className="testimonialsCard__gestion">
                                     </section>
-                                    <section className="mainCircleCard__img">
+                                    <section className="testimonialsCard__img">
                                         <figure>
                                             <img src={data.mainImage.asset.url} alt="" />
                                         </figure>
                                     </section>
                                     <div className='bg__div'></div>
                                     <div className='bg__divContent'></div>
-                                    <section className="mainCircleCard__content">
-                                        <span className="mainCircleCard__title">{data.nombre}</span>
+                                    <section className="testimonialsCard__content">
+                                        <span className="testimonialsCard__title">{data.nombre}</span>
                                         <RiDoubleQuotesL className='icon__quote' />
                                         <RiDoubleQuotesR className='icon__quote__right' />
-                                        <p className="mainCircleCard__text"  >{truncateText(data.texto, 250)}</p>
+                                        <p className="testimonialsCard__text"  >{truncateText(data.texto, 250)}</p>
                                     </section>
                                 </section>
                             ))}

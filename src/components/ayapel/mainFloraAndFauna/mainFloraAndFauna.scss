@@ -1,0 +1,55 @@
+// .swiper {
+//     width: 100%;
+//     padding-top: 50px;
+//     padding-bottom: 50px;
+//   }
+  
+//   .swiper-slide {
+//     background-position: center;
+//     background-size: cover;
+//     width: 300px;
+//     height: 300px;
+//   }
+  
+//   .swiper-slide img {
+//     display: block;
+//     width: 100%;
+//   }
+  .mainFloraAndFauna {
+    &__container {
+        position: relative;
+    padding: 1rem;
+    &__title{
+        font-size: 2rem;
+        font-family: 'Mulish', sans-serif;
+        font-weight: bold;
+        padding-left: 6rem;
+    }
+    &__list {
+        position: absolute;
+        top: 200px;
+        left: 160px;
+        font-size: 120%;
+        width: 290px;
+        font-family: 'Mulish', sans-serif;
+      //  -webkit-text-stroke: 1px #fff; /* Contorno de 1 píxel de grosor en color blanco */
+        color: black; /* Color del texto */
+        text-shadow: 2px 2px 4px rgba(246, 240, 240, 0.981);
+    z-index: 2;
+        font-weight: bold;
+        text-align: center;
+        
+        ul {
+            li {
+                list-style: none;
+                margin-bottom: 1.5rem;
+            }
+        }
+    }
+  }
+}
+
+.mainFloraAndFauna__container__list.hidden {
+    display: none;
+  }
+  

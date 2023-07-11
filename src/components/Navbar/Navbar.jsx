@@ -6,7 +6,7 @@ const Navbar = () => {
     let location = useLocation();
 
   return (
-    <div className={slug ? 'mainNav bg-green' : (location.pathname === '/donaciones' ? 'mainNav bg-green' : 'mainNav')}>
+    <div className={slug ? 'mainNav bg-green' : (location.pathname === '/donaciones' || location.pathname === '/ayapel' ? 'mainNav bg-green' : 'mainNav')}>
         <nav className='mainNav__nav'>
             <ul>
                 <NavLink to={'/nosotros'}>Nosotros</NavLink>
