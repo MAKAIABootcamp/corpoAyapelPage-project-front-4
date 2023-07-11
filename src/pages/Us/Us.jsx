@@ -1,11 +1,13 @@
 import React from 'react'
+import './Us.scss'
 
 const Us = () => {
   return (
-    <div>
-      <main>
-        <section>
-          <section>
+    <div className='backgroundUs'>
+      <main className='mainUs'>
+        <section className='mainUs__container'>
+        <section className='mainUs__stepper-container'>
+          <section className='mainUs__stepper'>
           <button>01</button>
           <button>02</button>
           <button>03</button>
@@ -13,13 +15,10 @@ const Us = () => {
 
           </section>
         </section>
-        <section>
+        <section className='mainUs__content'>
           <h2>Historia</h2>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam repellat atque voluptatem, similique rem repellendus ad molestiae magnam laborum rerum, voluptatum voluptas deleniti nisi veniam voluptatibus! Maiores vel quas odio.
-          Consequuntur sapiente aspernatur dolorem deserunt odio amet accusamus modi. Ea tempore numquam maiores nam, expedita quidem veniam sint cupiditate aut exercitationem saepe sequi nesciunt. Porro praesentium eos sit deleniti eligendi.
-          At eveniet atque porro beatae labore, eaque voluptate nihil magnam cupiditate? Vero, nostrum iste? Quia, facere modi. Officiis nemo quas temporibus dicta velit itaque minima totam, cum provident non pariatur!
-          Placeat odio debitis voluptatem. Officia aut, ipsum, fuga sequi, nam quam molestiae placeat fugiat quae soluta odit at repellendus. Magni labore quibusdam minus asperiores commodi in deserunt, veritatis cumque expedita.
-          Facere, ea necessitatibus beatae debitis quaerat consequuntur dolorem cum cumque praesentium magnam corporis libero inventore nisi commodi sit nesciunt tempora. Quas fugit quod quasi illum consequuntur doloremque provident assumenda eum.</p>
+          <p>Inicialmente nos orientamos al desarrollo de proyectos ambientales, al considerar la Ciénaga de Ayapel no solo una riqueza ambiental de gran importancia, sino también, la principal fuente de recursos e ingresos para los habitantes de la región, de allí deriva nuestro nombre “Corporación para el Desarrollo Integral de la Ciénaga de Ayapel”, Corpoayapel. Durante esta primera etapa del proceso, no se cumplieron a cabalidad los objetivos planteados, por falta de compromiso y disciplina de la comunidad seleccionada (pescadores y agricultores).</p>
+        </section>
         </section>
       </main>
     </div>
