@@ -1,12 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./CardWhatWeDo.scss";
+import client from "../../sanity/client";
 
 export default function CardWhatWeDo() {
-  const background =
-    "https://res.cloudinary.com/dgnwqr93n/image/upload/v1688153550/slide-1_fgfpri.jpg";
+  const [allPostData, setAllPostData] = useState(null);
+  useEffect(() => {
+    client
+      .fetch(
+        `*[_type == "gestion"] {
+          content,
+          content2,
+          subcontent,
+          textcontent,
+        mainImage{
+          asset->{
+            _id,
+            url
+          }
+        }
+      }`
+      )
+      .then((data) => setAllPostData(data))
+      .catch(console.error);
+  }, []);
+  // const background =
+  //   "https://res.cloudinary.com/dgnwqr93n/image/upload/v1688153550/slide-1_fgfpri.jpg";
 
-  const background2 =
-    "https://res.cloudinary.com/dgnwqr93n/image/upload/v1688430170/269982243_4667892963329024_8717849781660201760_n_drq3uv.jpg";
+  // const background2 =
+  //   "https://res.cloudinary.com/dgnwqr93n/image/upload/v1688430170/269982243_4667892963329024_8717849781660201760_n_drq3uv.jpg";
 
   return (
     <>
@@ -33,7 +54,27 @@ export default function CardWhatWeDo() {
           </div>
         </div>
 
-        <div
+        {allPostData &&
+          allPostData.map((data, index) => (
+            <div
+              className="content__img"
+              key={index}
+              style={{
+                backgroundImage: `url(${data.mainImage.asset.url})`,
+              }}
+            >
+              <div className="contentAmbiental">
+                <h2>
+                  {data.content} <span>{data.content2}</span>
+                </h2>
+
+                <h3>{data.subcontent}</h3>
+                <p>{data.textcontent}</p>
+              </div>
+            </div>
+          ))}
+
+        {/* <div
           className="content__img"
           style={{
             backgroundImage: `url(${background})`,
@@ -103,11 +144,34 @@ export default function CardWhatWeDo() {
               sunt in culpa qui officia deserunt mollit anim id est laborum
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className="contentnone">
         <div>
+          {allPostData &&
+            allPostData.map((data, index) => {
+              return (
+                <div
+                  className="contentnone__img"
+                  key={index}
+                  style={{
+                    backgroundImage: `url(${data.mainImage.asset.url})`,
+                  }}
+                >
+                  <div className="textAmbiental">
+                    <h2>
+                      {data.content} <span>{data.content2}</span>
+                    </h2>
+
+                    <h3>{data.subcontent}</h3>
+                    <p>{data.textcontent}</p>
+                  </div>
+                </div>
+              );
+            })}
+        </div>
+        {/* <div>
           <div
             className="contentnone__img"
             style={{
@@ -183,7 +247,7 @@ export default function CardWhatWeDo() {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );
