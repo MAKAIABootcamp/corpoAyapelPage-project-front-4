@@ -109,7 +109,7 @@ const ImpactIndicator = () => {
                 </section> */}
                 <article className='impactIndicator__ctaDonations'>
                     <CtaDonations
-                        label={'QUIERO DONAR'}
+                        label={'¿QUIERES DONAR?'}
                         width={'15rem'}
                         height={'3rem'}
                         borderRadius={'2rem'}

@@ -5,6 +5,7 @@ import Testimonials from '../../../components/donations/testimonials/Testimonial
 import DonorProgress from '../../../components/donations/donorProgress/DonorProgress';
 import ImpactIndicator from '../../../components/donations/impactIndicator/ImpactIndicator';
 import SocialMediaButton from '../../../components/SocialMediaButton/SocialMediaButton';
+import DonationsIndicator from '../../../components/donations/donationsIndicator/DonationsIndicator';
 
 
 const PageDonations = () => {
@@ -13,8 +14,6 @@ const PageDonations = () => {
 <main className="containerDonation">
     <div>
         <Donations style={{position:'relative'}}/>
-    
-        {/* <SocialMediaButton /> */}
 
     </div>
     <div>
@@ -25,6 +24,9 @@ const PageDonations = () => {
     </div>
     <div>
         <Testimonials />
+    </div>
+    <div>
+      <DonationsIndicator/>
     </div>
     </main>
   )

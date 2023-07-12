@@ -80,22 +80,22 @@ const DonorProgress = () => {
                     <h3 className='donorProgress__title'>Cada contribución constante nos acerca más a lograr nuestras metas y marcar la diferencia en la vida de aquellos a quienes servimos</h3>
                     <article className='donorProgress__container__progress'>
                         <div>
-                            <p className='donorProgress__init'> 0% </p>
+                            <p className='donorProgress__init'> </p>
                         </div>
                         <ProgressBar progress={progress} goal={goal} totalDonors={totalDonors} height={10} className='donorProgress__bar' />
                         <div className='donorProgress__goal'>
-                            <GoGoal /> 
+                            <GoGoal style={{fontSize:'3rem'}}/> 
                             {/* <a href="https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688355815/ayapel/wv4shprazlxdoatxles9.gif"></a> */}
-                            <p>100%</p>
+                            <p style={{textAlign:'center', fontSize:'1rem'}}>300 Donantes</p>
                         </div>
                     </article>
                     <div className='donorProgress__status'>
-                 <p> {totalDonors} Donadores apoyan a Corpoayapel  </p> 
+                 <p> {totalDonors} Donantes apoyan a CorpoAyapel  </p> 
                 </div>
 
                     <article className='donorProgress__ctaDonations'>
                     <CtaDonations
-                        label={'QUIERO DONAR'}
+                        label={'¿QUIERES DONAR?'}
                         width={'15rem'}
                         height={'3rem'}
                         borderRadius={'2rem'}
