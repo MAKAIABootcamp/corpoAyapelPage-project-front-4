@@ -23,6 +23,7 @@ import {
 } from "react-awesome-slider/dist/navigation";
 import FullPage from "../pages/FullPage/FullPage";
 import PageDonations from "../pages/Donations/pageDonations/PageDonations";
+import HowToHelp from "../pages/HowToHelp/HowToHelp";
 
 const AppRouter = () => {
   const slug = "[page-one]";
@@ -43,8 +44,9 @@ const AppRouter = () => {
             <Route path="conoce-ayapel" Component={Ayapel} />
             <Route path="que-hacemos" Component={WhatWeDo} />
             <Route path="documentos" Component={Documents} />
-            <Route path="historia" Component={Documents} />
+            <Route path="historia" Component={Us} />
             <Route path="ayapel" Component={Ayapel} />
+            <Route path="como-ayudar" Component={HowToHelp} />
           </Route>
           <Route path="*" Component={Error404} />
         </Routes>

@@ -16,6 +16,7 @@ export default {
       name: 'title',
       title: 'Titulo',
       type: 'string',
+      validation: Rule => Rule.max(52).error('Porfavor ingresa un texto de introduccion mas corto')
     },
     {
       name: 'preview',
@@ -27,6 +28,18 @@ export default {
       name: 'slug',
       title: 'Identificador',
       type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 52, // will be ignored if slugify is set
+        slugify: input => input
+        .toLowerCase()
+        .replace(/[\s_\/]+/g, '-') // Replaces spaces, underscores, and slashes with a hyphen
+        .replace(/[^\w-]+/g, '') // Removes any remaining symbols
+        .replace(/-$/, '') // Removes trailing hyphen
+        .replace(/(-)$/, '') // Removes the final hyphen, if present
+        .slice(0, 52)
+        
+      }
     },
     {
       name: 'publishedAt',
@@ -48,9 +61,13 @@ export default {
         {
           type: 'image',
         },
+        {
+          type: 'youtube'
+        }
       ],
     },
   ],
+  
   preview: {
     select: {
       title: 'title',

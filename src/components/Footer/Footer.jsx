@@ -34,7 +34,7 @@ const Footer = () => {
               <ul className="mainFooter__ul">
                 <Link to={'/nosotros'} className="bold">Nosotros</Link>
                 <Link to={'/historia'}>Historia</Link>
-                <Link to={''}>Corporativo</Link>
+                <Link to={'/cultura'}>Corporativo</Link>
                 <Link to={'/que-hacemos'}>Que hacemos</Link>
               </ul>
               <ul className="mainFooter__ul">

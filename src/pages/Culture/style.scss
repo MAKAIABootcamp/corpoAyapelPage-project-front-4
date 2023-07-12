@@ -1,0 +1,25 @@
+.swiper-vertical > .swiper-pagination-bullets, .swiper-pagination-vertical.swiper-pagination-bullets {
+    right: var(--swiper-pagination-right, 8px);
+    left: var(--swiper-pagination-left, auto);
+    top: 50%;
+    transform: translate3d(-90vw, -50%, 0);
+    gap: 15vh;
+}
+
+.swiper-pagination {
+    position: absolute;
+    text-align: center;
+    transition: 300ms opacity;
+    transform: translate3d(0, 0, 0);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+    span{
+        background-color: transparent;
+        font-size: 3.5rem;
+        border: 0px;
+        color: white;
+    }
+}

@@ -6,10 +6,10 @@ const WhatWeDo = () => {
   return (
     <>
       <main className="whatwedo">
-        <div id="section1">
+        <div>
           <Bannerwhatwedo />
         </div>
-        <div id="section2">
+        <div>
           <CardWhatWeDo />
         </div>
       </main>

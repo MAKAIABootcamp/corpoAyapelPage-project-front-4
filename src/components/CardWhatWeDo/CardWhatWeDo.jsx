@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./CardWhatWeDo.scss";
+import "./CardWhatWeDo.scss"; 
 import client from "../../sanity/client";
 
 export default function CardWhatWeDo() {
@@ -23,11 +23,6 @@ export default function CardWhatWeDo() {
       .then((data) => setAllPostData(data))
       .catch(console.error);
   }, []);
-  // const background =
-  //   "https://res.cloudinary.com/dgnwqr93n/image/upload/v1688153550/slide-1_fgfpri.jpg";
-
-  // const background2 =
-  //   "https://res.cloudinary.com/dgnwqr93n/image/upload/v1688430170/269982243_4667892963329024_8717849781660201760_n_drq3uv.jpg";
 
   return (
     <>
@@ -35,7 +30,7 @@ export default function CardWhatWeDo() {
         <div className="content__one">
           <div className="title">
             <h2>
-              <span>Qué</span> hacemos
+              <span>Nuestros</span> proyectos
             </h2>
             <p>
               Una entidad sin ánimo de lucro que promueve el desarrollo
@@ -55,30 +50,30 @@ export default function CardWhatWeDo() {
         </div>
 
         {allPostData &&
-  allPostData.map((data, index) => (
-    <div
-    className={`content__img ${index === 1 || index === 3 ? "content__img2" : ""}`}
+          allPostData.map((data, index) => (
+            <div
+              className={`content__img ${
+                index === 1 || index === 3 ? "content__img2" : ""
+              }`}
+              key={index}
+              style={{
+                backgroundImage: `url(${data.mainImage.asset.url})`,
+              }}
+            >
+              <div
+                className={`${
+                  index === 1 ? "contentGestion" : "contentAmbiental"
+                }`}
+              >
+                <h2>
+                  {data.content} <span>{data.content2}</span>
+                </h2>
 
-      key={index}
-      style={{
-        backgroundImage: `url(${data.mainImage.asset.url})`,
-      }}
-    >
-      <div
-        className={`${
-          index === 1 ? "contentGestion" : "contentAmbiental"
-        }`}
-      >
-        <h2>
-          {data.content} <span>{data.content2}</span>
-        </h2>
-
-        <h3>{data.subcontent}</h3>
-        <p>{data.textcontent}</p>
-      </div>
-    </div>
-  ))}
-
+                <h3>{data.subcontent}</h3>
+                <p>{data.textcontent}</p>
+              </div>
+            </div>
+          ))}
       </div>
 
       <div className="contentnone">
