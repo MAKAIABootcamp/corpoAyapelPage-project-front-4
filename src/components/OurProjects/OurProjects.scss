@@ -5,11 +5,15 @@
             font-size: 3rem;
             color: white;
             font-family: 'Mulish', sans-serif;
+            @media screen and (max-width:535px) {
+                font-size: 2rem;
+            }
         }
         span{
             font-size: 14px;
             color: #777779;
             font-family: 'Mulish', sans-serif;
+            
         }
    
     }
@@ -20,15 +24,25 @@
         align-items: center;
     justify-content: center;
     position: relative;
+    @media screen and (max-width:1024px){
+        height: 70vh;
+        justify-content: flex-start;
+        width: 90vw;
+    }
     }
     &__cards{
-        height: 50vh;
+        height: 55vh;
         display: flex;
         flex-direction: row;
         width: 90vw;
         align-items: center;
         justify-content: center;
-        transform: translateY(90px);
+        transform: translateY(50px);
+        flex-wrap: wrap;
+        @media screen and (max-width:535px) {
+            transform: translateY(30px);
+         
+        }
     }
 }
 
@@ -56,4 +70,15 @@
 .texto{
     font-size: 1rem;
     color: #eee;
+    @media screen and (max-width:535px) {
+        font-size: 0.875rem;
+        
+    }
+}
+
+.swiper-slide{
+    @media screen and (max-width:535px) {
+        height: 60vh;
+        
+    }
 }

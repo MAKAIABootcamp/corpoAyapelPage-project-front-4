@@ -8,6 +8,7 @@
     align-items: center;
     justify-content: center;
     background-size: cover;
+    
 }
 .background::before {
     content: "";
@@ -26,9 +27,17 @@
     padding: 0px 80px;
     width: 100vw;
     justify-content: space-between;
+    flex-wrap: wrap;
+    @media screen and (max-width:1068px) {
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+    }
     &__button{
         display: flex;
         position: relative;
+    align-items: center;
+    justify-content: center;
     }
    
     &__text{
@@ -36,24 +45,47 @@
         color: white;  
         font-size: 3.5rem;
         line-height: 1;
-        text-align: center;
         text-align: left;
+       
+        
         font-family: 'Mulish', sans-serif;
+        @media screen and (max-width:1068px) {
+            text-align: center;
+        }
+        @media screen and (max-width:535px) {
+            font-size: 2rem;
+            text-align: center;
+        }
         p{
+
             width: 55vw;
             height:45%;
-            //  background-color: #6ebe4a;
-            // padding: 15px;
-            // border-radius: 14px;
-            // box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+           @media screen and (max-width:535px) {
+            width: 80vw; 
+           }
         }
     }
 }
 .btn-bottom{
         top:26vh;
         display: flex;
-        position: relative;
+        // position: relative;
         right: 35px;
-
+        align-items: center;
+        justify-content: center;
+        position: unset;
+        @media screen and (max-width:1068px) {
+            align-items: center;
+            justify-content: center;
+            position: unset;
+          }
 }
+
+// .palmas{
+//     top: 0;
+//     position: absolute;
+//     img{
+//         width: 100vw;
+//     }
+// }
 

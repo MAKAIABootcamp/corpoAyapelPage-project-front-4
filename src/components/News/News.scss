@@ -5,6 +5,7 @@
             font-size: 3rem;
             color: white;
             font-family: 'Mulish', sans-serif;
+            padding-bottom: 30px;
         }
         span{
             font-size: 14px;
@@ -22,13 +23,17 @@
     position: relative;
     }
     &__cards{
-        height: 50vh;
         display: flex;
         flex-direction: row;
         width: 90vw;
         align-items: center;
         justify-content: center;
-        transform: translateY(90px);
+        flex-wrap: wrap;
+        height: 65vh;
+        @media screen and (max-width:1024px) {
+            height: 70vh;
+            
+        }
     }
 }
 
@@ -56,4 +61,8 @@
 .texto{
     font-size: 1rem;
     color: #eee;
+    @media screen and (max-width:535px) {
+        font-size: 0.875rem;
+        text-align: center;
+    }
 }

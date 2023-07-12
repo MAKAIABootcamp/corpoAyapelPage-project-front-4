@@ -15,12 +15,15 @@
     "sanity"
   ],
   "dependencies": {
+    "@portabletext/react": "^3.0.4",
     "@sanity/icons": "^2.1.0",
     "@sanity/ui": "^1.2.0",
     "@sanity/vision": "^3.14.1",
+    "get-youtube-id": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
+    "react-lite-youtube-embed": "^2.3.52",
     "sanity": "^3.14.1",
     "styled-components": "^5.3.9"
   },
