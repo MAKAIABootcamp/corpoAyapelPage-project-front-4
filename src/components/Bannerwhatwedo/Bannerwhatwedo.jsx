@@ -54,7 +54,11 @@ const Bannerwhatwedo = () => {
                 : "none"
             }}
           >
-             <h1 className="right-align">
+             <h1
+             className={`${
+              index === 1 ? "right-down" : "right-align"
+            }`} 
+            >
               {data.content} <span>{data.content2}</span>
             </h1>
           </div>
