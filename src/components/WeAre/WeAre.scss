@@ -23,17 +23,25 @@
     display: flex;
     flex-direction: column;
     font-size: 18px;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 80vw;
     // background-image:url('https://res.cloudinary.com/dgnwqr93n/image/upload/v1688177236/paisa-1_sxyk42.jpg') ;
     // background-repeat: no-repeat;
     // background-size: cover;
+    @media screen and (max-width:1068px){
+        gap: 100px;
+        height: 75vh;
+    }
     &__title{
         h2{
             font-size: 3rem;
             color: white;
             font-family: 'Mulish', sans-serif;
+            
+            @media screen and (max-width:535px) {
+                font-size: 2rem;
+            }
         }
     }
     &__text{
@@ -41,6 +49,12 @@
             font-size: 1rem;
             color: white;
             font-family: 'Mulish', sans-serif;
+            text-align: center;
+           display: flex;
+            @media screen and (max-width:535px) {
+                font-size: 0.875rem;
+                text-align: justify;
+            }
         }
     }
     &__container{
@@ -50,6 +64,9 @@
         width: 50vw;
         gap: 20px;
         position: relative;
+        @media screen and (max-width:535px) {
+         width: 75vw;   
+        }
     }
     &__buttons{
         display: flex;
@@ -58,17 +75,28 @@
         justify-content: center;
         gap: 20px;
         font-family: 'Mulish', sans-serif;
-        button{
+        // button{
 
-            &:hover{
-                background-color: white;
-                color: #6ebe4a;
-                border:1px solid #6ebe4a;
+        //     &:hover{
+        //         background-color: white;
+        //         color: #6ebe4a;
+        //         border:1px solid #6ebe4a;
 
-            }
-        }
+        //     }
+        // }
  
         
+    }
+    &__button{
+        display: flex;
+        position: absolute;
+    align-items: center;
+    justify-content: center;
+    bottom: 50px;
+    right: 45px;
+    @media screen and (max-width:1068px){
+        position: unset;
+    }
     }
     &__btn-donacion{
         position: absolute;

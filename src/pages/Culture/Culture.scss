@@ -21,14 +21,26 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        @media screen and (max-width:535px) {
+            width: 90%;
+            height: 50%;
+            justify-content: center;
+        }
         h2{
          font-size: 3.5rem;
          color: #6ebe4a;
          padding-bottom: 10px;
+         @media screen and (max-width:535px) {
+            font-size: 2.2rem;
+        }
         }
         p{
             color: white;
-            text-align: justify;
+            text-align: center;
+            @media screen and (max-width:535px) {
+                font-size: 1rem;
+                text-align: center;
+            }
         }
         figure{
             path{
@@ -49,8 +61,11 @@
             border: 0px;
             font-family: 'Mulish', sans-serif;
             color: white;
+            @media screen and (max-width:535px) {
+                font-size: 1.5rem;
+            }
            &:hover{
-            color: #6ebe4a;;
+            color: #6ebe4a;
            }
         }
     }
@@ -70,6 +85,14 @@
     &__corp{
         display: flex;
         gap: 10vw;
+        @media screen and (max-width:535px) {
+            display: flex;
+            gap: 10vw;
+            width: 90vw;
+            height: 25vh;
+            flex-direction: column;
+            text-align: center;
+        }
     }
 }
 

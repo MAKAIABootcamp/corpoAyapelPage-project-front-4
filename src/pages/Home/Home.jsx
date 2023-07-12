@@ -10,6 +10,9 @@ import DonationButton from "../../components/DonationButton/DonationButton";
 const Home = () => {
   return (
     <div className="background">
+      {/* <figure className="palmas">
+        <img src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1689045362/pngwing.com_x9iqgh.png" alt="" />
+      </figure> */}
       <main className="mainHome">
         <section className="mainHome__text">
           <p>

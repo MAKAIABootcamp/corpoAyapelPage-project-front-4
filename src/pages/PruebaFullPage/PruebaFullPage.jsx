@@ -1,6 +1,6 @@
 import React from "react";
 import Home from "../Home/Home";
-import "./FullPage.scss";
+import "./PruebaFullPage.scss";
 import Donations from "../Donations/Donations";
 import Navbar from "../../components/Navbar/Navbar";
 import WeAre from "../../components/WeAre/WeAre";
@@ -9,28 +9,19 @@ import News from "../../components/News/News";
 import Footer from "../../components/Footer/Footer";
 import { HubspotProvider } from "@aaronhayes/react-use-hubspot-form";
 import { Helmet } from "react-helmet";
+import pruebaComponente1 from "../../components/pruebaComponente1/pruebaComponente1";
+import pruebaComponente2 from "../../components/pruebaComponente2/pruebaComponente2";
+import Testimonials from "../../components/donations/testimonials/Testimonials";
 
-const FullPage = () => {
+const PruebaFullPage = () => {
   
   return (
     <main className="container">
-     
       <div className="div">
-        <Home />
+      <Donations/>
       </div> 
       <div className="div">
-        <WeAre />
-      </div>
-      <div className="div">
-        <OurProjects />
-      </div>
-      <div className="div">
-        <News />
-      </div>
-      <div className="div">
-        <HubspotProvider>
-          <Footer />
-        </HubspotProvider>
+       
       </div>
       <Helmet>
         <script
@@ -45,4 +36,4 @@ const FullPage = () => {
   );
 };
 
-export default FullPage;
+export default PruebaFullPage;

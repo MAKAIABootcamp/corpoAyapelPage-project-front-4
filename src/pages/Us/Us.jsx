@@ -14,21 +14,6 @@ const Us = () => {
   return (
     <div className="backgroundCulture">
       <main className="mainCulture">
-        {/* <section className='mainCulture__container'>
-        <section className='mainCulture__stepper-container'>
-          <section className='mainCulture__stepper'>
-          <button>01</button>
-          <button className='active-tab'>Mision</button>
-          <button>02</button>
-          <button>03</button>
-
-          </section>
-        </section>
-        <section className='mainCulture__content'>
-          <h2>Misión</h2>
-          <p>Promover el desarrollo sostenible del complejo cenagoso de Ayapel y su comunidad.</p>
-        </section>
-        </section> */}
         <Swiper
           direction={"vertical"}
           pagination={pagination}
