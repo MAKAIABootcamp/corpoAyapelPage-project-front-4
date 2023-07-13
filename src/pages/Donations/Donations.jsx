@@ -9,8 +9,10 @@ import ImpactIndicator from '../../components/donations/impactIndicator/ImpactIn
 import client from '../../sanity/client';
 //import HsForm from '../../components/donations/HsForm';
 import BasicModal from '../../components/BasicModal';
-import { HubspotForm } from 'react-hubspot-form';
-import HubspotContactForm from '../../components/hubspotContactForm/HubspotContactForm';
+//import { HubspotForm } from 'react-hubspot-form';
+//import HubspotContactForm from '../../components/hubspotContactForm/HubspotContactForm';
+//import VideoDonations from '../../components/donations/videoDonations/VideoDonations';
+import { listTransactions, listPaymentLinks, getTransactionDetail } from '../../epayco';
 
 const Donations = () => {
 
@@ -20,7 +22,7 @@ const Donations = () => {
   const [selectedCancelSuscripcion, setSelectedCancelSuscripcion] = useState(false)
   const [showImpactIndicator, setShowImpactIndicator] = useState(false);
 
-
+const [dataTransactionDetail, setDataTransactionDetail] = useState(null)
 
   const formattedDonation = (Math.round(Number(selectedAmount) / 30)).toLocaleString(undefined, { maximumFractionDigits: 0 });
 
@@ -29,8 +31,25 @@ const Donations = () => {
     setSelectedAmount(amount === selectedAmount ? null : amount);
   }
 
+
+
   useEffect(() => {
-    console.log('Donarás', selectedAmount); // El valor de "selectedAmount" estará actualizado aquí
+   // getDataEpayco();
+   //listTransactions();
+   //listPaymentLinks();
+   const fetchData = async () => {
+    try {
+      const result = await getTransactionDetail();
+      const data = result;
+      console.log(data);
+      setDataTransactionDetail(data)
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
+  fetchData();
+     
+    //console.log('Donarás', selectedAmount); // El valor de "selectedAmount" estará actualizado aquí
   }, [selectedAmount]);
 
   const [allPostData, setAllPostData] = useState(null)
@@ -159,15 +178,6 @@ const Donations = () => {
                 <div className='donations__container__ctaBtns'>
                   {selectedAmount === null &&
                    <BasicModal />
-                    // <CtaDonations
-                    //   onClick={handleCancelRecurrentDonation}
-                    //   label={'Cancelar suscripción'}
-                    //   width={'12rem'}
-                    //   height={'3rem'}
-                    //   bgColor={'#FFF'}
-                    //   borderRadius={'2rem'}
-                    //   color={'black'}
-                    // />
                   }
                   <CtaDonations
                     onClick={handleGoDonate}
@@ -202,8 +212,11 @@ const Donations = () => {
             style={{ transformOrigin: isPresent ? "0" : "100%" }}
             className="privacy-screen"
           />
+               {/* <p>{dataTransactionDetail?.lastAction}</p> */}
         </>
       }
+{/*       
+      <VideoDonations/> */}
 
     </>
   )

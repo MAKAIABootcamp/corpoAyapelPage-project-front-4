@@ -1,8 +1,8 @@
 // schemas/pet.js
 export default {
-    name: 'masProyectos',
+    name: 'gestion',
     type: 'document',
-      title: 'MasProyectos',
+      title: 'Gestion',
     fields: [
         {
             name: 'mainImage',
@@ -21,6 +21,16 @@ export default {
         name: 'content2',
         type: 'string',
         title: 'title2'
+      },
+      {
+        name: 'subcontent',
+        type: 'string',
+        title: 'subtitle'
+      },
+      {
+        name: 'textcontent',
+        type: 'string',
+        title: 'texttitle'
       }
     
     ]

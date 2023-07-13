@@ -39,7 +39,6 @@ const Navbar = () => {
     return (
       <div className={slug ? 'mainNav bg-green div' : (location.pathname === '/donaciones' ? 'mainNav div bg-green' : 'mainNav div')}>
         <section>
-
         <NavLink to={'/'}>
             <figure>
               <img src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1688432976/logo-blanco_x4th99.svg" alt="Logo"  />
@@ -73,8 +72,8 @@ const Navbar = () => {
   }
 
   if (screenWidth > breakpointY) {
-    return (
-      <div className={slug ? 'mainNav bg-green div' : (location.pathname === '/donaciones' ? 'mainNav div bg-green' : 'mainNav div')}>
+  return (
+    <div className={slug ? 'mainNav bg-green' : (location.pathname === '/donaciones' || location.pathname === '/ayapel' ? 'mainNav bg-green' : 'mainNav')}>
         <nav className='mainNav__nav'>
           <ul>
             <NavLink to={'/nosotros'}>Nosotros</NavLink>
@@ -128,7 +127,7 @@ const Navbar = () => {
       </Menu>
     </nav>
   </div>
-  ); // Handle the case when the screen width doesn't match any condition
+  ); 
 };
 
 export default Navbar;
