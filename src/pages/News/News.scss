@@ -4,9 +4,11 @@
     @media screen and (max-width:535px) {
       padding: 2rem 0.5rem 1rem  0.5rem;
     }
+
     @media screen and (max-width:910px) {
       padding: 2rem 6.5rem 1rem  6.5rem;
     }
+
     &__social-share{
       display: flex;
       flex-direction: row-reverse;
@@ -17,9 +19,11 @@
       @media screen and (max-width:535px) {
         z-index: 1;
       }
+
       @media screen and (max-width:910px) {
         z-index: 1;
       }
+
     }
     &__social-icons{
       display: flex;
@@ -91,6 +95,7 @@
           z-index: 1;
           text-align: justify;
         } 
+
         @media screen and (max-width:910px) {
           z-index: 1;
         }
@@ -116,6 +121,7 @@
       @media screen and (max-width:535px) {
         width: 30vw;
       }
+
       @media screen and (max-width:910px) {
         width: 30%;
       }

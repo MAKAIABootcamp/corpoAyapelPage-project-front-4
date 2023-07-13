@@ -85,6 +85,7 @@ const News = () => {
       },
     },
   };
+
   if (!newsData && !projectId && !dataset) return <div>Loading...</div>;
   return (
     <main className="mainNew">
@@ -94,6 +95,7 @@ const News = () => {
             src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1688423761/fondo-1-1_fvxyjv.png"
             alt=""
           />
+
         </figure>
       </section>
       <section className="mainNew__fondo-2">

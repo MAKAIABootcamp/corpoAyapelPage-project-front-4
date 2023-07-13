@@ -57,7 +57,7 @@ const Testimonials = () => {
 
             <div className='testimonials__background'>
                 <div>
-                    <h3 className='testimonials__title'>QUIENES NOS APOYAN</h3>
+                    <h3 className='testimonials__title'>¿Quiénes nos apoyan?</h3>
 
                     <div className='testimonials__container'>
                         <div className="testimonials__container__Row">
@@ -93,15 +93,15 @@ const Testimonials = () => {
                     </div>
                     <article className='testimonials__ctaDonations'>
                         <CtaDonations
-                            label={'QUIERO DONAR'}
+                            label={'¿QUIERES DONAR?'}
                             width={'15rem'}
                             height={'3rem'}
                             borderRadius={'2rem'}
                         />
                     </article>
-                    <article className="testimonials__next">
+                    {/* <article className="testimonials__next">
                         <BtnKnowMore />
-                    </article>
+                    </article> */}
                 </div>
             </div>
         </>

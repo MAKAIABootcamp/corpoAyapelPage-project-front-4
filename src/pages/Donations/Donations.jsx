@@ -13,6 +13,7 @@ import BasicModal from '../../components/BasicModal';
 //import HubspotContactForm from '../../components/hubspotContactForm/HubspotContactForm';
 //import VideoDonations from '../../components/donations/videoDonations/VideoDonations';
 import { listTransactions, listPaymentLinks, getTransactionDetail } from '../../epayco';
+import YouTube from 'react-youtube';
 
 const Donations = () => {
 
@@ -24,7 +25,7 @@ const Donations = () => {
 
 const [dataTransactionDetail, setDataTransactionDetail] = useState(null)
 
-  const formattedDonation = (Math.round(Number(selectedAmount) / 30)).toLocaleString(undefined, { maximumFractionDigits: 0 });
+const formattedDonation = (selectedAmount / 30).toLocaleString();
 
 
   const handleConfirmGoToDonate = (amount) => {
@@ -111,11 +112,11 @@ const [dataTransactionDetail, setDataTransactionDetail] = useState(null)
   }
 
   const donationAmounts = [
-    { amount: allPostData?.[0].amount1 },
-    { amount: allPostData?.[0].amount2 },
-    { amount: allPostData?.[0].amount3 },
-    { amount: allPostData?.[0].amount4 },
-    { amount: allPostData?.[0].amount5 },
+    { amount: Number(allPostData?.[0].amount1) },
+    { amount: Number(allPostData?.[0].amount2) },
+    { amount: Number(allPostData?.[0].amount3) },
+    { amount: Number(allPostData?.[0].amount4 )},
+    { amount: Number(allPostData?.[0].amount5) },
     { amount: allPostData?.[0].amount6 },
   ];
 
@@ -123,6 +124,10 @@ const [dataTransactionDetail, setDataTransactionDetail] = useState(null)
     console.log('voy al next')
     setShowImpactIndicator(true);
   }
+
+  const handleVideoReady = (event) => {
+    //     // Aquí puedes agregar lógica adicional cuando el video esté listo
+       };
 
   // const handleScroll = () => {
   //   handleToNextComponent();
@@ -135,13 +140,16 @@ const [dataTransactionDetail, setDataTransactionDetail] = useState(null)
       {showImpactIndicator ? <ImpactIndicator /> :
         <>
           <div className='donations__background'>
+            <h3>
+              ¡También puedes ser parte de este sueño!
+            </h3>
             <main className='donations__container'>
               <section className='donations__columnOne'>
                 <div className='donations__btns'>
                   {donationAmounts.slice(0, 3).map((item, index) => (
                     <BtnQuantityMoney
                       key={index}
-                      amount={item.amount}
+                      amount={item.amount ? item.amount.toLocaleString() : ''}
                       isSelected={selectedAmount === item.amount}
                       onClick={handleConfirmGoToDonate}
                     />
@@ -160,7 +168,23 @@ const [dataTransactionDetail, setDataTransactionDetail] = useState(null)
                  frameborder="0"
                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                  allowfullscreen
-               ></iframe>
+               ></iframe> 
+
+              
+{/* 
+<YouTube
+              videoId="nzSJh5Ucgvc"
+              opts={{
+                playerVars: {
+                  autoplay: 1,
+                  mute: 1,
+                  loop: 1,
+                  controls: 0,
+                },
+              }}
+              onReady={handleVideoReady}
+              containerClassName="LazyVideo__StyledVideo-sc-12k5ev0-0 gaXtOT"
+            /> */}
                
                   
                   </div>
@@ -168,8 +192,8 @@ const [dataTransactionDetail, setDataTransactionDetail] = useState(null)
                   <div className='donations__columnTwo-selected'>
                     <h3 className='donations__title'>¿Quieres ser un donador recurrente?</h3>
                     {selectedAmount !== "Otro Valor" ? 
-                    <p>Al donar COP {formattedDonation} diarios ayudas a ...</p>
-                    :  <p>Puedes decir cuanto donar y ayudar a...</p>
+                    <p className='donations__text'>Al donar COP {formattedDonation} contribuyes al mejoramiento de la calidad de vida de los habitantes de Ayapel.</p>
+                    :  <p className='donations__text'> Puedes decir cuánto donar y contribuir al mejoramiento de la calidad de vida de los habitantes de Ayapel.</p>
                     }
                   </div>
                 }
@@ -195,7 +219,7 @@ const [dataTransactionDetail, setDataTransactionDetail] = useState(null)
                   {donationAmounts.slice(3).map((item, index) => (
                     <BtnQuantityMoney
                       key={index}
-                      amount={item.amount}
+                      amount={item.amount ? item.amount.toLocaleString() : ''}
                       isSelected={selectedAmount === item.amount}
                       onClick={handleConfirmGoToDonate}
                     />
