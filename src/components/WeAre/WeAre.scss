@@ -1,5 +1,5 @@
 .background-2{
-    background-image: url('https://res.cloudinary.com/dgnwqr93n/image/upload/v1688177236/paisa-1_sxyk42.jpg');
+    background-image: url('https://res.cloudinary.com/dgnwqr93n/image/upload/q_100/v1689218712/DSC04109_eg6sga.webp');
     // background-color: #6ebe4a;
     position: relative; 
     height: 100vh;
@@ -30,8 +30,15 @@
     // background-repeat: no-repeat;
     // background-size: cover;
     @media screen and (max-width:1068px){
-        gap: 100px;
+
+        gap: 20px;
         height: 75vh;
+    }
+    @media screen and (max-width:450px) {
+        height: 60vh;
+    }
+    @media screen and (max-width:910px){
+justify-content: center;
     }
     &__title{
         h2{
@@ -53,7 +60,7 @@
            display: flex;
             @media screen and (max-width:535px) {
                 font-size: 0.875rem;
-                text-align: justify;
+                text-align: center;
             }
         }
     }
@@ -95,6 +102,11 @@
     bottom: 50px;
     right: 45px;
     @media screen and (max-width:1068px){
+        // position: unset;
+        bottom: 50px;
+        right: unset;
+    }
+    @media  screen and (max-width:535px) {
         position: unset;
     }
     }

@@ -2,86 +2,11 @@
 // font-family: 'Dancing Script', cursive;
 
 .content {
+  width: 100vw;
   display: flex;
   flex-direction: column;
   transition: 0.5s;
 
-  &__one {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-
-    .title,
-    .contentImg {
-      padding: 20px;
-      width: 100%;
-
-      @media (min-width: 700px) {
-        width: 50%;
-      }
-    }
-
-    .title {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      h2 {
-        font-family: "Mulish", sans-serif;
-        font-weight: 600;
-        font-size: 41px;
-        color: #535353;
-        line-height: 49px;
-        margin-top: 0;
-        span {
-          font-family: "Dancing Script", cursive;
-          font-size: 103px;
-          line-height: 123px;
-          color: #535353;
-          font-weight: 400;
-        }
-      }
-
-      p {
-        font-size: 16px;
-        font-family: "Mulish", sans-serif;
-        color: #777779;
-        margin: 0 0 15px;
-      }
-    }
-    .contentImg {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      transition: 0.5s;
-
-      @media (max-width: 700px) {
-        // width: 100%;
-        max-height: 60%;
-      }
-
-      img {
-        max-width: 100%;
-        max-height: 80%;
-        filter: grayscale(100%);
-        @media (max-width: 700px) {
-          // width: 100%;
-          max-height: 60%;
-        }
-      }
-    }
-
-    @media (max-width: 600px) {
-      flex-direction: column;
-
-      .title,
-      .contentImg {
-        width: 100%;
-      }
-    }
-  }
   &__img {
     height: 100vh;
     width: 100%;
@@ -99,21 +24,21 @@
     font-family: "Mulish", sans-serif;
 
     .contentAmbiental {
-      background-color: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.7);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
       padding: 20px;
       border-radius: 8px;
-      backdrop-filter: blur(0.8px);
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       max-width: 500px;
 
       position: relative;
       top: 10%;
 
-      width: 45%;
+      width: 50%;
       color: #000;
       font-size: 24px;
       text-align: right;
-      margin-right: 40px;
       word-wrap: break-word;
       overflow: hidden;
       h2 {
@@ -135,44 +60,45 @@
         font-size: 24px;
         font-weight: bold;
         margin-bottom: 5px;
+        color: rgb(110, 190, 74);
       }
 
       p {
         font-size: 18px;
-        line-height: 1.5;
+        line-height: 1.2;
       }
     }
   }
 
-  &__img2{
+  &__img2 {
     height: 100vh;
     width: 100%;
     background-size: cover;
     background-position: center;
-    // z-index: 0.5;
-    // flex-wrap: wrap;
 
     padding: 20px;
     display: flex;
     flex-direction: column;
+    // justify-content: flex-start;
+    align-items: flex-start;
 
     font-family: "Mulish", sans-serif;
     .contentGestion {
-      background-color: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.7);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
       padding: 20px;
       border-radius: 8px;
-      backdrop-filter: blur(0.8px);
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       max-width: 500px;
 
       position: relative;
       top: 10%;
 
-      width: 45%;
+      width: 50%;
       color: #000;
       font-size: 24px;
       text-align: left;
-      margin-left: 40px;
       word-wrap: break-word;
       overflow: hidden;
       h2 {
@@ -194,11 +120,12 @@
         font-size: 24px;
         font-weight: bold;
         margin-bottom: 5px;
+        color: rgb(110, 190, 74);
       }
 
       p {
         font-size: 18px;
-        line-height: 1.5;
+        line-height: 1.2;
       }
     }
   }
@@ -208,7 +135,7 @@
   display: none;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 840px) {
   .content {
     &__img {
       display: none;
@@ -220,7 +147,7 @@
   .contentnone {
     transition: 0.5s;
     display: block;
-    margin-top: 20px;
+    font-family: "Mulish", sans-serif;
     flex-direction: column;
 
     .contentnone__img {
@@ -233,8 +160,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-
-      margin-top: 10px;
       &:hover {
         transform: scale(1.01);
         transition: 0.5s;
@@ -261,7 +186,7 @@
         backdrop-filter: blur(0.8px);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
-        height: 50%;
+        // height: 50%;
         max-width: 500px;
         color: #000;
         overflow: hidden;
@@ -279,10 +204,11 @@
           font-size: 18px;
           font-weight: bold;
           margin-bottom: 5px;
+          color: rgb(110, 190, 74);
         }
 
         p {
-          font-size: 22px;
+          font-size: 18px;
           line-height: 0.9;
           text-align: center;
         }

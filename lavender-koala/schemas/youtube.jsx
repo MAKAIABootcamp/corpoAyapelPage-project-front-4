@@ -11,9 +11,7 @@ const Preview = (props) => {
   const id = getYouTubeId(url)
   return (
     <div>
-      // 👇 Renders the default preview UI
       {renderDefault({...props, title: 'YouTube Embed'})}
-      // 👇 Renders the video preview below
       <LiteYouTubeEmbed id={id} />
     </div>
   )
@@ -22,12 +20,12 @@ const Preview = (props) => {
 export default {
   name: 'youtube',
   type: 'object',
-  title: 'YouTube Embed',
+  title: 'Link de Youtube',
   fields: [
     {
       name: 'url',
       type: 'url',
-      title: 'YouTube video URL',
+      title: 'URL del Video',
     },
   ],
   preview: {

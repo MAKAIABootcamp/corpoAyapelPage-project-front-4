@@ -5,7 +5,7 @@ import BlockContent from "@sanity/block-content-to-react";
 import {PortableText} from '@portabletext/react'
 import urlBuilder from '@sanity/image-url'
 import {getImageDimensions} from '@sanity/asset-utils'
-import getYouTubeID from 'get-youtube-id';
+import getYouTubeId from 'get-youtube-id'
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
 
@@ -66,16 +66,25 @@ const News = () => {
       .catch(console.error);
   }, [slug]);
   console.log(newsData);
-
   const serializers = {
     types: {
-      youtube: ({url}) => {
-        const id = getYouTubeID(url)
-        return (<LiteYouTubeEmbed id={id} name />)
+      youtube: ({ node }) => {
+        const { url } = node || {};
+        const id = getYouTubeId(url);
+        return <LiteYouTubeEmbed id={id} />;
       },
-      image: ({value}) => <img src={value.imageUrl} />
-    }
-}
+    },
+    blocks: {
+      youtube: {
+        // Serializer for the "youtube" block type
+        component: ({ node }) => {
+          const { url } = node || {};
+          const id = getYouTubeId(url);
+          return <LiteYouTubeEmbed id={id} />;
+        },
+      },
+    },
+  };
 
   if (!newsData && !projectId && !dataset) return <div>Loading...</div>;
   return (
@@ -86,6 +95,7 @@ const News = () => {
             src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1688423761/fondo-1-1_fvxyjv.png"
             alt=""
           />
+
         </figure>
       </section>
       <section className="mainNew__fondo-2">
@@ -136,12 +146,13 @@ const News = () => {
 
       <section className="mainNew__body">
       {/* <LiteYouTubeEmbed id={'H-fetNUKqDM'}/> */}
-        {/* <BlockContent
+      <BlockContent
           blocks={newsData.body}
           projectId={projectId}
           dataset={dataset}
-        /> */}
-         <PortableText value={newsData.body} components={serializers} />
+          serializers={serializers} // Update the prop name to "serializers"
+        />
+         {/* <PortableText value={newsData.body} components={serializers} /> */}
       </section>
      
     </main>

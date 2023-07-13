@@ -25,13 +25,14 @@
     justify-content: center;
     position: relative;
     @media screen and (max-width:1024px){
-        height: 70vh;
+        height: 75vh;
         justify-content: flex-start;
         width: 90vw;
     }
     }
     &__cards{
-        height: 55vh;
+
+        height: 60vh;
         display: flex;
         flex-direction: row;
         width: 90vw;
@@ -41,13 +42,13 @@
         flex-wrap: wrap;
         @media screen and (max-width:535px) {
             transform: translateY(30px);
-         
+            height: 100%;         
         }
     }
 }
 
 .background-3{
-    background-image: url('https://res.cloudinary.com/dgnwqr93n/image/upload/v1688314974/slide-artesanos_kgzl9e.png');
+    background-image: url('https://res.cloudinary.com/dgnwqr93n/image/upload/q_100/v1689218738/_MG_6572_qvrsrw.webp');
     // background-color: #6ebe4a;
     position: relative; 
     height: 100vh;
@@ -57,6 +58,7 @@
     justify-content: center;
     background-size: cover;
     background-position: center;
+   
 }
 .background-3::before {
     content: "";
