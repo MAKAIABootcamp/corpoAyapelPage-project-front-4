@@ -1,6 +1,30 @@
 .mainNew {
     background-color: #f5f5f5;
     padding: 10rem 10rem 1rem 10rem;
+    @media screen and (max-width:535px) {
+      padding: 2rem 0.5rem 1rem  0.5rem;
+    }
+    @media screen and (max-width:910px) {
+      padding: 2rem 6.5rem 1rem  6.5rem;
+    }
+    &__social-share{
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      align-content: center;
+      justify-content: space-between;
+      z-index: 2;
+      @media screen and (max-width:535px) {
+        z-index: 1;
+      }
+      @media screen and (max-width:910px) {
+        z-index: 1;
+      }
+    }
+    &__social-icons{
+      display: flex;
+      gap: 5px;
+    }
     
     &__head {
       padding: 2rem;
@@ -15,6 +39,9 @@
     &__title {
       font-size: 3rem;
       margin-bottom: 4px;
+      @media screen and (max-width:535px) {
+        font-size: 2rem;
+      }
     }
     
     &__image {
@@ -33,6 +60,8 @@
       flex-direction: column;
       align-items: center;
       display: flex;
+      max-height: fit-content;
+
     }
     
     div {
@@ -58,6 +87,13 @@
         margin: 0 0 15px;
         margin-bottom: 20px;
         z-index: 2;
+        @media screen and (max-width:535px) {
+          z-index: 1;
+          text-align: justify;
+        } 
+        @media screen and (max-width:910px) {
+          z-index: 1;
+        }
         
         a {
           background-color: #56bc277a;
@@ -77,18 +113,36 @@
       justify-content: center;
       border-radius: 5px;
       color: #41722b;
+      @media screen and (max-width:535px) {
+        width: 30vw;
+      }
+      @media screen and (max-width:910px) {
+        width: 30%;
+      }
     }
-    
     &__fondo-1 {
-      position: absolute;
+      position: fixed;
+      top: 0;
       right: 0;
-      transform: translateY(-10px);
+      // left: 0;
+      bottom: auto;
+      // transform: translateY(-100%);
+      @media screen and (max-width:535px) {
+        display: none;
+      }
     }
     
     &__fondo-2 {
-      position: absolute;
+      position: fixed;
+      top: auto;
+      right: 0;
+      bottom: 0;
       left: 0;
-      top: 100vh;
+      @media screen and (max-width:535px) {
+        display: none;
+      }
+      // transform: translateY(100%);
     }
+    
   }
   

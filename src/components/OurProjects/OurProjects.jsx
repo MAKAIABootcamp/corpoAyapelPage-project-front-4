@@ -9,7 +9,7 @@ const OurProjects = () => {
       <div className="mainProjects">
         <main className="mainProjects__container">
           <section className="mainProjects__title">
-            <h2>Nuestros Proyectos</h2>
+            <h2>Nuestros proyectos</h2>
           </section>
           <span className="texto">Trabajamos bajo tres líneas estratégicas: social, ambiental y económica.</span>
           <section className="mainProjects__cards">

@@ -10,7 +10,6 @@ import news from './new.js'
 import documents from './documents.js'
 import whatDoInAyapel from './whatDoInAyapel'
 import floraAndFauna from './floraAndFauna'
+import youtube from './youtube'
 
-export const schemaTypes = 
-[projects, testimonials, peopleImpacted, donorsGoals, socialsMediaUrl, donationAmount, news, whatWeDo, whatDoInAyapel, documents, floraAndFauna, management]
-
+export const schemaTypes = [projects, testimonials, peopleImpacted, donorsGoals, socialsMediaUrl, donationAmount, news, whatWeDo, documents, youtube, whatDoInAyapel, floraAndFauna,management]
