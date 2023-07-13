@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "./CardWhatWeDo.scss"; 
+import "./CardWhatWeDo.scss";
 import client from "../../sanity/client";
+// import "../../pages/FullPage/FullPage.scss"
+
 
 export default function CardWhatWeDo() {
   const [allPostData, setAllPostData] = useState(null);
@@ -27,12 +29,10 @@ export default function CardWhatWeDo() {
   return (
     <>
       <div className="content">
-        
-
         {allPostData &&
           allPostData.map((data, index) => (
             <div
-              className={`content__img div ${
+              className={`content__img ${
                 index === 1 || index === 3 ? "content__img2" : ""
               }`}
               key={index}
@@ -62,7 +62,7 @@ export default function CardWhatWeDo() {
             allPostData.map((data, index) => {
               return (
                 <div
-                  className="contentnone__img div"
+                  className="contentnone__img"
                   key={index}
                   style={{
                     backgroundImage: `url(${data.mainImage.asset.url})`,
