@@ -30,8 +30,14 @@
     // background-repeat: no-repeat;
     // background-size: cover;
     @media screen and (max-width:1068px){
-        gap: 100px;
+        gap: 20px;
         height: 75vh;
+    }
+    @media screen and (max-width:450px) {
+        height: 60vh;
+    }
+    @media screen and (max-width:910px){
+justify-content: center;
     }
     &__title{
         h2{
@@ -53,7 +59,7 @@
            display: flex;
             @media screen and (max-width:535px) {
                 font-size: 0.875rem;
-                text-align: justify;
+                text-align: center;
             }
         }
     }
@@ -95,6 +101,11 @@
     bottom: 50px;
     right: 45px;
     @media screen and (max-width:1068px){
+        // position: unset;
+        bottom: 50px;
+        right: unset;
+    }
+    @media  screen and (max-width:535px) {
         position: unset;
     }
     }
