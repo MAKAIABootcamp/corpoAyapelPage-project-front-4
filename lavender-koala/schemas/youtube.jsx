@@ -1,23 +1,23 @@
-import React from 'react';
-import getYouTubeID from 'get-youtube-id';
+// youtube.js
+import getYouTubeId from 'get-youtube-id'
+import LiteYouTubeEmbed from 'react-lite-youtube-embed'
+import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
 
-const YouTubePreview = ({ value }) => {
-  const id = getYouTubeID(value.url);
-  const url = `https://www.youtube.com/embed/${id}`;
-  if (!id) {
-    return <div>Missing YouTube URL</div>;
+const Preview = (props) => {
+  const {url, renderDefault} = props
+  if (!url) {
+    return <div>Missing YouTube URL</div>
   }
+  const id = getYouTubeId(url)
   return (
-    <iframe
-      title="YouTube Preview"
-      width="560"
-      height="315"
-      src={url}
-      frameBorder="0"
-      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-    />
-  );
-};
+    <div>
+      // 👇 Renders the default preview UI
+      {renderDefault({...props, title: 'YouTube Embed'})}
+      // 👇 Renders the video preview below
+      <LiteYouTubeEmbed id={id} />
+    </div>
+  )
+}
 
 export default {
   name: 'youtube',
@@ -27,13 +27,15 @@ export default {
     {
       name: 'url',
       type: 'url',
-      title: 'URL',
+      title: 'YouTube video URL',
     },
   ],
   preview: {
     select: {
       url: 'url',
     },
-    component: YouTubePreview,
   },
-};
+  components: {
+    preview: Preview,
+  },
+}

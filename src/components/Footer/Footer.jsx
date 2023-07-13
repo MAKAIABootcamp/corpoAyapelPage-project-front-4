@@ -35,19 +35,20 @@ const Footer = () => {
                 <Link to={'/nosotros'} className="bold">Nosotros</Link>
                 <Link to={'/historia'}>Historia</Link>
                 <Link to={'/cultura'}>Corporativo</Link>
-                <Link to={'/que-hacemos'}>Que hacemos</Link>
+                <Link to={'/que-hacemos'}>Nuestros proyectos</Link>
               </ul>
               <ul className="mainFooter__ul">
                 <Link to={'/documentos'} className="bold">Documentos</Link>
                 <Link to={'/pqr'}>PQR</Link>
               </ul>
               <ul className="mainFooter__ul">
-                <Link to={'/ayapel'} className="bold">Destino: Ayapel</Link>
-                <Link to={''}>Datos Importantes</Link>
-                <Link to={''}>Ubicacion</Link>
-                <Link to={''}>Que hacer en ayapel</Link>
-                <Link to={''}>Flora y fauna</Link>
-                <Link to={''} >¿Cómo puedo ayudar?</Link>
+              <Link to={''} className="bold">¿Cómo puedo ayudar?</Link>
+                {/* <Link to={'/ayapel'} >Destino: Ayapel</Link> */}
+                {/* <Link to={''}>Datos Importantes</Link>
+                <Link to={''}>Ubicación</Link> */}
+                {/* <Link to={''}>Que hacer en ayapel</Link> */}
+                {/* <Link to={''}>Flora y fauna</Link> */}
+                
               </ul>
             </section>
        
@@ -62,7 +63,10 @@ const Footer = () => {
         </section>
         <section className="mainFooter__form">
        {/* <section id="my-hubspot-form"></section> */}
+       <section>
        <HubspotContactForm id={"40152509"} idForm={"9b378b3a-c3fd-45fb-b429-af5f68038ab4"} targetForm={'#hubspotForm'} />
+
+       </section>
        </section>
       </main>
     </div>
