@@ -99,9 +99,9 @@ const Testimonials = () => {
                             borderRadius={'2rem'}
                         />
                     </article>
-                    <article className="testimonials__next">
+                    {/* <article className="testimonials__next">
                         <BtnKnowMore />
-                    </article>
+                    </article> */}
                 </div>
             </div>
         </>

@@ -22,6 +22,7 @@ import FullPage from "../pages/FullPage/FullPage";
 import PageDonations from "../pages/Donations/pageDonations/PageDonations";
 import HowToHelp from "../pages/HowToHelp/HowToHelp";
 import PruebaFullPage from "../pages/PruebaFullPage/PruebaFullPage";
+import BannerDonations from "../pages/Donations/bannerDonations/BannerDonations";
 
 
 const AppRouter = () => {
@@ -49,6 +50,7 @@ const AppRouter = () => {
             <Route path="prueba" Component={PruebaFullPage} />
             
           </Route>
+          <Route path="banner" Component={BannerDonations} />
           <Route path="*" Component={Error404} />
         </Routes>
       </Provider>

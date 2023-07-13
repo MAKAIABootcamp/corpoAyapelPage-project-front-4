@@ -13,8 +13,8 @@ const CtaDonations = ({ onClick, label, width, height, borderRadius, isSelected,
         width: width,
         height: height,
         borderRadius: borderRadius,
-        color: isSelected ? '#FFF' : 'black',
-        backgroundColor: isSelected ? 'orange' : '#FFF', 
+        color: isSelected ? '#FFF' : '#FFF',
+        backgroundColor: isSelected ? 'orange' : '#6EBE4A', 
         transform: isSelected ? 'translateY(5px) scale(1.25)' : '',
       };
   

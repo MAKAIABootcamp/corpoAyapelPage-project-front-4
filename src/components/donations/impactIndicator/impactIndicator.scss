@@ -102,7 +102,7 @@
 }
 .swiper-wrapper {
     //height: 350px !important;
-    padding: 0 5% 0 5% !important;
+   // padding: 0 5% 0 5% !important;
     align-items: center !important;
 
 }
@@ -111,6 +111,11 @@
 display: flex !important;
 justify-content: center !important;
 // align-items: baseline !important;
+margin: 0;
+}
+
+.swiper-slide  {
+  margin-right: 0 !important;
 }
 
 // .swiper-container {
@@ -146,3 +151,5 @@ justify-content: center !important;
 //       grid-template-columns: 1fr;
 //     }
 //   }
+
+

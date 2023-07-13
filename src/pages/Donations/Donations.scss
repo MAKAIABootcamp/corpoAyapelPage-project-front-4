@@ -1,9 +1,10 @@
 .donations {
     font-family: 'Mulish', sans-serif;
     &__background {
+        background-image:  url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689261455/ayapel/i2rxi1lnlqi9o2ijvmcb.jpg');
         //background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg');
         //background-color: #6ebe4a;
-        height: 100vh;
+        height: 100%;
         width: 100%;
         display: flex;
         align-items: center;
@@ -11,13 +12,17 @@
         background-size: cover;
         z-index: .5;
         flex-wrap: wrap;
+        h3 {
+            font-size: 2rem;
+            margin-top: 7rem;
+        }
     }
 
     &__container {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: 120px;
+        margin-top: 1rem;
         width: 100%;
         flex-wrap: wrap;
 
@@ -80,10 +85,17 @@
 
     &__title {
         font-family: 'Mulish', sans-serif;
-        font-size: 2rem;
+        font-size: 3rem;
         margin-bottom: 2rem;
     }
+    &__text {
+        font-size: 2rem;
+    }
 }
+
+
+    
+
 
 // ********************MEDIA QUERY**************************
 @media (max-width: 720px) {

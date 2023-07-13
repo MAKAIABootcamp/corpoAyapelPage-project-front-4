@@ -37,7 +37,7 @@ const ProgressBar = ({ progress, goal, totalDonors, height }) => {
     return (
         <div style={containerStyles}>
             <div style={fillerStyles}></div>
-            <img src="https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688330374/ayapel/elzlxzhcyixtvqf6cyi9.png" alt="Imagen de progreso" style={imageStyles} />
+            <img src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1689223287/logo-blanco_x4th99_1_1_jvvols_1_ieflxf.svg" alt="Imagen de progreso" style={imageStyles} />
             {/* <div style={{ textAlign: 'center', marginTop: '5px' }}>
         {`${progress}% (${totalDonors}/${goal})`}
       </div> */}
@@ -82,7 +82,7 @@ const DonorProgress = () => {
                         <div>
                             <p className='donorProgress__init'> </p>
                         </div>
-                        <ProgressBar progress={progress} goal={goal} totalDonors={totalDonors} height={10} className='donorProgress__bar' />
+                        <ProgressBar progress={progress} goal={goal} totalDonors={totalDonors} height={20} className='donorProgress__bar' />
                         <div className='donorProgress__goal'>
                             <GoGoal style={{fontSize:'3rem'}}/> 
                             {/* <a href="https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688355815/ayapel/wv4shprazlxdoatxles9.gif"></a> */}
@@ -99,6 +99,7 @@ const DonorProgress = () => {
                         width={'15rem'}
                         height={'3rem'}
                         borderRadius={'2rem'}
+                        backgroundColor={'#6EBE4A'}
                     />
                 </article>
                 <article className="testimonials__next">

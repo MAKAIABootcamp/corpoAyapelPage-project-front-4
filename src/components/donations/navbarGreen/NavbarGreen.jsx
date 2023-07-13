@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import './Navbar.scss';
+import './navbarGreen.scss'
 import { NavLink, useLocation, useParams } from 'react-router-dom';
-import '../../pages/FullPage/FullPage.scss';
+//import '../../pages/FullPage/FullPage.scss';
 import { slide as Menu } from 'react-burger-menu';
  // Import the CSS file for react-burger-menu
 
-const Navbar = () => {
+const NavbarGreen = () => {
   let { slug } = useParams();
   let location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
-  // Define the threshold widths for showing different navbars
+  // Define the threshold widths for showing different Greens
   const breakpointX = 768; // X size
   const breakpointY = 1024; // Y size
 
@@ -37,7 +37,7 @@ const Navbar = () => {
 
   if (screenWidth < breakpointX ) {
     return (
-      <div className={slug ? 'mainNav bg-green' : (location.pathname === '/ayapel' ? 'mainNav bg-green' : 'mainNav')}>
+      <div className={slug ? 'mainNav bg-green' : (location.pathname === '/donaciones' || location.pathname === '/ayapel' ? 'mainNav bg-green' : 'mainNav')}>
         <section>
 
         <NavLink to={'/'}>
@@ -74,7 +74,7 @@ const Navbar = () => {
 
   if (screenWidth > breakpointY) {
     return (
-      <div className={slug ? 'mainNav bg-green div' : (location.pathname === '/ayapel' ? 'mainNav div bg-green' : 'mainNav div')}>
+      <div className={slug ? 'mainNav bg-green div' : (location.pathname === '/donaciones' ? 'mainNav div bg-green' : 'mainNav div')}>
         <nav className='mainNav__nav'>
           <ul>
             <NavLink to={'/nosotros'}>Nosotros</NavLink>
@@ -98,4 +98,4 @@ const Navbar = () => {
   return null; // Handle the case when the screen width doesn't match any condition
 };
 
-export default Navbar;
+export default NavbarGreen;
