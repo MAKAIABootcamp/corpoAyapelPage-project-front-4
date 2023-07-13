@@ -1,155 +1,155 @@
-.impactIndicator {
-    &__background {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg');
-        //background-color: #6ebe4a;
-        height: 100vh;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-size: cover;
-        z-index: .5;
-        flex-wrap: wrap;
-    }
+// .impactIndicator {
+//     &__background {
+//         background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg');
+//         //background-color: #6ebe4a;
+//         height: 100vh;
+//         width: 100%;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         background-size: cover;
+//         z-index: .5;
+//         flex-wrap: wrap;
+//     }
 
-    &__main {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        width: 100vw;
+//     &__main {
+//         display: flex;
+//         justify-content: center;
+//         flex-direction: column;
+//         width: 100vw;
 
-        h3 {
-            font-family: 'Mulish', sans-serif;
-            color: #FFF;
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 1.8rem;
-        }
-    }
+//         h3 {
+//             font-family: 'Mulish', sans-serif;
+//             color: #FFF;
+//             text-align: center;
+//             margin-bottom: 3rem;
+//             font-size: 1.8rem;
+//         }
+//     }
 
-    &__title {
-        font-family: 'Mulish', sans-serif;
-        font-size: 1rem;
-        margin-bottom: 0;
-    }
+//     &__title {
+//         font-family: 'Mulish', sans-serif;
+//         font-size: 1rem;
+//         margin-bottom: 0;
+//     }
 
-    &__circle__image {
-        // width: 210px;
-        // height: 210px;
-        border-radius: 50%;
-        color: #FFF;
+//     &__circle__image {
+//         // width: 210px;
+//         // height: 210px;
+//         border-radius: 50%;
+//         color: #FFF;
 
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            box-shadow: 0px 1px 0px hsl(0, 0%, 46%), /* Change the blue color to gray */
-            0px 2px 0px hsl(0, 0%, 48%), /* Change the blue color to gray */
-            0px 3px 0px hsl(0, 0%, 49%), /* Change the blue color to gray */
-            0px 4px 0px hsl(0, 0%, 50%), /* Change the blue color to gray */
-            0px 5px 0px hsl(0, 0%, 51%), /* Change the blue color to gray */
-            0px 6px 0px hsl(0, 0%, 52%), /* Change the blue color to gray */
-            0px 7px 0px hsl(0, 0%, 53%), /* Change the blue color to gray */
-            0px 8px 0px hsl(0, 0%, 54%), /* Change the blue color to gray */
-            0px 9px 0px hsl(0, 0%, 55%), /* Change the blue color to gray */
-            0px 10px 0px hsl(0, 0%, 88%), /* Change the blue color to gray */
-            0px 11px 10px #777779;
-        }
+//         img {
+//             width: 100%;
+//             height: 100%;
+//             object-fit: cover;
+//             border-radius: 50%;
+//             box-shadow: 0px 1px 0px hsl(0, 0%, 46%), /* Change the blue color to gray */
+//             0px 2px 0px hsl(0, 0%, 48%), /* Change the blue color to gray */
+//             0px 3px 0px hsl(0, 0%, 49%), /* Change the blue color to gray */
+//             0px 4px 0px hsl(0, 0%, 50%), /* Change the blue color to gray */
+//             0px 5px 0px hsl(0, 0%, 51%), /* Change the blue color to gray */
+//             0px 6px 0px hsl(0, 0%, 52%), /* Change the blue color to gray */
+//             0px 7px 0px hsl(0, 0%, 53%), /* Change the blue color to gray */
+//             0px 8px 0px hsl(0, 0%, 54%), /* Change the blue color to gray */
+//             0px 9px 0px hsl(0, 0%, 55%), /* Change the blue color to gray */
+//             0px 10px 0px hsl(0, 0%, 88%), /* Change the blue color to gray */
+//             0px 11px 10px #777779;
+//         }
 
-        p {
-            font-family: 'Mulish', sans-serif;
-            margin: 1rem 0 1rem 0;
-            text-align: center;
-            font-size: 1.3rem;
-        }
-    }
+//         p {
+//             font-family: 'Mulish', sans-serif;
+//             margin: 1rem 0 1rem 0;
+//             text-align: center;
+//             font-size: 1.3rem;
+//         }
+//     }
 
-    &__carousel {
-        display: flex;
-        align-items: center;
-        //justify-content: center;
-        align-items: center;
-        height: 345px;
-        gap: 3rem;
+//     &__carousel {
+//         display: flex;
+//         align-items: center;
+//         //justify-content: center;
+//         align-items: center;
+//         height: 345px;
+//         gap: 3rem;
 
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 1rem;
+//         display: grid;
+//         grid-template-columns: repeat(3, 1fr);
+//         grid-gap: 1rem;
 
-    }
+//     }
 
-    &__ctaDonations {
-        display: flex;
-        justify-content: center;
-        margin-top: 1rem;
-    }
-}
+//     &__ctaDonations {
+//         display: flex;
+//         justify-content: center;
+//         margin-top: 1rem;
+//     }
+// }
 
-.carousel.carousel-slider .control-arrow {
-    background-color: black;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    width: 50px;
-    margin: auto;
-}
-.swiper-slide {
-    display: flex !important;
-    align-items: center !important;
-}
-.swiper-wrapper {
-    //height: 350px !important;
-   // padding: 0 5% 0 5% !important;
-    align-items: center !important;
+// .carousel.carousel-slider .control-arrow {
+//     background-color: black;
+//     height: 50px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     border-radius: 50%;
+//     width: 50px;
+//     margin: auto;
+// }
+// .swiper-slide {
+//     display: flex !important;
+//     align-items: center !important;
+// }
+// .swiper-wrapper {
+//     //height: 350px !important;
+//    // padding: 0 5% 0 5% !important;
+//     align-items: center !important;
 
-}
+// }
 
-.swiper-slide-active {
-display: flex !important;
-justify-content: center !important;
-// align-items: baseline !important;
-margin: 0;
-}
+// .swiper-slide-active {
+// display: flex !important;
+// justify-content: center !important;
+// // align-items: baseline !important;
+// margin: 0;
+// }
 
-.swiper-slide  {
-  margin-right: 0 !important;
-}
+// .swiper-slide  {
+//   margin-right: 0 !important;
+// }
 
-// .swiper-container {
-//     width: 480px;
-//   }
-@media (max-width: 375px) {
-    .swiper-container {
-      width: auto !important;
-    }
-  }
-  
-  @media (min-width: 375px) and (max-width: 639px) {
-    .swiper-container {
-      width: 375px !important;
-    }
-  }
-
-  @media screen and (min-width: 640px) {
-    .swiper-container {
-      width: 640px !important;
-    }
-  }
-  
-  @media screen and (min-width: 768px) {
-    .swiper-container {
-      width: 768px !important;
-    }
-  }
-
-
-// @media screen and (max-width: 770px) {
-//     .impactIndicator__carousel {
-//       grid-template-columns: 1fr;
+// // .swiper-container {
+// //     width: 480px;
+// //   }
+// @media (max-width: 375px) {
+//     .swiper-container {
+//       width: auto !important;
 //     }
 //   }
+  
+//   @media (min-width: 375px) and (max-width: 639px) {
+//     .swiper-container {
+//       width: 375px !important;
+//     }
+//   }
+
+//   @media screen and (min-width: 640px) {
+//     .swiper-container {
+//       width: 640px !important;
+//     }
+//   }
+  
+//   @media screen and (min-width: 768px) {
+//     .swiper-container {
+//       width: 768px !important;
+//     }
+//   }
+
+
+// // @media screen and (max-width: 770px) {
+// //     .impactIndicator__carousel {
+// //       grid-template-columns: 1fr;
+// //     }
+// //   }
 
 
