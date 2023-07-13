@@ -33,7 +33,7 @@ const Bannerwhatwedo = () => {
       setCurrentSlide((prevSlide) =>
         prevSlide === projectData.length - 1 ? 0 : prevSlide + 1
       );
-    }, 4000);
+    }, 10000);
     return () => clearInterval(interval);
   }, [projectData]);
   
