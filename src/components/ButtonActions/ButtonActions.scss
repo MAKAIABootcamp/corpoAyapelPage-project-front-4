@@ -6,6 +6,10 @@
     font-family: 'Mulish', sans-serif;
     color: white;
     font-size: 0.9rem;
+    &:hover{
+        background-color: #6ebe4a;
+        border: 1px solid #6ebe4a;
+    }
 }
 
 .btn-link{

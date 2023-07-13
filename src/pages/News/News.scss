@@ -4,6 +4,9 @@
     @media screen and (max-width:535px) {
       padding: 2rem 0.5rem 1rem  0.5rem;
     }
+    @media screen and (max-width:910px) {
+      padding: 2rem 6.5rem 1rem  6.5rem;
+    }
     &__social-share{
       display: flex;
       flex-direction: row-reverse;
@@ -12,6 +15,9 @@
       justify-content: space-between;
       z-index: 2;
       @media screen and (max-width:535px) {
+        z-index: 1;
+      }
+      @media screen and (max-width:910px) {
         z-index: 1;
       }
     }
@@ -85,6 +91,9 @@
           z-index: 1;
           text-align: justify;
         } 
+        @media screen and (max-width:910px) {
+          z-index: 1;
+        }
         
         a {
           background-color: #56bc277a;
@@ -107,8 +116,10 @@
       @media screen and (max-width:535px) {
         width: 30vw;
       }
+      @media screen and (max-width:910px) {
+        width: 30%;
+      }
     }
-    
     &__fondo-1 {
       position: fixed;
       top: 0;

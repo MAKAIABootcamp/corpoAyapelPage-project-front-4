@@ -15,15 +15,17 @@ justify-content: center;
     font-family: 'Mulish', sans-serif;
   }
   &__text {
-    font-size: 14px;
+    font-size: 14px !important;
     font-weight: 400;
     font-family: "Mulish", sans-serif;
     height: 125px;
     overflow: auto;
     color: #535353;
-    overflow: hidden;
+    overflow: initial !important;
     text-indent: 0px !important;
     text-align: unset !important;
+    margin-top: 0px !important;
+  
   }
   &__img {
     z-index: 2;
