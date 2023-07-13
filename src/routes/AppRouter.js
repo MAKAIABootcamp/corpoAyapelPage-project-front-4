@@ -48,7 +48,6 @@ const AppRouter = () => {
             <Route path="ayapel" Component={Ayapel} />
             <Route path="como-ayudar" Component={HowToHelp} />
             <Route path="prueba" Component={PruebaFullPage} />
-            
           </Route>
           <Route path="banner" Component={BannerDonations} />
           <Route path="*" Component={Error404} />

@@ -2,27 +2,43 @@ import ToHelpForm from '../../components/ToHelpForm/ToHelpForm'
 import MiniCarrousel from '../../components/miniCarrousel/MiniCarrousel'
 import './HowToHelp.scss'
 import { useState, useEffect} from 'react'
+import { HubspotProvider } from '@aaronhayes/react-use-hubspot-form';
+import { Helmet } from 'react-helmet';
 
 
 function HowToHelp () {
 
-    const [indice, setIndice] = useState(0)
-    const [imagenActual, setImagenActual] = useState([])
+    const [indice1, setIndice1] = useState(0)
+    const [indice2, setIndice2] = useState(0)
+    const [imagenActual1, setImagenActual1] = useState([])
+    const [imagenActual2, setImagenActual2] = useState([])
 
     let images = [
-        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.gm-2ahC5LwtmNHO6PTxfUQHaEK%26pid%3DApi&f=1&ipt=9524df108291ea6c3ce8168aaf4d58d6afe0d8b84222ed8aaaf075e30727d795&ipo=images",
-        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.LLCrqSql4QlfFsjAiuUKjgHaEK%26pid%3DApi&f=1&ipt=278c448053af82a16887629aee7d7bcb4b15fbeab29c051401247a9031e42302&ipo=images",
-        "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwallpapercave.com%2Fwp%2FpRjUkTc.jpg&f=1&nofb=1&ipt=d4b25a3ee9de16e23560a1cf9a840c295308d3dc75fd9bb2f24a1b5291e15627&ipo=images"
+        "https://res.cloudinary.com/dgnwqr93n/image/upload/v1688153550/slide-1_fgfpri.jpg",
+        "https://res.cloudinary.com/dgnwqr93n/image/upload/v1688177236/paisa-1_sxyk42.jpg",
+        "https://res.cloudinary.com/dgnwqr93n/image/upload/v1688314974/slide-artesanos_kgzl9e.png"
     ]
 
-    const cambiarImagen = (indice) => {
-        setIndice(indice)
+    let images2 = [
+        "https://corpoayapel.org/wp-content/uploads/2020/01/nosotros-02.jpg",
+        "https://corpoayapel.org/wp-content/uploads/2020/01/nosotros-01.jpg",
+        "https://corpoayapel.org/wp-content/uploads/2020/01/galeria-4-1.jpg"
+    ]
+
+    const cambiarImagen1 = (indice) => {
+        setIndice1(indice)
+    }
+    
+    const cambiarImage2 = (indice) => {
+        setIndice2(indice)
     }
 
     useEffect(() => {
-        setImagenActual(images);
+        setImagenActual1(images);
+        setImagenActual2(images2);
         let interval = setInterval(() => {
-            setIndice(prevIndice => (prevIndice + 1) % images.length);
+            setIndice1(prevIndice => (prevIndice + 1) % images.length);
+            setIndice2(prevIndice => (prevIndice + 1) % images2.length);
         }, 4000);
 
         return () => {
@@ -35,30 +51,34 @@ function HowToHelp () {
             <div className="toHelp__Banner">
                 <div className="toHelp__Content">
                     <p className="toHelp__p">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex beatae, ipsam rem deleniti laudantium saepe quibusdam nostrum nisi recusandae, explicabo obcaecati possimus a nesciunt provident. Praesentium excepturi unde fugiat deserunt.
+                        Tu contribución es crucial para transformar Ayapel en todos los aspectos. Cada aporte nos ayuda a seguir trabajando sin fines de lucro y a cumplir nuestra misión. Descubre cómo puedes contribuir y únete a nuestro movimiento de cambio.
                     </p>
                     <div className="miniCarrousel">
-                        <MiniCarrousel indice={indice} imagenActual={imagenActual} cambiarImagen={cambiarImagen} btnTitulo="PROGRAMA VOLUNTARIOS" id="voluntarios"/>
-                        <MiniCarrousel indice={indice} imagenActual={imagenActual} cambiarImagen={cambiarImagen} btnTitulo="PROGRAMA EMPRESAS" id="empresas"/>
+                        <MiniCarrousel indice={indice1} imagenActual={imagenActual1} cambiarImagen={cambiarImagen1} btnTitulo="PROGRAMA VOLUNTARIOS" id="voluntarios"/>
+                        <MiniCarrousel indice={indice2} imagenActual={imagenActual2} cambiarImagen={cambiarImage2} btnTitulo="PROGRAMA EMPRESAS" id="empresas"/>
                     </div>
                 </div>
             </div>
             <div className="formulario">
-                <div className="formulario__voluntarios">
-                    <ToHelpForm titulo="VOLUNTARIOS" direccion="normal"
-                    descripcion="HOLAAAAA MUNDO!!!!"
-                    action="/pagina-no-existe"
-                    id="voluntarios"
-                    />
-                </div>
-                <div className="formulario__empresas">
-                    <ToHelpForm titulo="EMPRESAS" direccion="reverse"
-                    descripcion="ADIOS MUNDOOOOO!!!!"
-                    action="/pagina-no-existe"
-                    id="empresas"
-                    />
-                </div>
+                <HubspotProvider>
+                    <div className="formulario__voluntarios" id="voluntarios">
+                        <ToHelpForm titulo="VOLUNTARIOS" direccion="normal"
+                        descripcion="¿Quieres ir a ayudar y formar parte de la transformación de Ayapel? Llena este formulario para que estés al tanto de cómo ayudar a la comunidad de Ayapel."
+                        list={[]}
+                        imgURL="https://corpoayapel.org/wp-content/uploads/2020/01/slide-2.jpg"
+                        />
+                    </div>
+                    <div className="formulario__empresas" id="empresas">
+                        <ToHelpForm titulo="EMPRESAS" direccion="reverse"
+                        descripcion="Si tienes una empresa con inquietudes sociales, ambientales y económicas y tienes ganas de aportar tu granito de arena, tenemos varios planes para ti:"
+                        list={["Acompañamiento/patrocinio en viajes con influenciadores", "Colaboraciones con sentido", "Co-creación de campañas", "Donaciones voluntarias"]}
+                        imgURL="https://corpoayapel.org/wp-content/uploads/2020/01/slide-3.jpg"
+                        />
+                    </div>
+                </HubspotProvider>
             </div>
+
+            <Helmet title='¿Como Puedo Ayudar? - Corpo Ayapel'/>
         </div>
     )
 }

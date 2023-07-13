@@ -1,4 +1,4 @@
-function MiniCarrousel ({indice, cambiarImagen, imagenActual, id}) {
+function MiniCarrousel ({indice, cambiarImagen, imagenActual, id, btnTitulo}) {
     return (
         <>
             <div className="miniCarrousel__Container">
@@ -10,7 +10,7 @@ function MiniCarrousel ({indice, cambiarImagen, imagenActual, id}) {
                         <div className={`miniCarrousel__Button ${indice === 2 ? 'active' : ''}`} onClick={() => cambiarImagen(2)}></div>
                     </div>
                 </div>
-                <a href={`#${id}`} className="Program__button">PROGRAMA VOLUNTARIOS</a>
+                <a href={`#${id}`} className="Program__button">{btnTitulo}</a>
             </div>
         </>
     )
