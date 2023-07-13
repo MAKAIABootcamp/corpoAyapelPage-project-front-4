@@ -10,7 +10,7 @@ const News = () => {
       <div className="mainNews">
         <main className="mainNews__container">
           <section className="mainNews__title">
-            <h2>Ultimas Novedades</h2>
+            <h2>Últimas noticias</h2>
           </section>
           <span className="texto"></span>
           <section className="mainNews__cards">

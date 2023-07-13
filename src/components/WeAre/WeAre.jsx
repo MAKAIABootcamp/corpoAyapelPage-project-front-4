@@ -6,37 +6,39 @@ import { Link } from "react-router-dom";
 const WeAre = () => {
   return (
     <div className="background-2">
-      <div className="mainWeAre">
+      <main className="mainWeAre">
         <main className="mainWeAre__container">
           <section className="mainWeAre__title">
-            <h2>Nosotros Somos</h2>
+            <h2>Nosotros somos</h2>
           </section>
           <section className="mainWeAre__text">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo modi
-              iusto ipsam error quia odit quos facere voluptatum cumque? Earum
-              numquam alias reiciendis porro quas et, ipsam saepe vitae
-              excepturi! Repudiandae fuga incidunt, modi facilis amet numquam
-              eveniet atque tempora cupiditate adipisci! Aperiam, omnis. Atque
-              fugiat ratione deserunt praesentium eum adipisci reiciendis maxime
-              voluptate, ad cum molestias! Mollitia, ullam quae? Assumenda
-              voluptatibus expedita architecto odio aspernatur odit natus
-              delectus, alias et eligendi perferendis distinctio nemo autem at,
-              quam in aperiam! Quidem provident illum officia veritatis illo
-              voluptatibus earum qui! Provident.
+              Movidos por las enormes necesidades de este municipio, un grupo de
+              benefactores del país, fundaron CorpoAyapel, una organización sin
+              ánimo de lucro, que trabaja desde hace más de 16 años, por el
+              desarrollo SOSTENIBLE de las comunidades asentadas en el área de
+              influencia de la ciénaga de Ayapel. Durante estos años, se han
+              construido alianzas público - privada para desarrollar el
+              potencial del territorio y promover condiciones dignas que
+              permitan la permanencia de sus habitantes a través de las
+              siguientes líneas de acción: - Económica - Social - Ambiental
             </p>
           </section>
           <section className="mainWeAre__buttons">
-            <ButtonActions label={"Ver mas"} link={'/nosotros'} btn={true}/>
-            <ButtonActions label={"Nuestra Cultura"} link={'/cultura'} btn={true}/>
+            <ButtonActions label={"Ver más"} link={"/nosotros"} btn={true} />
+            <ButtonActions
+              label={"Nuestra cultura"}
+              link={"/cultura"}
+              btn={true}
+            />
           </section>
         </main>
-      </div>
-      <section className="mainWeAre__btn-donacion">
-        <Link to={"/donaciones"}>
-          <DonationButton bottom={true} />
-        </Link>
-      </section>
+        <section className="mainWeAre__button">
+          <Link to={"/donaciones"}>
+            <DonationButton bottom={true} />
+          </Link>
+        </section>
+      </main>
     </div>
   );
 };

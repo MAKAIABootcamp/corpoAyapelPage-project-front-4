@@ -7,12 +7,15 @@ import SocialMediaButton from '../../components/SocialMediaButton/SocialMediaBut
 const Layout = () => {
   return (
     <>
-    <Navbar/>
-    <Outlet/>
-    <AnimatedCursor color='110, 190, 74' innerSize={30}  outerStyle={{
-    mixBlendMode: 'exclusion'
-  }}/>
-    <SocialMediaButton/>
+      <Navbar />
+      <Outlet />
+
+      <AnimatedCursor color='110, 190, 74' innerSize={30}/>
+      
+      <div className="social-media-fixed">
+        <SocialMediaButton />
+      </div>
+
     </>
   )
 }

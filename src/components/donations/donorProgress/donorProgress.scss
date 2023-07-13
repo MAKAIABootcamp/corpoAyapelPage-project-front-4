@@ -1,6 +1,8 @@
 .donorProgress {
+    font-family: 'Mulish', sans-serif;
     &__background {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg');
+        background-image: url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689225653/ayapel/khi2n7p6nzszn7ng3n8t.jpg');
+      //  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689225653/ayapel/khi2n7p6nzszn7ng3n8t.jpg');
         //background-color: #e9ece7;
         height: 100vh;
         width: 100%;
@@ -24,7 +26,7 @@
         padding: 3rem;
         gap: 2rem;
         background-color: #fff;
-        border-radius: 50px;
+        border-radius: 77px;
         box-shadow: 0px 1px 0px hsl(0, 0%, 46%), /* Change the blue color to gray */
         0px 2px 0px hsl(0, 0%, 48%), /* Change the blue color to gray */
         0px 3px 0px hsl(0, 0%, 49%), /* Change the blue color to gray */
@@ -42,14 +44,17 @@
 
     }
     &__title {
+        font-family: 'Mulish', sans-serif;
         margin-bottom: 3rem;
         color: #fff;
-        font-size: 2rem;  
+        font-size: 1.8rem;  
         text-align: center;
+        margin-top: 5rem;
  
     }
     &__init, &__goal{
-       width: 60px;
+        font-family: 'Mulish', sans-serif;
+       width: auto;
         font-size: 1.5rem;
     }
     &__goal {
@@ -57,6 +62,7 @@
         flex-direction: row;
         width: auto;
         gap: 1rem;
+        color: #777779;
         // p {
         //     margin-right: 10px;
         // }
@@ -65,7 +71,7 @@
     &__main {
         display: flex;
         flex-direction: column;
-        padding: 0 10rem 0 10rem;
+        padding: 15%;
     }
     &__ctaDonations {
         display: flex;
@@ -73,6 +79,7 @@
         margin-top: 5rem;
     }
     &__status {
+        font-family: 'Mulish', sans-serif;
         text-align: center;
         margin-top: 2rem;
         font-size: 2rem;
@@ -91,4 +98,31 @@
     to {
         left: 100%;
     }
+}
+
+
+// ********************MEDIA QUERY**************************
+@media (max-width: 720px) {
+    .donorProgress {
+        &__init, &__goal{
+            width: auto;
+             font-size: .8rem;
+         }
+        &__title {
+            font-size: 1.3rem;
+        }
+        &__main {
+            padding: 0;
+            }
+
+        &__container__progress {
+            padding: 1rem;
+         
+            }
+            &__status {
+                text-align: center;
+                margin-top: 2rem;
+                font-size: 1rem;
+            }
+        }
 }

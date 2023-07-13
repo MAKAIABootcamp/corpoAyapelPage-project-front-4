@@ -1,0 +1,126 @@
+.mainCulture{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    &__container{
+        display: flex;
+        align-items: flex-start;
+        /* gap: 14vw; */
+        justify-content: flex-start;
+        padding-left: 10vh;
+        flex-direction: column;
+        width: 90vw;
+        height: 70vh;
+        gap: 10vh;
+    }
+    &__content{
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @media screen and (max-width:535px) {
+            width: 90%;
+            height: 50%;
+            justify-content: center;
+        }
+        h2{
+         font-size: 3.5rem;
+         color: #6ebe4a;
+         padding-bottom: 10px;
+         @media screen and (max-width:535px) {
+            font-size: 2.2rem;
+        }
+        }
+        p{
+            color: white;
+            text-align: center;
+            @media screen and (max-width:535px) {
+                font-size: 1rem;
+                text-align: center;
+            }
+        }
+        figure{
+            path{
+                fill: #6ebe4a;
+                color: #6ebe4a;
+            }
+            
+        }
+    }
+    &__stepper{
+        display: flex;
+        flex-direction: row;
+        /* padding: 0px 20px; */
+        gap: 50px;
+        button{
+            background-color: transparent;
+            font-size: 2.5rem;
+            border: 0px;
+            font-family: 'Mulish', sans-serif;
+            color: white;
+            @media screen and (max-width:535px) {
+                font-size: 1.5rem;
+            }
+           &:hover{
+            color: #6ebe4a;
+           }
+        }
+    }
+    &__values{
+        display: flex;
+        justify-content: space-around;
+        color: white;
+        width: 100%;
+        ul{
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            gap: 10px;
+
+        }
+    }
+    &__corp{
+        display: flex;
+        gap: 10vw;
+        @media screen and (max-width:535px) {
+            display: flex;
+            gap: 10vw;
+            width: 90vw;
+            height: 25vh;
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+}
+
+
+.backgroundCulture{
+    background-image: url('https://res.cloudinary.com/dgnwqr93n/image/upload/v1688679819/Untitled_design_2_vt8pcd.png');
+    // background-color: #6ebe4a;
+    position: relative; 
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+}
+.backgroundCulture::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.436);
+}
+
+.active-tab{
+    button{
+        color: #a5dc86;
+
+    }
+}

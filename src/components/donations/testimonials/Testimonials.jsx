@@ -35,13 +35,15 @@ const Testimonials = () => {
 
     const handleGoLeft = () => {
         if (testimoniosRef.current) {
-            testimoniosRef.current.scrollLeft -= 100;
+            const scrollAmount = -310; // Aumentar la cantidad de desplazamiento a -300
+            testimoniosRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         }
     };
 
     const handleGoRight = () => {
         if (testimoniosRef.current) {
-            testimoniosRef.current.scrollLeft += 100;
+            const scrollAmount = 310; // Aumentar la cantidad de desplazamiento a 300
+            testimoniosRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         }
     };
 
@@ -55,7 +57,7 @@ const Testimonials = () => {
 
             <div className='testimonials__background'>
                 <div>
-                    <h3 className='testimonials__title'>QUIENES NOS APOYAN</h3>
+                    <h3 className='testimonials__title'>¿Quiénes nos apoyan?</h3>
 
                     <div className='testimonials__container'>
                         <div className="testimonials__container__Row">
@@ -65,21 +67,21 @@ const Testimonials = () => {
 
 
                             {allPostData && allPostData.map((data, index) => (
-                                <section className="mainCircleCard" key={index}>
-                                    <section className="mainCircleCard__gestion">
+                                <section className="testimonialsCard" key={index}>
+                                    <section className="testimonialsCard__gestion">
                                     </section>
-                                    <section className="mainCircleCard__img">
+                                    <section className="testimonialsCard__img">
                                         <figure>
                                             <img src={data.mainImage.asset.url} alt="" />
                                         </figure>
                                     </section>
                                     <div className='bg__div'></div>
                                     <div className='bg__divContent'></div>
-                                    <section className="mainCircleCard__content">
-                                        <span className="mainCircleCard__title">{data.nombre}</span>
+                                    <section className="testimonialsCard__content">
+                                        <span className="testimonialsCard__title">{data.nombre}</span>
                                         <RiDoubleQuotesL className='icon__quote' />
                                         <RiDoubleQuotesR className='icon__quote__right' />
-                                        <p className="mainCircleCard__text"  >{truncateText(data.texto, 250)}</p>
+                                        <p className="testimonialsCard__text"  >{truncateText(data.texto, 250)}</p>
                                     </section>
                                 </section>
                             ))}
@@ -91,15 +93,15 @@ const Testimonials = () => {
                     </div>
                     <article className='testimonials__ctaDonations'>
                         <CtaDonations
-                            label={'QUIERO DONAR'}
+                            label={'¿QUIERES DONAR?'}
                             width={'15rem'}
                             height={'3rem'}
                             borderRadius={'2rem'}
                         />
                     </article>
-                    <article className="testimonials__next">
+                    {/* <article className="testimonials__next">
                         <BtnKnowMore />
-                    </article>
+                    </article> */}
                 </div>
             </div>
         </>

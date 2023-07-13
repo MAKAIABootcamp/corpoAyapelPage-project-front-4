@@ -30,7 +30,7 @@ const SocialMediaButton = () => {
             .then((data) => setAllPostData(data))
             .catch(console.error)
     }, [])
-    console.log(allPostData)
+    // console.log(allPostData)
 
 
 
@@ -88,6 +88,7 @@ const handleGoTo = (direction) => {
               icon={action.icon}
               tooltipTitle={action.name}
               onClick={handleClose}
+              
             />
           ))}
         </SpeedDial>

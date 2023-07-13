@@ -15,19 +15,19 @@ const FullPage = () => {
   return (
     <main className="container">
      
-      <div id="section1">
+      <div className="div">
         <Home />
       </div> 
-      <div id="section2">
+      <div className="div">
         <WeAre />
       </div>
-      <div id="section3">
+      <div className="div">
         <OurProjects />
       </div>
-      <div id="section4">
+      <div className="div">
         <News />
       </div>
-      <div id="section5">
+      <div className="div">
         <HubspotProvider>
           <Footer />
         </HubspotProvider>

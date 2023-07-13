@@ -7,22 +7,50 @@ import BtnKnowMore from '../../components/donations/btnKnowMore/BtnKnowMore';
 import { motion, useIsPresent } from "framer-motion";
 import ImpactIndicator from '../../components/donations/impactIndicator/ImpactIndicator';
 import client from '../../sanity/client';
+//import HsForm from '../../components/donations/HsForm';
+import BasicModal from '../../components/BasicModal';
+//import { HubspotForm } from 'react-hubspot-form';
+//import HubspotContactForm from '../../components/hubspotContactForm/HubspotContactForm';
+//import VideoDonations from '../../components/donations/videoDonations/VideoDonations';
+import { listTransactions, listPaymentLinks, getTransactionDetail } from '../../epayco';
+import YouTube from 'react-youtube';
 
 const Donations = () => {
 
-  const isPresent = useIsPresent();
+    const isPresent = useIsPresent();
 
   const [selectedAmount, setSelectedAmount] = useState(null)
+  const [selectedCancelSuscripcion, setSelectedCancelSuscripcion] = useState(false)
   const [showImpactIndicator, setShowImpactIndicator] = useState(false);
 
-  const formattedDonation = Math.round(Number(selectedAmount) * 1000 / 30).toLocaleString();
+const [dataTransactionDetail, setDataTransactionDetail] = useState(null)
+
+const formattedDonation = (selectedAmount / 30).toLocaleString();
+
 
   const handleConfirmGoToDonate = (amount) => {
     setSelectedAmount(amount === selectedAmount ? null : amount);
   }
 
+
+
   useEffect(() => {
-    console.log('Donarás', selectedAmount); // El valor de "selectedAmount" estará actualizado aquí
+   // getDataEpayco();
+   //listTransactions();
+   //listPaymentLinks();
+   const fetchData = async () => {
+    try {
+      const result = await getTransactionDetail();
+      const data = result;
+      console.log(data);
+      setDataTransactionDetail(data)
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
+  fetchData();
+     
+    //console.log('Donarás', selectedAmount); // El valor de "selectedAmount" estará actualizado aquí
   }, [selectedAmount]);
 
   const [allPostData, setAllPostData] = useState(null)
@@ -47,6 +75,7 @@ const Donations = () => {
 
   const handleCancelRecurrentDonation = () => {
     console.log('Cancelar donación')
+    setSelectedCancelSuscripcion(true)
   }
   const handleGoDonate = () => {
     if (selectedAmount === null) {
@@ -83,11 +112,11 @@ const Donations = () => {
   }
 
   const donationAmounts = [
-    { amount: allPostData?.[0].amount1 },
-    { amount: allPostData?.[0].amount2 },
-    { amount: allPostData?.[0].amount3 },
-    { amount: allPostData?.[0].amount4 },
-    { amount: allPostData?.[0].amount5 },
+    { amount: Number(allPostData?.[0].amount1) },
+    { amount: Number(allPostData?.[0].amount2) },
+    { amount: Number(allPostData?.[0].amount3) },
+    { amount: Number(allPostData?.[0].amount4 )},
+    { amount: Number(allPostData?.[0].amount5) },
     { amount: allPostData?.[0].amount6 },
   ];
 
@@ -95,6 +124,10 @@ const Donations = () => {
     console.log('voy al next')
     setShowImpactIndicator(true);
   }
+
+  const handleVideoReady = (event) => {
+    //     // Aquí puedes agregar lógica adicional cuando el video esté listo
+       };
 
   // const handleScroll = () => {
   //   handleToNextComponent();
@@ -107,13 +140,16 @@ const Donations = () => {
       {showImpactIndicator ? <ImpactIndicator /> :
         <>
           <div className='donations__background'>
+            <h3>
+              ¡También puedes ser parte de este sueño!
+            </h3>
             <main className='donations__container'>
               <section className='donations__columnOne'>
                 <div className='donations__btns'>
                   {donationAmounts.slice(0, 3).map((item, index) => (
                     <BtnQuantityMoney
                       key={index}
-                      amount={item.amount}
+                      amount={item.amount ? item.amount.toLocaleString() : ''}
                       isSelected={selectedAmount === item.amount}
                       onClick={handleConfirmGoToDonate}
                     />
@@ -123,27 +159,49 @@ const Donations = () => {
               <section className='donations__columnTwo'>
                 {selectedAmount === null ?
                   <div className='donations__image'>
-                    <video width='540' height='360' controls className='donations__image__ppl'>
-                      <source src='https://youtu.be/1KzRhryHfLI' type='video/mp4' />
-                    </video>
+                    
+                 <iframe
+                 width="auto"
+                 height="263"
+                 src="https://www.youtube.com/embed/nzSJh5Ucgvc?autoplay=1"
+                 title="YouTube video player"
+                 frameborder="0"
+                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                 allowfullscreen
+               ></iframe> 
+
+              
+{/* 
+<YouTube
+              videoId="nzSJh5Ucgvc"
+              opts={{
+                playerVars: {
+                  autoplay: 1,
+                  mute: 1,
+                  loop: 1,
+                  controls: 0,
+                },
+              }}
+              onReady={handleVideoReady}
+              containerClassName="LazyVideo__StyledVideo-sc-12k5ev0-0 gaXtOT"
+            /> */}
+               
+                  
                   </div>
                   :
                   <div className='donations__columnTwo-selected'>
                     <h3 className='donations__title'>¿Quieres ser un donador recurrente?</h3>
-                    <p>Al donar COP {formattedDonation} diarios ayudas a ...</p>
+                    {selectedAmount !== "Otro Valor" ? 
+                    <p className='donations__text'>Al donar COP {formattedDonation} contribuyes al mejoramiento de la calidad de vida de los habitantes de Ayapel.</p>
+                    :  <p className='donations__text'> Puedes decir cuánto donar y contribuir al mejoramiento de la calidad de vida de los habitantes de Ayapel.</p>
+                    }
                   </div>
                 }
+
+               
                 <div className='donations__container__ctaBtns'>
                   {selectedAmount === null &&
-                    <CtaDonations
-                      onClick={handleCancelRecurrentDonation}
-                      label={'Cancelar suscripción'}
-                      width={'12rem'}
-                      height={'3rem'}
-                      bgColor={'#FFF'}
-                      borderRadius={'2rem'}
-                      color={'black'}
-                    />
+                   <BasicModal />
                   }
                   <CtaDonations
                     onClick={handleGoDonate}
@@ -161,7 +219,7 @@ const Donations = () => {
                   {donationAmounts.slice(3).map((item, index) => (
                     <BtnQuantityMoney
                       key={index}
-                      amount={item.amount}
+                      amount={item.amount ? item.amount.toLocaleString() : ''}
                       isSelected={selectedAmount === item.amount}
                       onClick={handleConfirmGoToDonate}
                     />
@@ -178,8 +236,12 @@ const Donations = () => {
             style={{ transformOrigin: isPresent ? "0" : "100%" }}
             className="privacy-screen"
           />
+               {/* <p>{dataTransactionDetail?.lastAction}</p> */}
         </>
       }
+{/*       
+      <VideoDonations/> */}
+
     </>
   )
 };

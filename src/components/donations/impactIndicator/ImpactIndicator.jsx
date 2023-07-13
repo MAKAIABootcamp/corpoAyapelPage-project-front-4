@@ -5,6 +5,18 @@ import './impactIndicator.scss';
 import BtnKnowMore from '../btnKnowMore/BtnKnowMore';
 import CtaDonations from '../ctaDonations/CtaDonations';
 import client from '../../../sanity/client';
+//import CarouselSwiper from '../../carouselSwiper/CarouselSwiper';
+import 'swiper/css';
+// import Swiper core and required modules
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 const ImpactIndicator = () => {
 
@@ -26,7 +38,7 @@ const ImpactIndicator = () => {
             .catch(console.error)
     }, [])
     console.log(allPostData)
-    
+
 
     const chunkedData = [];
     for (let i = 0; i < allPostData?.length; i += 3) {
@@ -36,12 +48,52 @@ const ImpactIndicator = () => {
 
     return (
         <div className='impactIndicator__background'>
+
             <main className='impactIndicator__main'>
                 <div>
                     <h3 className='impactIndicador__title'>Con las donaciones recurrentes, creamos un impacto duradero.</h3>
 
                 </div>
-                <section style={{ maxWidth: '950px', maxHeight: '600px' }}>
+                {/* <CarouselSwiper/> */}
+
+                <section >
+                    <Swiper
+                        // install Swiper modules
+                        modules={[Navigation, Pagination, Scrollbar, A11y]}
+                        spaceBetween={50}
+                        slidesPerView={3}
+                        navigation
+                        pagination={{ clickable: true }}
+                        scrollbar={{ draggable: true }}
+                        onSwiper={(swiper) => console.log(swiper)}
+                        onSlideChange={() => console.log('slide change')}
+                    
+                        breakpoints={{
+                            375: {
+                                width: 375,
+                                slidesPerView: 1,
+                              },
+                            640: {
+                              width: 640,
+                              slidesPerView: 2,
+                            },
+                            768: {
+                              width: 768,
+                              slidesPerView: 3,
+                            },
+                          }}
+                    >
+                        {allPostData && allPostData?.map((data, index) => (
+                            <SwiperSlide> <div key={index} className="impactIndicator__circle__image">
+                                <img src={data.mainImage.asset.url} alt="" />
+                                <p>{data.title}</p>
+                            </div></SwiperSlide>
+
+                        ))}
+                    </Swiper>
+                </section>
+
+                {/* <section style={{ maxWidth: '950px', maxHeight: '600px' }}>
                     <Carousel showThumbs={false}>
                         {chunkedData.map((group, index) => (
                             <div key={index} className='impactIndicator__carousel'>
@@ -54,10 +106,10 @@ const ImpactIndicator = () => {
                             </div>
                         ))}
                     </Carousel>
-                </section>
+                </section> */}
                 <article className='impactIndicator__ctaDonations'>
                     <CtaDonations
-                        label={'QUIERO DONAR'}
+                        label={'¿QUIERES DONAR?'}
                         width={'15rem'}
                         height={'3rem'}
                         borderRadius={'2rem'}

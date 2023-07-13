@@ -6,6 +6,8 @@ import {GoShare} from "react-icons/go"
 import { Link } from "react-router-dom";
 import { truncateText } from "../../utils/shortText";
 import BlockContent from "@sanity/block-content-to-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 const SquareCard = ({title, text, img, sector}) => {
   const [newsData, setAllnewsData] = useState(null)
   useEffect(() => {
@@ -36,7 +38,35 @@ const SquareCard = ({title, text, img, sector}) => {
   }
   return (
     <>
+    <Swiper
+        slidesPerView={1}
+        spaceBetween={1}
+        loop={true}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[ Navigation]}
+        className="mySwiper"
+         breakpoints={{
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 1,
+            spaceBetween: 40,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 50,
+          },
+        }}
+      >
+        
     {newsData && newsData.map((data, index) => (
+      <SwiperSlide>
+
     <section className="mainSquareCard" key={index}>
         <section className="mainSquareCard__img">
           <figure>
@@ -55,7 +85,11 @@ const SquareCard = ({title, text, img, sector}) => {
         </section>
       
   </section>
+  </SwiperSlide>
+
   ))}
+      </Swiper>
+
   </>
   );
 };
