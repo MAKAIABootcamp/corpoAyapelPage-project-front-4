@@ -5,8 +5,6 @@ import MotionPathPlugin from 'gsap/MotionPathPlugin';
 
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
-
-
 gsap.defaults({ ease: 'none' });
 
 const AnimationComponent = () => {

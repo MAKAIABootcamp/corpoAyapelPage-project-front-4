@@ -23,6 +23,7 @@ import PageDonations from "../pages/Donations/pageDonations/PageDonations";
 import HowToHelp from "../pages/HowToHelp/HowToHelp";
 import PruebaFullPage from "../pages/PruebaFullPage/PruebaFullPage";
 import BannerDonations from "../pages/Donations/bannerDonations/BannerDonations";
+//import AppLoader from "../components/appLoader/AppLoader";
 
 
 const AppRouter = () => {

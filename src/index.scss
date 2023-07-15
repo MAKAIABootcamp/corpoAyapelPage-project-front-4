@@ -180,3 +180,27 @@ html {
   margin-left: 3rem;
 }
 
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #6EBE4A;
+  font-size: 2rem;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 99;
+  backdrop-filter: blur(8px); /* Agrega el efecto de desenfoque */
+  background-color: rgba(189, 203, 183, 0.5); /* Agrega un color de fondo con transparencia */
+}
+.loaderMap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #6EBE4A;
+  font-size: 2rem;
+  width: 100%;
+  height: 100%;
+}

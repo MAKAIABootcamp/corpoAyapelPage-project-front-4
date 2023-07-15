@@ -5,15 +5,13 @@ import CtaDonations from '../../components/donations/ctaDonations/CtaDonations'
 import Swal from 'sweetalert2';
 import BtnKnowMore from '../../components/donations/btnKnowMore/BtnKnowMore';
 import { motion, useIsPresent } from "framer-motion";
-import ImpactIndicator from '../../components/donations/impactIndicator/ImpactIndicator';
 import client from '../../sanity/client';
-//import HsForm from '../../components/donations/HsForm';
 import BasicModal from '../../components/BasicModal';
-//import { HubspotForm } from 'react-hubspot-form';
-//import HubspotContactForm from '../../components/hubspotContactForm/HubspotContactForm';
-//import VideoDonations from '../../components/donations/videoDonations/VideoDonations';
-import { listTransactions, listPaymentLinks, getTransactionDetail } from '../../epayco';
-import YouTube from 'react-youtube';
+import { listTransactions, listPaymentLinks, getTransactionDetail, createNewCostumer, createCardToken } from '../../epayco';
+//import YouTube from 'react-youtube';
+import { useDispatch, useSelector } from 'react-redux';
+import { setLoadingStatusFalse } from '../../redux/actions/actions';
+import Loader from '../../components/appLoader/Loader';
 
 const Donations = () => {
 
@@ -40,7 +38,7 @@ const formattedDonation = (selectedAmount / 30).toLocaleString();
    //listPaymentLinks();
    const fetchData = async () => {
     try {
-      const result = await getTransactionDetail();
+      const result = await createCardToken();
       const data = result;
       console.log(data);
       setDataTransactionDetail(data)
@@ -49,9 +47,11 @@ const formattedDonation = (selectedAmount / 30).toLocaleString();
     }
   };
   fetchData();
-     
-    //console.log('Donarás', selectedAmount); // El valor de "selectedAmount" estará actualizado aquí
+
   }, [selectedAmount]);
+
+  const { loading } = useSelector((store) => store.loading);
+  const dispatch = useDispatch();
 
   const [allPostData, setAllPostData] = useState(null)
   useEffect(() => {
@@ -67,11 +67,13 @@ const formattedDonation = (selectedAmount / 30).toLocaleString();
         currentDonors
       }`
       )
-      .then((data) => setAllPostData(data))
-      .catch(console.error)
+      .then((data) => {
+        setAllPostData(data);
+        dispatch(setLoadingStatusFalse());
+      })
+      .catch(console.error);
   }, [])
-  console.log(allPostData)
-
+  
 
   const handleCancelRecurrentDonation = () => {
     console.log('Cancelar donación')
@@ -112,11 +114,11 @@ const formattedDonation = (selectedAmount / 30).toLocaleString();
   }
 
   const donationAmounts = [
-    { amount: Number(allPostData?.[0].amount1) },
-    { amount: Number(allPostData?.[0].amount2) },
-    { amount: Number(allPostData?.[0].amount3) },
-    { amount: Number(allPostData?.[0].amount4 )},
-    { amount: Number(allPostData?.[0].amount5) },
+    { amount: allPostData?.[0].amount1 },
+    { amount: allPostData?.[0].amount2 },
+    { amount: allPostData?.[0].amount3 },
+    { amount: allPostData?.[0].amount4 },
+    { amount: allPostData?.[0].amount5 },
     { amount: allPostData?.[0].amount6 },
   ];
 
@@ -137,19 +139,23 @@ const formattedDonation = (selectedAmount / 30).toLocaleString();
 
   return (
     <>
-      {showImpactIndicator ? <ImpactIndicator /> :
+    {loading ? (
+        <>
+          <Loader />
+        </>
+      ) : (
         <>
           <div className='donations__background'>
-            <h3>
-              ¡También puedes ser parte de este sueño!
-            </h3>
+            <h3 style={{textAlign:'center'}}>
+              ¡También puedes ser parte de este sueño! <br/> Realizando donaciones económicas o en especies
+            </h3> 
             <main className='donations__container'>
               <section className='donations__columnOne'>
                 <div className='donations__btns'>
                   {donationAmounts.slice(0, 3).map((item, index) => (
                     <BtnQuantityMoney
                       key={index}
-                      amount={item.amount ? item.amount.toLocaleString() : ''}
+                      amount={item.amount}
                       isSelected={selectedAmount === item.amount}
                       onClick={handleConfirmGoToDonate}
                     />
@@ -219,7 +225,7 @@ const formattedDonation = (selectedAmount / 30).toLocaleString();
                   {donationAmounts.slice(3).map((item, index) => (
                     <BtnQuantityMoney
                       key={index}
-                      amount={item.amount ? item.amount.toLocaleString() : ''}
+                      amount={item.amount}
                       isSelected={selectedAmount === item.amount}
                       onClick={handleConfirmGoToDonate}
                     />
@@ -238,7 +244,7 @@ const formattedDonation = (selectedAmount / 30).toLocaleString();
           />
                {/* <p>{dataTransactionDetail?.lastAction}</p> */}
         </>
-      }
+      )}
 {/*       
       <VideoDonations/> */}
 

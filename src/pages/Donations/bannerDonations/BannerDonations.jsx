@@ -207,53 +207,317 @@
 // export default BannerDonations;
 
 
-import React from 'react'
-import './bannerDonations.scss'
+// import React from 'react'
+// import './bannerDonations.scss'
+// import YouTube from 'react-youtube';
+// import BtnKnowMore from '../../../components/donations/btnKnowMore/BtnKnowMore';
+
+// const BannerDonations = () => {
+//     // const handleVideoReady = (event) => {
+//     //     //     // Aquí puedes agregar lógica adicional cuando el video esté listo
+//     // };
+
+//     const handleToNextComponent = () => {
+//         console.log('voy al next')
+
+//       }
+
+//     return (
+//         <>
+//             {/* <div className='bannerDonations__container' style={{height:'100vh'}}>
+
+//             <section className='sectionBanner'>
+//                 <img id='bg' src="https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689225699/ayapel/i8bxcqmckedeig3xprsg.jpg" alt="" />
+//                 <img id='top' src="https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689225652/ayapel/s8oftcjl16h2hvf7vcvu.jpg" alt="" />
+//                 <img  id='botton' src="https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689225653/ayapel/gpxphzifq0sacev96qb3.jpg" alt="" />
+//             </section>
+//         </div> */}
+
+
+
+//             <div className='container__video'>
+
+//                 <iframe
+//                     width="100%"
+//                     height="100%"
+//                     src="https://www.youtube.com/embed/nzSJh5Ucgvc?autoplay=1"
+//                     title="YouTube video player"
+//                     frameborder="0"
+//                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+//                     allowfullscreen
+//                 ></iframe>
+
+//             </div>
+
+
+
+
+//         </>
+//     )
+// }
+
+// export default BannerDonations
+
+// import React, { useState } from 'react';
+// import './bannerDonations.scss';
+// import YouTube from 'react-youtube';
+// import BtnKnowMore from '../../../components/donations/btnKnowMore/BtnKnowMore';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { setLoadingStatusFalse } from '../../../redux/actions/actions';
+// import Loader from '../../../components/appLoader/Loader';
+
+// const BannerDonations = () => {
+//     const { loading } = useSelector((store) => store.loading);
+//     const dispatch = useDispatch();
+//     console.log(loading)
+
+//     const handleVideoReady = () => {
+//         dispatch(setLoadingStatusFalse());
+//     };
+
+//     const handleToNextComponent = () => {
+//         console.log('voy al next');
+//     };
+
+//     return (
+//         <>
+//             {loading ? (
+//                 <>
+//                     <Loader />
+//                 </>
+//             ) : (
+// <>
+//                 <div className='container__video'>
+//                     {/* <YouTube
+//                         videoId="nzSJh5Ucgvc"
+//                         opts={{
+//                             playerVars: {
+//                                 autoplay: 1,
+//                                 mute: 1,
+//                                 loop: 1,
+//                                 controls: 0,
+//                                 width: '1100px',
+//                                 height: '800px'
+//                             },
+//                         }}
+//                         onReady={handleVideoReady}
+//                         containerClassName="LazyVideo__StyledVideo-sc-12k5ev0-0 gaXtOT"
+//                     /> */}
+
+//                     <iframe
+//                         width="100%"
+//                         height="100%"
+//                         src="https://www.youtube.com/embed/nzSJh5Ucgvc?autoplay=1"
+//                         title="YouTube video player"
+//                         frameborder="0"
+//                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+//                         allowfullscreen
+//                     ></iframe>
+
+
+//                 </div>
+//                 <div class="overlay"></div>
+//                 <div class="home-content">
+//                      <h1>High-End Kitchen.</h1>
+//                      <div class="middle-line"></div>
+//                      <button>DISCOVER</button>
+//                 </div>
+//                 </>
+//             )}
+//         </>
+//     );
+// };
+
+// export default BannerDonations;
+
+
+
+// import React, { useState } from 'react';
+// import './bannerDonations.scss';
+// import YouTube from 'react-youtube';
+// import BtnKnowMore from '../../../components/donations/btnKnowMore/BtnKnowMore';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { setLoadingStatusFalse } from '../../../redux/actions/actions';
+// import Loader from '../../../components/appLoader/Loader';
+
+// const BannerDonations = () => {
+//     const { loading } = useSelector((store) => store.loading);
+//     const dispatch = useDispatch();
+
+//     const handleVideoReady = () => {
+//         dispatch(setLoadingStatusFalse());
+//     };
+
+//     const handleToNextComponent = () => {
+//         console.log('voy al next');
+//     };
+
+//     return (
+//         <>
+//             {loading ? (
+//                 <>
+//                     <Loader />
+//                 </>
+//             ) : (
+//                 <>
+//                     <div className="banner-container">
+//                         <div className="container__video">
+//                         <iframe
+//                         width="100%"
+//                         height="100%"
+//                         src="https://www.youtube.com/embed/nzSJh5Ucgvc?autoplay=1"
+//                         title="YouTube video player"
+//                         frameborder="0"
+//                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+//                         allowfullscreen
+//                     ></iframe>
+//                         </div>
+//                         <div className="overlay"></div>
+//                         <div className="home-content">
+//                             <h1>High-End Kitchen.</h1>
+//                             <div className="middle-line"></div>
+//                             <button>DISCOVER</button>
+//                         </div>
+//                     </div>
+//                 </>
+//             )}
+//         </>
+//     );
+// };
+
+// export default BannerDonations;
+
+
+// import React, { useState } from 'react';
+// import './bannerDonations.scss';
+// import YouTube from 'react-youtube';
+// import BtnKnowMore from '../../../components/donations/btnKnowMore/BtnKnowMore';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { setLoadingStatusFalse } from '../../../redux/actions/actions';
+// import Loader from '../../../components/appLoader/Loader';
+
+// const BannerDonations = () => {
+//     const { loading } = useSelector((store) => store.loading);
+//     const dispatch = useDispatch();
+
+//     const handleVideoReady = () => {
+//         dispatch(setLoadingStatusFalse());
+//     };
+
+//     const handleVideoEnd = (event) => {
+//         event.target.playVideo(); // Reproduce el video nuevamente al finalizar
+//     };
+
+//     const handleToNextComponent = () => {
+//         console.log('voy al next');
+//     };
+
+//     return (
+//         <>
+//             {loading ? (
+//                 <>
+//                     <Loader />
+//                 </>
+//             ) : (
+//                 <>
+//                     <div className="banner-container">
+//                         <div className="container__video">
+//                             <YouTube
+//                                 videoId="nzSJh5Ucgvc"
+//                                 opts={{
+//                                     playerVars: {
+//                                         autoplay: 1,
+//                                         mute: 1,
+//                                         loop: 1,
+//                                         controls: 0,
+//                                     },
+//                                 }}
+//                                 onReady={handleVideoReady}
+//                                 onEnd={handleVideoEnd} // Agregar el evento onEnd
+//                             />
+//                         </div>
+//                         <div className="overlay"></div>
+//                         <div className="home-content">
+//                             <h1>High-End Kitchen.</h1>
+//                             <div className="middle-line"></div>
+//                             <button>DISCOVER</button>
+//                         </div>
+//                     </div>
+//                 </>
+//             )}
+//         </>
+//     );
+// };
+
+// export default BannerDonations;
+
+
+import React, { useState } from 'react';
+import './bannerDonations.scss';
 import YouTube from 'react-youtube';
 import BtnKnowMore from '../../../components/donations/btnKnowMore/BtnKnowMore';
+import { useDispatch, useSelector } from 'react-redux';
+import { setLoadingStatusFalse } from '../../../redux/actions/actions';
+import Loader from '../../../components/appLoader/Loader';
 
 const BannerDonations = () => {
-    // const handleVideoReady = (event) => {
-    //     //     // Aquí puedes agregar lógica adicional cuando el video esté listo
-    // };
+    const { loading } = useSelector((store) => store.loading);
+    const dispatch = useDispatch();
+
+    const handleVideoReady = () => {
+        dispatch(setLoadingStatusFalse());
+    };
+
+    const handleVideoEnd = (event) => {
+        event.target.playVideo(); // Reproduce el video nuevamente al finalizar
+    };
 
     const handleToNextComponent = () => {
-        console.log('voy al next')
-   
-      }
+        console.log('voy al next');
+    };
+
+    // const opts = {
+    //     height: auto,
+    //     width: auto,
+    //     playerVars: {
+    //       // https://developers.google.com/youtube/player_parameters
+    //       autoplay: 1,
+    //     },
+    // }
 
     return (
         <>
-            {/* <div className='bannerDonations__container' style={{height:'100vh'}}>
-
-            <section className='sectionBanner'>
-                <img id='bg' src="https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689225699/ayapel/i8bxcqmckedeig3xprsg.jpg" alt="" />
-                <img id='top' src="https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689225652/ayapel/s8oftcjl16h2hvf7vcvu.jpg" alt="" />
-                <img  id='botton' src="https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689225653/ayapel/gpxphzifq0sacev96qb3.jpg" alt="" />
-            </section>
-        </div> */}
-
-
-      
-            <div className='container__video'>
-                
-                <iframe
-                    width="1500px"
-                    height="850px"
-                    src="https://www.youtube.com/embed/nzSJh5Ucgvc?autoplay=1"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                ></iframe>
-         
-            </div>
-             
-
-
-
+            {loading ? (
+                <>
+                    <Loader />
+                </>
+            ) : (
+                <>
+                    <div className="banner-container">
+                        <div className="container__video">
+                        <iframe
+                        width="100%"
+                        height="100%"
+                        src="https://www.youtube.com/embed/nzSJh5Ucgvc?autoplay=1"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                        </div>
+                        <div className="overlay"></div>
+                        <div className="home-content">
+                            <h1>¡Descúbre cómo puedes apoyar!</h1>
+                            <div style={{marginTop:'2rem'}}>
+                            <BtnKnowMore onClick={handleToNextComponent}/>
+                            </div>
+          
+                        </div>
+                    </div>
+                </>
+            )}
         </>
-    )
-}
+    );
+};
 
-export default BannerDonations
+export default BannerDonations;

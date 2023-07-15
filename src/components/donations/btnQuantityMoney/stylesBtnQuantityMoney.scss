@@ -3,6 +3,7 @@
     width: 100%;
     border: none;
     cursor: pointer;
+    z-index: 6;
     background-color: #FFF;
     color: #777779;
     border-radius: 80px;
@@ -13,17 +14,19 @@
     justify-content: space-around;
     align-items: center;
     font-size: 1.5rem;
-    box-shadow: 0px 1px 0px hsl(90, 100%, 40%),
-        0px 2px 0px hsl(90, 100%, 38%),
-        0px 3px 0px hsl(90, 100%, 37%),
-        0px 4px 0px hsl(90, 100%, 36%),
-        0px 5px 0px hsl(90, 100%, 35%),
-        0px 6px 0px hsl(90, 100%, 34%),
-        0px 7px 0px hsl(90, 100%, 33%),
-        0px 8px 0px hsl(90, 100%, 32%),
-        0px 9px 0px hsl(90, 100%, 31%),
-        0px 10px 0px hsl(90, 100%, 20%),
-        0px 11px 10px #6EBE4A;
+    box-shadow: 
+    0px 1px 0px #6EBE4A,
+    0px 2px 0px #6EBE4A,
+    0px 3px 0px #6EBE4A,
+    0px 4px 0px #6EBE4A,
+    0px 5px 0px #6EBE4A,
+    0px 6px 0px #6EBE4A,
+    0px 7px 0px #6EBE4A,
+    0px 8px 0px #6EBE4A,
+    0px 9px 0px #6EBE4A,
+    0px 10px 0px #6EBE4A,
+    0px 11px 10px #6EBE4A;
+  
 
     .gif-container {
         display: inline-block;
@@ -49,6 +52,7 @@
 
 .btn__quantity.active {
     background-color: #6EBE4A;
+    color: #fff;
     box-shadow: 0px 1px 0px hsl(0, 0%, 46%),
         /* Change the blue color to gray */
         0px 2px 0px hsl(0, 0%, 48%),
@@ -70,7 +74,7 @@
         0px 10px 0px hsl(0, 0%, 88%),
         /* Change the blue color to gray */
         0px 11px 10px #777779;
-    transform: translateY(5px) scale(1.25);
+    transform: translateY(5px) scale(1.05);
     height: var(--active-height);
     width: var(--active-width);
 

@@ -10,7 +10,7 @@
         align-items: center;
         justify-content: center;
         background-size: cover;
-        z-index: .5;
+        z-index: 3;
       // flex-wrap: wrap;
     }
     &__bar {
@@ -71,7 +71,8 @@
     &__main {
         display: flex;
         flex-direction: column;
-        padding: 15%;
+        padding-left: 15%;
+        padding-right: 15%;
     }
     &__ctaDonations {
         display: flex;

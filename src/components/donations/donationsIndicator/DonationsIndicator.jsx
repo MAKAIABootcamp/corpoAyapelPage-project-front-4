@@ -15,6 +15,10 @@ import GraficIndcator from './graficIndicator/GraficIndcator';
 import { Keyboard, Pagination, Navigation } from 'swiper/modules';
 import CtaDonations from '../ctaDonations/CtaDonations';
 import BtnKnowMore from '../btnKnowMore/BtnKnowMore';
+import client from '../../../sanity/client';
+import { useDispatch, useSelector } from 'react-redux';
+import { setLoadingStatusFalse } from '../../../redux/actions/actions';
+import Loader from '../../appLoader/Loader';
 
 const Counter = ({ stopValue }) => {
     const [count, setCount] = useState(0);
@@ -39,135 +43,167 @@ const Counter = ({ stopValue }) => {
     return <div className="donationsIndicator__counter">{count}</div>;
 };
 
+
+
 const DonationsIndicator = () => {
+
+    const { loading } = useSelector((store) => store.loading);
+    const dispatch = useDispatch();
+
+    const [allPostData, setAllPostData] = useState(null)
+    useEffect(() => {
+        dispatch(setLoadingStatusFalse());
+        client
+            .fetch(
+                `*[_type == "ImpactIndicator"] {
+                  getionSocial[]{
+                      mainImage{
+                          asset->{
+                              _id,
+                              url
+                            }
+                        },
+                        text,
+                        indicator
+                        
+                    },
+                    gestionEconomica[]{
+                        mainImage{
+                            asset->{
+                                _id,
+                                url
+                            }
+                        },
+                        text,
+                        indicator
+                        
+                    },
+                    gestionAmbiental[]{
+                        mainImage{
+                            asset->{
+                                _id,
+                                url
+                            }
+                        },
+                        text,
+                        indicator
+                        
+                    }
+                }`
+            )
+            .then((data) => {
+                setAllPostData(data);
+                dispatch(setLoadingStatusFalse());
+              })
+              .catch(console.error);
+    }, [])
+
     return (
         <>
-            <div className='donationsIndicator__background'>
-                {/* <GraficIndcator/> */}
-                <Swiper
-                    slidesPerView={1}
-                    spaceBetween={30}
-                    keyboard={{
-                        enabled: true,
-                    }}
-                    pagination={{
-                        clickable: true,
-                    }}
-                    navigation={true}
-                    modules={[Keyboard, Pagination, Navigation]}
-                    className="mySwiper"
-                >
-                    <SwiperSlide>
-                        <div className='donationsIndicator__container'>
-                            <h3>Gestión ambiental</h3>
-                            <div className='donationsIndicator__containerCarousel'>
-                                <article style={{ position: 'relative' }}>
+            {loading ? (
+                 <>
+                 <Loader />
+               </>
+            ) : (
+                <div className='donationsIndicator__background'>
+                    {/* <GraficIndcator/> */}
+                    <Swiper
+                        slidesPerView={1}
+                        spaceBetween={0}
+                        keyboard={{
+                            enabled: true,
+                        }}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        navigation={true}
+                        modules={[Keyboard, Pagination, Navigation]}
+                        className="mySwiper"
 
-                                    <div style={{ width: '300px', height: '300px', borderRadius: '50%', backgroundSize:'cover', backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689261449/ayapel/cpefakxd4vij3uszdoc5.jpg')" }}>
-                                    </div>
-                                    <div className='donationsIndicator__content'>
-                                        <Counter stopValue={55} />
-                                        <p>Toneladas de pet reciclado y despachadas</p>
-                                    </div>
-                                </article>
-                                <article style={{ position: 'relative' }}>
 
-                                    <div style={{ width: '300px', height: '300px', borderRadius: '50%', backgroundSize:'cover', backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689262165/ayapel/cahspl3bzooveov01bhy.jpg')" }}>
-                                    </div>
-                                    <div className='donationsIndicator__content'>
-                                        <Counter stopValue={300} />
-                                        <p>Árboles nativos listos para la venta</p>
-                                    </div>
-                                </article>
-                                <article style={{ position: 'relative' }}>
+                    >
+                        <SwiperSlide>
+                            <div className='donationsIndicator__container'>
+                                <h3>Gestión ambiental</h3>
+                                <div className='donationsIndicator__containerCarousel'>
+                                    {allPostData && allPostData?.[0].gestionAmbiental.map((data, index) => (
+                                        <article index={index} style={{ position: 'relative' }}>
 
-                                    <div style={{ width: '300px', height: '300px', borderRadius: '50%', backgroundSize:'cover', backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689262473/ayapel/q2jyhgkduclgyrqcyv72.jpg')" }}>
-                                    </div>
-                                    <div className='donationsIndicator__content'>
-                                        <Counter stopValue={25} />
-                                        <p>Charlas ambientales realizadas</p>
-                                    </div>
-                                </article>
+                                            <div className="donationsIndicator__image" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${data.mainImage.asset.url}')` }}>
+                                            </div>
+                                            <div className='donationsIndicator__content' >
+                                                <Counter stopValue={Number(data.indicator)} />
+                                                <p>{data.text}</p>
+                                            </div>
+                                        </article>
+                                    ))}
 
+                                </div>
                             </div>
-                        </div>
 
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='donationsIndicator__container'>
-                            <h3>Gestión social</h3>
-                            <div className='donationsIndicator__containerCarousel'>
-                                <article style={{ position: 'relative' }}>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className='donationsIndicator__container'>
+                                <h3>Gestión social</h3>
+                                <div className='donationsIndicator__containerCarousel'>
+                                    {allPostData && allPostData?.[0].getionSocial.map((data, index) => (
+                                        <article index={index} style={{ position: 'relative' }}>
 
-                                    <div style={{ width: '300px', height: '300px', borderRadius: '50%', backgroundSize:'cover', backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg')" }}>
-                                    </div>
-                                    <div className='donationsIndicator__content'>
-                                        <Counter stopValue={240} />
-                                        <p>Familias fortalecidas con buenos hábitos educativos y nutricionales</p>
-                                    </div>
-                                </article>
-                                <article style={{ position: 'relative' }}>
+                                            <div className="donationsIndicator__image" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${data.mainImage.asset.url}')` }}>
+                                            </div>
+                                            <div className='donationsIndicator__content' >
+                                                <Counter stopValue={Number(data.indicator)} />
+                                                <p>{data.text}</p>
+                                            </div>
+                                        </article>
+                                    ))}
 
-                                    <div style={{ width: '300px', height: '300px', borderRadius: '50%', backgroundSize:'cover', backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689261448/ayapel/oczq1l3syf3bbj8ja09e.jpg')" }}>
-                                    </div>
-                                    <div className='donationsIndicator__content'>
-                                        <Counter stopValue={220} />
-                                        <p>Niños participantes en educación y recreación</p>
-                                    </div>
-                                </article>
-                            
+                                </div>
                             </div>
-                        </div>
 
-                    </SwiperSlide>
-                   
-                    <SwiperSlide>
-                        <div className='donationsIndicator__container'>
-                            <h3>Gestión económica</h3>
-                            <div className='donationsIndicator__containerCarousel'>
-                                <article style={{ position: 'relative' }}>
+                        </SwiperSlide>
 
-                                    <div style={{ width: '300px', height: '300px', borderRadius: '50%', backgroundSize:'cover', backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg')" }}>
-                                    </div>
-                                    <div className='donationsIndicator__content'>
-                                        
-                                        <p> <Counter stopValue={60} /> Millones en Recursos movilizados para la población de artesanos y emprendedores</p>
-                                    </div>
-                                </article>
-                                <article style={{ position: 'relative' }}>
+                        <SwiperSlide>
+                            <div className='donationsIndicator__container'>
+                                <h3>Gestión económica</h3>
+                                <div className='donationsIndicator__containerCarousel'>
+                                    {allPostData && allPostData?.[0].gestionEconomica.map((data, index) => (
+                                        <article index={index} style={{ position: 'relative' }}>
 
-                                    <div style={{ width: '300px', height: '300px', borderRadius: '50%', backgroundSize:'cover', backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689261448/ayapel/uoxfx3okdmbgnm6yqdya.jpg')" }}>
-                                    </div>
-                                    <div className='donationsIndicator__content'>
-                                        <Counter stopValue={55} />
-                                        <p>Artículos intercambiados por pet</p>
-                                    </div>
-                                </article>
-                            
+                                            <div className="donationsIndicator__image" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${data.mainImage.asset.url}')` }}>
+                                            </div>
+                                            <div className='donationsIndicator__content' >
+                                                <Counter stopValue={Number(data.indicator)} />
+                                                <p>{data.text}</p>
+                                            </div>
+                                        </article>
+                                    ))}
+
+                                </div>
                             </div>
-                        </div>
 
-                    </SwiperSlide>
-               
-                </Swiper>
-                <div>
-                <article className='donationsIndicator__ctaDonations'>
-                    <CtaDonations
-                        label={'¿QUIERES DONAR?'}
-                        width={'15rem'}
-                        height={'3rem'}
-                        borderRadius={'2rem'}
-                    />
-                </article>
-                <article className="donationsIndicator__next">
-                    <BtnKnowMore />
-                </article>
+                        </SwiperSlide>
+
+                    </Swiper>
+                    <div>
+                        <article className='donationsIndicator__ctaDonations'>
+                            <CtaDonations
+                                label={'¿QUIERES DONAR?'}
+                                width={'15rem'}
+                                height={'3rem'}
+                                borderRadius={'2rem'}
+                            />
+                        </article>
+                        <article className="donationsIndicator__next">
+                            <BtnKnowMore />
+                        </article>
+                    </div>
+
+
+
+
                 </div>
-                   
-               
-                
-               
-            </div>
+            )}
         </>
     )
 }
