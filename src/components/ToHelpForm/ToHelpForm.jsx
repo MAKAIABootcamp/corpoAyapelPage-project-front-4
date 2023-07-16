@@ -4,9 +4,12 @@ import HubspotForm from 'react-hubspot-form'
 function ToHelpForm ({ titulo, direccion, descripcion, list , imgURL}) {
     return (
         <div className="form">
-            <h1>{titulo}</h1>
+            
             <div className={`${direccion === "reverse" ? "form__all__reverse": "form__all"}`}>
                 <div className="form__information">
+                    <div className="form__title">
+                        <h2>{titulo}</h2>
+                    </div>
                     <div className="form__imagen__div">
                         <img src={imgURL} alt="" />
                     </div>
