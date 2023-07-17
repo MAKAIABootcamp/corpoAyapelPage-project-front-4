@@ -1,0 +1,77 @@
+.Error{
+    width: 100%;
+    height: 100vh;
+    background-image: url(https://res.cloudinary.com/dgnwqr93n/image/upload/v1688314974/slide-artesanos_kgzl9e.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 12px;
+    cursor: default;
+
+    &__parraf{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(255, 255, 255, 0.17);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(3.7px);
+        -webkit-backdrop-filter: blur(3.7px);
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        padding: 12px;
+        min-width: 150px;
+        width: 450px;
+    }
+
+    &__Url{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 20px;
+        font-family: "Mulish", sans-serif;
+        color: white;
+
+        .p__container{
+            display: flex;
+        }
+
+        .url{
+            font-size: 22px;
+            color: var(--primaryColor);
+            margin: 0 7px;
+        }
+        
+        @media screen and (max-width: 312px) {
+            .p__container{
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+    }
+
+    &__face{
+        font-size: 60px;
+        margin-bottom: 12px;
+    }
+
+    &__small{
+        font-size: 17px;
+    }
+
+    &__a{
+        font-size: 18px;
+        color: white;
+        text-decoration: none;
+        margin-top: 12px;
+        font-family: "Mulish", sans-serif;
+
+        &:hover{
+            text-decoration: underline;
+            color: var(--primaryColor);
+        }
+    }
+}

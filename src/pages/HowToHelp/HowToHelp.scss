@@ -4,7 +4,9 @@ $pColor: rgb(217, 217, 217);
     width: 100%;
     display: flex;
     flex-direction: column;
-
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+    overflow-y: scroll;
     &__Banner{
         width: 100%;
         height: 100vh;
@@ -47,12 +49,6 @@ $pColor: rgb(217, 217, 217);
         margin-bottom: 40px;
         color: $pColor;
         font-family: "Mulish", sans-serif;
-    }
-
-    @media screen and (max-width: 940px) {
-        &__Banner{
-            height: auto;
-        }
     }
 
 }
@@ -110,6 +106,7 @@ $pColor: rgb(217, 217, 217);
         border-radius: 12px;
         margin-bottom: 15px;
         background-size: cover;
+        background-repeat: no-repeat;
     }
 
     .Program__button{
@@ -133,12 +130,13 @@ $pColor: rgb(217, 217, 217);
     &__voluntarios{
         width: 100%;
         height: 100vh;
-        background-image: url(https://res.cloudinary.com/dgnwqr93n/image/upload/v1688314974/slide-artesanos_kgzl9e.png);
+        background-image: url(https://res.cloudinary.com/dgnwqr93n/image/upload/q_100/v1689218712/DSC04109_eg6sga.webp);
         background-repeat: no-repeat;
         background-size: cover;
         display: flex;
         flex-direction: column;
         position: relative;
+        justify-content: center;
         align-items: center;
         flex-wrap: wrap;
         padding: 15px;
@@ -163,6 +161,7 @@ $pColor: rgb(217, 217, 217);
         display: flex;
         flex-direction: column;
         position: relative;
+        justify-content: center;
         align-items: center;
         flex-wrap: wrap;
         padding: 15px;
@@ -178,14 +177,24 @@ $pColor: rgb(217, 217, 217);
         background-color: rgba(0, 0, 0, 0.436);
     }
 
-    @media screen and (max-width: 940px) {
-        &__voluntarios{
-            height: auto;
-        }
-        
-        &__empresas{
-            height: auto;
-        }
-    }
     
+}
+
+.toHelp .sec{
+    scroll-snap-align: start !important;
+    height: 100vh;
+}
+
+.toHelp::-webkit-scrollbar {
+    width: 0;
+}
+
+@media screen and (max-width: 940px) {
+    .toHelp__Content{
+        margin: 98px 0;
+    }
+
+    .sec{
+        height: auto !important;
+    }
 }
