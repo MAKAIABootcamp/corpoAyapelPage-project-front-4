@@ -12,6 +12,9 @@ import { listTransactions, listPaymentLinks, getTransactionDetail, createNewCost
 import { useDispatch, useSelector } from 'react-redux';
 import { setLoadingStatusFalse } from '../../redux/actions/actions';
 import Loader from '../../components/appLoader/Loader';
+import FormDonationFixed from '../../components/donations/formDonationFixed/FormDonationFixed';
+import FormDonationRecurrent from '../../components/donations/formDonationRecurrent/FormDonationRecurrent';
+import ModalFormDonationRecurrent from '../../components/donations/formDonationRecurrent/ModalFormDonationRecurrent';
 
 const Donations = () => {
 
@@ -29,26 +32,6 @@ const formattedDonation = (selectedAmount / 30).toLocaleString();
   const handleConfirmGoToDonate = (amount) => {
     setSelectedAmount(amount === selectedAmount ? null : amount);
   }
-
-
-
-  useEffect(() => {
-   // getDataEpayco();
-   //listTransactions();
-   //listPaymentLinks();
-   const fetchData = async () => {
-    try {
-      const result = await createCardToken();
-      const data = result;
-      console.log(data);
-      setDataTransactionDetail(data)
-    } catch (error) {
-      console.log('error', error);
-    }
-  };
-  fetchData();
-
-  }, [selectedAmount]);
 
   const { loading } = useSelector((store) => store.loading);
   const dispatch = useDispatch();
@@ -207,7 +190,8 @@ const formattedDonation = (selectedAmount / 30).toLocaleString();
                
                 <div className='donations__container__ctaBtns'>
                   {selectedAmount === null &&
-                   <BasicModal />
+                  //  <BasicModal />
+                   <ModalFormDonationRecurrent/>
                   }
                   <CtaDonations
                     onClick={handleGoDonate}
@@ -232,6 +216,7 @@ const formattedDonation = (selectedAmount / 30).toLocaleString();
                   ))}
                 </div>
               </section>
+              <FormDonationFixed amount={selectedAmount}/>
               <BtnKnowMore onClick={handleToNextComponent} />
             </main>
           </div>

@@ -1,0 +1,125 @@
+.formDonationsRecurrent {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    cursor: auto;
+
+    &__email {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__btnConfirmEmail {
+        width: 130px;
+        background-color: #377cac;
+        color: #fff;
+        border: none;
+        cursor: grab;
+
+        &:hover {
+            box-shadow: inset 0 0 1px 5px rgba(255, 255, 255, 0.5);
+            /* Opcional: Puedes agregar estilos adicionales para el hover si lo deseas */
+        }
+    }
+
+    &__btnContinue {
+        width: auto;
+        background-color: #377cac !important;
+        color: #fff !important;
+        border: none;
+        cursor: grab;
+
+        &:hover {
+            box-shadow: inset 0 0 1px 5px rgba(255, 255, 255, 0.5);
+            /* Opcional: Puedes agregar estilos adicionales para el hover si lo deseas */
+        }
+    }
+
+
+    &__selectCard {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        background-color: #fff;
+        padding: 1rem;
+        border-radius: 5px;
+        cursor: grab;
+
+        .formDonationsRecurrent__iconCard {
+            font-size: 1rem;
+            color: #999;
+        }
+
+
+        &-active {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+            cursor: grab;
+            color: black;
+
+            .formDonationsRecurrent__iconCard {
+                font-size: 1.5rem;
+                color: #337ab7;
+            }
+
+            & p {
+                color: gray;
+            }
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+
+    &__stepOne {
+        color: gray;
+        margin-bottom: 1.5rem;
+
+        &__title {
+            margin-bottom: 1.5rem;
+            color: black;
+        }
+    }
+
+    &__date {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+
+}
+
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+    height: .8rem !important;
+}
+
+.aaa {
+    border: 2px solid red;
+}
+
+.css-a0n6xq {
+    background-color: #f3f3f3 !important;
+    border-radius: 8px;
+}
+
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+    background-color: #fff !important;
+    padding: 1rem;
+}
+
+
+.customerInformation {
+    &__document {
+        display: flex;
+        flex-direction: row;
+    }
+}
