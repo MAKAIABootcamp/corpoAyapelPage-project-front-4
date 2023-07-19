@@ -1,93 +1,196 @@
-.mainUs{
-    width: 100vw;
+.container {
+    // position: absolute;
+    // left: 50%;
+    // top: 50%;
+    //  transform: translate(-50%, -50%);
+    width: 100%;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    &__container{
-        display: flex;
-        align-items: center;
-        gap: 14vw;
-        justify-content: flex-start;
-        padding-left: 10vh;
-        
+    // padding: 50px;
+    background-color: #f5f5f5;
+    box-shadow: 0 30px 50px #a9a8a8;
+    background-color: #6ebe4a;
+  }
+  #slide {
+    width: max-content;
+    margin-top: 50px;
+  }
+  .item {
+    width: 200px;
+    height: 300px;
+    background-position: 50% 50%;
+    display: inline-block;
+    transition: 0.8s;
+    background-size: cover;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translate(0, -50%);
+    border-radius: 20px;
+    box-shadow: 0 30px 50px #505050;
+    background-color: rgba(0, 0, 0, 0.5); 
+    @media screen and (max-width:910px) {
+      width: 200px;
+    height: 250px;
+    background-position: 50% 50%;
+    display: inline-block;
+    transition: 0.8s;
+    background-size: cover;
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    transform: translate(-190%, 65%);
+    border-radius: 20px;
+    box-shadow: 0 30px 50px #505050;
+    background-color: rgba(0, 0, 0, 0.5);
     }
-    &__content{
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        h2{
-         font-size: 3.5rem;
-         color: #6ebe4a;
-        //  @media screen and (max-width:535px) {
-        //     font-size: 3rem;
-        //  }
-        }
-        p{
-            color: white;
-        }
-    }
-    &__stepper{
-        display: flex;
-        flex-direction: column;
-        padding: 0px 20px;
-        gap: 50px;
-        button{
-            background-color: transparent;
-            font-size: 2.5rem;
-            border: 0px;
-            font-family: 'Mulish', sans-serif;
-            color: white;
-            // @media screen and (max-width:535px) {
-            //     font-size: 1.5rem;
-            // }
-           &:hover{
-            color: #6ebe4a;;
-           }
-        }
-    }
-}
+    @media screen and (max-width:840px) { //tablet
+      transform: translate(-150%, 50%);
+      //position: absolute;
 
+    }
+    @media screen and (max-width:428px) { //mobile
+      transform: translate(-80%, 220%);
+      position: inherit;
+      margin-right: 20px;
+      
+    
+    }
+    @media screen and (max-width:392px) {
+      transform: translate(-180%, 180%);
+      position: inherit;
+      margin-right: 20px;
+    }
+    
+   
 
-.backgroundUs{
-    background-image: url('https://res.cloudinary.com/dgnwqr93n/image/upload/v1688679819/Untitled_design_2_vt8pcd.png');
-    // background-color: #6ebe4a;
-    position: relative; 
+  }
+  /* .item:nth-child(1), */
+  .item:nth-child(2) {
+    left: 0;
+    top: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
     height: 100vh;
+    box-shadow: none;
+    position: fixed;
+    @media screen and (max-width:425px) {
+      position: absolute;
+    }
+  }
+  .item:nth-child(3) {
+    left: 50%;
+  }
+  .item:nth-child(4) {
+    left: calc(50% + 220px);
+  }
+  .item:nth-child(5) {
+    left: calc(50% + 440px);
+  }
+  .item:nth-child(n + 6) {
+    left: calc(50% + 660px);
+    opacity: 0;
+  }
+  .item .content {
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    width: 400px;
+    text-align: left;
+    padding: 0;
+    color: #eee;
+    transform: translate(0, -50%);
+    display: none;
+    @media screen and (max-width:910px) {
+      position: fixed;
+      top: 42%;
+      left: 20px;
+      width: 350px;
+      text-align: left;
+      padding: 0;
+      color: #eee;
+      transform: translate(0, -50%);
+      display: none;
+      z-index: 2;
+    }
+    @media screen and (max-width:850px) {
+      transform: translate(50%, -50%);
+      width: 400px;
+      text-align: center;
+    }
+    @media screen and (max-width:425px) {
+      transform: translate(-2.5%, -50%);
+      width: 90vw;
+      text-align: center;
+      
+    }
+
+    // background: rgba(0, 0, 0, 0.086);
+	// -webkit-backdrop-filter: blur(10px);
+	// backdrop-filter: blur(10px);
+    // padding: 10px;
+    // border-radius: 5px;
+  }
+  .item:nth-child(2) .content {
+    display: block;
+    z-index: 11111;
+    
+  }
+  .item .name {
+    font-size: 3.5rem;
+    font-weight: bold;
+    opacity: 0;
+    animation: showcontent 1s ease-in-out 1 forwards;
+    color: #6ebe4a;
+  }
+  .item .des {
+    font-size: 17px;
+    margin: 20px 0;
+    opacity: 0;
+    animation: showcontent 1s ease-in-out 0.3s 1 forwards;
+    line-height: 135%;
+  }
+  .item button {
+    padding: 10px 20px;
+    border: none;
+    opacity: 0;
+    animation: showcontent 1s ease-in-out 0.6s 1 forwards;
+  }
+  @keyframes showcontent {
+    from {
+      opacity: 0;
+      transform: translate(0, 100px);
+      filter: blur(33px);
+    }
+    to {
+      opacity: 1;
+      transform: translate(0, 0);
+      filter: blur(0);
+    }
+  }
+  .buttons {
+    position: absolute;
+    bottom: 30px;
+    z-index: 222222;
+    text-align: center;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-size: cover;
-
-}
-.backgroundUs::before {
-    content: "";
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    background-color: rgba(0, 0, 0, 0.436);
-}
-
-.bird{
-    figure{
-        position: absolute;
-        height: 10vh;
-        top: 0;
-        right: 0;
-       
-        img{
-            height: 89vh;
-            margin-top: 10vh;
-            @media screen and (max-width:535px) {
-                height: 79vh;
-                margin-top: 10vh;
-           }
-        }
-   }
-   
-   
+    gap: 5vw;
+    @media screen and (max-width:475px) {
+      bottom:5vh;
+      justify-content: space-between;
     }
+    
+  }
+  .buttons button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #555;
+    transition: 0.5s;
+  }
+  .buttons button:hover {
+    background-color: #bac383;
+  }

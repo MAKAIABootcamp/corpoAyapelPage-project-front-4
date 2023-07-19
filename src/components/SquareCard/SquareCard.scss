@@ -7,6 +7,7 @@
     padding: 0px 20px;
     // height: 100%;
     justify-content: center;
+    position: relative;
     
     align-items: center;
     &__title {
@@ -24,6 +25,7 @@
       overflow: auto;
       color: #535353;
       overflow: hidden;
+      margin-bottom: 15px;
     }
     &__img {
       z-index: 2;
@@ -66,6 +68,8 @@
       align-items: center;
       justify-content: flex-end;
       gap: 5px;
+      /* margin-top: 10px; */
+      transform: translateX(-10px);
       // button{
       //   background-color: #47b94972;
       //   border: 0;
@@ -106,4 +110,59 @@
       
     }
   }
-  
+
+/**
+  * Themeing
+*/
+
+.mainSquareCard__buttons {
+  position: absolute;
+}
+
+.share-buttons {
+  position: absolute;
+  top: 10%;
+  left: 80%;
+  transform: translateX(220%);
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  z-index: 27 !important;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  transform: translateX(45px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+
+}
+
+.share-buttons button {
+  margin-right: 0px;
+}
+
+.share-buttons.show {
+  opacity: 1; /* Change opacity to fully visible */
+  transform: translateX(45px); /* Move the button up to its original position */
+}
+
+.share-buttons.fade-in {
+  animation: fade-in 0.3s ease; /* Add fade-in animation */
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateX(0px); /* Move buttons up */
+
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(45px); /* Move buttons to their original position */
+  }
+}

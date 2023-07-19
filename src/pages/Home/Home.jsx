@@ -18,6 +18,9 @@ const Home = () => {
             Entidad sin ánimo de lucro que promueve el desarrollo sostenible del
             complejo cenagoso de Ayapel y de su comunidad. 
           </p>
+          <Helmet>
+            
+          </Helmet>
         </section>
         <Link to={'/donaciones'}>
         <DonationButton/>

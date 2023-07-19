@@ -1,6 +1,6 @@
 // schemas/pet.js
 export default {
-  title: 'Novedades',
+  title: 'Noticias',
   name: 'novedades',
   type: 'document',
   fields: [

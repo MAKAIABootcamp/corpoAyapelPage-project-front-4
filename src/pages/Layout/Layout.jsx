@@ -10,7 +10,9 @@ const Layout = () => {
       <Navbar />
       <Outlet />
 
-      <AnimatedCursor color='110, 190, 74' innerSize={30}/>
+      <AnimatedCursor color='110, 190, 74' innerSize={30} trailingSpeed={1}  outerStyle={{
+    mixBlendMode: 'exclusion'
+  }}/>
       
       <div className="social-media-fixed">
         <SocialMediaButton />

@@ -27,6 +27,9 @@ const Test = () => {
               Trabajamos bajo tres líneas estratégicas: social, ambiental y
               económica.
             </p>
+            <div>
+              
+            </div>
           </div>
           <div className="contentImg">
             <img

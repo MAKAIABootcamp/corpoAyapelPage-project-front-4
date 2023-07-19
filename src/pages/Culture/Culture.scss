@@ -124,3 +124,23 @@
 
     }
 }
+
+.bird{
+    figure{
+        position: absolute;
+        height: 10vh;
+        top: 0;
+        right: 0;
+       
+        img{
+            height: 89vh;
+            margin-top: 10vh;
+            @media screen and (max-width:535px) {
+                height: 79vh;
+                margin-top: 10vh;
+           }
+        }
+   }
+   
+   
+    }

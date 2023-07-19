@@ -1,13 +1,14 @@
 .mainNew {
     background-color: #f5f5f5;
     padding: 10rem 10rem 1rem 10rem;
+    @media screen and (max-width:910px) {
+      padding: 2rem 6.5rem 1rem  6.5rem;
+    }
     @media screen and (max-width:535px) {
       padding: 2rem 0.5rem 1rem  0.5rem;
     }
 
-    @media screen and (max-width:910px) {
-      padding: 2rem 6.5rem 1rem  6.5rem;
-    }
+  
 
     &__social-share{
       display: flex;

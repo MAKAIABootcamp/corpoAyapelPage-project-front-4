@@ -70,8 +70,9 @@ html {
     text-align: center;
     font-size: 18px;
     color: #6EBE4A;
-  
+    margin-right: 0px !important;
     /* Center slide text vertically */
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,6 +85,10 @@ html {
     object-fit: cover;
   }
 
+  
+  // .swiper-wrapper{
+  //   justify-content: center;
+  // }
   
 
 //   .slider-wrap {
@@ -169,13 +174,63 @@ html {
 //     text-transform: uppercase;
 //     color: #696d74;
 //   }
+
+/// Animacion temporal
+// * {
+//   box-sizing: border-box;
+//   -webkit-animation: fadeIn 0.5s;
+//           animation: fadeIn 0.5s;
+// }
+// body {
+//   background-color: #222;
+//   color: #fafafa;
+//   text-align: center;
+// }
+// .loading-bay {
+//   width: 200px;
+//   height: 200px;
+//   border: 2px solid #c0c0c0;
+//   border-radius: 20px;
+//   position: relative;
+//   display: inline-block;
+//   margin: 10px;
+//   overflow: hidden;
+//   background-color: #333;
+// }
+// .loading-bay:before {
+//   display: block;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   color: #fff;
+//   font-size: 18px;
+//   padding: 5px;
+// }
+
+// @-webkit-keyframes fadeIn {
+//   from {
+//     opacity: 0;
+//   }
+//   to {
+//     opacity: 1;
+//   }
+// }
+// @keyframes fadeIn {
+//   from {
+//     opacity: 0;
+//   }
+//   to {
+//     opacity: 1;
+//   }
+// }
+
   
 
 
-// .ball {
-//   fill: #6EBE4A;
-// }
-// .header-section {
-//   margin-left: 3rem;
-// }
+.ball {
+  fill: #6EBE4A;
+}
+.header-section {
+  margin-left: 3rem;
+}
 
