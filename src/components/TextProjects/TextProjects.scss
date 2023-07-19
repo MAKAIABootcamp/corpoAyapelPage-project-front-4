@@ -49,20 +49,33 @@
         height: 340px;
       }
       h2 {
-        font-family: "Dancing Script", cursive;
-        font-weight: 600;
-        font-size: 66px;
-        color: rgb(110, 190, 74);
-
-        line-height: 49px;
-        margin-top: 0;
+        font-size: 33px;
+        line-height: 123px;
+        color: #535353;
+        font-weight: 400;
+        @media (max-width: 810px) {
+          font-size: 30px;
+        }
+        @media (max-width: 745px) {
+          font-size: 28px;
+        }
+        @media (max-width: 710px) {
+          font-size: 25px;
+        }
         span {
-          font-size: 33px;
-          line-height: 123px;
-          color: #535353;
-          font-weight: 400;
-          @media (max-width: 700px) {
-            font-size: 22px;
+          font-family: "Dancing Script", cursive;
+          font-weight: 600;
+          font-size: 66px;
+          color: rgb(110, 190, 74);
+          line-height: 49px;
+          @media (max-width: 815px) {
+            font-size: 60px;
+          }
+          @media (max-width: 745px) {
+            font-size: 57px;
+          }
+          @media (max-width: 710px) {
+            font-size: 55px;
           }
         }
       }
