@@ -88,6 +88,50 @@
             
         }
     }
+    .menu-container {
+      // position: absolute;
+      display: inline-block;
+    
+      .menu-trigger {
+        cursor: pointer;
+        font-size: 1rem;
+        margin-right: 10px;
+      }
+    
+      .menu-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 50px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 8px 12px;
+        list-style: none;
+        display: none; // Hide the menu by default
+        z-index: 2;
+        width: 200px;
+        height: 100px;
+    
+        li {
+          width: 100%;
+          cursor: pointer;
+          padding: 8px;
+          transition: background-color 0.3s;
+          color: #6ebe4a;
+    
+          &:hover {
+            background-color: #ddd;
+            border-radius: 5px;
+          }
+        }
+      }
+    
+      .menu-dropdown {
+        display: flex; // Show the menu when hovering over the container
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
 }
 
 .active {

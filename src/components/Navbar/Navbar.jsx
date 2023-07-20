@@ -11,6 +11,12 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuItemClick = (url) => {
+    window.open(url, '_blank');
+  };
+
   // Define the threshold widths for showing different navbars
   const breakpointX = 768; // X size
   const breakpointY = 1024; // Y size
@@ -34,6 +40,9 @@ const Navbar = () => {
   const handleOnClose = () => {
     setIsOpen(false);
   };
+  const handleMenuClick = () => {
+    setIsOpen(!isOpen);
+  };
 
   if (screenWidth < breakpointX ) {
     return (
@@ -51,9 +60,9 @@ const Navbar = () => {
           <Menu
             width={'100px'}
             right
-            isOpen={isOpen}
-            onOpen={handleOnOpen}
-            onClose={handleOnClose}
+            // isOpen={isOpen}
+            // onOpen={handleOnOpen}
+            // onClose={handleOnClose}
             // customCrossIcon={<img src='https://res.cloudinary.com/dgnwqr93n/image/upload/v1689103575/menu_crcpkr.png' alt='Close' height={'50px'} width={'50px'}/>}
             // customBurgerIcon={<img src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1689103575/menu_crcpkr.png" alt="Menu" height={'50px'} width={'50px'}/>}
           >
@@ -86,7 +95,17 @@ const Navbar = () => {
             </NavLink>
             <NavLink to={'/donaciones'}>Donaciones</NavLink>
             <NavLink to={'/como-ayudar'}>¿Cómo puedo ayudar?</NavLink>
-            <NavLink to={'/ayapel'}>Ayapel</NavLink>
+            <div className="menu-container">
+              <span className="menu-trigger" onClick={handleMenuClick}>
+                Ayapel
+              </span>
+              {isOpen && (
+                <ul className="menu-dropdown">
+                  <li onClick={() => handleMenuItemClick('https://corpoayapel.sanity.studio/')}>Administracion</li>
+                  
+                </ul>
+              )}
+            </div>
             
           </ul>
         </nav>
