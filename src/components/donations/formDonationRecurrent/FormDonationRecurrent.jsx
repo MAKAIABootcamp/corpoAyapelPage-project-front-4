@@ -10,11 +10,10 @@ import { updateDataSuscription } from '../../../redux/actions/suscriptionDonatio
 import { BiSolidUser } from 'react-icons/bi';
 import PaymentCreditCard from './PaymentCreditCard';
 import CustomerInformation from './CustomerInformation';
-import ConfirmationSuscription from '../formDonationFixed/ConfirmationSuscription';
+import ConfirmationSuscription from './ConfirmationSuscription';
 
 
-
-const FormDonationRecurrent = () => {
+const FormDonationRecurrent = ({handleClose, selectedAmount}) => {
 
     const dispatch = useDispatch();
 
@@ -27,7 +26,7 @@ const FormDonationRecurrent = () => {
     }
 
     const sendForm = (data) => {
-        dispatch(updateDataSuscription(data));
+        dispatch(updateDataSuscription({ email: data }));
     }
 
     const { handleSubmit, handleChange, values, errors } = useFormik({
@@ -45,10 +44,14 @@ const FormDonationRecurrent = () => {
         setCurrentStep('payment');
     }
 
+    const handleConfirmation = () => {
+        setCurrentStep("confirmation");
+        handleClose(); // Cerrar el modal después de establecer setCurrentStep("confirmation")
+      };
 
     return (
         <>
-     {currentStep === 'email' && (
+            {currentStep === 'email' && (
                 <form onSubmit={handleSubmit} className='formDonationsRecurrent'>
                     Ingrese su correo electrónico para iniciar
                     <div className='formDonationsRecurrent__email'>
@@ -77,17 +80,17 @@ const FormDonationRecurrent = () => {
                 </form>
             )}
 
-{currentStep === 'payment' && (
-        <PaymentCreditCard setCurrentStep={setCurrentStep} currentStep={currentStep} />
-      )}
+            {currentStep === 'payment' && (
+                <PaymentCreditCard setCurrentStep={setCurrentStep} currentStep={currentStep} selectedAmount={selectedAmount}/>
+            )}
 
-      {currentStep === 'customerInformation' && (
-        <CustomerInformation setCurrentStep={setCurrentStep} currentStep={currentStep}/>
-      )}
+            {currentStep === 'customerInformation' && (
+                <CustomerInformation setCurrentStep={setCurrentStep} currentStep={currentStep} selectedAmount={selectedAmount} />
+            )}
 
-{currentStep === 'confirmation' && (
-       <ConfirmationSuscription/>
-      )}
+            {currentStep === 'confirmation' && (
+                <ConfirmationSuscription setCurrentStep={setCurrentStep} currentStep={currentStep} handleClose={handleClose} selectedAmount={selectedAmount}/>
+            )}
         </>
 
 

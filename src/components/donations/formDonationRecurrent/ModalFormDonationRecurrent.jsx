@@ -18,20 +18,22 @@ const style = {
     p: 4,
 };
 
-export default function ModalFormDonationRecurrent() {
+export default function ModalFormDonationRecurrent({selectedAmount}) {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+
     return (
         <>
             <Button onClick={handleOpen} className='donations__container__ctaBtns' style={{
-                width: '12rem',
-                height: '3rem',
-                bgColor: '#FFF',
+                width: '90%',
+                height: '2.5rem',
+                bgColor: 'orange',
+                backgroundColor: 'orange',
                 borderRadius: '2rem',
                 color: 'black', border: '2px solid gray', fontSize: '.8rem', fontWeight: 'bold'
-            }}>Donación recurrente</Button>
+            }}>Confirmar donación mensual</Button>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -44,7 +46,7 @@ export default function ModalFormDonationRecurrent() {
 
                     </Typography>
                     <>
-                        <FormDonationRecurrent />
+                        <FormDonationRecurrent handleClose={handleClose} selectedAmount={selectedAmount}  />
                     </>
 
                 </Box>

@@ -21,7 +21,7 @@ const PageDonations = () => {
         <BannerDonations/>
         </div>  */}
         <div className="div">
-          <Donations style={{ position: 'relative' }} />
+          <Donations />
         </div>
         {/* <div className="div">
         <DonorProgress />

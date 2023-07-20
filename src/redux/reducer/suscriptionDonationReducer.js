@@ -10,7 +10,10 @@ export const suscriptionDonationReducer = (state = initialState, action) => {
     case suscriptionDonationTypes.UPDATE_DATA_SUSCRIPTION:
       return {
         ...state,
-        suscriptionDonation: action.payload.suscriptionDonation,
+        suscriptionDonation: {
+          ...state.suscriptionDonation,
+          ...action.payload.suscriptionDonation,
+        },
       };
     default:
       return state;

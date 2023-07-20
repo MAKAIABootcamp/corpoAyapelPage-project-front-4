@@ -1,11 +1,11 @@
 .btn__quantity {
-    height: 90px;
+    height: 60px;
     width: 100%;
     border: none;
     cursor: pointer;
     z-index: 6;
     background-color: #FFF;
-    color: #777779;
+    color: #303030;
     border-radius: 80px;
     outline: none;
     margin: 0;
@@ -13,25 +13,20 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
     box-shadow: 
     0px 1px 0px #6EBE4A,
     0px 2px 0px #6EBE4A,
     0px 3px 0px #6EBE4A,
-    0px 4px 0px #6EBE4A,
-    0px 5px 0px #6EBE4A,
-    0px 6px 0px #6EBE4A,
-    0px 7px 0px #6EBE4A,
-    0px 8px 0px #6EBE4A,
-    0px 9px 0px #6EBE4A,
-    0px 10px 0px #6EBE4A,
-    0px 11px 10px #6EBE4A;
+    0px 4px 0px #6EBE4A;
+
   
 
     .gif-container {
         display: inline-block;
-        width: 70px;
-        height: 70px;
+        width: 40px;
+        height: 40px;
         background-image: url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688167470/ayapel/xhwaslf4c5sm8r6snozb.gif');
         background-size: cover;
         background-position: center;
@@ -42,41 +37,25 @@
         height: 80px;
     }
 
-    --initial-height: 120px;
-    --initial-width: 300px;
-    --active-height: calc(var(--initial-height) - 5px);
-    --active-width: var(--initial-width);
-    transition: box-shadow 0.3s,
-    transform 0.3s;
+    // --initial-height: 120px;
+    // --initial-width: 300px;
+    // --active-height: calc(var(--initial-height) - 5px);
+    // --active-width: var(--initial-width);
+    // transition: box-shadow 0.3s,
+    // transform 0.3s;
 }
 
 .btn__quantity.active {
     background-color: #6EBE4A;
     color: #fff;
     box-shadow: 0px 1px 0px hsl(0, 0%, 46%),
-        /* Change the blue color to gray */
         0px 2px 0px hsl(0, 0%, 48%),
-        /* Change the blue color to gray */
         0px 3px 0px hsl(0, 0%, 49%),
-        /* Change the blue color to gray */
         0px 4px 0px hsl(0, 0%, 50%),
-        /* Change the blue color to gray */
-        0px 5px 0px hsl(0, 0%, 51%),
-        /* Change the blue color to gray */
-        0px 6px 0px hsl(0, 0%, 52%),
-        /* Change the blue color to gray */
-        0px 7px 0px hsl(0, 0%, 53%),
-        /* Change the blue color to gray */
-        0px 8px 0px hsl(0, 0%, 54%),
-        /* Change the blue color to gray */
-        0px 9px 0px hsl(0, 0%, 55%),
-        /* Change the blue color to gray */
-        0px 10px 0px hsl(0, 0%, 88%),
-        /* Change the blue color to gray */
-        0px 11px 10px #777779;
-    transform: translateY(5px) scale(1.05);
-    height: var(--active-height);
-    width: var(--active-width);
+        0px 5px 10px #777779;
+   // transform: translateY(1px) scale(0.7);
+   // height: var(--active-height);
+   // width: var(--active-width);
 
 }
 

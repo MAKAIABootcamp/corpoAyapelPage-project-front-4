@@ -15,23 +15,29 @@ import Loader from '../../components/appLoader/Loader';
 import FormDonationFixed from '../../components/donations/formDonationFixed/FormDonationFixed';
 import FormDonationRecurrent from '../../components/donations/formDonationRecurrent/FormDonationRecurrent';
 import ModalFormDonationRecurrent from '../../components/donations/formDonationRecurrent/ModalFormDonationRecurrent';
+import { Button, Input, InputAdornment, InputLabel, TextField, FormControl, Grid } from '@mui/material';
+import { useFormik } from 'formik';
+import * as Yup from "yup";
+import { FaDonate } from 'react-icons/fa';
 
 const Donations = () => {
 
-    const isPresent = useIsPresent();
+  const isPresent = useIsPresent();
 
   const [selectedAmount, setSelectedAmount] = useState(null)
   const [selectedCancelSuscripcion, setSelectedCancelSuscripcion] = useState(false)
   const [showImpactIndicator, setShowImpactIndicator] = useState(false);
 
-const [dataTransactionDetail, setDataTransactionDetail] = useState(null)
+  const [dataTransactionDetail, setDataTransactionDetail] = useState(null)
 
-const formattedDonation = (selectedAmount / 30).toLocaleString();
+  const formattedDonation = (selectedAmount / 30).toLocaleString();
 
 
   const handleConfirmGoToDonate = (amount) => {
     setSelectedAmount(amount === selectedAmount ? null : amount);
   }
+
+  const [typeSelected, setTypeSelected] = useState('mensual');
 
   const { loading } = useSelector((store) => store.loading);
   const dispatch = useDispatch();
@@ -56,14 +62,14 @@ const formattedDonation = (selectedAmount / 30).toLocaleString();
       })
       .catch(console.error);
   }, [])
-  
+
 
   const handleCancelRecurrentDonation = () => {
     console.log('Cancelar donación')
     setSelectedCancelSuscripcion(true)
   }
   const handleGoDonate = () => {
-    if (selectedAmount === null) {
+    if (selectedAmount === null || selectedAmount === 'Otro Valor') {
       Swal.fire({
         position: 'center',
         icon: 'warning',
@@ -71,28 +77,6 @@ const formattedDonation = (selectedAmount / 30).toLocaleString();
         showConfirmButton: false,
         timer: 1500
       })
-    } else {
-      handleConfirmGoToDonate(selectedAmount);
-      switch (selectedAmount) {
-        case '50.000':
-          window.open('https://payco.link/1371324', '_blank');
-          break;
-        case '100.000':
-          window.open('https://payco.link/1371328', '_blank');
-          break;
-        case '150.000':
-          window.open('https://payco.link/1371330', '_blank');
-          break;
-        case '200.000':
-          window.open('https://payco.link/1371332', '_blank');
-          break;
-        case '300.000':
-          window.open('https://payco.link/1371333', '_blank');
-          break;
-        default:
-          window.open('https://secure.payco.co/checkoutopen/44371', '_blank');
-          break;
-      }
     }
   }
 
@@ -112,112 +96,247 @@ const formattedDonation = (selectedAmount / 30).toLocaleString();
 
   const handleVideoReady = (event) => {
     //     // Aquí puedes agregar lógica adicional cuando el video esté listo
-       };
+  };
 
   // const handleScroll = () => {
   //   handleToNextComponent();
   // }
   // window.addEventListener('scroll', handleScroll);
+  console.log(selectedAmount);
 
+
+  let initialValues = {
+    amount: "",
+  }
+
+  const sendForm = async (data) => {
+    setSelectedAmount(data.amount)
+  }
+
+  const { handleSubmit, handleChange, values, errors } = useFormik({
+    initialValues: initialValues,
+    validationSchema: Yup.object({
+      amount: Yup.string()
+        .min(4, 'El monto debe ser superior a $5.000')
+        .required('Por favor indicar un valor'),
+    }),
+    onSubmit: sendForm,
+  })
 
   return (
     <>
-    {loading ? (
+      {loading ? (
         <>
           <Loader />
         </>
       ) : (
         <>
           <div className='donations__background'>
-            <h3 style={{textAlign:'center'}}>
-              ¡También puedes ser parte de este sueño! <br/> Realizando donaciones económicas o en especies
-            </h3> 
-            <main className='donations__container'>
-              <section className='donations__columnOne'>
-                <div className='donations__btns'>
-                  {donationAmounts.slice(0, 3).map((item, index) => (
-                    <BtnQuantityMoney
-                      key={index}
-                      amount={item.amount}
-                      isSelected={selectedAmount === item.amount}
-                      onClick={handleConfirmGoToDonate}
-                    />
-                  ))}
+            <main className='donations__main'>
+              <section className='donations__sectionTypes'>
+                <div className='donations__sectionTypes__container'>
+                  <h3>
+                    ¡También puedes ser parte de este sueño!
+                  </h3>
+                  <p>Selecciona el tipo de donación que deseas realizar</p>
+                  <article className='donations__typeDonation'>
+                    <div>
+                      <button className={typeSelected === 'mensual' ? 'donations__btnTypeSelected-active' : 'donations__btnTypeSelected'}
+                        onClick={() => setTypeSelected('mensual')}> Donación mensual</button>
+                    </div>
+                    <div>
+                      <button className={typeSelected === 'unica' ? 'donations__btnTypeSelected-active' : 'donations__btnTypeSelected'}
+                        onClick={() => setTypeSelected('unica')}> Donación única vez</button>
+                    </div>
+                    <div>
+                      <button className={typeSelected === 'especie' ? 'donations__btnTypeSelected-active' : 'donations__btnTypeSelected'}
+                        onClick={() => setTypeSelected('especie')}> Donación en especies</button>
+                    </div>
+                  </article>
                 </div>
-              </section>
-              <section className='donations__columnTwo'>
-                {selectedAmount === null ?
-                  <div className='donations__image'>
-                    
-                 <iframe
-                 width="auto"
-                 height="263"
-                 src="https://www.youtube.com/embed/nzSJh5Ucgvc?autoplay=1"
-                 title="YouTube video player"
-                 frameborder="0"
-                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                 allowfullscreen
-               ></iframe> 
 
-              
-{/* 
-<YouTube
-              videoId="nzSJh5Ucgvc"
-              opts={{
-                playerVars: {
-                  autoplay: 1,
-                  mute: 1,
-                  loop: 1,
-                  controls: 0,
-                },
-              }}
-              onReady={handleVideoReady}
-              containerClassName="LazyVideo__StyledVideo-sc-12k5ev0-0 gaXtOT"
-            /> */}
-               
-                  
-                  </div>
-                  :
-                  <div className='donations__columnTwo-selected'>
-                    <h3 className='donations__title'>¿Quieres ser un donador recurrente?</h3>
-                    {selectedAmount !== "Otro Valor" ? 
-                    <p className='donations__text'>Al donar COP {formattedDonation} contribuyes al mejoramiento de la calidad de vida de los habitantes de Ayapel.</p>
-                    :  <p className='donations__text'> Puedes decir cuánto donar y contribuir al mejoramiento de la calidad de vida de los habitantes de Ayapel.</p>
+                <BtnKnowMore onClick={handleToNextComponent} />
+              </section>
+              {typeSelected === 'mensual' &&
+                <section className='donations__sectionDonate'>
+                  <div className='donations__container'>
+                    {selectedAmount === null ?
+                      <img className='donations__videoBackground' src="https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689261448/ayapel/oczq1l3syf3bbj8ja09e.jpg" alt="" />
+
+                      :
+                      <>
+                        <div className='donations__videoBackground-inactive'></div>
+                        <div className='donations__columnTwo-selected'>
+                          <h2 className='donations__title'>¡Estas aun paso de ser parte de esta historia!
+                          </h2>
+                          {selectedAmount !== "Otro Valor" ?
+                            <>
+                              <p className='donations__text'>El monto seleccionado para donar es </p>
+                              <p className='donations__title' style={{fontSize:'2rem', textAlign:'center'}}>
+                                ${selectedAmount}
+                              </p>
+                            </>
+                            :
+                            <div className='donations__howToDonate'>
+                              <p className='donations__text'> Puedes decir cuánto donar </p>
+                              <p className='donations__text'>Por favor ingresa la cantidad que deseas donar</p>
+                              <form onSubmit={handleSubmit} className='donations__formDonationsAmount'>
+                                <TextField
+                                  id="outlined-password-input"
+                                  label={
+                                    <span>
+                                      <FaDonate style={{ verticalAlign: 'middle' }} /> Monto a donar
+                                    </span>
+                                  }
+                                  name="amount"
+                                  onChange={handleChange}
+                                  value={values.amount}
+                                  error={errors.amount}
+                                  helperText={errors.amount}
+                                />
+                                <button type='submit' className='donations__btnConfirmAmount'>Confirmar</button>
+                              </form>
+                            </div>
+
+                          }
+                        </div>
+                      </>
                     }
-                  </div>
-                }
+                    <div className='donations__containerAmounts'>
+                      <div className='donations__containerAmounts__btns'>
+                        <section className='donations__columnOne'>
+                          <div className='donations__btns'>
+                            {donationAmounts.slice(0, 3).map((item, index) => (
+                              <BtnQuantityMoney
+                                key={index}
+                                amount={item.amount}
+                                isSelected={selectedAmount === item.amount}
+                                onClick={handleConfirmGoToDonate}
+                              />
+                            ))}
+                          </div>
+                        </section>
 
-               
-                <div className='donations__container__ctaBtns'>
-                  {selectedAmount === null &&
-                  //  <BasicModal />
-                   <ModalFormDonationRecurrent/>
-                  }
-                  <CtaDonations
-                    onClick={handleGoDonate}
-                    label={'DONAR AHORA'}
-                    width={'15rem'}
-                    height={'3rem'}
-                    borderRadius={'2rem'}
-                    labelAfter={'CONFIRMAR DONACIÓN'}
-                    isSelected={selectedAmount !== null}
-                  />
-                </div>
-              </section>
-              <section className='donations__columnThree'>
-                <div className='donations__btns'>
-                  {donationAmounts.slice(3).map((item, index) => (
-                    <BtnQuantityMoney
-                      key={index}
-                      amount={item.amount}
-                      isSelected={selectedAmount === item.amount}
-                      onClick={handleConfirmGoToDonate}
-                    />
-                  ))}
-                </div>
-              </section>
-              <FormDonationFixed amount={selectedAmount}/>
-              <BtnKnowMore onClick={handleToNextComponent} />
+                        <section className='donations__columnThree'>
+                          <div className='donations__btns'>
+                            {donationAmounts.slice(3).map((item, index) => (
+                              <BtnQuantityMoney
+                                key={index}
+                                amount={item.amount}
+                                isSelected={selectedAmount === item.amount}
+                                onClick={handleConfirmGoToDonate}
+                              />
+                            ))}
+                          </div>
+                        </section>
+                      </div>
+
+                      {selectedAmount > 5000 ?
+                        <ModalFormDonationRecurrent selectedAmount={selectedAmount} />
+                        :
+                        <CtaDonations
+                          style={{ position: 'relative' }}
+                          onClick={handleGoDonate}
+                          label={'DONAR AHORA'}
+                          width={'90%'}
+                          height={'3rem'}
+                          borderRadius={'2rem'}
+
+                        />
+                      }
+                      <p style={{ fontSize: '1rem' }}>Puedes <span style={{ textDecoration: 'underline', fontWeight: 'bold' }}>Modificar</span>  o  <span style={{ textDecoration: 'underline', fontWeight: 'bold' }}>Cancelar</span>  tu suscripción cuando desees </p>
+                    </div>
+                  </div>
+                </section>
+              }
+              {typeSelected === 'unica' &&
+                <section className='donations__sectionDonate'>
+                  <div className='donations__container'>
+                    {selectedAmount === null ?
+                      <img className='donations__videoBackground' src="https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689261448/ayapel/oczq1l3syf3bbj8ja09e.jpg" alt="" />
+                      :
+                      <>
+                        <div className='donations__videoBackground-inactive'></div>
+                        <div className='donations__columnTwo-selected'>
+                          <h2 className='donations__title'>¡Estas aun paso de ser parte de esta historia!
+                          </h2>
+                          {selectedAmount !== "Otro Valor" ?
+                            <p className='donations__text'>Al donar COP {formattedDonation} Tu aporte mensual marca la diferencia en la vida de las familias de Ayapel, en la protección de su entorno natural y en el impulso de su economía local.
+                            </p>
+                            :
+                            <div className='donations__howToDonate'>
+                              <p className='donations__text'> Puedes decir cuánto donar </p>
+                              <p className='donations__text'>Por favor ingresa la cantidad que deseas donar</p>
+                              <form onSubmit={handleSubmit} className='donations__formDonationsAmount'>
+                                <TextField
+                                  id="outlined-password-input"
+                                  label={
+                                    <span>
+                                      <FaDonate style={{ verticalAlign: 'middle' }} /> Monto a donar
+                                    </span>
+                                  }
+                                  name="amount"
+                                  onChange={handleChange}
+                                  value={values.amount}
+                                  error={errors.amount}
+                                  helperText={errors.amount}
+                                />
+                                <button type='submit' className='donations__btnConfirmAmount'>Confirmar</button>
+                              </form>
+                            </div>
+
+                          }
+                        </div>
+                      </>
+                    }
+                    <div className='donations__containerAmounts'>
+                      <div className='donations__containerAmounts__btns'>
+                        <section className='donations__columnOne'>
+                          <div className='donations__btns'>
+                            {donationAmounts.slice(0, 3).map((item, index) => (
+                              <BtnQuantityMoney
+                                key={index}
+                                amount={item.amount}
+                                isSelected={selectedAmount === item.amount}
+                                onClick={handleConfirmGoToDonate}
+                              />
+                            ))}
+                          </div>
+                        </section>
+
+                        <section className='donations__columnThree'>
+                          <div className='donations__btns'>
+                            {donationAmounts.slice(3).map((item, index) => (
+                              <BtnQuantityMoney
+                                key={index}
+                                amount={item.amount}
+                                isSelected={selectedAmount === item.amount}
+                                onClick={handleConfirmGoToDonate}
+                              />
+                            ))}
+                          </div>
+                        </section>
+                      </div>
+
+                      {selectedAmount > 5000 ? (
+                        <FormDonationFixed amount={selectedAmount} className='donations__btnDontationFixed' />
+                      ) : (
+                        <CtaDonations
+                          style={{ position: 'relative' }}
+                          onClick={handleGoDonate}
+                          label={'DONAR AHORA'}
+                          width={'90%'}
+                          height={'3rem'}
+                          borderRadius={'2rem'}
+                        />
+                      )}
+
+                      <p style={{ fontSize: '1rem' }}>Puedes <span style={{ textDecoration: 'underline', fontWeight: 'bold' }}>Modificar</span>  o  <span style={{ textDecoration: 'underline', fontWeight: 'bold' }}>Cancelar</span>  tu suscripción cuando desees </p>
+                    </div>
+                  </div>
+                </section>
+              }
+
             </main>
           </div>
           <motion.div
@@ -227,10 +346,10 @@ const formattedDonation = (selectedAmount / 30).toLocaleString();
             style={{ transformOrigin: isPresent ? "0" : "100%" }}
             className="privacy-screen"
           />
-               {/* <p>{dataTransactionDetail?.lastAction}</p> */}
+          {/* <p>{dataTransactionDetail?.lastAction}</p> */}
         </>
       )}
-{/*       
+      {/*       
       <VideoDonations/> */}
 
     </>
