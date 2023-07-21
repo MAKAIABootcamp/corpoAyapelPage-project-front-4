@@ -93,7 +93,6 @@ const Donations = () => {
   }
 
   const handleVideoReady = (event) => {
-    //     // Aquí puedes agregar lógica adicional cuando el video esté listo
   };
 
   // const handleScroll = () => {
@@ -115,8 +114,12 @@ const Donations = () => {
     initialValues: initialValues,
     validationSchema: Yup.object({
       amount: Yup.string()
-        .min(4, 'El monto debe ser superior a $5.000')
-        .required('Por favor indicar un valor'),
+      .required('Por favor indicar un valor')
+    .test('is-greater-than-5000', 'El monto debe ser superior a $5.000', function(value) {
+      const parsedValue = parseFloat(value.replace(/\D/g, ''));
+      return parsedValue > 5000;
+    }),
+        
     }),
     onSubmit: sendForm,
   })
@@ -165,13 +168,17 @@ const Donations = () => {
                       <>
                         <div className='donations__videoBackground-inactive'></div>
                         <div className='donations__columnTwo-selected'>
-                          <h2 className='donations__title'>¡Estas aun paso de ser parte de esta historia!
+                          <h2 className='donations__title'>¡Estas a un paso de ser parte de esta historia!
                           </h2>
                           {selectedAmount !== "Otro Valor" ?
                             <>
-                              <p className='donations__text'>El monto seleccionado para donar es </p>
+                               <p className='donations__text'>
+                                {/* Al donar COP {formattedDonation} */}
+                                 Tu aporte mensual marca la diferencia en la vida de las familias de Ayapel, en la protección de su entorno natural y en el impulso de su economía local. 
+                               </p>
+                               <p className='donations__text'> Has seleccionado donar:</p>
                               <p className='donations__title' style={{ fontSize: '2rem', textAlign: 'center' }}>
-                                ${selectedAmount}
+                                ${Number(selectedAmount).toLocaleString()}
                               </p>
                             </>
                             :
@@ -256,12 +263,20 @@ const Donations = () => {
                       <>
                         <div className='donations__videoBackground-inactive'></div>
                         <div className='donations__columnTwo-selected'>
-                          <h2 className='donations__title'>¡Estas aun paso de ser parte de esta historia!
+                          <h2 className='donations__title'>¡Estas a un paso de ser parte de esta historia!
                           </h2>
                           {selectedAmount !== "Otro Valor" ?
-                            <p className='donations__text'>Al donar COP {formattedDonation} Tu aporte mensual marca la diferencia en la vida de las familias de Ayapel, en la protección de su entorno natural y en el impulso de su economía local.
+                            <>
+                            <p className='donations__text'>
+                             {/* Al donar COP {formattedDonation} */}
+                              Tu aporte marca la diferencia en la vida de las familias de Ayapel, en la protección de su entorno natural y en el impulso de su economía local. 
                             </p>
-                            :
+                            <p className='donations__text'> Has seleccionado donar:</p>
+                           <p className='donations__title' style={{ fontSize: '2rem', textAlign: 'center' }}>
+                             ${Number(selectedAmount).toLocaleString()}
+                           </p>
+                         </>
+                         :
                             <div className='donations__howToDonate'>
                               <p className='donations__text'> Puedes decir cuánto donar </p>
                               <p className='donations__text'>Por favor ingresa la cantidad que deseas donar</p>

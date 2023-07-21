@@ -41,7 +41,8 @@ export default function ModalFormDonationRecurrent({selectedAmount}) {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <p style={{ textAlign: 'center', marginBottom: '1rem', fontFamily: 'arial, helvetica, sans-serif' }}>Donación recurrente</p>
+                    <p style={{ textAlign: 'center', marginBottom: '1rem', fontFamily: 'arial, helvetica, sans-serif', fontWeight:'bold' }}>Formulario de donación mensual</p>
+                    <p style={{ textAlign: 'center', marginBottom: '1rem', fontFamily: 'arial, helvetica, sans-serif' }}>Ha seleccionado donar <span>${Number(selectedAmount).toLocaleString()}</span> mensualmente</p>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
 
                     </Typography>

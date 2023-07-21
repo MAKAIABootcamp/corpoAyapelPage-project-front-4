@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import client from "../../sanity/client";
 import "./CardWhatWeDo.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { setLoadingStatusFalse } from "../../redux/actions/actions";
+import Loader from "../appLoader/Loader";
 
 const EnvironmentalManagement = () => {
   const [projectData, setProjectData] = useState(null); // Cambiar a null
@@ -14,6 +17,9 @@ const EnvironmentalManagement = () => {
   const [mostrarContenido2, setMostrarContenido2] = useState(false);
   const [mostrarContenido3, setMostrarContenido3] = useState(false);
   const [mostrarContenido4, setMostrarContenido4] = useState(false);
+
+  const { loading } = useSelector((store) => store.loading);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     client
@@ -38,6 +44,7 @@ const EnvironmentalManagement = () => {
         if (data.length >= 4) {
           setData4(data[3]);
         }
+        dispatch(setLoadingStatusFalse());
       })
       .catch(console.error);
   }, []);
@@ -118,169 +125,169 @@ const EnvironmentalManagement = () => {
 
   return (
     <>
-      <div className="content">
-        {projectData && projectData.mainImage && (
-          <div
-            className="content__img-Ambiental"
-            style={{
-              backgroundImage: `url(${projectData.mainImage.asset.url})`,
-            }}
-          >
-            <div className="content-Ambiental">
-              <h2>
-                {projectData.content} <span>{projectData.content2}</span>
-              </h2>
-              <h3>{projectData.subcontent}</h3>
-              <p>{projectData.textcontent}</p>
-            </div>
+      {loading ? (
+        <>
+          <Loader />
+        </>
+      ) : (
+        <>
+          <div className="content">
+            {projectData && projectData.mainImage && (
+              <div
+                className="content__img-Ambiental"
+                style={{
+                  backgroundImage: `url(${projectData.mainImage.asset.url})`,
+                }}
+              >
+                <div className="content-Ambiental">
+                  <h2>
+                    {projectData.content} <span>{projectData.content2}</span>
+                  </h2>
+                  <h3>{projectData.subcontent}</h3>
+                  <p>{projectData.textcontent}</p>
+                </div>
 
-            <div
-              className={`containerGestionAmbiental ${
-                mostrarContenido ? "see" : ""
-              }`}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <div className="title">{titulo}</div>
-              <div className="contentText">
-                {mostrarContenido ? parrafoCompleto : parrafoCorto}
+                <div
+                  className={`containerGestionAmbiental ${mostrarContenido ? "see" : ""
+                    }`}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <div className="title">{titulo}</div>
+                  <div className="contentText">
+                    {mostrarContenido ? parrafoCompleto : parrafoCorto}
+                  </div>
+                </div>
+
+                <div
+                  className={`containerGestionAmbiental2 ${mostrarContenido2 ? "see" : ""
+                    }`}
+                  onMouseEnter={handleMouseEnter2}
+                  onMouseLeave={handleMouseLeave2}
+                >
+                  <div className="title">{titulo2}</div>
+                  <div className="contentText">
+                    {mostrarContenido2 ? parrafoCompleto2 : parrafoCorto2}
+                  </div>
+                  {listContent.length > 0 && (
+                    <ul className="listContent">
+                      {listContent.map((item, index) => (
+                        <li key={index} className="listItem">
+                          <span className="listDot"></span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+
+                <div
+                  className={`containerGestionAmbiental3 ${mostrarContenido3 ? "see" : ""
+                    }`}
+                  onMouseEnter={handleMouseEnter3}
+                  onMouseLeave={handleMouseLeave3}
+                >
+                  <div className="title">{titulo3}</div>
+                  <div className="contentText">
+                    {mostrarContenido3 ? parrafoCompleto3 : parrafoCorto3}
+                  </div>
+                </div>
+
+                <div
+                  className={`containerGestionAmbiental4 ${mostrarContenido4 ? "see" : ""
+                    }`}
+                  onMouseEnter={handleMouseEnter4}
+                  onMouseLeave={handleMouseLeave4}
+                >
+                  <div className="title">{titulo4}</div>
+                  <div className="contentText">
+                    {mostrarContenido4 ? parrafoCompleto4 : parrafoCorto4}
+                  </div>
+                </div>
+
               </div>
-            </div>
-
-            <div
-              className={`containerGestionAmbiental2 ${
-                mostrarContenido2 ? "see" : ""
-              }`}
-              onMouseEnter={handleMouseEnter2}
-              onMouseLeave={handleMouseLeave2}
-            >
-              <div className="title">{titulo2}</div>
-              <div className="contentText">
-                {mostrarContenido2 ? parrafoCompleto2 : parrafoCorto2}
-              </div>
-              {listContent.length > 0 && (
-                <ul className="listContent">
-                  {listContent.map((item, index) => (
-                    <li key={index} className="listItem">
-                      <span className="listDot"></span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-
-            <div
-              className={`containerGestionAmbiental3 ${
-                mostrarContenido3 ? "see" : ""
-              }`}
-              onMouseEnter={handleMouseEnter3}
-              onMouseLeave={handleMouseLeave3}
-            >
-              <div className="title">{titulo3}</div>
-              <div className="contentText">
-                {mostrarContenido3 ? parrafoCompleto3 : parrafoCorto3}
-              </div>
-            </div>
-
-            <div
-              className={`containerGestionAmbiental4 ${
-                mostrarContenido4 ? "see" : ""
-              }`}
-              onMouseEnter={handleMouseEnter4}
-              onMouseLeave={handleMouseLeave4}
-            >
-              <div className="title">{titulo4}</div>
-              <div className="contentText">
-                {mostrarContenido4 ? parrafoCompleto4 : parrafoCorto4}
-              </div>
-            </div>
-
+            )}
           </div>
-        )}
-      </div>
 
-      <div className="contentnone">
-        {projectData && (
-          <div
-            className="contentnone__img"
-            style={{
-              backgroundImage: `url(${projectData.mainImage.asset.url})`,
-            }}
-          >
-            <div className="textAmbiental">
-              <h2>
-                {projectData.content} <span>{projectData.content2}</span>
-              </h2>
-              <h3>{projectData.subcontent}</h3>
-              <p>{projectData.textcontent}</p>
-            </div>
+          <div className="contentnone">
+            {projectData && (
+              <div
+                className="contentnone__img"
+                style={{
+                  backgroundImage: `url(${projectData.mainImage.asset.url})`,
+                }}
+              >
+                <div className="textAmbiental">
+                  <h2>
+                    {projectData.content} <span>{projectData.content2}</span>
+                  </h2>
+                  <h3>{projectData.subcontent}</h3>
+                  <p>{projectData.textcontent}</p>
+                </div>
 
-            <div
-              className={`containerGestionAmbiental ${
-                mostrarContenido ? "see" : ""
-              }`}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <div className="title">{titulo}</div>
-              <div className="contentText">
-                {mostrarContenido ? parrafoCompleto : parrafoCorto}
+                <div
+                  className={`containerGestionAmbiental ${mostrarContenido ? "see" : ""
+                    }`}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <div className="title">{titulo}</div>
+                  <div className="contentText">
+                    {mostrarContenido ? parrafoCompleto : parrafoCorto}
+                  </div>
+                </div>
+
+                <div
+                  className={`containerGestionAmbiental2 ${mostrarContenido2 ? "see" : ""
+                    }`}
+                  onMouseEnter={handleMouseEnter2}
+                  onMouseLeave={handleMouseLeave2}
+                >
+                  <div className="title">{titulo2}</div>
+                  <div className="contentText">
+                    {mostrarContenido2 ? parrafoCompleto2 : parrafoCorto2}
+                  </div>
+                  {listContent.length > 0 && (
+                    <ul className="listContent">
+                      {listContent.map((item, index) => (
+                        <li key={index} className="listItem">
+                          <span className="listDot"></span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+
+                <div
+                  className={`containerGestionAmbiental3 ${mostrarContenido3 ? "see" : ""
+                    }`}
+                  onMouseEnter={handleMouseEnter3}
+                  onMouseLeave={handleMouseLeave3}
+                >
+                  <div className="title">{titulo3}</div>
+                  <div className="contentText">
+                    {mostrarContenido3 ? parrafoCompleto3 : parrafoCorto3}
+                  </div>
+                </div>
+
+                <div
+                  className={`containerGestionAmbiental4 ${mostrarContenido4 ? "see" : ""
+                    }`}
+                  onMouseEnter={handleMouseEnter4}
+                  onMouseLeave={handleMouseLeave4}
+                >
+                  <div className="title">{titulo4}</div>
+                  <div className="contentText">
+                    {mostrarContenido4 ? parrafoCompleto4 : parrafoCorto4}
+                  </div>
+                </div>
+
               </div>
-            </div>
-
-            <div
-              className={`containerGestionAmbiental2 ${
-                mostrarContenido2 ? "see" : ""
-              }`}
-              onMouseEnter={handleMouseEnter2}
-              onMouseLeave={handleMouseLeave2}
-            >
-              <div className="title">{titulo2}</div>
-              <div className="contentText">
-                {mostrarContenido2 ? parrafoCompleto2 : parrafoCorto2}
-              </div>
-              {listContent.length > 0 && (
-                <ul className="listContent">
-                  {listContent.map((item, index) => (
-                    <li key={index} className="listItem">
-                      <span className="listDot"></span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-
-            <div
-              className={`containerGestionAmbiental3 ${
-                mostrarContenido3 ? "see" : ""
-              }`}
-              onMouseEnter={handleMouseEnter3}
-              onMouseLeave={handleMouseLeave3}
-            >
-              <div className="title">{titulo3}</div>
-              <div className="contentText">
-                {mostrarContenido3 ? parrafoCompleto3 : parrafoCorto3}
-              </div>
-            </div>
-
-            <div
-              className={`containerGestionAmbiental4 ${
-                mostrarContenido4 ? "see" : ""
-              }`}
-              onMouseEnter={handleMouseEnter4}
-              onMouseLeave={handleMouseLeave4}
-            >
-              <div className="title">{titulo4}</div>
-              <div className="contentText">
-                {mostrarContenido4 ? parrafoCompleto4 : parrafoCorto4}
-              </div>
-            </div>
-
+            )}
           </div>
-        )}
-      </div>
+        </>
+      )}
     </>
   );
 };
