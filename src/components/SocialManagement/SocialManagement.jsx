@@ -78,6 +78,7 @@ const SocialManagement = () => {
             content2,
             subcontent,
             textcontent,
+            textcontent2,
             mainImage{
               asset->{
                 _id,
@@ -112,6 +113,7 @@ const SocialManagement = () => {
                 </h2>
                 <h3>{projectData.subcontent}</h3>
                 <p>{projectData.textcontent}</p>
+              <p>{projectData.textcontent2}</p>
               </div>
 
               <div
@@ -170,6 +172,7 @@ const SocialManagement = () => {
               </h2>
               <h3>{projectData.subcontent}</h3>
               <p>{projectData.textcontent}</p>
+              <p>{projectData.textcontent2}</p>
             </div>
 
             <div className="prueba">

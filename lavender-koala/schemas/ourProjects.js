@@ -1,12 +1,12 @@
 // schemas/pet.js
 export default {
-    name: 'gestion',
+    name: 'nuestrosProyecto',
     type: 'document',
-      title: 'Gestion',
+      title: 'NuestrosProyecto',
     fields: [
         {
             name: 'mainImage',
-            title: 'Imagen',
+            title: 'Imagen de Fondo',
             type: 'image',
             options: {
               hotspot: true
@@ -15,28 +15,31 @@ export default {
       {
         name: 'content',
         type: 'string',
-        title: 'Titulo Principal'
+        title: 'Titulo'
       },
       {
         name: 'content2',
         type: 'string',
-        title: 'Sub Titulo Principal'
+        title: 'Sub Titulo'
       },
       {
-        name: 'subcontent',
+        name: 'text',
         type: 'string',
-        title: 'Titulo Secundario'
+        title: 'Texto',
       },
       {
-        name: 'textcontent',
+        name: 'textContent',
         type: 'string',
-        title: 'Texto'
+        title: 'Texto Segundario',
       },
       {
-        name: 'textcontent2',
-        type: 'string',
-        title: 'Texto Secundario'
-      }
+        name: 'mainImage2',
+        title: 'Imagen',
+        type: 'image',
+        options: {
+          hotspot: true
+        }
+      },
     
     ]
   }

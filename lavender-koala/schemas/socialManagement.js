@@ -7,12 +7,12 @@ export default {
       {
         name: 'titleContent',
         type: 'string',
-        title: 'Title',
+        title: 'Titulo',
       },
       {
         name: 'textContent',
         type: 'string',
-        title: 'text',
+        title: 'Texto',
       },
     ],
   }

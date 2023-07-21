@@ -57,6 +57,7 @@ const EnvironmentalManagement = () => {
           content2,
           subcontent,
           textcontent,
+          textcontent2,
           mainImage{
             asset->{
               _id,
@@ -204,6 +205,7 @@ const EnvironmentalManagement = () => {
                     {mostrarContenido4 ? parrafoCompleto4 : parrafoCorto4}
                   </div>
                 </div>
+
 
               </div>
             )}
