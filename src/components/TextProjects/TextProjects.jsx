@@ -1,41 +1,62 @@
-import React from "react";
-// import "../../pages/FullPage/FullPage.scss";
+import React, { useEffect, useState } from "react";
 import "./TextProjects.scss";
+import client from "../../sanity/client";
 
 const Test = () => {
-  const background =
-    "https://res.cloudinary.com/drrpq9vlk/image/upload/v1689263369/Corpoayapel_julio_2016-129_ol55za.jpg";
+  const [postData, setPostData] = useState(null);
+
+  useEffect(() => {
+    client
+      .fetch(
+        `*[_type == "nuestrosProyecto"] {
+          content,
+          content2,
+          text,
+          textContent,
+          mainImage{
+            asset->{
+              _id,
+              url
+            }
+          },
+          mainImage2{
+            asset->{
+              _id,
+              url
+            }
+          }
+        }`
+      )
+
+      .then((data) => setPostData(data))
+      .catch(console.error);
+  }, []);
 
   return (
     <div>
       <div className="other">
-        <div
-          className="other__one"
-          style={{
-            backgroundImage: `url(${background})`,
-          }}
-        >
-          <div className="title">
-            <h2>
-              Nuestros <span>proyectos</span>
-            </h2>
-            <p>
-            Somos una organización sin ánimo de lucro que desde hace 20 años trabaja por el desarrollo sostenible del complejo cenagoso y la comunidad de Ayapel.
-            </p>
-            <p>
-            Nuestro modelo de gestión se lleva a cabo a través de iniciativas en tres líneas: Social, ambiental y económica, las cuales se articulan y fomentan la participación de toda la comunidad.
-            </p>
-            <div>
-              
+        {postData &&
+          postData.map((data, index) => (
+            <div
+              key={index}
+              className="other__one"
+              style={{
+                backgroundImage: `url(${data.mainImage.asset.url})`,
+              }}
+            >
+              <div className="title">
+                <h2>
+                  {data.content} <span>{data.content2}</span>
+                </h2>
+                <p>{data.text}</p>
+                <p>{data.textContent}</p>
+                <div></div>
+              </div>
+              <div className="contentImg">
+                <img src={data.mainImage2.asset.url} alt="" />
+              </div>
             </div>
-          </div>
-          <div className="contentImg">
-            <img
-              src="https://res.cloudinary.com/drrpq9vlk/image/upload/v1689034065/que-hacemos_twlkys.svg"
-              alt="QueHacemos"
-            />
-          </div>
-        </div>
+          ))}
       </div>
     </div>
   );
