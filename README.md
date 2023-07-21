@@ -1,18 +1,43 @@
 
 ![Logo](https://res.cloudinary.com/dgnwqr93n/image/upload/v1688430892/logo_1_ficoj8.svg)
 
+# CorpoAyapel: Conexiones Solidarias para Causas Benéficas
 
-# CorpoAyapel LadingPage
+CorpoAyapel LadingPage es un proyecto de software diseñado para crear una experiencia de usuario intuitiva, dirigido tanto a organizaciones como a individuos comprometidos con hacer una diferencia a través de donaciones y contribuciones benéficas.
 
-A brief description of what this project does and who it's for
+### Aspectos Destacados del Proyecto
+
+1. **Experiencia Intuitiva de Donación**: CorpoAyapel ofrece una plataforma fácil de usar que permite a los usuarios donar sin esfuerzo, ya sea mediante una contribución única o una suscripción periódica. El proceso es sencillo, lo que permite a las personas apoyar sus causas elegidas sin complicaciones.
+
+2. **Gestión Eficiente del Sitio**: Con CorpoAyapel, las organizaciones tienen control total sobre el contenido de su sitio web. Pueden actualizar información, compartir noticias, subir imágenes, videos y gestionar consultas de los usuarios de manera efectiva. Esta característica agiliza la administración del sitio, asegurando que la información esté siempre actualizada.
+
+3. **Interacción Directa**: CorpoAyapel fomenta la comunicación directa entre las organizaciones y sus interesados. Los usuarios, voluntarios y empresas que desean hacer donaciones pueden interactuar uno a uno con la organización, fomentando la transparencia y estableciendo conexiones significativas.
+
+4. **Diseño Moderno y Minimalista**: El proyecto presenta un diseño moderno y minimalista del sitio web, ofreciendo una experiencia de navegación sin complicaciones para los usuarios. Este enfoque garantiza que la información se presente de manera clara y concisa, facilitando la navegación por todo el sitio.
+
+## Para CorpoAyapel (Administradores y Personal)
+
+- Fácil administración del sitio, incluida la edición de contenido y las actualizaciones de noticias.
+- Comunicación directa con usuarios, voluntarios y posibles donantes.
+- Modernización del aspecto y funcionalidad del sitio web.
+- Compartir noticias y actualizaciones en plataformas de redes sociales.
+
+## Para los Usuarios
+
+- Navegación rápida, sencilla y sin complicaciones.
+- Contacto directo uno a uno con CorpoAyapel para interacciones personalizadas.
+- Opciones flexibles de donación, permitiendo contribuciones únicas o periódicas.
+- Compartir noticias y actualizaciones en diversas redes sociales.
+- Notificaciones instantáneas de validación al interactuar con el Chat, el Formulario de Contacto o el Formulario de Programas.
+
 
 
 ## Caracteristicas/Funcionalidades
 
-- Light/dark mode toggle
-- Live previews
-- Fullscreen mode
-- Cross platform
+- Actualizar, Editar, Agregar contenido
+- Subscripciones mensuales, o pago unico
+- Live Chat
+- Formularios de Contacto, Programas Voluntariado/Empresas
 
 
 ## Tech Stack
@@ -122,7 +147,7 @@ To deploy this project run
 
 ## Usado por
 
-This project is used by the following companies:
+Este proyecto es usado por:
 
 - [https://corpoayapel.com](https://corpoayapel.org/)
 
