@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Donations from '../Donations'
 import './pageDonations.scss';
 import Testimonials from '../../../components/donations/testimonials/Testimonials';
@@ -12,29 +12,26 @@ import BannerDonations from '../bannerDonations/BannerDonations';
 
 const PageDonations = () => {
 
+  const [dataTransactionDetail, setDataTransactionDetail] = useState(null)
+
   return (
     <>
       <main className="container">
-       <div className="div" style={{height:'100vh'}}>
+        <div className="div" style={{height:'100vh'}}>
         <BannerDonations/>
-        </div> 
+        </div>  
         <div className="div">
-          <Donations style={{ position: 'relative' }} />
+          <Donations />
         </div>
         <div className="div">
-        <DonorProgress />
-  
-          {/* <ImpactIndicator /> */}
+          <DonorProgress />
         </div>
         <div className="div">
-        <DonationsIndicator />
+          <DonationsIndicator />
         </div>
         <div className="div">
           <Testimonials />
         </div>
-        {/* <div className="div">
-             <DonationsIndicator/>
-             </div> */}
         <Helmet>
           <script
             type="text/javascript"

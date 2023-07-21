@@ -15,6 +15,7 @@ import FullPage from "../pages/FullPage/FullPage";
 import PageDonations from "../pages/Donations/pageDonations/PageDonations";
 import HowToHelp from "../pages/HowToHelp/HowToHelp";
 import BannerDonations from "../pages/Donations/bannerDonations/BannerDonations";
+//import AppLoader from "../components/appLoader/AppLoader";
 
 const AppRouter = () => {
   return (

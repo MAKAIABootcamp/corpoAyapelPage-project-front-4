@@ -59,7 +59,6 @@ const DonorProgress = () => {
             .then((data) => setAllPostData(data))
             .catch(console.error)
     }, [])
-    console.log(allPostData)
 
 
     const [progress, setProgress] = useState(0);

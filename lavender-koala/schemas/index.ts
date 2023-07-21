@@ -17,3 +17,4 @@ import socialManagement from "./socialManagement"
 
 export const schemaTypes = [projects, testimonials, peopleImpacted, donorsGoals, socialsMediaUrl, donationAmount, news, whatWeDo, economicManagement, environmentalManagement, socialManagement, documents, youtube, whatDoInAyapel, floraAndFauna,management]
 
+

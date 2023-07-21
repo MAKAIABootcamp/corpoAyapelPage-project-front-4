@@ -1,5 +1,23 @@
-.icon__arrow {
+@keyframes moveDown {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .btn-know-more {
+    cursor: pointer;
+  }
+  
+  .icon__arrow {
     color: #777779;
-    height: 50px;
+    //height: 50px;
     margin-top: 1rem;
-}
+    animation: moveDown 1.5s ease-in-out infinite;
+  }
+  

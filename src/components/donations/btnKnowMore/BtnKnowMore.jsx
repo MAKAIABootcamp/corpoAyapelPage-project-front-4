@@ -1,14 +1,13 @@
-import React from 'react'
-import { BsFillArrowDownCircleFill } from "react-icons/bs";
+import React from 'react';
+import { BsFillArrowDownCircleFill } from 'react-icons/bs';
 import './btnKnowMore.scss';
 
-const BtnKnowMore = ({ onClick }) => {
+const BtnKnowMore = () => {
   return (
-    <>  
-    <BsFillArrowDownCircleFill  onClick={onClick} style={{width:'50px'}} className='icon__arrow'/>
-  
-    </>
-  )
-}
+    <div className="btn-know-more">
+      <BsFillArrowDownCircleFill className="icon__arrow" style={{ width: '50px' }} />
+    </div>
+  );
+};
 
-export default BtnKnowMore
+export default BtnKnowMore;

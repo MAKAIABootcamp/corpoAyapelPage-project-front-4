@@ -1,114 +1,186 @@
+import axios from "axios";
 
-//import { params_transaction } from './path/to/params_transaction';
-//import { ePayco } from './path/to/ePayco';
+const url_sdk = "http://localhost:9000"
 
-// const P_CUST_ID_CLIENTE = "936779";
-// const P_KEY = "54355433733cfdea3514765b57b65abac635d26c\n\n";
-// const PUBLIC_KEY = "856fc378f84069d4d0ba4174647eb794";
-// const PRIVATE_KEY = "863642a552fd0e5d7f8331170110be63";
-// const url_apify = "https://apify.epayco.co";
-// const token_apify = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhcGlmeWVQYXljb0pXVCIsInN1YiI6OTM2Nzc5LCJpYXQiOjE2ODkwMzk4ODUsImV4cCI6MTY4OTA0MzQ4NSwicmFuZCI6IjI3ZWVmYmJkMGYyMDg1Yjc2MWI1M2VhOGZlY2IxMzI1MjQyIiwicmVzIjpmYWxzZSwiaW5hIjpmYWxzZSwiZ3VpIjo1NDIxNzYsInV1aWQiOiI1YTc4Mzk4Zi1mYzRjLTQ4NDktYmYxYy1mMjY2MGZmM2FjNTIifQ.4UuSeOWgkcghssvAxA6a-pOOGIyEh4GCNKBwonwm7Nw";
-
-const P_CUST_ID_CLIENTE = "927115";
-const P_KEY = "efbb4a968055b891305d4d18edbe0ee3e5423269\n\n";
-const PUBLIC_KEY = "8ed7aef73ad73a63416e144acfc9b9a7";
-const PRIVATE_KEY = "c853c136adce33b85843cab1ef67bec0";
-const url_apify = "https://apify.epayco.co";
-const token_apify = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhcGlmeWVQYXljb0pXVCIsInN1YiI6OTI3MTE1LCJpYXQiOjE2ODkwNDI3NDEsImV4cCI6MTY4OTA0NjM0MSwicmFuZCI6ImM0ZDY0ZmMwMWY2YTE3Y2Q1NjY5YmEyMzdmM2FmMWI5NzkwIiwicmVzIjpmYWxzZSwiaW5hIjpmYWxzZSwiZ3VpIjo1MzI3MjcsInV1aWQiOiJjOTA2NTFmMi0xZGM5LTQ0MzAtYjZlYS1lNzU0ODg1ZmVhNzEifQ.NDaSspvvxyLAZm-GEX5GhswdzxQ4MyQSJ-HH3ZUrnHA";
+//*************************CREAR TOKEN DE TARJETA DE CREDITO**************************** */
 
 
-// export const getDataEpayco = () => {
-
-// fetch('https://yourbackend.com/session', {
-//     method: "POST",
-//     body: JSON.stringify({
-//         ...params_transaction,
-//     }),
-//     headers: { "Content-type": "application/json; charset=UTF-8" }
-// })
-//     .then(response => response.json())
-//     .then(({ data: { sessionId } }) => {
-//         const handler = ePayco.checkout.configure({
-//             sessionId,
-//             external: false // external: true -> para checkout externo ó External: false => para iframe onePage
-//         })
-//         //open checkout
-//         handler.openNew()
-//     })
-//     .catch(error => console.log(error))
-// }
-export const listTransactions = () => {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("Authorization", `Bearer ${token_apify}`);
-  
-    var raw = JSON.stringify({
-      "filter": {
-        "transactionInitialDate": "2020-01-01 00:00:00",
-        "transactionEndDate": "2020-11-11 23:59:59"
-      },
-      "pagination": {
-        "page": 1,
-        "limit": 50
-      }
-    });
-  
-    var requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: raw,
-      redirect: 'follow'
-    };
-  
-    fetch(`${url_apify}/transaction`, requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
-  }
-  
-
-export const listPaymentLinks = async () => {
-    try {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("Authorization", `Bearer ${token_apify}`);
-  
-    var requestOptions = {
-      method: 'GET',
-      headers: myHeaders,
-      redirect: 'follow'
-    };
-  
-   const response = await fetch(`${url_apify}/collection/link`, requestOptions)
-   const result= await response.json();
-      console.log(result);
-}
-      catch(error) {
-
-       console.log('error', error);
-      }
-  }
-  
-
-
-export const getTransactionDetail = async () => {
-    try {
-      var myHeaders = new Headers();
-      myHeaders.append("Content-Type", "application/json");
-      myHeaders.append("Authorization", `Bearer ${token_apify}`);
-      
-      var requestOptions = {
-        method: 'GET',
-        headers: myHeaders,
-        redirect: 'follow'
+export const createCardToken = async (data) => {
+  try {
+    const requestBody = {
+        'card[number]': `${data.cardNumber}`,
+        'card[exp_year]': `${data.expiryYear}`,
+        'card[exp_month]': `${data.expiryMonth}`,
+        'card[cvc]': `${data.codigoCVV}`,
+        hasCvv: true
       };
-      
-      const response = await fetch(`${url_apify}/transaction/detail`, requestOptions);
-      const result = await response.json();
-      console.log(result);
+
+    const response = await axios.post(`${url_sdk}/token/card`, requestBody);
+    const result = response.data;
+    console.log(result)
+    return result;
+  } catch (error) {
+    console.log('error', error);
+  }
+};
+
+
+
+
+//*************************CREAR CLIENTE**************************** */
+export const createNewCustomer = async (data) => {
+  try {
+    const requestBody = {
+      "token_card": `${data.cardToken.id}`,
+      "name": `${data.name}`,
+      "last_name": `${data.lastName}`, 
+      "email": `${data.email}`,
+      "default": true,
+      "city": "",
+      "address": "",
+      "phone": "",
+      "cell_phone": `${data.cellPhone}`
+  };
+
+    const response = await axios.post(`${url_sdk}/customer`, requestBody);
+    const result = response.data;
+   console.log(result)
+    return result;
+  } catch (error) {
+    console.log('error', error);
+  }
+};
+
+
+
+
+//*************************CREAR UN PLAN SELECCIONANDO EL MONTO**************************** */
+export const createPlanWithFreeAmount = async (name, selectedAmount) => {
+  try {
+    const requestBody = {
+      "id_plan": `${name}${selectedAmount}`,
+      "name": `${name}`,
+      "description": `${name}`,
+      "amount": selectedAmount,
+      "currency": "cop",
+      "interval": "month",
+      "interval_count": 1,
+      "trial_days": 30
+  };
+
+    const response = await axios.post(`${url_sdk}/plan`, requestBody);
+    const result = response.data;
+   console.log(result)
+    return result;
+  } catch (error) {
+    console.log('error', error);
+  }
+};
+
+
+
+//*************************CREAR UNA SUSCRIPCIÓN**************************** */
+export const createSuscription = async (data) => {
+    console.log(data)
+  try {
+    const requestBody = {
+      "id_plan": `${data.planInfo.data.id_plan}`,
+      "customer": `${data.customerInfo.data.customerId}`,
+      "token_card": `${data.cardToken.id}`,
+      "doc_type": `${data.customerInfoForm.documentType}`,
+      "doc_number": `${data.customerInfoForm.documentNumber}`,
+      "url_confirmation": "https://ejemplo.com/confirmacion",
+      "method_confirmation": "POST"
+  };
+
+    const response = await axios.post(`${url_sdk}/suscription`, requestBody);
+    const result = response.data;
+   console.log(result)
+    return result;
+  } catch (error) {
+    console.log('error', error);
+  }
+};
+
+//*************************PAGAR UNA SUSCRIPCIÓN**************************** */
+export const paySuscription = async (data) => {
+  console.log(data);
+  try {
+    const requestBody = {
+      "id_plan": `${data.planInfo.data.id_plan}`,
+      "customer": `${data.customerInfo.data.customerId}`,
+      "token_card": `${data.cardToken.id}`,
+      "doc_type": `${data.customerInfoForm.documentType}`,
+      "doc_number": `${data.customerInfoForm.documentNumber}`,
+      "ip": `${data.ip}`,
+      "url_confirmation": "https://ejemplo.com/confirmacion",
+      "method_confirmation": "POST"
+  };
+
+    const response = await axios.post(`${url_sdk}/pay/suscription`, requestBody);
+    const result = response.data;
+   console.log(result)
+    return result;
+  } catch (error) {
+    console.log('error', error);
+  }
+};
+
+
+//*************************CONSULTAR CLIENTES**************************** */
+export const listCustomers = async () => {
+try{
+    const response = await axios.get(`${url_sdk}/list/customers`);
+    const result = response.data;
+   console.log(result)
+    return result;
+  } catch (error) {
+    console.log('error', error);
+  }
+};
+
+
+//*************************CANCELAR UNA SUSCRIPCIÓN EXISTENTE**************************** */
+export const cancelSubscription = async (id_subscription) => {
+  console.log(id_subscription);
+  try {
+    const response = await axios.get(`${url_sdk}/cancel/suscription?id_subscription=${id_subscription}`);
+    const result = response.data;
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log('error', error);
+  }
+};
+
+
+//*************************CONSULTAR PLANES**************************** */
+export const listSubscriptions = async () => {
+  try{
+      const response = await axios.get(`${url_sdk}/list/subscription`);
+      const result = response.data;
+     console.log(result)
       return result;
     } catch (error) {
       console.log('error', error);
     }
   };
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
