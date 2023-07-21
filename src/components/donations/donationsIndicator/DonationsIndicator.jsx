@@ -94,16 +94,16 @@ const DonationsIndicator = () => {
             .then((data) => {
                 setAllPostData(data);
                 dispatch(setLoadingStatusFalse());
-              })
-              .catch(console.error);
+            })
+            .catch(console.error);
     }, [])
 
     return (
         <>
             {loading ? (
-                 <>
-                 <Loader />
-               </>
+                <>
+                    <Loader />
+                </>
             ) : (
                 <div className='donationsIndicator__background'>
                     {/* <GraficIndcator/> */}
@@ -183,9 +183,10 @@ const DonationsIndicator = () => {
                             </div>
 
                         </SwiperSlide>
+                        
 
                     </Swiper>
-                    <div>
+                    {/* <div>
                         <article className='donationsIndicator__ctaDonations'>
                             <CtaDonations
                                 label={'¿QUIERES DONAR?'}
@@ -197,7 +198,7 @@ const DonationsIndicator = () => {
                         <article className="donationsIndicator__next">
                             <BtnKnowMore />
                         </article>
-                    </div>
+                    </div> */}      
 
 
 
@@ -207,5 +208,6 @@ const DonationsIndicator = () => {
         </>
     )
 }
+
 
 export default DonationsIndicator

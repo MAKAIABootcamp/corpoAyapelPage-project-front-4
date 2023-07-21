@@ -16,14 +16,14 @@ const PageDonations = () => {
 
   return (
     <>
-      <main className="container">
+      <main className="container__mainDonations">
         <div className="div" style={{height:'100vh'}}>
         <BannerDonations/>
-        </div>  
+        </div>   
         <div className="div">
           <Donations />
         </div>
-        <div className="div">
+         <div className="div">
           <DonorProgress />
         </div>
         <div className="div">
@@ -40,7 +40,7 @@ const PageDonations = () => {
             defer
             src="//js-na1.hs-scripts.com/40152509.js"
           ></script>
-        </Helmet>
+        </Helmet> 
       </main>
     </>
   )

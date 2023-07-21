@@ -13,7 +13,7 @@ import CustomerInformation from './CustomerInformation';
 import ConfirmationSuscription from './ConfirmationSuscription';
 
 
-const FormDonationRecurrent = ({handleClose, selectedAmount}) => {
+const FormDonationRecurrent = ({ handleClose, selectedAmount }) => {
 
     const dispatch = useDispatch();
 
@@ -26,7 +26,7 @@ const FormDonationRecurrent = ({handleClose, selectedAmount}) => {
     }
 
     const sendForm = (data) => {
-        dispatch(updateDataSuscription(data ));
+        dispatch(updateDataSuscription(data));
     }
 
     const { handleSubmit, handleChange, values, errors } = useFormik({
@@ -47,7 +47,7 @@ const FormDonationRecurrent = ({handleClose, selectedAmount}) => {
     const handleConfirmation = () => {
         setCurrentStep("confirmation");
         handleClose(); // Cerrar el modal después de establecer setCurrentStep("confirmation")
-      };
+    };
 
     return (
         <>
@@ -71,17 +71,18 @@ const FormDonationRecurrent = ({handleClose, selectedAmount}) => {
                     </div>
                     <div className='formDonationsRecurrent__stepOne'>
                         <p className='formDonationsRecurrent__stepOne__title'> Paso 1 Seleccione el metodo de pago</p>
-
-                        <div onClick={handleConfirmTdc} className={Object.keys(suscriptionDonation).length === 0 ? 'formDonationsRecurrent__selectCard' : 'formDonationsRecurrent__selectCard-active'}>
-                            <ImCreditCard className='formDonationsRecurrent__iconCard' />
-                            <p>Tarjeta de Crédito</p>
-                        </div>
+                        {Object.keys(suscriptionDonation).length === 0 &&
+                            <div onClick={handleConfirmTdc} className={Object.keys(suscriptionDonation).length === 0 ? 'formDonationsRecurrent__selectCard' : 'formDonationsRecurrent__selectCard-active'}>
+                                <ImCreditCard className='formDonationsRecurrent__iconCard' />
+                                <p>Tarjeta de Crédito</p>
+                            </div>
+                        }
                     </div>
                 </form>
             )}
 
             {currentStep === 'payment' && (
-                <PaymentCreditCard setCurrentStep={setCurrentStep} currentStep={currentStep} selectedAmount={selectedAmount}/>
+                <PaymentCreditCard setCurrentStep={setCurrentStep} currentStep={currentStep} selectedAmount={selectedAmount} />
             )}
 
             {currentStep === 'customerInformation' && (
@@ -89,7 +90,7 @@ const FormDonationRecurrent = ({handleClose, selectedAmount}) => {
             )}
 
             {currentStep === 'confirmation' && (
-                <ConfirmationSuscription setCurrentStep={setCurrentStep} currentStep={currentStep} handleClose={handleClose} selectedAmount={selectedAmount}/>
+                <ConfirmationSuscription setCurrentStep={setCurrentStep} currentStep={currentStep} handleClose={handleClose} selectedAmount={selectedAmount} />
             )}
         </>
 

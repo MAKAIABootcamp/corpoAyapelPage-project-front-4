@@ -117,7 +117,7 @@ const FormCancelOneDonationRecurrent = ({ handleClose, selectedAmount }) => {
             {loading && <LocalLoader />}
             {currentStep === 'email' && (
                 <form onSubmit={handleSubmit} className='formDonationsRecurrent'>
-                    <p style={{ margin: '1rem', textAlign: 'center' }}>  Por favor ingrese el correo electrónico <br /> resgitrado en la suscripción de donación mensual</p>
+                    <p style={{ margin: '1rem', textAlign: 'center' }}>  Por favor ingrese el correo electrónico <br /> registrado en la suscripción de donación mensual</p>
 
                     <div className='formDonationsRecurrent__email'>
                         <TextField

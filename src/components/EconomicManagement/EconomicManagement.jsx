@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import client from "../../sanity/client";
 import "./EconomicManagement.scss";
+import { useDispatch, useSelector } from "react-redux";
+import Loader from "../appLoader/Loader";
+import { setLoadingStatusFalse } from "../../redux/actions/actions";
 
 const EconomicManagement = () => {
   const [projectData, setProjectData] = useState(null);
@@ -9,6 +12,10 @@ const EconomicManagement = () => {
 
   const [mostrarContenido, setMostrarContenido] = useState(false);
   const [mostrarContenido2, setMostrarContenido2] = useState(false);
+
+  const { loading } = useSelector((store) => store.loading);
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
     client
@@ -50,6 +57,7 @@ const EconomicManagement = () => {
         if (data.length >= 1) {
           const firstData = data[0];
           setProjectData(firstData);
+          dispatch(setLoadingStatusFalse());
         }
       })
       .catch(console.error);
@@ -81,6 +89,12 @@ const EconomicManagement = () => {
 
   return (
     <>
+    {loading ? (
+      <>
+        <Loader />
+      </>
+    ) : (
+      <>
       <div className="content">
         {projectData &&
           projectData.mainImage && ( // Verificar projectData.mainImage
@@ -172,6 +186,8 @@ const EconomicManagement = () => {
         )}
       </div>
     </>
+    )}
+</>
   );
 };
 

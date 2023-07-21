@@ -20,6 +20,7 @@ import {
   WhatsappIcon,
   WhatsappShareButton,
 } from "react-share";
+import Loader from "../../components/appLoader/Loader";
 
 const SampleImageComponent = ({value}) => {
   const {width, height} = getImageDimensions(value)
@@ -86,7 +87,7 @@ const News = () => {
     },
   };
 
-  if (!newsData && !projectId && !dataset) return <div>Loading...</div>;
+  if (!newsData && !projectId && !dataset) return   <Loader />;
   return (
     <main className="mainNew">
       <section className="mainNew__fondo-1">
