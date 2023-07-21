@@ -95,7 +95,7 @@ const Navbar = () => {
             </NavLink>
             <NavLink to={'/donaciones'}>Donaciones</NavLink>
             <NavLink to={'/como-ayudar'}>¿Cómo puedo ayudar?</NavLink>
-            <div className="menu-container">
+            <div className={`menu-container ${isOpen ? 'open' : ''}`}>
               <span className="menu-trigger" onClick={handleMenuClick}>
                 Ayapel
               </span>

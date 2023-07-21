@@ -99,6 +99,7 @@
       }
     
       .menu-dropdown {
+        
         position: absolute;
         top: 100%;
         right: 50px;
@@ -130,16 +131,10 @@
         display: flex; // Show the menu when hovering over the container
         flex-direction: column;
         align-items: flex-start;
+        
       }
     }
 }
-
-.active {
-    //  border-bottom: 2px solid white;
-
-    
-  }
- 
 
 .bg-green{
     background-color: #6ebe4a;
