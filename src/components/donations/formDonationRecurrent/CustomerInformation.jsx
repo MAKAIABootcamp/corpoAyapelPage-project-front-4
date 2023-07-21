@@ -47,7 +47,7 @@
 //             ...suscriptionDonation,
 //             ...dataCustomer,
 //         };
-       
+
 //         console.log(suscriptionDonation)
 
 //         const customerResponse = await createNewCustomer(suscriptionDonation);
@@ -172,10 +172,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateDataSuscription } from '../../../redux/actions/suscriptionDonationActions';
 import { createNewCustomer, createPlanWithFreeAmount, createSuscription } from '../../../epayco';
 import { connect } from "react-redux";
+import axios from 'axios';
 
 const CustomerInformation = ({ setCurrentStep, selectedAmount }) => {
   const dispatch = useDispatch();
   const { suscriptionDonation } = useSelector((store) => store.suscriptionDonation);
+  const [dataToIp, setDataToIp] = useState({})
 
   const initialValues = {
     name: "",
@@ -194,39 +196,58 @@ const CustomerInformation = ({ setCurrentStep, selectedAmount }) => {
   let updatedDataC = {}
   let customerUpdated = {}
 
+  const [clientIP, setClientIP] = useState('');
+
+  const fetchClientIP = async (data) => {
+    try {
+      const response = await axios.get('https://api.ipify.org?format=json');
+      setClientIP(response.data.ip);
+    } catch (error) {
+      console.log('Error al obtener la dirección IP del cliente:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchClientIP();
+  }, []);
+
+  console.log(clientIP);
+
   const sendForm = async (data) => {
-      
-      updatedDataC = {
-          ...suscriptionDonation,
-          ...data,
-        };
-        if (Object.keys(updatedDataC).length > 0) {
-            const customerResponse = await createNewCustomer(updatedDataC);
-            customerUpdated = {
-              ...suscriptionDonation,
-              ...customerResponse,
-            }
-        
-            
-     dispatch(updateDataSuscription({ customerInfoForm: updatedDataC }));
-  
+
+    setDataToIp(data)
+
+    fetchClientIP(data); 
+
+    updatedDataC = {
+      ...suscriptionDonation,
+      ...data,
+      ip: clientIP,
+    };
+    if (Object.keys(updatedDataC).length > 0) {
+      const customerResponse = await createNewCustomer(updatedDataC);
+      customerUpdated = {
+        ...suscriptionDonation,
+        ...customerResponse,
+      }
+
+
+      dispatch(updateDataSuscription({ customerInfoForm: updatedDataC }));
+
       console.log(updatedDataC);
       console.log(suscriptionDonation);
-   
 
-    
-        
 
-     dispatch(updateDataSuscription({ customerInfo: customerUpdated }));
+      dispatch(updateDataSuscription({ customerInfo: customerUpdated }));
 
-     console.log(customerUpdated);
+      console.log(customerUpdated);
 
-    const planResponse = await createPlanWithFreeAmount(`${updatedDataC.documentNumber}`, selectedAmount);
-    dispatch(updateDataSuscription({ planInfo: planResponse }));
+      const planResponse = await createPlanWithFreeAmount(`${updatedDataC.documentNumber}`, selectedAmount);
+      dispatch(updateDataSuscription({ planInfo: planResponse }));
 
-    setCurrentStep("confirmation");
-    //handleClose();
-        }
+      setCurrentStep("confirmation");
+      //handleClose();
+    }
   };
 
   const { handleSubmit, handleChange, values, errors } = useFormik({
@@ -250,14 +271,14 @@ const CustomerInformation = ({ setCurrentStep, selectedAmount }) => {
   });
 
   return (
-    
+
     <>
       <div className='formDonationsRecurrent__stepOne'>
         {/* Título y descripción del paso */}
       </div>
       <form onSubmit={handleSubmit} className='formDonationsRecurrent'>
         <TextField
-            id="outlined-password-input"
+          id="outlined-password-input"
           label="Nombre"
           name="name"
           onChange={handleChange}
@@ -266,7 +287,7 @@ const CustomerInformation = ({ setCurrentStep, selectedAmount }) => {
           helperText={errors.name}
         />
         <TextField
-            id="outlined-password-input"
+          id="outlined-password-input"
           label="Apellido"
           name="lastName"
           onChange={handleChange}
@@ -275,19 +296,19 @@ const CustomerInformation = ({ setCurrentStep, selectedAmount }) => {
           helperText={errors.lastName}
         />
         <div className='customerInformation__document'>
-            <Select
-                id="outlined-password-input"
-              name="documentType"
-              onChange={handleChange}
-              value={values.documentType}
-              error={errors.documentType}
-            >
-              {documentTypes.map((type) => (
-                <MenuItem key={type.value} value={type.value}>
-                  {type.label}
-                </MenuItem>
-              ))}
-            </Select>
+          <Select
+            id="outlined-password-input"
+            name="documentType"
+            onChange={handleChange}
+            value={values.documentType}
+            error={errors.documentType}
+          >
+            {documentTypes.map((type) => (
+              <MenuItem key={type.value} value={type.value}>
+                {type.label}
+              </MenuItem>
+            ))}
+          </Select>
           <TextField
             label="Número de documento"
             name="documentNumber"
@@ -313,4 +334,4 @@ const CustomerInformation = ({ setCurrentStep, selectedAmount }) => {
   );
 };
 
-export default  CustomerInformation;
+export default CustomerInformation;

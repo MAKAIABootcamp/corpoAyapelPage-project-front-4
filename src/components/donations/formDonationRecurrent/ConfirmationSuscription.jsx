@@ -40,6 +40,7 @@ const ConfirmationSuscription = ({ setCurrentStep, handleClose, selectedAmount }
               });
             }).then(() => {
               handleClose();
+              window.location.reload();
             })
         }
       });

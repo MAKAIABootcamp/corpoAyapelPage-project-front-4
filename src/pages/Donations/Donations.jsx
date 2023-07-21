@@ -6,29 +6,27 @@ import Swal from 'sweetalert2';
 import BtnKnowMore from '../../components/donations/btnKnowMore/BtnKnowMore';
 import { motion, useIsPresent } from "framer-motion";
 import client from '../../sanity/client';
-import BasicModal from '../../components/BasicModal';
-import { listTransactions, listPaymentLinks, getTransactionDetail, createNewCostumer, createCardToken } from '../../epayco';
 //import YouTube from 'react-youtube';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLoadingStatusFalse } from '../../redux/actions/actions';
 import Loader from '../../components/appLoader/Loader';
 import FormDonationFixed from '../../components/donations/formDonationFixed/FormDonationFixed';
-import FormDonationRecurrent from '../../components/donations/formDonationRecurrent/FormDonationRecurrent';
 import ModalFormDonationRecurrent from '../../components/donations/formDonationRecurrent/ModalFormDonationRecurrent';
-import { Button, Input, InputAdornment, InputLabel, TextField, FormControl, Grid } from '@mui/material';
+import { TextField } from '@mui/material';
 import { useFormik } from 'formik';
 import * as Yup from "yup";
 import { FaDonate } from 'react-icons/fa';
+import ModalFormCancelOneDonationRecurrent from '../../components/donations/formDonationRecurrent/ModalFormCancelOneDonationRecurrent';
+import HubspotContactForm from '../../components/hubspotContactForm/HubspotContactForm';
 
 const Donations = () => {
 
   const isPresent = useIsPresent();
 
   const [selectedAmount, setSelectedAmount] = useState(null)
-  const [selectedCancelSuscripcion, setSelectedCancelSuscripcion] = useState(false)
-  const [showImpactIndicator, setShowImpactIndicator] = useState(false);
+  const [setSelectedCancelSuscripcion] = useState(false)
+  const [setShowImpactIndicator] = useState(false);
 
-  const [dataTransactionDetail, setDataTransactionDetail] = useState(null)
 
   const formattedDonation = (selectedAmount / 30).toLocaleString();
 
@@ -140,18 +138,18 @@ const Donations = () => {
                   </h3>
                   <p>Selecciona el tipo de donación que deseas realizar</p>
                   <article className='donations__typeDonation'>
-                    <div>
-                      <button className={typeSelected === 'mensual' ? 'donations__btnTypeSelected-active' : 'donations__btnTypeSelected'}
-                        onClick={() => setTypeSelected('mensual')}> Donación mensual</button>
-                    </div>
-                    <div>
-                      <button className={typeSelected === 'unica' ? 'donations__btnTypeSelected-active' : 'donations__btnTypeSelected'}
-                        onClick={() => setTypeSelected('unica')}> Donación única vez</button>
-                    </div>
-                    <div>
-                      <button className={typeSelected === 'especie' ? 'donations__btnTypeSelected-active' : 'donations__btnTypeSelected'}
-                        onClick={() => setTypeSelected('especie')}> Donación en especies</button>
-                    </div>
+
+                    <button className={typeSelected === 'mensual' ? 'donations__btnTypeSelected-active' : 'donations__btnTypeSelected'}
+                      onClick={() => setTypeSelected('mensual')}> Donación mensual</button>
+
+
+                    <button className={typeSelected === 'unica' ? 'donations__btnTypeSelected-active' : 'donations__btnTypeSelected'}
+                      onClick={() => setTypeSelected('unica')}> Donación única vez</button>
+
+
+                    <button className={typeSelected === 'especie' ? 'donations__btnTypeSelected-active' : 'donations__btnTypeSelected'}
+                      onClick={() => setTypeSelected('especie')}> Donación en especies</button>
+
                   </article>
                 </div>
 
@@ -172,7 +170,7 @@ const Donations = () => {
                           {selectedAmount !== "Otro Valor" ?
                             <>
                               <p className='donations__text'>El monto seleccionado para donar es </p>
-                              <p className='donations__title' style={{fontSize:'2rem', textAlign:'center'}}>
+                              <p className='donations__title' style={{ fontSize: '2rem', textAlign: 'center' }}>
                                 ${selectedAmount}
                               </p>
                             </>
@@ -244,7 +242,7 @@ const Donations = () => {
 
                         />
                       }
-                      <p style={{ fontSize: '1rem' }}>Puedes <span style={{ textDecoration: 'underline', fontWeight: 'bold' }}>Modificar</span>  o  <span style={{ textDecoration: 'underline', fontWeight: 'bold' }}>Cancelar</span>  tu suscripción cuando desees </p>
+                      <p className='donations__cancelDonation'>Puedes <span><ModalFormCancelOneDonationRecurrent /> </span>  tu suscripción cuando desees </p>
                     </div>
                   </div>
                 </section>
@@ -331,9 +329,26 @@ const Donations = () => {
                         />
                       )}
 
-                      <p style={{ fontSize: '1rem' }}>Puedes <span style={{ textDecoration: 'underline', fontWeight: 'bold' }}>Modificar</span>  o  <span style={{ textDecoration: 'underline', fontWeight: 'bold' }}>Cancelar</span>  tu suscripción cuando desees </p>
+                      <p className='donations__cancelDonation'>Puedes <span><ModalFormCancelOneDonationRecurrent /> </span> tu suscripción cuando desees </p>
                     </div>
                   </div>
+                </section>
+              }
+              {typeSelected === 'especie' &&
+                <section className='donations__sectionDonate'>
+                  <div className='donations__contactForm'>
+
+                 
+                  <article className='donations__contactForm__bg'>
+
+                    <h3>¿Deseas realizar una donación en especie?</h3>
+                    <p>¡Puedes diligenciar el formulario y te contatámos!</p>
+
+                  <HubspotContactForm id={"40152509"} idForm={"b0a68ca0-6dcf-4ab5-8830-6b5991167773"} />
+                 
+                  </article>
+                  </div>
+
                 </section>
               }
 

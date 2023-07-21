@@ -1,15 +1,6 @@
 import axios from "axios";
 
-const P_CUST_ID_CLIENTE = "927115";
-const P_KEY = "efbb4a968055b891305d4d18edbe0ee3e5423269\n\n";
-const PUBLIC_KEY = "8ed7aef73ad73a63416e144acfc9b9a7";
-const PRIVATE_KEY = "c853c136adce33b85843cab1ef67bec0";
-const url_apify = "https://apify.epayco.co";
-const token_apify = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhcGlmeWVQYXljb0pXVCIsInN1YiI6OTI3MTE1LCJpYXQiOjE2ODkzOTM4OTgsImV4cCI6MTY4OTM5NzQ5OCwicmFuZCI6IjY4ZTVkZmI3YWRiZGI1OTVmODlhYTBhZjkxYmRiMzljODUzMyIsInJlcyI6ZmFsc2UsImluYSI6ZmFsc2UsImd1aSI6NTMyNzI3LCJ1dWlkIjoiOTkwNDk4NTItYzc3Yy00MTc0LTk4ZTQtMjY4NTVlNzYxNDk3In0.MOgX8JG0sbWmONlbmbkw1KK7xssn4Bi105jf6c54ah4";
 const url_sdk = "http://localhost:9000"
-let tokenCard = ""
-let planId = ""
-let idCustomer= ""
 
 //*************************CREAR TOKEN DE TARJETA DE CREDITO**************************** */
 
@@ -27,13 +18,12 @@ export const createCardToken = async (data) => {
     const response = await axios.post(`${url_sdk}/token/card`, requestBody);
     const result = response.data;
     console.log(result)
-    // tokenCard = result.id
     return result;
   } catch (error) {
     console.log('error', error);
   }
 };
-// Crea una función async autoejecutable
+
 
 
 
@@ -44,7 +34,7 @@ export const createNewCustomer = async (data) => {
       "token_card": `${data.cardToken.id}`,
       "name": `${data.name}`,
       "last_name": `${data.lastName}`, 
-      "email": `${data.email.email}`,
+      "email": `${data.email}`,
       "default": true,
       "city": "",
       "address": "",
@@ -55,8 +45,6 @@ export const createNewCustomer = async (data) => {
     const response = await axios.post(`${url_sdk}/customer`, requestBody);
     const result = response.data;
    console.log(result)
-   //idCustomer = result.customerId
-  //  console.log(idCustomer)
     return result;
   } catch (error) {
     console.log('error', error);
@@ -90,10 +78,6 @@ export const createPlanWithFreeAmount = async (name, selectedAmount) => {
 };
 
 
-//createPlanWithFreeAmount('donacionLibre', 55000);
-
-
-
 
 //*************************CREAR UNA SUSCRIPCIÓN**************************** */
 export const createSuscription = async (data) => {
@@ -120,6 +104,7 @@ export const createSuscription = async (data) => {
 
 //*************************PAGAR UNA SUSCRIPCIÓN**************************** */
 export const paySuscription = async (data) => {
+  console.log(data);
   try {
     const requestBody = {
       "id_plan": `${data.planInfo.data.id_plan}`,
@@ -127,6 +112,7 @@ export const paySuscription = async (data) => {
       "token_card": `${data.cardToken.id}`,
       "doc_type": `${data.customerInfoForm.documentType}`,
       "doc_number": `${data.customerInfoForm.documentNumber}`,
+      "ip": `${data.ip}`,
       "url_confirmation": "https://ejemplo.com/confirmacion",
       "method_confirmation": "POST"
   };
@@ -141,10 +127,44 @@ export const paySuscription = async (data) => {
 };
 
 
+//*************************CONSULTAR CLIENTES**************************** */
+export const listCustomers = async () => {
+try{
+    const response = await axios.get(`${url_sdk}/list/customers`);
+    const result = response.data;
+   console.log(result)
+    return result;
+  } catch (error) {
+    console.log('error', error);
+  }
+};
 
 
+//*************************CANCELAR UNA SUSCRIPCIÓN EXISTENTE**************************** */
+export const cancelSubscription = async (id_subscription) => {
+  console.log(id_subscription);
+  try {
+    const response = await axios.get(`${url_sdk}/cancel/suscription?id_subscription=${id_subscription}`);
+    const result = response.data;
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log('error', error);
+  }
+};
 
 
+//*************************CONSULTAR PLANES**************************** */
+export const listSubscriptions = async () => {
+  try{
+      const response = await axios.get(`${url_sdk}/list/subscription`);
+      const result = response.data;
+     console.log(result)
+      return result;
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
 
 
 

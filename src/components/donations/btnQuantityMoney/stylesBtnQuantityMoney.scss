@@ -45,7 +45,7 @@
     // transform 0.3s;
 }
 
-.btn__quantity.active {
+.btn__quantity.active, .btn__quantity:hover {
     background-color: #6EBE4A;
     color: #fff;
     box-shadow: 0px 1px 0px hsl(0, 0%, 46%),
@@ -90,7 +90,7 @@
 @media (min-width: 721px) and (max-width: 991px) {
     .btn__quantity {
         height: 100%;
-        width: 200px;
+        width: 100%;
         font-size: .9rem;
         border-radius: 80px;
         padding: 0 2rem 0 2rem;

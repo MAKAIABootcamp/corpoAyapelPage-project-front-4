@@ -1,7 +1,7 @@
 .donorProgress {
     font-family: 'Mulish', sans-serif;
     &__background {
-        background-image: url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689225653/ayapel/khi2n7p6nzszn7ng3n8t.jpg');
+        background-image:  linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689225653/ayapel/khi2n7p6nzszn7ng3n8t.jpg');
       //  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689225653/ayapel/khi2n7p6nzszn7ng3n8t.jpg');
         //background-color: #e9ece7;
         height: 100vh;

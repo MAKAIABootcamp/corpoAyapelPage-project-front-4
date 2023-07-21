@@ -26,7 +26,7 @@ const FormDonationRecurrent = ({handleClose, selectedAmount}) => {
     }
 
     const sendForm = (data) => {
-        dispatch(updateDataSuscription({ email: data }));
+        dispatch(updateDataSuscription(data ));
     }
 
     const { handleSubmit, handleChange, values, errors } = useFormik({
