@@ -17,7 +17,7 @@ const Test = () => {
         >
           <div className="title">
             <h2>
-              <span>Nuestros</span> proyectos
+              Nuestros <span>proyectos</span>
             </h2>
             <p>
               Una entidad sin ánimo de lucro que promueve el desarrollo
@@ -27,6 +27,9 @@ const Test = () => {
               Trabajamos bajo tres líneas estratégicas: social, ambiental y
               económica.
             </p>
+            <div>
+              
+            </div>
           </div>
           <div className="contentImg">
             <img

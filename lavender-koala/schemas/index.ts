@@ -11,7 +11,10 @@ import documents from './documents.js'
 import whatDoInAyapel from './whatDoInAyapel'
 import floraAndFauna from './floraAndFauna'
 import youtube from './youtube'
-import impactIndicator from './impactIndicator'
+import economicManagement from "./economicManagement"
+import environmentalManagement from "./environmentalManagement"
+import socialManagement from "./socialManagement"
 
-export const schemaTypes = [projects, testimonials, peopleImpacted, donorsGoals, socialsMediaUrl, donationAmount, news, whatWeDo, documents, youtube, whatDoInAyapel, floraAndFauna,management, impactIndicator]
+export const schemaTypes = [projects, testimonials, peopleImpacted, donorsGoals, socialsMediaUrl, donationAmount, news, whatWeDo, economicManagement, environmentalManagement, socialManagement, documents, youtube, whatDoInAyapel, floraAndFauna,management]
+
 

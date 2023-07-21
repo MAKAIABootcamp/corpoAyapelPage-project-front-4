@@ -4,7 +4,7 @@
 //     height: 100vh;
 // }
 .mainDocuments{
-    background-image: url('https://res.cloudinary.com/dgnwqr93n/image/upload/v1688314974/slide-artesanos_kgzl9e.png');
+    background-image: url('https://res.cloudinary.com/dgnwqr93n/image/upload/v1688679819/Untitled_design_2_vt8pcd.png');
     // background-color: #6ebe4a;
     position: relative; 
     height: 100vh;
@@ -20,12 +20,29 @@
         flex-direction: column;
         width: 80vw;
         height: 50vh;
+        @media screen and (max-width:375px){
+            font-size: 0.875rem;
+            height: 75vh;
+        }
+        @media screen and (max-width:475px){
+            font-size: 0.975rem;
+            height: 75vh;
+        }
     }
     &__title{
         h2{
             color: #6ebe4a;
             font-size: 3.5rem;
+            @media screen and (max-width:375px){
+                font-size: 2.5rem;
+              
+            }
+            @media screen and (max-width:475px){
+                font-size: 2.5rem;
+                
+            }
         }
+
         select{
             border: 0px;
             padding: 10px 20px;

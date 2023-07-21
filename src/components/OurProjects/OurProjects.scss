@@ -31,8 +31,7 @@
     }
     }
     &__cards{
-
-        height: 60vh;
+        // height: 60vh;
         display: flex;
         flex-direction: row;
         width: 90vw;
@@ -40,6 +39,9 @@
         justify-content: center;
         transform: translateY(50px);
         flex-wrap: wrap;
+        .swiper-wrapper{
+            justify-content: center;
+          }
         @media screen and (max-width:535px) {
             transform: translateY(30px);
             height: 100%;         
@@ -67,7 +69,7 @@
     right: 0px;
     bottom: 0px;
     left: 0px;
-    background-color: rgba(0, 0, 0, 0.396);
+    background-color: rgba(0, 0, 0, 0.436);
 }
 .texto{
     font-size: 1rem;

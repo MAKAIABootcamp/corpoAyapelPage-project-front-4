@@ -1,8 +1,12 @@
+$pColor: rgb(217, 217, 217);
+
 .toHelp{
     width: 100%;
     display: flex;
     flex-direction: column;
-
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+    overflow-y: scroll;
     &__Banner{
         width: 100%;
         height: 100vh;
@@ -43,10 +47,9 @@
         text-align: center;
         font-size: 20px;
         margin-bottom: 40px;
-        color: white;
+        color: $pColor;
         font-family: "Mulish", sans-serif;
     }
-
 
 }
 
@@ -102,8 +105,8 @@
         height: 225px;
         border-radius: 12px;
         margin-bottom: 15px;
-        transition: 0.5s ease;
         background-size: cover;
+        background-repeat: no-repeat;
     }
 
     .Program__button{
@@ -127,15 +130,16 @@
     &__voluntarios{
         width: 100%;
         height: 100vh;
-        background-image: url(https://res.cloudinary.com/dgnwqr93n/image/upload/v1688177236/paisa-1_sxyk42.jpg);
+        background-image: url(https://res.cloudinary.com/dgnwqr93n/image/upload/q_100/v1689218712/DSC04109_eg6sga.webp);
         background-repeat: no-repeat;
         background-size: cover;
         display: flex;
         flex-direction: column;
         position: relative;
+        justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        padding: 60px;
+        padding: 15px;
     }
     
     &__voluntarios::before{
@@ -151,15 +155,16 @@
     &__empresas{
         width: 100%;
         height: 100vh;
-        background-image: url(https://res.cloudinary.com/dgnwqr93n/image/upload/v1688314974/slide-artesanos_kgzl9e.png);
+        background-image: url(https://res.cloudinary.com/dgnwqr93n/image/upload/v1688177236/paisa-1_sxyk42.jpg);
         background-repeat: no-repeat;
         background-size: cover;
         display: flex;
         flex-direction: column;
         position: relative;
+        justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        padding: 60px;
+        padding: 15px;
     }
 
     &__empresas::before{
@@ -171,5 +176,25 @@
         left: 0;
         background-color: rgba(0, 0, 0, 0.436);
     }
+
     
+}
+
+.toHelp .sec{
+    scroll-snap-align: start !important;
+    height: 100vh;
+}
+
+.toHelp::-webkit-scrollbar {
+    width: 0;
+}
+
+@media screen and (max-width: 940px) {
+    .toHelp__Content{
+        margin: 98px 0;
+    }
+
+    .sec{
+        height: auto !important;
+    }
 }

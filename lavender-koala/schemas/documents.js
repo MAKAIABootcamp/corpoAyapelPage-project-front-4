@@ -9,7 +9,7 @@ export default {
         title: 'Titulo del Documento'
       },
       {
-        title: 'Release date',
+        title: 'Año del Documento',
         name: 'year',
         type: 'string',
       },

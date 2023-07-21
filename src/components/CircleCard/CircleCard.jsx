@@ -58,7 +58,7 @@ const CircleCard = ({ title, text, img, sector }) => {
       >
         {allPostData &&
           allPostData.map((data, index) => (
-            <SwiperSlide>
+            <SwiperSlide key={index}>
               <section className="mainCircleCard" key={index}>
                 <section className="mainCircleCard__gestion">
                   <h2>{data.gestion}</h2>
