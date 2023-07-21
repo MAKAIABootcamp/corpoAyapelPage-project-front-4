@@ -15,14 +15,14 @@ CorpoAyapel LadingPage es un proyecto de software diseñado para crear una exper
 
 4. **Diseño Moderno y Minimalista**: El proyecto presenta un diseño moderno y minimalista del sitio web, ofreciendo una experiencia de navegación sin complicaciones para los usuarios. Este enfoque garantiza que la información se presente de manera clara y concisa, facilitando la navegación por todo el sitio.
 
-## Para CorpoAyapel (Administradores y Personal)
+#### Para CorpoAyapel (Administradores y Personal)
 
 - Fácil administración del sitio, incluida la edición de contenido y las actualizaciones de noticias.
 - Comunicación directa con usuarios, voluntarios y posibles donantes.
 - Modernización del aspecto y funcionalidad del sitio web.
 - Compartir noticias y actualizaciones en plataformas de redes sociales.
 
-## Para los Usuarios
+#### Para los Usuarios
 
 - Navegación rápida, sencilla y sin complicaciones.
 - Contacto directo uno a uno con CorpoAyapel para interacciones personalizadas.
