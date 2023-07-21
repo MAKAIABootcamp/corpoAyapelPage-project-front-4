@@ -37,6 +37,7 @@ const EconomicManagement = () => {
           content2,
           subcontent,
           textcontent,
+          textcontent2,
           mainImage{
             asset->{
               _id,
@@ -95,6 +96,7 @@ const EconomicManagement = () => {
                 </h2>
                 <h3>{projectData.subcontent}</h3>
                 <p>{projectData.textcontent}</p>
+              <p>{projectData.textcontent2}</p>
               </div>
 
               <div
@@ -139,6 +141,7 @@ const EconomicManagement = () => {
               </h2>
               <h3>{projectData.subcontent}</h3>
               <p>{projectData.textcontent}</p>
+              <p>{projectData.textcontent2}</p>
             </div>
 
             <div

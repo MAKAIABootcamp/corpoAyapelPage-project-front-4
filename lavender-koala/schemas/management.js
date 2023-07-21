@@ -6,7 +6,7 @@ export default {
     fields: [
         {
             name: 'mainImage',
-            title: 'Main image',
+            title: 'Imagen',
             type: 'image',
             options: {
               hotspot: true
@@ -15,22 +15,27 @@ export default {
       {
         name: 'content',
         type: 'string',
-        title: 'Title'
+        title: 'Titulo Principal'
       },
       {
         name: 'content2',
         type: 'string',
-        title: 'title2'
+        title: 'Sub Titulo Principal'
       },
       {
         name: 'subcontent',
         type: 'string',
-        title: 'subtitle'
+        title: 'Titulo Secundario'
       },
       {
         name: 'textcontent',
         type: 'string',
-        title: 'texttitle'
+        title: 'Texto'
+      },
+      {
+        name: 'textcontent2',
+        type: 'string',
+        title: 'Texto Secundario'
       }
     
     ]

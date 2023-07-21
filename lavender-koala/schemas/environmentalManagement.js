@@ -7,17 +7,17 @@ export default {
       {
         name: 'titleContent',
         type: 'string',
-        title: 'Title',
+        title: 'Titulo',
       },
       {
         name: 'textContent',
         type: 'string',
-        title: 'text',
+        title: 'Texto',
       },
       {
         name: 'listContent',
         type: 'array',
-        title: 'List',
+        title: 'Lista',
         of: [{ type: 'string' }],
       },
     ],

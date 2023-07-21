@@ -20,12 +20,10 @@ const Test = () => {
               Nuestros <span>proyectos</span>
             </h2>
             <p>
-              Una entidad sin ánimo de lucro que promueve el desarrollo
-              sostenible del complejo cenagoso de Ayapel y de su comunidad.
+            Somos una organización sin ánimo de lucro que desde hace 20 años trabaja por el desarrollo sostenible del complejo cenagoso y la comunidad de Ayapel.
             </p>
             <p>
-              Trabajamos bajo tres líneas estratégicas: social, ambiental y
-              económica.
+            Nuestro modelo de gestión se lleva a cabo a través de iniciativas en tres líneas: Social, ambiental y económica, las cuales se articulan y fomentan la participación de toda la comunidad.
             </p>
           </div>
           <div className="contentImg">
