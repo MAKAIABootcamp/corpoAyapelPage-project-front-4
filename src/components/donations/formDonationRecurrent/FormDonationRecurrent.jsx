@@ -71,12 +71,12 @@ const FormDonationRecurrent = ({ handleClose, selectedAmount }) => {
                     </div>
                     <div className='formDonationsRecurrent__stepOne'>
                         <p className='formDonationsRecurrent__stepOne__title'> Paso 1 Seleccione el metodo de pago</p>
-                        {Object.keys(suscriptionDonation).length === 0 &&
+                        {/* {Object.keys(suscriptionDonation).length === 0 && */}
                             <div onClick={handleConfirmTdc} className={Object.keys(suscriptionDonation).length === 0 ? 'formDonationsRecurrent__selectCard' : 'formDonationsRecurrent__selectCard-active'}>
                                 <ImCreditCard className='formDonationsRecurrent__iconCard' />
                                 <p>Tarjeta de Crédito</p>
                             </div>
-                        }
+                        {/* } */}
                     </div>
                 </form>
             )}

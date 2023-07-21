@@ -71,7 +71,7 @@ const Navbar = () => {
             <NavLink to={'https://corpoayapelartesanias.com/'}>Artesanias</NavLink>
             <NavLink to={'/donaciones'}>Donaciones</NavLink>
             <NavLink to={'/como-ayudar'}>¿Cómo puedo ayudar?</NavLink>
-            <NavLink to={'/ayapel'}>Ayapel</NavLink>
+            {/* <NavLink to={'/ayapel'}>Ayapel</NavLink> */}
             <NavLink to={'/documentos'}>Documentos</NavLink>
             <NavLink to={'/cultura'}>Cultura</NavLink>
           </Menu>

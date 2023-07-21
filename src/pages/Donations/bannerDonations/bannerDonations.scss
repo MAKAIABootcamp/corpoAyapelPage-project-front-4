@@ -32,6 +32,9 @@
     text-align: center;
     color: #fff;
     z-index: 1;
+    @media screen and (max-width:475px) {
+      display: none;
+    }
   }
   .youtube-video {
     width: 100vw;

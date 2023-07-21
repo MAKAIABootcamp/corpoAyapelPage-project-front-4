@@ -9,6 +9,7 @@ import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../appLoader/Loader";
+import { setLoadingStatusFalse } from "../../redux/actions/actions";
 const CircleCard = ({ title, text, img, sector }) => {
   const [allPostData, setAllPostData] = useState(null);
   const { loading } = useSelector((store) => store.loading);
@@ -29,9 +30,12 @@ const CircleCard = ({ title, text, img, sector }) => {
         }
       }`
       )
-      .then((data) => setAllPostData(data))
+      .then((data) => {
+        setAllPostData(data);
+        dispatch(setLoadingStatusFalse());
+      })
       .catch(console.error);
-  }, []);
+  }, [])
   // console.log(allPostData)
 
   return (
