@@ -49,7 +49,7 @@
 
     }
     @media screen and (max-width:428px) { //mobile
-      transform: translate(-80%, 220%);
+      transform: translate(-165%, 220%);
       position: inherit;
       margin-right: 20px;
       
@@ -74,7 +74,7 @@
     height: 100vh;
     box-shadow: none;
     position: fixed;
-    @media screen and (max-width:425px) {
+    @media screen and (max-width:428px) {
       position: absolute;
     }
   }
@@ -118,8 +118,8 @@
       width: 400px;
       text-align: center;
     }
-    @media screen and (max-width:425px) {
-      transform: translate(-2.5%, -50%);
+    @media screen and (max-width:428px) {
+      transform: translate(1.5%, -50%);
       width: 90vw;
       text-align: center;
       
