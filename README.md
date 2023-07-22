@@ -1,5 +1,8 @@
-
-![Logo](https://res.cloudinary.com/dgnwqr93n/image/upload/v1688430892/logo_1_ficoj8.svg)
+<div align="center">
+  <a href="https://snowcy.com/">
+    <img src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1688430892/logo_1_ficoj8.svg" alt="Ayapel">
+  </a>
+</div>
 
 # CorpoAyapel: Conexiones Solidarias para Causas Benéficas
 
@@ -82,23 +85,29 @@ Answer 2
 
 Install my-project with npm
 
-```bash
-  npm install my-project
-  cd my-project
-```
-    
-## Despliegue
-
-To deploy this project run
-
-```bash
-  npm run deploy
-```
-
+1. Clone the repo
+   ```sh
+   git clone https://github.com/MAKAIABootcamp/corpoAyapelPage-project-front-4.git
+   ```
+2. Install packages
+   ```sh
+   npm install
+   ```
+3. Run code
+   ```sh
+   npm run deploy
+   ```
 
 ## Documentacion
 
 [Documentation](https://linktodocumentation)
+
+<div align="center"> 
+  <h2>Samples</h2>
+  <img width="100%" height="auto" src="https://github.com/MAKAIABootcamp/corpoAyapelPage-project-front-4/assets/99287560/6e76aea9-a275-43ed-b501-535ab5e124dc" height="175px"/>
+  <img width="100%" height="auto" src="https://github.com/MAKAIABootcamp/corpoAyapelPage-project-front-4/assets/99287560/651cdd39-8f3f-41fb-a444-5c46c5039d89" height="175px"/>
+  <img width="100%" height="auto" src="https://github.com/MAKAIABootcamp/corpoAyapelPage-project-front-4/assets/99287560/35087067-b079-4d9c-ae48-a8ead7fd0ee1" height="175px"/>
+</div>
 
 
 ## Autores
