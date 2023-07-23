@@ -1,27 +1,19 @@
 import React, { useState } from 'react';
-import { Button, Input, InputAdornment, InputLabel, TextField, FormControl, Grid } from '@mui/material';
+import { TextField} from '@mui/material';
 import { useFormik } from 'formik';
 import * as Yup from "yup";
-import { ImCreditCard } from 'react-icons/im';
 import './formDonationsRecurrent.scss'
-import { FaLess } from 'react-icons/fa';
-import { useDispatch, useSelector } from 'react-redux';
-import { updateDataSuscription } from '../../../redux/actions/suscriptionDonationActions';
-import { BiSolidUser } from 'react-icons/bi';
-import PaymentCreditCard from './PaymentCreditCard';
-import CustomerInformation from './CustomerInformation';
-import ConfirmationSuscription from './ConfirmationSuscription';
-import { cancelSubscription, cancelSuscription, listCustomers, listSubscriptions } from '../../../epayco';
+import { useSelector } from 'react-redux';
+import { cancelSubscription, listCustomers, listSubscriptions } from '../../../epayco';
 import LocalLoader from '../../appLoader/LocalLoader';
 import Swal from 'sweetalert2';
 
 
-const FormCancelOneDonationRecurrent = ({ handleClose, selectedAmount }) => {
+const FormCancelOneDonationRecurrent = ({ handleClose }) => {
 
-    const dispatch = useDispatch();
     const { loading } = useSelector((store) => store.loading);
 
-    const [currentStep, setCurrentStep] = useState('email');
+    const [currentStep] = useState('email');
 
     let initialValues = {
         email: "",

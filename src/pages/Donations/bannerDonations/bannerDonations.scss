@@ -1,49 +1,53 @@
 .banner-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    z-index: -2;
-  }
-  
-  .container__video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-  }
-  
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.6);
-   z-index: 1;
-  }
-  
-  .home-content {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    text-align: center;
-    color: #fff;
-    z-index: 1;
-    @media screen and (max-width:475px) {
-      display: none;
-    }
-  }
-  .youtube-video {
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
 }
+
+.container__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.home-content {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  text-align: center;
+  color: #fff;
+  z-index: 1;
+
+  @media screen and (max-width:475px) {
+    top: 10%;
+    left: 10%;
+  }
+}
+
+.youtube-video {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
 // opts={{
 //     playerVars: {
 //         autoplay: 1,
@@ -54,8 +58,23 @@
 // }}
 
 .home-content h1 {
-    font-family: 'Mulish', sans-serif;
-        text-align: center;
-        font-size: 5rem;
-        line-height: 1.1;
-      }
+  font-family: 'Mulish', sans-serif;
+  text-align: center;
+  font-size: 5rem;
+  line-height: 1.1;
+}
+
+@media (max-width: 664px) { 
+  .home-content h1 {
+    font-size: 2rem;
+    top: 0%;
+    left: 10%;
+  }
+}
+
+@media (min-width: 665px) and (max-width: 991px) {
+  .home-content h1 {
+    font-size: 3rem;
+  }
+
+}

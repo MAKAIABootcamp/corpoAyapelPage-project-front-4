@@ -38,6 +38,22 @@
             /* Opcional: Puedes agregar estilos adicionales para el hover si lo deseas */
         }
     }
+    &__btnBack {
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+    }
+    &__btnCancel {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background-color: transparent;
+        border: none;
+        font-size: 1rem;
+        color: #337ab7;
+    }
 
 
     &__selectCard {
@@ -53,6 +69,8 @@
             font-size: 1rem;
             color: #999;
         }
+        
+        
 
 
         &-active {
@@ -87,7 +105,7 @@
         margin-bottom: 1.5rem;
 
         &__title {
-            margin-bottom: 1.5rem;
+            margin: 1.5rem 0;
             color: black;
         }
     }

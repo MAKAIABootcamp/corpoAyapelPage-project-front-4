@@ -11,7 +11,10 @@ import { BiSolidUser } from 'react-icons/bi';
 import { createCardToken } from '../../../epayco';
 
 
-const PaymentCreditCard = ({setCurrentStep, selectedAmount}) => {
+const PaymentCreditCard = ({ selectedAmount, dataFormDonationRecurrent, setDataFormDonationRecurrent, currentStep, setCurrentStep }) => {
+
+    //const [currentStep, setCurrentStep] = useState(1); // Estado local para el paso activo
+    console.log(dataFormDonationRecurrent);
 
     const { suscriptionDonation } = useSelector((store) => store.suscriptionDonation);
     console.log(suscriptionDonation)
@@ -26,34 +29,70 @@ const PaymentCreditCard = ({setCurrentStep, selectedAmount}) => {
         codigoCVV: "",
     }
 
+    // const sendForm = async (data) => {
+    //     try {
+    //         console.log('hola');
+    //         console.log(data);
+    //         const updatedData = {
+    //             ...suscriptionDonation,
+    //             ...data,
+    //         };
+
+    //         // dispatch(updateDataSuscription({paymentInfo: updatedData}));
+
+    //         const tokenCard = {
+    //             ...suscriptionDonation,
+    //             ...data,
+    //         };
+
+    //         await setDataFormDonationRecurrent({ ...dataFormDonationRecurrent, ...data })
+    //         .then(()=> {
+    //             if (dataFormDonationRecurrent.email !== "" && dataFormDonationRecurrent !== "") {
+    //                 cardTokenResponse = createCardToken(dataFormDonationRecurrent);
+    //               }
+
+    //         })
+
+    //         console.log(dataFormDonationRecurrent);
+    //         let cardTokenResponse = {}
+
+
+  
+    //         console.log(cardTokenResponse);
+
+    //         //   const cardToken = {
+    //         //     ...suscriptionDonation,
+    //         //     ...cardTokenResponse,
+    //         //   };
+
+    //         //  setDataFormDonationRecurrent({...dataFormDonationRecurrent,  ...cardTokenResponse})
+
+    //         console.log(dataFormDonationRecurrent);
+
+    //         // dispatch(updateDataSuscription({cardToken: cardToken}));
+    //         console.log(suscriptionDonation)
+    //         setCurrentStep(2);
+    //     } catch (error) {
+    //         // Manejar errores si es necesario
+    //         console.error(error);
+    //     }
+    // };
+
+
     const sendForm = async (data) => {
         try {
-          console.log('hola');
+          console.log('Entre a sendform');
           console.log(data);
-          const updatedData = {
-            ...suscriptionDonation,
-            ...data,
-          };
       
-          dispatch(updateDataSuscription({paymentInfo: updatedData}));
+          const cardTokenResponse = await createCardToken({ ...dataFormDonationRecurrent, ...data });
       
-          const tokenCard = {
-            ...suscriptionDonation,
-            ...data,
-          };
-      
-          const cardTokenResponse = await createCardToken(tokenCard);
+          console.log(dataFormDonationRecurrent);
+          console.log(cardTokenResponse); // Imprimir cardTokenResponse aquí
 
-          const cardToken = {
-            ...suscriptionDonation,
-            ...cardTokenResponse,
-          };
-
-          dispatch(updateDataSuscription({cardToken: cardToken}));
-      console.log(suscriptionDonation)
-          setCurrentStep("customerInformation");
+          setDataFormDonationRecurrent({cardTokenResponse, ...dataFormDonationRecurrent, ...data})
+          console.log(dataFormDonationRecurrent);
+          setCurrentStep(2);
         } catch (error) {
-          // Manejar errores si es necesario
           console.error(error);
         }
       };
@@ -71,8 +110,23 @@ const PaymentCreditCard = ({setCurrentStep, selectedAmount}) => {
                 .min(5, 'El nombre debe tener al menos 3 caracteres.')
                 .max(20, 'El nombre no debe tener más de 15 caracteres.')
                 .required('El nombre es obligatorio.'),
-            expiryMonth: Yup.string().required("La fecha es obligatoria."),
-            expiryYear: Yup.string().required("La fecha es obligatoria."),
+            expiryMonth: Yup.string()
+                .test('valid', 'El mes debe estar entre 01 y 12', (value) => {
+                    if (!value) return false;
+                    const numericValue = Number(value);
+                    return numericValue >= 1 && numericValue <= 12;
+                })
+                .matches(/^\d{2}$/, 'El mes debe tener 2 dígitos Ej: 01')
+                .required("La fecha es obligatoria."),
+            expiryYear: Yup.string()
+                .test('valid', 'La fecha de expiración puede ser menor', (value) => {
+                    if (!value) return false; // No se ha proporcionado ningún valor, lo manejamos como inválido
+                    const currentYear = new Date().getFullYear();
+                    const numericValue = Number(value);
+                    return numericValue >= currentYear;
+                })
+                .matches(/^\d{4}$/, 'El año debe tener 4 dígitos Ej: 2025')
+                .required("La fecha es obligatoria."),
             codigoCVV: Yup.string()
                 .matches(/^[0-9]+$/, 'El código CVV debe contener solo números')
                 .min(3, 'El código CVV debe tener al menos 3 digitos')
@@ -86,7 +140,7 @@ const PaymentCreditCard = ({setCurrentStep, selectedAmount}) => {
     return (
         <>
             <div className='formDonationsRecurrent__stepOne'>
-                <p className='formDonationsRecurrent__stepOne'> Paso 2 de 3 </p>
+                {/* <p className='formDonationsRecurrent__stepOne'> Paso 2 de 3 </p> */}
                 <p className='formDonationsRecurrent__stepOne__title'>Información de la tarjeta de crédito</p>
             </div>
             <form onSubmit={handleSubmit} className='formDonationsRecurrent'>
@@ -125,10 +179,8 @@ const PaymentCreditCard = ({setCurrentStep, selectedAmount}) => {
                         onChange={handleChange}
                         value={values.expiryMonth}
                         variant="outlined"
-                        inputProps={{
-                            min: '1',
-                            max: '12',
-                        }}
+                        error={Boolean(errors.expiryMonth)}
+                        helperText={errors.expiryMonth}
                     />
 
                     <TextField
@@ -138,10 +190,8 @@ const PaymentCreditCard = ({setCurrentStep, selectedAmount}) => {
                         onChange={handleChange}
                         value={values.expiryYear}
                         variant="outlined"
-                        inputProps={{
-                            min: '2022',
-                            max: '2050',
-                        }}
+                        error={Boolean(errors.expiryYear)}
+                        helperText={errors.expiryYear}
                     />
                     <TextField
                         id="outlined-password-input"
