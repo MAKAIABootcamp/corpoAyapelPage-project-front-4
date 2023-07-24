@@ -18,8 +18,9 @@ import * as Yup from "yup";
 import { FaDonate } from 'react-icons/fa';
 import ModalFormCancelOneDonationRecurrent from '../../components/donations/formDonationRecurrent/ModalFormCancelOneDonationRecurrent';
 import HubspotContactForm from '../../components/hubspotContactForm/HubspotContactForm';
+import { actionGetDataAsync } from '../../redux/actions/dataActions';
 
-const Donations = ({handleGoToDonorProgress}) => {
+const Donations = ({ handleGoToDonorProgress }) => {
 
   const isPresent = useIsPresent();
 
@@ -37,30 +38,23 @@ const Donations = ({handleGoToDonorProgress}) => {
 
   const [typeSelected, setTypeSelected] = useState('mensual');
 
-  const { loading } = useSelector((store) => store.loading);
   const dispatch = useDispatch();
+  const { loading } = useSelector((store) => store.loading);
+  const { data } = useSelector((store) => store.data);
+  const fields = [
+    "amount1",
+    "amount2",
+    "amount3",
+    "amount4",
+    "amount5",
+    "amount6",
+    "currentDonors"]
 
-  const [allPostData, setAllPostData] = useState(null)
+
   useEffect(() => {
-    client
-      .fetch(
-        `*[_type == "donationAmount"] {
-        amount1,
-        amount2,
-        amount3,
-        amount4,
-        amount5,
-        amount6,
-        currentDonors
-      }`
-      )
-      .then((data) => {
-        setAllPostData(data);
-        dispatch(setLoadingStatusFalse());
-      })
-      .catch(console.error);
-  }, [])
 
+    dispatch(actionGetDataAsync("donationAmount", fields));
+  }, [dispatch]);
 
   const handleCancelRecurrentDonation = () => {
     console.log('Cancelar donación')
@@ -78,14 +72,14 @@ const Donations = ({handleGoToDonorProgress}) => {
     }
   }
 
-  const donationAmounts = [
-    { amount: allPostData?.[0].amount1 },
-    { amount: allPostData?.[0].amount2 },
-    { amount: allPostData?.[0].amount3 },
-    { amount: allPostData?.[0].amount4 },
-    { amount: allPostData?.[0].amount5 },
-    { amount: allPostData?.[0].amount6 },
-  ];
+  const donationAmounts = data?.[0] ? [
+    { amount: data[0].amount1 },
+    { amount: data[0].amount2 },
+    { amount: data[0].amount3 },
+    { amount: data[0].amount4 },
+    { amount: data[0].amount5 },
+    { amount: data[0].amount6 },
+  ] : [];
 
   const handleToNextComponent = () => {
     console.log('voy al next')
@@ -156,10 +150,10 @@ const Donations = ({handleGoToDonorProgress}) => {
 
                   </article>
                 </div>
-<article onClick={handleGoToDonorProgress} >
-<BtnKnowMore onClick={handleGoToDonorProgress} />
-</article>
-               
+                <article onClick={handleGoToDonorProgress} >
+                  <BtnKnowMore onClick={handleGoToDonorProgress} />
+                </article>
+
               </section>
               {typeSelected === 'mensual' &&
                 <section className='donations__sectionDonate'>
@@ -171,7 +165,7 @@ const Donations = ({handleGoToDonorProgress}) => {
                       <>
                         <div className='donations__videoBackground-inactive'></div>
                         <div className='donations__columnTwo-selected'>
-                          <h2 className='donations__title selectDonate'>¡Estas a un paso de ser parte de esta historia!
+                          <h2 className='donations__title selectDonate'>¡Estás a un paso de ser parte de esta historia!
                           </h2>
                           {selectedAmount !== "Otro Valor" ?
                             <>
@@ -186,7 +180,7 @@ const Donations = ({handleGoToDonorProgress}) => {
                             </>
                             :
                             <div className='donations__howToDonate'>
-                              <p className='donations__text'> Puedes decir cuánto donar </p>
+                              <p className='donations__text'> Puedes decidir cuánto donar </p>
                               <p className='donations__text'>Por favor ingresa la cantidad que deseas donar</p>
                               <form onSubmit={handleSubmit} className='donations__formDonationsAmount'>
                                 <TextField
@@ -266,7 +260,7 @@ const Donations = ({handleGoToDonorProgress}) => {
                       <>
                         <div className='donations__videoBackground-inactive'></div>
                         <div className='donations__columnTwo-selected'>
-                          <h2 className='donations__title selectDonate'>¡Estas a un paso de ser parte de esta historia!
+                          <h2 className='donations__title selectDonate'>¡Estás a un paso de ser parte de esta historia!
                           </h2>
                           {selectedAmount !== "Otro Valor" ?
                             <>
@@ -281,7 +275,7 @@ const Donations = ({handleGoToDonorProgress}) => {
                             </>
                             :
                             <div className='donations__howToDonate'>
-                              <p className='donations__text'> Puedes decir cuánto donar </p>
+                              <p className='donations__text'> Puedes decidir cuánto donar </p>
                               <p className='donations__text'>Por favor ingresa la cantidad que deseas donar</p>
                               <form onSubmit={handleSubmit} className='donations__formDonationsAmount'>
                                 <TextField
