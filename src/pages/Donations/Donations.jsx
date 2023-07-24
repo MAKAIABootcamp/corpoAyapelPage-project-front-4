@@ -18,8 +18,9 @@ import * as Yup from "yup";
 import { FaDonate } from 'react-icons/fa';
 import ModalFormCancelOneDonationRecurrent from '../../components/donations/formDonationRecurrent/ModalFormCancelOneDonationRecurrent';
 import HubspotContactForm from '../../components/hubspotContactForm/HubspotContactForm';
+import { actionGetDataAsync } from '../../redux/actions/dataActions';
 
-const Donations = () => {
+const Donations = ({ handleGoToDonorProgress }) => {
 
   const isPresent = useIsPresent();
 
@@ -37,30 +38,23 @@ const Donations = () => {
 
   const [typeSelected, setTypeSelected] = useState('mensual');
 
-  const { loading } = useSelector((store) => store.loading);
   const dispatch = useDispatch();
+  const { loading } = useSelector((store) => store.loading);
+  const { data } = useSelector((store) => store.data);
+  const fields = [
+    "amount1",
+    "amount2",
+    "amount3",
+    "amount4",
+    "amount5",
+    "amount6",
+    "currentDonors"]
 
-  const [allPostData, setAllPostData] = useState(null)
+
   useEffect(() => {
-    client
-      .fetch(
-        `*[_type == "donationAmount"] {
-        amount1,
-        amount2,
-        amount3,
-        amount4,
-        amount5,
-        amount6,
-        currentDonors
-      }`
-      )
-      .then((data) => {
-        setAllPostData(data);
-        dispatch(setLoadingStatusFalse());
-      })
-      .catch(console.error);
-  }, [])
 
+    dispatch(actionGetDataAsync("donationAmount", fields));
+  }, [dispatch]);
 
   const handleCancelRecurrentDonation = () => {
     console.log('Cancelar donación')
@@ -78,14 +72,14 @@ const Donations = () => {
     }
   }
 
-  const donationAmounts = [
-    { amount: allPostData?.[0].amount1 },
-    { amount: allPostData?.[0].amount2 },
-    { amount: allPostData?.[0].amount3 },
-    { amount: allPostData?.[0].amount4 },
-    { amount: allPostData?.[0].amount5 },
-    { amount: allPostData?.[0].amount6 },
-  ];
+  const donationAmounts = data?.[0] ? [
+    { amount: data[0].amount1 },
+    { amount: data[0].amount2 },
+    { amount: data[0].amount3 },
+    { amount: data[0].amount4 },
+    { amount: data[0].amount5 },
+    { amount: data[0].amount6 },
+  ] : [];
 
   const handleToNextComponent = () => {
     console.log('voy al next')
@@ -114,12 +108,12 @@ const Donations = () => {
     initialValues: initialValues,
     validationSchema: Yup.object({
       amount: Yup.string()
-      .required('Por favor indicar un valor')
-    .test('is-greater-than-5000', 'El monto debe ser superior a $5.000', function(value) {
-      const parsedValue = parseFloat(value.replace(/\D/g, ''));
-      return parsedValue > 5000;
-    }),
-        
+        .required('Por favor indicar un valor')
+        .test('is-greater-than-5000', 'El monto debe ser superior a $5.000', function (value) {
+          const parsedValue = parseFloat(value.replace(/\D/g, ''));
+          return parsedValue > 5000;
+        }),
+
     }),
     onSubmit: sendForm,
   })
@@ -137,7 +131,8 @@ const Donations = () => {
               <section className='donations__sectionTypes'>
                 <div className='donations__sectionTypes__container'>
                   <h3>
-                    ¡También puedes ser parte de este sueño!
+                    ¡Haz la diferencia y construyamos juntos un futuro sostenible para Ayapel!
+
                   </h3>
                   <p>Selecciona el tipo de donación que deseas realizar</p>
                   <article className='donations__typeDonation'>
@@ -155,35 +150,37 @@ const Donations = () => {
 
                   </article>
                 </div>
+                <article onClick={handleGoToDonorProgress} >
+                  <BtnKnowMore onClick={handleGoToDonorProgress} />
+                </article>
 
-                <BtnKnowMore onClick={handleToNextComponent} />
               </section>
               {typeSelected === 'mensual' &&
                 <section className='donations__sectionDonate'>
                   <div className='donations__container'>
                     {selectedAmount === null ?
-                      <img className='donations__videoBackground' src="https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689261448/ayapel/oczq1l3syf3bbj8ja09e.jpg" alt="" />
+                      <img className='donations__videoBackground' src="https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689261448/ayapel/oczq1l3syf3bbj8ja09e.webp" alt="" />
 
                       :
                       <>
                         <div className='donations__videoBackground-inactive'></div>
                         <div className='donations__columnTwo-selected'>
-                          <h2 className='donations__title'>¡Estas a un paso de ser parte de esta historia!
+                          <h2 className='donations__title selectDonate'>¡Estás a un paso de ser parte de esta historia!
                           </h2>
                           {selectedAmount !== "Otro Valor" ?
                             <>
-                               <p className='donations__text'>
+                              <p className='donations__text'>
                                 {/* Al donar COP {formattedDonation} */}
-                                 Tu aporte mensual marca la diferencia en la vida de las familias de Ayapel, en la protección de su entorno natural y en el impulso de su economía local. 
-                               </p>
-                               <p className='donations__text'> Has seleccionado donar:</p>
-                              <p className='donations__title' style={{ fontSize: '2rem', textAlign: 'center' }}>
+                                Tu aporte mensual marca la diferencia en la vida de las familias de Ayapel, en la protección de su entorno natural y en el impulso de su economía local.
+                              </p>
+                              <p className='donations__text selectDonate'> Has seleccionado donar:</p>
+                              <p className='donations__title selectDonate' style={{ fontSize: '2rem', textAlign: 'center' }}>
                                 ${Number(selectedAmount).toLocaleString()}
                               </p>
                             </>
                             :
                             <div className='donations__howToDonate'>
-                              <p className='donations__text'> Puedes decir cuánto donar </p>
+                              <p className='donations__text'> Puedes decidir cuánto donar </p>
                               <p className='donations__text'>Por favor ingresa la cantidad que deseas donar</p>
                               <form onSubmit={handleSubmit} className='donations__formDonationsAmount'>
                                 <TextField
@@ -263,22 +260,22 @@ const Donations = () => {
                       <>
                         <div className='donations__videoBackground-inactive'></div>
                         <div className='donations__columnTwo-selected'>
-                          <h2 className='donations__title'>¡Estas a un paso de ser parte de esta historia!
+                          <h2 className='donations__title selectDonate'>¡Estás a un paso de ser parte de esta historia!
                           </h2>
                           {selectedAmount !== "Otro Valor" ?
                             <>
-                            <p className='donations__text'>
-                             {/* Al donar COP {formattedDonation} */}
-                              Tu aporte marca la diferencia en la vida de las familias de Ayapel, en la protección de su entorno natural y en el impulso de su economía local. 
-                            </p>
-                            <p className='donations__text'> Has seleccionado donar:</p>
-                           <p className='donations__title' style={{ fontSize: '2rem', textAlign: 'center' }}>
-                             ${Number(selectedAmount).toLocaleString()}
-                           </p>
-                         </>
-                         :
+                              <p className='donations__text'>
+                                {/* Al donar COP {formattedDonation} */}
+                                Tu aporte marca la diferencia en la vida de las familias de Ayapel, en la protección de su entorno natural y en el impulso de su economía local.
+                              </p>
+                              <p className='donations__text selectDonate'> Has seleccionado donar:</p>
+                              <p className='donations__title selectDonate' style={{ fontSize: '2rem', textAlign: 'center' }}>
+                                ${Number(selectedAmount).toLocaleString()}
+                              </p>
+                            </>
+                            :
                             <div className='donations__howToDonate'>
-                              <p className='donations__text'> Puedes decir cuánto donar </p>
+                              <p className='donations__text'> Puedes decidir cuánto donar </p>
                               <p className='donations__text'>Por favor ingresa la cantidad que deseas donar</p>
                               <form onSubmit={handleSubmit} className='donations__formDonationsAmount'>
                                 <TextField
@@ -352,21 +349,14 @@ const Donations = () => {
               {typeSelected === 'especie' &&
                 <section className='donations__sectionDonate'>
                   <div className='donations__contactForm'>
-
-                 
-                  <article className='donations__contactForm__bg'>
-
-                    <h3>¿Deseas realizar una donación en especie?</h3>
-                    <p>¡Puedes diligenciar el formulario y te contatámos!</p>
-
-                  <HubspotContactForm id={"40152509"} idForm={"b0a68ca0-6dcf-4ab5-8830-6b5991167773"} />
-                 
-                  </article>
+                    <article className='donations__contactForm__bg'>
+                      <h3>¿Deseas realizar una donación en especie?</h3>
+                      <p>¡Puedes diligenciar el formulario y te contatámos!</p>
+                      <HubspotContactForm id={"40152509"} idForm={"b0a68ca0-6dcf-4ab5-8830-6b5991167773"} />
+                    </article>
                   </div>
-
                 </section>
               }
-
             </main>
           </div>
           <motion.div
@@ -379,9 +369,6 @@ const Donations = () => {
           {/* <p>{dataTransactionDetail?.lastAction}</p> */}
         </>
       )}
-      {/*       
-      <VideoDonations/> */}
-
     </>
   )
 };

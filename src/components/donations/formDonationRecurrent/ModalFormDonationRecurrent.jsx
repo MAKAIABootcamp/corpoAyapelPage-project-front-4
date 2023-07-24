@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import FormDonationRecurrent from './FormDonationRecurrent';
+import { useState } from 'react';
 
 
 const style = {
@@ -19,9 +20,11 @@ const style = {
 };
 
 export default function ModalFormDonationRecurrent({selectedAmount}) {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const [dataFormDonationRecurrent, setDataFormDonationRecurrent] = useState({})
+
 
 
     return (
@@ -47,7 +50,7 @@ export default function ModalFormDonationRecurrent({selectedAmount}) {
 
                     </Typography>
                     <>
-                        <FormDonationRecurrent handleClose={handleClose} selectedAmount={selectedAmount}  />
+                        <FormDonationRecurrent handleClose={handleClose} selectedAmount={selectedAmount} dataFormDonationRecurrent={dataFormDonationRecurrent} setDataFormDonationRecurrent={setDataFormDonationRecurrent}  />
                     </>
 
                 </Box>

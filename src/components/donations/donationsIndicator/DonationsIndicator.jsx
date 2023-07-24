@@ -21,31 +21,45 @@ import { setLoadingStatusFalse } from '../../../redux/actions/actions';
 import Loader from '../../appLoader/Loader';
 
 const Counter = ({ stopValue }) => {
+
     const [count, setCount] = useState(0);
-    // const stopValue = 100;
+    const lastTwoDigits = stopValue % 100;
 
     useEffect(() => {
         const interval = setInterval(() => {
             setCount((prevCount) => {
-                if (prevCount === stopValue) {
+                if (prevCount === lastTwoDigits) {
                     clearInterval(interval);
                     return prevCount;
                 }
-                return prevCount + 1;
+                return (prevCount + 1) % 100;
             });
         }, 60);
 
         return () => {
             clearInterval(interval);
         };
-    }, []);
+    }, [lastTwoDigits]);
 
-    return <div className="donationsIndicator__counter">{count}</div>;
+    const fullValue = stopValue - lastTwoDigits + count;
+    const formattedValue = formatWithCommas(fullValue);
+
+    return (
+        <div>
+            <div className="donationsIndicator__counter">
+                {formattedValue}
+            </div>
+        </div>
+    );
 };
 
 
+function formatWithCommas(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
 
-const DonationsIndicator = () => {
+
+const DonationsIndicator = ({ handleGoToDonations, handleGoToTestimonials }) => {
 
     const { loading } = useSelector((store) => store.loading);
     const dispatch = useDispatch();
@@ -98,6 +112,15 @@ const DonationsIndicator = () => {
             .catch(console.error);
     }, [])
 
+
+    // Añadir un estado para controlar si el componente ha sido montado
+    const [componentMounted, setComponentMounted] = useState(false);
+
+    // Utilizamos un useEffect para marcar el componente como montado una vez que se monta
+    useEffect(() => {
+        setComponentMounted(true);
+    }, []);
+
     return (
         <>
             {loading ? (
@@ -124,7 +147,8 @@ const DonationsIndicator = () => {
                     >
                         <SwiperSlide>
                             <div className='donationsIndicator__container'>
-                                <h3>Gestión ambiental</h3>
+                                <h3 style={{ color: "#fff" }}>¿Qué hemos logrado?</h3>
+                                <h2>Gestión ambiental</h2>
                                 <div className='donationsIndicator__containerCarousel'>
                                     {allPostData && allPostData?.[0].gestionAmbiental.map((data, index) => (
                                         <article index={index} style={{ position: 'relative' }}>
@@ -140,11 +164,22 @@ const DonationsIndicator = () => {
 
                                 </div>
                             </div>
+                            <CtaDonations
+                                onClick={handleGoToDonations}
+                                label={'¿QUIERES DONAR?'}
+                                width={'15rem'}
+                                height={'3rem'}
+                                borderRadius={'2rem'}
+                            />
+                            <article className="donationsIndicator__next" onClick={handleGoToTestimonials}>
+                                <BtnKnowMore onClick={handleGoToTestimonials} />
+                            </article>
 
                         </SwiperSlide>
                         <SwiperSlide>
                             <div className='donationsIndicator__container'>
-                                <h3>Gestión social</h3>
+                                <h3 style={{ color: "#fff" }}>¿Qué hemos logrado?</h3>
+                                <h2>Gestión social</h2>
                                 <div className='donationsIndicator__containerCarousel'>
                                     {allPostData && allPostData?.[0].getionSocial.map((data, index) => (
                                         <article index={index} style={{ position: 'relative' }}>
@@ -160,12 +195,23 @@ const DonationsIndicator = () => {
 
                                 </div>
                             </div>
+                            <CtaDonations
+                                onClick={handleGoToDonations}
+                                label={'¿QUIERES DONAR?'}
+                                width={'15rem'}
+                                height={'3rem'}
+                                borderRadius={'2rem'}
+                            />
+                            <article className="donationsIndicator__next" onClick={handleGoToTestimonials}>
+                                <BtnKnowMore onClick={handleGoToTestimonials} />
+                            </article>
 
                         </SwiperSlide>
 
                         <SwiperSlide>
                             <div className='donationsIndicator__container'>
-                                <h3>Gestión económica</h3>
+                                <h3 style={{ color: "#fff" }}>¿Qué hemos logrado?</h3>
+                                <h2>Gestión económica</h2>
                                 <div className='donationsIndicator__containerCarousel'>
                                     {allPostData && allPostData?.[0].gestionEconomica.map((data, index) => (
                                         <article index={index} style={{ position: 'relative' }}>
@@ -182,26 +228,19 @@ const DonationsIndicator = () => {
                                 </div>
                             </div>
 
-                        </SwiperSlide>
-                        
-
-                    </Swiper>
-                    {/* <div>
-                        <article className='donationsIndicator__ctaDonations'>
                             <CtaDonations
+                                onClick={handleGoToDonations}
                                 label={'¿QUIERES DONAR?'}
                                 width={'15rem'}
                                 height={'3rem'}
                                 borderRadius={'2rem'}
                             />
-                        </article>
-                        <article className="donationsIndicator__next">
-                            <BtnKnowMore />
-                        </article>
-                    </div> */}      
+                            <article className="donationsIndicator__next" onClick={handleGoToTestimonials}>
+                                <BtnKnowMore onClick={handleGoToTestimonials} />
+                            </article>
+                        </SwiperSlide>
 
-
-
+                    </Swiper>
 
                 </div>
             )}
