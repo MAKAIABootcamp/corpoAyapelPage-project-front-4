@@ -7,9 +7,10 @@ import client from '../../../sanity/client';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLoadingStatusFalse } from '../../../redux/actions/actions';
 import Loader from '../../appLoader/Loader';
+import BtnKnowMore from '../btnKnowMore/BtnKnowMore';
 
 
-const Testimonials = () => {
+const Testimonials = ({handleGoToDonations}) => {
 
     const { loading } = useSelector((store) => store.loading);
     const dispatch = useDispatch();
@@ -101,15 +102,16 @@ const Testimonials = () => {
                         </div>
                         <article className='testimonials__ctaDonations'>
                             <CtaDonations
+                                onClick={handleGoToDonations}
                                 label={'¿QUIERES DONAR?'}
                                 width={'15rem'}
                                 height={'3rem'}
                                 borderRadius={'2rem'}
                             />
                         </article>
-                        {/* <article className="testimonials__next">
-                        <BtnKnowMore />
-                    </article> */}
+                         <article    onClick={handleGoToDonations} className="testimonials__next"  style={{transform: 'rotate(180deg)'}}>
+                        <BtnKnowMore style={{transform: 'rotate(180deg)'}}/>
+                    </article> 
                     </div>
                 </div>
             )}

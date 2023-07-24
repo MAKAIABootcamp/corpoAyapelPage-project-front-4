@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateDataSuscription } from '../../../redux/actions/suscriptionDonationActions';
 import { BiSolidUser } from 'react-icons/bi';
 import { createCardToken } from '../../../epayco';
+import Swal from 'sweetalert2';
 
 
 const PaymentCreditCard = ({ selectedAmount, dataFormDonationRecurrent, setDataFormDonationRecurrent, currentStep, setCurrentStep }) => {
@@ -88,12 +89,23 @@ const PaymentCreditCard = ({ selectedAmount, dataFormDonationRecurrent, setDataF
       
           console.log(dataFormDonationRecurrent);
           console.log(cardTokenResponse); // Imprimir cardTokenResponse aquí
+          if (cardTokenResponse.status === false) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: `${cardTokenResponse?.message}`,
+          //  footer: '<a href="">Why do I have this issue?</a>'
+          })
+        }else {
 
           setDataFormDonationRecurrent({cardTokenResponse, ...dataFormDonationRecurrent, ...data})
           console.log(dataFormDonationRecurrent);
           setCurrentStep(2);
+
+        }
         } catch (error) {
           console.error(error);
+         
         }
       };
       

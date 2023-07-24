@@ -533,7 +533,7 @@ const CustomerInformation = ({ selectedAmount, dataFormDonationRecurrent, setDat
   const { suscriptionDonation } = useSelector((store) => store.suscriptionDonation);
   console.log(suscriptionDonation)
   const dispatch = useDispatch();
-  const [planFinded, setPlanFinded] = useState({})
+  const [planFinded, setPlanFinded] = useState(null)
 
   const [dataToIp, setDataToIp] = useState({})
 
@@ -577,7 +577,9 @@ const CustomerInformation = ({ selectedAmount, dataFormDonationRecurrent, setDat
 
   const listAllPlans = async () => {
     try {
-      const response = await listPlans();;
+      const response = await listPlans();
+
+      console.log(response)
       setPlanFinded(response.data.find((plan) => plan.amount === Number(selectedAmount)));
     } catch (error) {
       console.log('Error al obtener la dirección IP del cliente:', error);
@@ -613,14 +615,16 @@ const CustomerInformation = ({ selectedAmount, dataFormDonationRecurrent, setDat
     console.log(dataFormDonationRecurrent);
     setDataFormDonationRecurrent({ ...dataFormDonationRecurrent, ...data, ip: clientIP, customerResponse })
 
-    if (Object.keys(planFinded).length > 0) {
+    if (planFinded !== undefined ) {
 
       setDataFormDonationRecurrent({ ...dataFormDonationRecurrent, planFinded, customerResponse, ...data, ip: clientIP })
       setCurrentStep(3);    
     } else {
-      const planResponse = await createPlanWithFreeAmount({selectedAmount});
+      console.log("entre a crear plan", selectedAmount)
+      const planResponse = await createPlanWithFreeAmount(selectedAmount);
     //  dispatch(updateDataSuscription({ planInfo: planResponse }));
       setDataFormDonationRecurrent({ ...dataFormDonationRecurrent, planResponse, customerResponse, ...data, ip: clientIP })
+      
       setCurrentStep(3);
     }
   }

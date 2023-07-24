@@ -36,15 +36,15 @@ export const createNewCustomer = async (data) => {
   console.log(data);
   try {
     const requestBody = {
-      "token_card": `${data.cardTokenResponse?.id}`,
-      "name": `${data.name}`,
-      "last_name": `${data.lastName}`, 
-      "email": `${data.email}`,
+      "token_card": `${data?.cardTokenResponse?.id}`,
+      "name": `${data?.name}`,
+      "last_name": `${data?.lastName}`, 
+      "email": `${data?.email}`,
       "default": true,
       "city": "",
       "address": "",
       "phone": "",
-      "cell_phone": `${data.cellPhone}`
+      "cell_phone": `${data?.cellPhone}`
   };
 
     const response = await axios.post(`${url_sdk}/customer`, requestBody);
@@ -63,9 +63,9 @@ export const createNewCustomer = async (data) => {
 export const createPlanWithFreeAmount = async (selectedAmount) => {
   try {
     const requestBody = {
-      "id_plan": `{$Donacion${selectedAmount}}`,
-      "name": `$Donacion ${selectedAmount}`,
-      "description": `$Donacion mensual por valor de $ ${selectedAmount}`,
+      "id_plan": `Donacion${selectedAmount}`,
+      "name": `Donacion ${selectedAmount}`,
+      "description": `Donacion mensual por valor de $ ${selectedAmount}`,
       "amount": selectedAmount,
       "currency": "cop",
       "interval": "month",

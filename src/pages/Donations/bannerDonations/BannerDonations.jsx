@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setLoadingStatusFalse } from '../../../redux/actions/actions';
 import Loader from '../../../components/appLoader/Loader';
 
-const BannerDonations = () => {
+const BannerDonations = ({handleGoToDonations}) => {
     const { loading } = useSelector((store) => store.loading);
     const dispatch = useDispatch();
 
@@ -55,7 +55,10 @@ const BannerDonations = () => {
                         <div className="home-content">
                             <h1>¡Descúbre cómo puedes apoyar!</h1>
                             <div style={{marginTop:'2rem'}}>
-                            <BtnKnowMore onClick={handleToNextComponent}/>
+                            <article className="donationsIndicator__next" onClick={handleGoToDonations}>
+                                <BtnKnowMore onClick={handleGoToDonations} />
+                            </article>
+                          
                             </div>
           
                         </div>

@@ -15,7 +15,8 @@ import economicManagement from "./economicManagement"
 import environmentalManagement from "./environmentalManagement"
 import socialManagement from "./socialManagement"
 import ourProjects from "./ourProjects"
+import ImpactIndicator from "./impactIndicator"
 
-export const schemaTypes = [projects, testimonials, peopleImpacted, donorsGoals, socialsMediaUrl, donationAmount, news, whatWeDo, economicManagement, environmentalManagement, socialManagement, ourProjects, documents, youtube, whatDoInAyapel, floraAndFauna,management]
+export const schemaTypes = [projects, testimonials, peopleImpacted, donorsGoals, socialsMediaUrl, donationAmount, news, whatWeDo, economicManagement, environmentalManagement, socialManagement, ourProjects, documents, youtube, whatDoInAyapel, floraAndFauna,management, ImpactIndicator]
 
 
