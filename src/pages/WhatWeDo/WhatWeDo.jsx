@@ -6,6 +6,7 @@ import TextProjects from "../../components/TextProjects/TextProjects";
 import EconomicManagement from "../../components/EconomicManagement/EconomicManagement";
 import EnvironmentalManagement from "../../components/EnvironmentalManagement/EnvironmentalManagement";
 import SocialManagement from "../../components/SocialManagement/SocialManagement";
+import OtherFooter from "../../components/OtherFooter/OtherFooter";
 
 
 const WhatWeDo = () => {
@@ -26,6 +27,9 @@ const WhatWeDo = () => {
         </div>
         <div className="div">
         <SocialManagement />
+        </div>
+        <div className="div">
+        <OtherFooter />
         </div>
       </main>
     </>
