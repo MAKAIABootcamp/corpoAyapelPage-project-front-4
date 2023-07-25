@@ -43,9 +43,9 @@ const PageDonations = () => {
         <div className="div" style={{height:'100vh'}}>
         <BannerDonations handleGoToDonations={handleGoToDonations}/>
         </div>   
-        <div className="div" ref={donationsRef} >
+         <div className="div" ref={donationsRef} >
           <Donations handleGoToDonorProgress={handleGoToDonorProgress}/>
-        </div>
+        </div> 
          <div className="div" ref={donorProgressRef}>
           <DonorProgress handleGoToDonations={handleGoToDonations} handleGoToDonationIndicator={handleGoToDonationIndicator}/>
         </div>

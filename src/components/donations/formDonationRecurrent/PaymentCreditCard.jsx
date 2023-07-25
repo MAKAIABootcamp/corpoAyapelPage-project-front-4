@@ -10,9 +10,12 @@ import { updateDataSuscription } from '../../../redux/actions/suscriptionDonatio
 import { BiSolidUser } from 'react-icons/bi';
 import { createCardToken } from '../../../epayco';
 import Swal from 'sweetalert2';
+import Loader from '../../appLoader/Loader';
+import LocalLoader from '../../appLoader/LocalLoader';
 
 
 const PaymentCreditCard = ({ selectedAmount, dataFormDonationRecurrent, setDataFormDonationRecurrent, currentStep, setCurrentStep }) => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     //const [currentStep, setCurrentStep] = useState(1); // Estado local para el paso activo
     console.log(dataFormDonationRecurrent);
@@ -82,6 +85,7 @@ const PaymentCreditCard = ({ selectedAmount, dataFormDonationRecurrent, setDataF
 
     const sendForm = async (data) => {
         try {
+            setIsSubmitting(true);
           console.log('Entre a sendform');
           console.log(data);
       
@@ -96,6 +100,7 @@ const PaymentCreditCard = ({ selectedAmount, dataFormDonationRecurrent, setDataF
             text: `${cardTokenResponse?.message}`,
           //  footer: '<a href="">Why do I have this issue?</a>'
           })
+          setIsSubmitting(false);
         }else {
 
           setDataFormDonationRecurrent({cardTokenResponse, ...dataFormDonationRecurrent, ...data})
@@ -151,6 +156,10 @@ const PaymentCreditCard = ({ selectedAmount, dataFormDonationRecurrent, setDataF
 
     return (
         <>
+         {isSubmitting ? 
+         <LocalLoader/>
+         :
+         <>
             <div className='formDonationsRecurrent__stepOne'>
                 {/* <p className='formDonationsRecurrent__stepOne'> Paso 2 de 3 </p> */}
                 <p className='formDonationsRecurrent__stepOne__title'>Información de la tarjeta de crédito</p>
@@ -216,9 +225,11 @@ const PaymentCreditCard = ({ selectedAmount, dataFormDonationRecurrent, setDataF
                     />
                 </div>
                 <Button type="submit" className='formDonationsRecurrent__btnContinue'>
-                    Continuar
+                Continuar
                 </Button>
             </form>
+        </>
+}
         </>
     )
 }
