@@ -146,11 +146,13 @@ const EnvironmentalManagement = () => {
                   </h2>
                   <h3>{projectData.subcontent}</h3>
                   <p>{projectData.textcontent}</p>
+                  <p>{projectData.textcontent2}</p>
                 </div>
 
                 <div
-                  className={`containerGestionAmbiental ${mostrarContenido ? "see" : ""
-                    }`}
+                  className={`containerGestionAmbiental ${
+                    mostrarContenido ? "see" : ""
+                  }`}
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -161,8 +163,9 @@ const EnvironmentalManagement = () => {
                 </div>
 
                 <div
-                  className={`containerGestionAmbiental2 ${mostrarContenido2 ? "see" : ""
-                    }`}
+                  className={`containerGestionAmbiental2 ${
+                    mostrarContenido2 ? "see" : ""
+                  }`}
                   onMouseEnter={handleMouseEnter2}
                   onMouseLeave={handleMouseLeave2}
                 >
@@ -183,8 +186,9 @@ const EnvironmentalManagement = () => {
                 </div>
 
                 <div
-                  className={`containerGestionAmbiental3 ${mostrarContenido3 ? "see" : ""
-                    }`}
+                  className={`containerGestionAmbiental3 ${
+                    mostrarContenido3 ? "see" : ""
+                  }`}
                   onMouseEnter={handleMouseEnter3}
                   onMouseLeave={handleMouseLeave3}
                 >
@@ -195,8 +199,9 @@ const EnvironmentalManagement = () => {
                 </div>
 
                 <div
-                  className={`containerGestionAmbiental4 ${mostrarContenido4 ? "see" : ""
-                    }`}
+                  className={`containerGestionAmbiental4 ${
+                    mostrarContenido4 ? "see" : ""
+                  }`}
                   onMouseEnter={handleMouseEnter4}
                   onMouseLeave={handleMouseLeave4}
                 >
@@ -205,8 +210,6 @@ const EnvironmentalManagement = () => {
                     {mostrarContenido4 ? parrafoCompleto4 : parrafoCorto4}
                   </div>
                 </div>
-
-
               </div>
             )}
           </div>
@@ -225,11 +228,13 @@ const EnvironmentalManagement = () => {
                   </h2>
                   <h3>{projectData.subcontent}</h3>
                   <p>{projectData.textcontent}</p>
+                  <p>{projectData.textcontent2}</p>
                 </div>
 
                 <div
-                  className={`containerGestionAmbiental ${mostrarContenido ? "see" : ""
-                    }`}
+                  className={`containerGestionAmbiental ${
+                    mostrarContenido ? "see" : ""
+                  }`}
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -240,8 +245,9 @@ const EnvironmentalManagement = () => {
                 </div>
 
                 <div
-                  className={`containerGestionAmbiental2 ${mostrarContenido2 ? "see" : ""
-                    }`}
+                  className={`containerGestionAmbiental2 ${
+                    mostrarContenido2 ? "see" : ""
+                  }`}
                   onMouseEnter={handleMouseEnter2}
                   onMouseLeave={handleMouseLeave2}
                 >
@@ -262,8 +268,9 @@ const EnvironmentalManagement = () => {
                 </div>
 
                 <div
-                  className={`containerGestionAmbiental3 ${mostrarContenido3 ? "see" : ""
-                    }`}
+                  className={`containerGestionAmbiental3 ${
+                    mostrarContenido3 ? "see" : ""
+                  }`}
                   onMouseEnter={handleMouseEnter3}
                   onMouseLeave={handleMouseLeave3}
                 >
@@ -274,8 +281,9 @@ const EnvironmentalManagement = () => {
                 </div>
 
                 <div
-                  className={`containerGestionAmbiental4 ${mostrarContenido4 ? "see" : ""
-                    }`}
+                  className={`containerGestionAmbiental4 ${
+                    mostrarContenido4 ? "see" : ""
+                  }`}
                   onMouseEnter={handleMouseEnter4}
                   onMouseLeave={handleMouseLeave4}
                 >
@@ -284,7 +292,6 @@ const EnvironmentalManagement = () => {
                     {mostrarContenido4 ? parrafoCompleto4 : parrafoCorto4}
                   </div>
                 </div>
-
               </div>
             )}
           </div>
