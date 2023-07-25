@@ -10,13 +10,13 @@ const FormDonationFixed = ({ amount }) => {
       <form>
         <button
           className="epayco-button"
-          data-epayco-key="8ed7aef73ad73a63416e144acfc9b9a7"
+          data-epayco-key="26a1a9519d718ad497a047739d3fc952"
           data-epayco-amount={amount}
           data-epayco-tax="0.00"
           data-epayco-tax-ico="0.00"
           data-epayco-tax-base={amount}
-          data-epayco-name="Donación a CorpoAyapel"
-          data-epayco-description="Donación a CorpoAyapel"
+          data-epayco-name="Donación única vez a CorpoAyapel"
+          data-epayco-description="Donación única vez a CorpoAyapel"
           data-epayco-currency="cop"
           data-epayco-country="CO"
           data-epayco-test="false"
