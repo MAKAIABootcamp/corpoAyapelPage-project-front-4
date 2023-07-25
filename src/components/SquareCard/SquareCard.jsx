@@ -114,20 +114,20 @@ const SquareCard = ({ title, text, img, sector }) => {
                 {selectedCard === index && (
                   <div className={`share-buttons ${selectedCard === index ? 'show fade-in' : ''}`}>
                     <FacebookShareButton
-                      url={`https://corpoayapel.com/${data.slug.current}`}
+                      url={`https://corpoayapel.org/${data.slug.current}`}
                       quote={newsData.title}
                       hashtag={"#corpoayapel"}
                     >
                       <FacebookIcon size={32} round />
                     </FacebookShareButton>
                     <WhatsappShareButton
-                      url={`https://corpoayapel.com/${data.slug.current}`}
+                      url={`https://corpoayapel.org/${data.slug.current}`}
                       title={newsData.title}
                     >
                       <WhatsappIcon size={32} round />
                     </WhatsappShareButton>
                     <TwitterShareButton
-                      url={`https://corpoayapel.com/${data.slug.current}`}
+                      url={`https://corpoayapel.org/${data.slug.current}`}
                       title={newsData.title}
                       hashtags={["corpoayapel"]}
                     >

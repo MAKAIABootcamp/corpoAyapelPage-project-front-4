@@ -119,20 +119,20 @@ const News = () => {
         <section className="mainNew__social-share">
           <section className="mainNew__social-icons"> 
             <FacebookShareButton
-              url={"https://corpoayapel.com/test"}
+              url={`https://corpoayapel.org/${newsData.slug.current}`}
               quote={newsData.title}
               hashtag={"#corpoayapel"}
             >
               <FacebookIcon size={32} round />
             </FacebookShareButton>
             <WhatsappShareButton
-              url={"https://corpoayapel.com/test"}
+              url={`https://corpoayapel.org/${newsData.slug.current}`}
               title={newsData.title}
             >
               <WhatsappIcon size={32} round />
             </WhatsappShareButton>
             <TwitterShareButton
-              url={"https://corpoayapel.com/test"}
+              url={`https://corpoayapel.org/${newsData.slug.current}`}
               title={newsData.title}
               hashtags={["corpoayapel"]}
             >
