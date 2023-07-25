@@ -5,49 +5,9 @@ import BtnKnowMore from '../btnKnowMore/BtnKnowMore';
 import CtaDonations from '../ctaDonations/CtaDonations';
 import client from '../../../sanity/client';
 import { listSubscriptions } from '../../../epayco';
-//import icon from '../../../../src/assets/animation_500_ljmbftnk.gif'
+import ProgressBar from './ProgressBar';
 
-const ProgressBar = ({ progress, goal, totalDonors, height }) => {
-    const containerStyles = {
-        width: '100%',
-        backgroundColor: '#777779',
-        borderRadius: '20px',
-        height: `${height}px`,
-        position: 'relative',
-    };
-
-    const fillerStyles = {
-        height: '100%',
-        width: `${progress}%`,
-        backgroundColor: '#6EBE4A',
-        borderRadius: '20px',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-    };
-
-    const imageStyles = {
-        width: '50px',
-        height: '50px',
-        position: 'absolute',
-        top: 8,
-        left: `${progress}%`,
-        transform: 'translate(-50%, -50%)',
-    };
-
-    return (
-        <div style={containerStyles}>
-            <div style={fillerStyles}></div>
-            <img src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1689223287/logo-blanco_x4th99_1_1_jvvols_1_ieflxf.svg" alt="Imagen de progreso" style={imageStyles} />
-            {/* <div style={{ textAlign: 'center', marginTop: '5px' }}>
-        {`${progress}% (${totalDonors}/${goal})`}
-      </div> */}
-        </div>
-    );
-};
-
-
-const DonorProgress = ({handleGoToDonations, handleGoToDonationIndicator}) => {
+const DonorProgress = ({ handleGoToDonations, handleGoToDonationIndicator }) => {
 
     const [allPostData, setAllPostData] = useState(null)
     useEffect(() => {
@@ -76,20 +36,20 @@ const DonorProgress = ({handleGoToDonations, handleGoToDonationIndicator}) => {
         listAllSubscriptions();
     }, [goal, totalDonors]);
 
-    
-  const listAllSubscriptions = async () => {
-    try {
-      const response = await listSubscriptions();
 
-      console.log(response)
-      setSubscriptionsFinded(response.data.filter((subscription) => subscription.status === "active"));
-      setActiveSubscriptionsCount(subscriptionFinded.length);
-    } catch (error) {
-      console.log('Error al obtener suscripciones:', error);
-    }
-  };
-  
-  //console.log(activeSubscriptionsCount);
+    const listAllSubscriptions = async () => {
+        try {
+            const response = await listSubscriptions();
+
+            console.log(response)
+            setSubscriptionsFinded(response.data.filter((subscription) => subscription.status === "active"));
+            setActiveSubscriptionsCount(subscriptionFinded.length);
+        } catch (error) {
+            console.log('Error al obtener suscripciones:', error);
+        }
+    };
+
+    //console.log(activeSubscriptionsCount);
 
     return (
         <div className="donorProgress__background">
@@ -116,7 +76,7 @@ const DonorProgress = ({handleGoToDonations, handleGoToDonationIndicator}) => {
 
                     <article className='donorProgress__ctaDonations'>
                         <CtaDonations
-                        onClick={handleGoToDonations}
+                            onClick={handleGoToDonations}
                             label={'¿QUIERES DONAR?'}
                             width={'15rem'}
                             height={'3rem'}
