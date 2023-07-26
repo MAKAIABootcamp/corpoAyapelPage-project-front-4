@@ -24,8 +24,10 @@ const SocialMediaButton = () => {
     ];
 
     useEffect(() => {
+
         dispatch(actionGetDataAsync("socialsMediaUrl", fields));
     }, [dispatch]);
+
 
 const handleGoTo = (direction) => {
     switch (direction) {
@@ -63,7 +65,6 @@ const handleGoTo = (direction) => {
         { icon: <FaDonate onClick={() => handleGoTo('donations')}/>, name: 'Donaciones' },
     
       ];
-
   
     return (
       <Box sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1 }}>
