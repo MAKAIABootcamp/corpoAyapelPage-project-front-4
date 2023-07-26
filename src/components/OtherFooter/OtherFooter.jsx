@@ -37,7 +37,10 @@ const OtherFooter = () => {
                 <Link to={"/donaciones"} >
                   Donaciones
                 </Link>
-                <Link to={'https://corpoayapelartesanias.com/'} >Artesanias</Link>
+                <Link to={"/donaciones"}>Donaciones</Link>
+                <Link to={"https://corpoayapelartesanias.com/"}>
+                  Artesanias
+                </Link>
               </ul>
             </section>
           </section>
