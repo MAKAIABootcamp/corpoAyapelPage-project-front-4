@@ -1,6 +1,5 @@
 import React from "react";
 import Bannerwhatwedo from "../../components/Bannerwhatwedo/Bannerwhatwedo";
-import CardWhatWeDo from "../../components/EnvironmentalManagement/EnvironmentalManagement";
 import "./TestOne.scss"
 import TextProjects from "../../components/TextProjects/TextProjects";
 import EconomicManagement from "../../components/EconomicManagement/EconomicManagement";

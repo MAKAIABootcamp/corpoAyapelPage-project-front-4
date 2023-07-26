@@ -52,6 +52,45 @@ const OtherFooter = () => {
             </ul>
           </section>
         </section>
+
+        <section className="Footer__Logo2">
+          <section className="Footer__colums2">
+            <section className="mainFooter__colums-content2">
+              <ul className="mainFooter__ul">
+                <Link to={"/nosotros"} className="bold">
+                  Nosotros
+                </Link>
+                <Link to={"/historia"}>Historia</Link>
+                <Link to={"/cultura"}>Corporativo</Link>
+                <Link to={"/que-hacemos"}>Nuestros proyectos</Link>
+              </ul>
+              <ul className="mainFooter__ul">
+                <Link to={"/documentos"} className="bold">
+                  Documentos
+                </Link>
+                <Link to={"/pqr"}>PQR</Link>
+              </ul>
+              <ul className="mainFooter__ul">
+                <Link to={""} className="bold">
+                  ¿Cómo puedo ayudar?
+                </Link>
+              </ul>
+            </section>
+          </section>
+          <section className="mainFooter__social2">
+            <ul>
+              <Link to={"https://www.facebook.com/CorppAyapel/"}>
+                <FaFacebook /> Facebook
+              </Link>
+              <Link to={"https://www.instagram.com/corpoayapel/"}>
+                <FaInstagram /> Instagram
+              </Link>
+              <Link to={"https://www.youtube.com/user/CorpoAyapel"}>
+                <FaYoutube /> Youtube
+              </Link>
+            </ul>
+          </section>
+        </section>
       </main>
     </div>
   );
