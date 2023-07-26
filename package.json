@@ -1,6 +1,7 @@
 {
   "name": "corpoayapel-lading",
   "version": "0.1.0",
+  "home":"https://corpoayapel.org/",
   "private": true,
   "dependencies": {
     "@aaronhayes/react-use-hubspot-form": "^2.1.1",

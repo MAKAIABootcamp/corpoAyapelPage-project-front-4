@@ -16,7 +16,7 @@ import {
   WhatsappShareButton,
 } from "react-share";
 
-const SquareCard = ({ title, text, img, sector }) => {
+const SquareCard = () => {
   const [newsData, setAllnewsData] = useState(null);
   const [selectedCard, setSelectedCard] = useState(null); // Added state for selected card
 
@@ -62,7 +62,7 @@ const SquareCard = ({ title, text, img, sector }) => {
       <Swiper
         slidesPerView={1}
         spaceBetween={1}
-        loop={true}
+        loop={false}
         pagination={{
           clickable: true,
         }}
@@ -70,6 +70,10 @@ const SquareCard = ({ title, text, img, sector }) => {
         modules={[Navigation]}
         className="mySwiper"
         breakpoints={{
+          390: {
+            slidesPerView: 1,
+            spaceBetween: 0,
+          },
           640: {
             slidesPerView: 1,
             spaceBetween: 20,
@@ -85,7 +89,7 @@ const SquareCard = ({ title, text, img, sector }) => {
         }}
       >
         {newsData.map((data, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide >
             <section className="mainSquareCard" key={index}>
               <section className="mainSquareCard__img">
                 <figure>
@@ -114,20 +118,20 @@ const SquareCard = ({ title, text, img, sector }) => {
                 {selectedCard === index && (
                   <div className={`share-buttons ${selectedCard === index ? 'show fade-in' : ''}`}>
                     <FacebookShareButton
-                      url={`https://corpoayapel.com/${data.slug.current}`}
+                      url={`https://corpoayapel.org/${data.slug.current}`}
                       quote={newsData.title}
                       hashtag={"#corpoayapel"}
                     >
                       <FacebookIcon size={32} round />
                     </FacebookShareButton>
                     <WhatsappShareButton
-                      url={`https://corpoayapel.com/${data.slug.current}`}
+                      url={`https://corpoayapel.org/${data.slug.current}`}
                       title={newsData.title}
                     >
                       <WhatsappIcon size={32} round />
                     </WhatsappShareButton>
                     <TwitterShareButton
-                      url={`https://corpoayapel.com/${data.slug.current}`}
+                      url={`https://corpoayapel.org/${data.slug.current}`}
                       title={newsData.title}
                       hashtags={["corpoayapel"]}
                     >

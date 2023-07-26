@@ -43,12 +43,8 @@ const Footer = () => {
               </ul>
               <ul className="mainFooter__ul">
               <Link to={''} className="bold">¿Cómo puedo ayudar?</Link>
-                {/* <Link to={'/ayapel'} >Destino: Ayapel</Link> */}
-                {/* <Link to={''}>Datos Importantes</Link>
-                <Link to={''}>Ubicación</Link> */}
-                {/* <Link to={''}>Que hacer en ayapel</Link> */}
-                {/* <Link to={''}>Flora y fauna</Link> */}
-                
+              <Link to={'/donaciones'}>Donaciones</Link>
+              <Link to={'https://corpoayapelartesanias.com/'} >Artesanias</Link>
               </ul>
             </section>
        
@@ -62,9 +58,10 @@ const Footer = () => {
            </section>
         </section>
         <section className="mainFooter__form">
-       {/* <section id="my-hubspot-form"></section> */}
+     
        <section>
-       <HubspotContactForm id={"40152509"} idForm={"9b378b3a-c3fd-45fb-b429-af5f68038ab4"} targetForm={'#hubspotForm'} />
+       <HubspotContactForm id={"40813403"} idForm={"4d545a4d-5f25-4134-badd-0ac920662be3"} targetForm={'#hubspotForm'} />
+       <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
 
        </section>
        </section>

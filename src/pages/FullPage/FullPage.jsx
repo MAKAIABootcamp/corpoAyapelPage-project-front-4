@@ -33,13 +33,11 @@ const FullPage = () => {
         </HubspotProvider>
       </div>
       <Helmet>
-        <script
-          type="text/javascript"
-          id="hs-script-loader"
-          async
-          defer
-          src="//js-na1.hs-scripts.com/40152509.js"
-        ></script>
+     
+      
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/40813403.js"></script>
+
+
       </Helmet>
     </main>
   );
