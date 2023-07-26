@@ -81,7 +81,6 @@ const DonationsIndicator = ({ handleGoToDonations, handleGoToTestimonials }) => 
                 </>
             ) : (
                 <div className='donationsIndicator__background'>
-                    {/* <GraficIndcator/> */}
                     <Swiper
                         slidesPerView={1}
                         spaceBetween={0}

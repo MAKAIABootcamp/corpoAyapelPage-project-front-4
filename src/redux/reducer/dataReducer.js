@@ -35,6 +35,9 @@ const initialState = {
     {
       gestionSocial: null,
     },
+    {
+      donorsGoals: null,
+    },
 
   ],
 };
@@ -50,7 +53,7 @@ export const dataReducer = (state = initialState, action) => {
         }
         return item;
       });
-   //   console.log("updatedData", updatedData)
+    //  console.log("updatedData", updatedData)
       return {
         ...state,
         data: updatedData,

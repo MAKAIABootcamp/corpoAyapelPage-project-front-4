@@ -64,7 +64,6 @@ const FormCancelOneDonationRecurrent = ({ handleClose }) => {
                             });
                         }
 
-                        // Call the handleClose function here or include it directly in this block if it doesn't require awaiting.
                         handleClose();
                     } catch (error) {
                         console.log(error);

@@ -27,31 +27,35 @@ const SocialMediaButton = () => {
         dispatch(actionGetDataAsync("socialsMediaUrl", fields));
     }, [dispatch]);
 
+    const generateMailtoLink = () => {
+      const donationsLink = data[4]?.socialsMediaUrl?.[0].linkEmail
+      const mailtoLink = `mailto:${donationsLink}`;
+      window.open(mailtoLink, '_blank');
+    };
+
 const handleGoTo = (direction) => {
     switch (direction) {
         case 'whatsapp':
-            window.open(data[4].SocialMediaButton?.[0].linkWhatsapp, '_blank');
+            window.open(data[4]?.socialsMediaUrl?.[0].linkWhatsapp, '_blank');
             break;
           case 'instagram':
-            window.open(data[4].SocialMediaButton?.[0].linkInstagram, '_blank');
+            window.open(data[4]?.socialsMediaUrl?.[0].linkInstagram, '_blank');
             break;
           case 'facebook':
-            window.open(data[4].SocialMediaButton?.[0].linkFacebook, '_blank');
+            window.open(data[4]?.socialsMediaUrl?.[0].linkFacebook, '_blank');
             break;
           case 'youtube':
-            window.open(data[4].SocialMediaButton?.[0].linkYoutube, '_blank');
+            window.open(data[4]?.socialsMediaUrl?.[0].linkYoutube, '_blank');
             break;
           case 'email':
-            window.open(data[4].SocialMediaButton?.[0].linkEmail, '_blank');
+            generateMailtoLink();
             break;
           case 'donations':
-             window.open(data[4].SocialMediaButton?.[0].linkDonations, '_blank');
+             window.open(data[4]?.socialsMediaUrl?.[0].linkDonations, '_blank');
             break;
           default:
             break;
     }
-
-    
 }
 
     const actions = [

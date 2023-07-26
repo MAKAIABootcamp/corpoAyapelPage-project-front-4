@@ -8,11 +8,6 @@ export default {
             name: "goal",
             type: "string",
             title: "Meta del mes"
-        },
-        {
-            name: "currentDonors",
-            type: "string",
-            title: "Numero de Donadores Actuales"
         }
     ]
 }

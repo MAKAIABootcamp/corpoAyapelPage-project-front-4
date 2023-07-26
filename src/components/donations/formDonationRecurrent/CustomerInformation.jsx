@@ -1,22 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Button, TextField, FormControl, Select, MenuItem } from '@mui/material';
-import { Formik, useFormik } from 'formik';
+import { Button, TextField, Select, MenuItem } from '@mui/material';
+import { useFormik } from 'formik';
 import * as Yup from "yup";
-import { useDispatch, useSelector } from 'react-redux';
-import { updateDataSuscription } from '../../../redux/actions/suscriptionDonationActions';
+import { useSelector } from 'react-redux';
 import { createNewCustomer, createPlanWithFreeAmount, createSuscription, listPlans, listSubscriptions } from '../../../epayco';
-import { connect } from "react-redux";
 import axios from 'axios';
 import LocalLoader from '../../appLoader/LocalLoader';
 
 const CustomerInformation = ({ selectedAmount, dataFormDonationRecurrent, setDataFormDonationRecurrent, currentStep, setCurrentStep }) => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { suscriptionDonation } = useSelector((store) => store.suscriptionDonation);
-  console.log(suscriptionDonation)
-  const dispatch = useDispatch();
-  const [planFinded, setPlanFinded] = useState(null)
 
-  const [dataToIp, setDataToIp] = useState({})
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const [planFinded, setPlanFinded] = useState(null)
 
   const initialValues = {
     name: "",
@@ -48,15 +43,14 @@ const CustomerInformation = ({ selectedAmount, dataFormDonationRecurrent, setDat
     listAllPlans();
   }, []);
 
-  console.log(clientIP);
+  //console.log(clientIP);
 
 
 
   const listAllPlans = async () => {
     try {
       const response = await listPlans();
-
-      console.log(response)
+     // console.log(response)
       setPlanFinded(response.data.find((plan) => plan.amount === Number(selectedAmount)));
     } catch (error) {
       console.log('Error al obtener la dirección IP del cliente:', error);
@@ -74,7 +68,7 @@ const CustomerInformation = ({ selectedAmount, dataFormDonationRecurrent, setDat
   const sendForm = async (data) => {
     setIsSubmitting(true);
 
-   // console.log(selectedAmount);
+    // console.log(selectedAmount);
 
     setDataFormDonationRecurrent({ ...dataFormDonationRecurrent, ...data, ip: clientIP })
 
@@ -124,7 +118,6 @@ const CustomerInformation = ({ selectedAmount, dataFormDonationRecurrent, setDat
         :
         <>
           <div className='formDonationsRecurrent__stepOne'>
-            {/* Título y descripción del paso */}
           </div>
           <form onSubmit={handleSubmit} className='formDonationsRecurrent'>
             <TextField
