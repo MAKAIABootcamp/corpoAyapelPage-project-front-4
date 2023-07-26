@@ -35,7 +35,6 @@ const AppRouter = () => {
             <Route path="conoce-ayapel" Component={Ayapel} />
             <Route path="que-hacemos" Component={WhatWeDo} />
             <Route path="documentos" Component={Documents} />
-            <Route path="historia" Component={Us} />
             {/* <Route path="historia2" Component={UsTwo} /> */}
             <Route path="ayapel" Component={Ayapel} />
             <Route path="como-ayudar" Component={HowToHelp} />

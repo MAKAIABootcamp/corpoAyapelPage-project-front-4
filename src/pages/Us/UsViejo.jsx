@@ -3,7 +3,7 @@ import "./Us.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Pagination } from "swiper/modules";
 
-const Us = () => {
+const UsTwo = () => {
   const pagination = {
     clickable: true,
     renderBullet: function (index, className) {
@@ -116,4 +116,4 @@ const Us = () => {
   );
 };
 
-export default Us;
+export default UsTow;

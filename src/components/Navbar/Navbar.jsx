@@ -88,7 +88,7 @@ const Navbar = () => {
             <NavLink to={'/nosotros'}>Nosotros</NavLink>
             <NavLink to={'/que-hacemos'}>Nuestros proyectos</NavLink>
             <NavLink to={'https://corpoayapelartesanias.com/'}>Artesanias</NavLink>
-            <NavLink to={'/'}>
+            <NavLink to={''}>
               <figure>
                 <img src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1688432976/logo-blanco_x4th99.svg" alt="" />
               </figure>
