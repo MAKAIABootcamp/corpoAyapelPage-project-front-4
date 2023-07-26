@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 const FormCancelOneDonationRecurrent = ({ handleClose }) => {
 
     const { loading } = useSelector((store) => store.loading);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const [currentStep] = useState('email');
 
@@ -20,6 +21,7 @@ const FormCancelOneDonationRecurrent = ({ handleClose }) => {
     }
 
     const sendForm = async (data) => {
+        setIsSubmitting(true);
         try {
             const responseAllCustomers = await listCustomers();
             const customerFindedFromData = responseAllCustomers.data.find((customer) => customer.email === data.email);
@@ -80,6 +82,7 @@ const FormCancelOneDonationRecurrent = ({ handleClose }) => {
                     title: 'Usuario no encontrado',
                     text: 'No se encontró ningún usuario con el correo proporcionado.'
                 });
+                setIsSubmitting(false);
             }
         } catch (error) {
             console.log(error);
@@ -88,6 +91,7 @@ const FormCancelOneDonationRecurrent = ({ handleClose }) => {
                 title: 'Error',
                 text: 'Hubo un error al procesar su solicitud. Inténtelo de nuevo más tarde.'
             });
+            setIsSubmitting(false);
         }
     };
 
@@ -105,7 +109,10 @@ const FormCancelOneDonationRecurrent = ({ handleClose }) => {
 
     return (
         <>
-            {loading && <LocalLoader />}
+        {isSubmitting ? 
+        <LocalLoader/>
+        :
+        <>
             {currentStep === 'email' && (
                 <form onSubmit={handleSubmit} className='formDonationsRecurrent'>
                     <p style={{ margin: '1rem', textAlign: 'center' }}>  Por favor ingrese el correo electrónico <br /> registrado en la suscripción de donación mensual</p>
@@ -128,6 +135,8 @@ const FormCancelOneDonationRecurrent = ({ handleClose }) => {
 
                 </form>
             )}
+         </>
+}
         </>
     );
 }
