@@ -114,7 +114,7 @@ En caso de no tener node instalado puede instalarlo con el comando:
    ```
 4. Iniciar el servidor de desarrollo
    ```sh
-   npm run dev
+   npm start
    ```
 
 ## Documentacion
@@ -129,6 +129,41 @@ En caso de no tener node instalado puede instalarlo con el comando:
   <img width="100%" height="auto" src="https://github.com/MAKAIABootcamp/corpoAyapelPage-project-front-4/assets/99287560/651cdd39-8f3f-41fb-a444-5c46c5039d89" height="175px"/>
   <img width="100%" height="auto" src="https://github.com/MAKAIABootcamp/corpoAyapelPage-project-front-4/assets/99287560/35087067-b079-4d9c-ae48-a8ead7fd0ee1" height="175px"/>
 </div>
+
+## Despliegue
+
+### Requisitos previos:
+-Asegurarse de contar con las credenciales de la cuenta en Cpanel de CorpoAyapel
+
+### Proceso de despliegue
+
+      
+1. Iniciar el deploy en la terminal
+   ```sh
+   npm run build
+   ```
+   
+2. Abrir la carpeta en el directorio del proyecto y seleccionar el archivo build
+- Comprimir el archivo build
+
+3. Acceder a la interfaz de Cpanel
+   
+-Ingresar con el usuario y contraseña proporcionados:
+
+ [Login Cpanel](https://corpoayapel.org/cpanel)
+  
+4. Realizar la carga de archivos
+
+   - En el dashboard de Cpanel, seleccionar la opción en el menú > Archivos > Administrador de archivos
+   - Ingresar al directorio > public_html
+   - Eliminar los archivos exceptuando: backup.zip | .htaccess | google34549c30e72072c7.html
+   - Dar click en cargar y adjuntar el archivo comprimido build.zip
+   - Al finalizar la carga dar click en volver a /home/corpoaya/public_html
+ 
+5. Verificar que el proyecto esté corriendo perfectamente
+
+    [corpoayapel]([https://corpoayapel.org/cpanel](https://corpoayapel.org/))
+
 
 
 ## Autores
