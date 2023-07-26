@@ -101,6 +101,8 @@ Install my-project with npm
 ## Documentacion
 
 [Documentacion](https://github.com/MAKAIABootcamp/corpoAyapelPage-project-front-4/wiki)
+![image](https://github.com/MAKAIABootcamp/corpoAyapelPage-project-front-4/assets/37349818/ccf67899-b1ec-49a2-95b7-429eba47bf5b)
+
 
 <div align="center"> 
   <h2>Samples</h2>
