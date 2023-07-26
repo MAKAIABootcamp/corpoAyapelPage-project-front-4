@@ -1,6 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import "./Bannerwhatwedo.scss";
 import client from "../../sanity/client";
+import { useDispatch, useSelector } from "react-redux";
+import Loader from "../appLoader/Loader";
+import { setLoadingStatusFalse } from "../../redux/actions/actions";
 // Import Swiper React components
 // import { Swiper, SwiperSlide } from "swiper/react";
 // import { EffectFade, Navigation, Pagination } from "swiper/modules";
@@ -12,6 +15,8 @@ import client from "../../sanity/client";
 const Bannerwhatwedo = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [projectData, setProjectData] = useState([]);
+  const { loading } = useSelector((store) => store.loading);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     client
@@ -27,7 +32,9 @@ const Bannerwhatwedo = () => {
         }
       }`
       )
-      .then((data) => setProjectData(data))
+      .then((data) => {
+        setProjectData(data)
+        dispatch(setLoadingStatusFalse())})
       .catch(console.error);
   }, []);
 
@@ -46,6 +53,12 @@ const Bannerwhatwedo = () => {
 
   return (
     <>
+    {loading ? (
+      <>
+        <Loader />
+      </>
+    ) : (
+      <>
       <div className="carousel">
         {/* <Swiper
           spaceBetween={30}
@@ -94,6 +107,8 @@ const Bannerwhatwedo = () => {
           {/* </SwiperSlide>
         </Swiper> */}
       </div>
+      </>
+      )}
     </>
   );
 };
