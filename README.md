@@ -161,7 +161,7 @@ En caso de no tener node instalado puede instalarlo con el comando:
  
 5. Verificar que el proyecto esté corriendo perfectamente
 
-    [corpoayapel]([https://corpoayapel.org/cpanel](https://corpoayapel.org/))
+    [CorpoAyapel](https://corpoayapel.org/)
 
 
 
