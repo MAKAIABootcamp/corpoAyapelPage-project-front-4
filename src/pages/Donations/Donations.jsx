@@ -352,7 +352,7 @@ const Donations = ({ handleGoToDonorProgress }) => {
                     <article className='donations__contactForm__bg'>
                       <h3>¿Deseas realizar una donación en especie?</h3>
                       <p>¡Puedes diligenciar el formulario y te contatámos!</p>
-                      <HubspotContactForm id={"40152509"} idForm={"b0a68ca0-6dcf-4ab5-8830-6b5991167773"} />
+                      <HubspotContactForm id={"40813403"} idForm={"1e4a6dc2-cddc-4cac-b4ed-363e045b10ca"} />
                     </article>
                   </div>
                 </section>

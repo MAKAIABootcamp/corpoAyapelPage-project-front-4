@@ -47,9 +47,10 @@ const CircleCard = ({ title, text, img, sector }) => {
       ) : (
         <>
           <Swiper
+          
             slidesPerView={1}
-            spaceBetween={1}
-            loop={true}
+            spaceBetween={0}
+            // loop={false}
             pagination={{
               clickable: true,
             }}
@@ -59,11 +60,11 @@ const CircleCard = ({ title, text, img, sector }) => {
             breakpoints={{
               640: {
                 slidesPerView: 1,
-                spaceBetween: 20,
+                spaceBetween: 0,
               },
               768: {
                 slidesPerView: 1,
-                spaceBetween: 40,
+                spaceBetween: 0,
               },
               1024: {
                 slidesPerView: 3,

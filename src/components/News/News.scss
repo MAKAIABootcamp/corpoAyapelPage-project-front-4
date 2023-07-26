@@ -35,6 +35,9 @@
         height: 65vh;
         .swiper-wrapper{
             justify-content: center;
+            @media screen and (max-width:910px) {
+                justify-content: unset;
+            }
           }
         @media screen and (max-width:1024px) {
             height: 70vh;

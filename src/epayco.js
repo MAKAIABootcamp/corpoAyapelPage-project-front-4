@@ -1,9 +1,6 @@
 import axios from "axios";
-//import url_sdk from './.env'
 
-//const url_sdk = process.env.REACT_APP_API_URL;
 const url_sdk ="https://backendepayco-1.onrender.com"
-
 
 //*************************CREAR TOKEN DE TARJETA DE CREDITO**************************** */
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField} from '@mui/material';
+import { TextField } from '@mui/material';
 import { useFormik } from 'formik';
 import * as Yup from "yup";
 import './formDonationsRecurrent.scss'
@@ -130,8 +130,6 @@ const FormCancelOneDonationRecurrent = ({ handleClose }) => {
                 </form>
             )}
         </>
-
-
     );
 }
 

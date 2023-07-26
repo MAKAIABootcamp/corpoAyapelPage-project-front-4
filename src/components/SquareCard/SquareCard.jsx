@@ -16,7 +16,7 @@ import {
   WhatsappShareButton,
 } from "react-share";
 
-const SquareCard = ({ title, text, img, sector }) => {
+const SquareCard = () => {
   const [newsData, setAllnewsData] = useState(null);
   const [selectedCard, setSelectedCard] = useState(null); // Added state for selected card
 
@@ -62,7 +62,7 @@ const SquareCard = ({ title, text, img, sector }) => {
       <Swiper
         slidesPerView={1}
         spaceBetween={1}
-        loop={true}
+        loop={false}
         pagination={{
           clickable: true,
         }}
@@ -70,6 +70,10 @@ const SquareCard = ({ title, text, img, sector }) => {
         modules={[Navigation]}
         className="mySwiper"
         breakpoints={{
+          390: {
+            slidesPerView: 1,
+            spaceBetween: 0,
+          },
           640: {
             slidesPerView: 1,
             spaceBetween: 20,
@@ -85,7 +89,7 @@ const SquareCard = ({ title, text, img, sector }) => {
         }}
       >
         {newsData.map((data, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide >
             <section className="mainSquareCard" key={index}>
               <section className="mainSquareCard__img">
                 <figure>
