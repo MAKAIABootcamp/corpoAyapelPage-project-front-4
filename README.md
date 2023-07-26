@@ -81,21 +81,40 @@ Answer 1
 Answer 2
 
 
-## Instalacion
+## Instalación
 
-Install my-project with npm
-
-1. Clone the repo
+### Requisitos previos:
+-Asegurarse de tener instalado **Node js**, puede correr el comando en su terminal
+   ```sh
+   node js -v
+   ```
+En caso de no tener node instalado puede instalarlo con el comando:
+   ```sh
+   npm install node
+   ```
+### Proceso de instalación
+1. Clonar el proyecto corpoAyapelPage-project-front-4
+   
+   -Asegurarse de crear una carpeta en su directorio antes de correr el siguiente comando
    ```sh
    git clone https://github.com/MAKAIABootcamp/corpoAyapelPage-project-front-4.git
    ```
-2. Install packages
+   -Abrir el proyecto instalado
+     ```sh
+   cd corpoAyapelPage-project-front-4
+   ```
+   
+2. Instalación de paquetes y dependencias
    ```sh
    npm install
    ```
-3. Run code
+3. Abrir el proyecto en su editor, en caso de estar usando VSC
    ```sh
-   npm run deploy
+   code .
+   ```
+4. Iniciar el servidor de desarrollo
+   ```sh
+   npm run dev
    ```
 
 ## Documentacion
