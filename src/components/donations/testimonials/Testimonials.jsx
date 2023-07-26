@@ -69,7 +69,7 @@ const Testimonials = ({handleGoToDonations}) => {
             ) : (
                 <div className='testimonials__background'>
                     <div>
-                        <h3 className='testimonials__title'>¿Quiénes nos apoyan?</h3>
+                        <h3 className='testimonials__title'>Lo que dicen nuestros colaboradores</h3>
 
                         <div className='testimonials__container'>
                             <div className="testimonials__container__Row">
