@@ -4,10 +4,11 @@ import "./CardWhatWeDo.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoadingStatusFalse } from "../../redux/actions/actions";
 import Loader from "../appLoader/Loader";
+import { actionGetDataAsync } from "../../redux/actions/dataActions";
 
 const EnvironmentalManagement = () => {
   const [projectData, setProjectData] = useState(null); // Cambiar a null
-  const [data, setData] = useState({});
+  const [data1, setData] = useState({});
   const [data2, setData2] = useState({});
   const [data3, setData3] = useState({});
   const [data4, setData4] = useState({});
@@ -20,61 +21,54 @@ const EnvironmentalManagement = () => {
 
   const { loading } = useSelector((store) => store.loading);
   const dispatch = useDispatch();
+  const { data } = useSelector((store) => store.data);
+
+  const fields = [
+      "titleContent",
+      "textContent",
+  ];
 
   useEffect(() => {
-    client
-      .fetch(
-        `*[_type == "gestionAmbiental"] {
-        titleContent,
-        textContent,
-        listContent
-      }`
-      )
-      .then((data) => {
-        if (data.length >= 1) {
-          setData(data[0]);
-        }
-        if (data.length >= 2) {
-          setData2(data[1]);
-          setListContent(data[1].listContent || []);
-        }
-        if (data.length >= 3) {
-          setData3(data[2]);
-        }
-        if (data.length >= 4) {
-          setData4(data[3]);
-        }
-        dispatch(setLoadingStatusFalse());
-      })
-      .catch(console.error);
-  }, []);
+      dispatch(actionGetDataAsync("gestionAmbiental", fields));
+      if (data[9].gestionAmbiental.length >= 1) {
+                setData(data[9].gestionAmbiental[0]);
+              }
+              if (data[9].gestionAmbiental.length >= 2) {
+                setData2(data[9].gestionAmbiental[1]);
+                setListContent(data[9].gestionAmbiental[1].listContent || []);
+              }
+              if (data[9].gestionAmbiental.length >= 3) {
+                setData3(data[9].gestionAmbiental[2]);
+              }
+              if (data[9].gestionAmbiental.length >= 4) {
+                setData4(data[9].gestionAmbiental[3]);
+              }
+  }, [dispatch]);
 
-  useEffect(() => {
-    client
-      .fetch(
-        `*[_type == "gestion"] {
-          content,
-          content2,
-          subcontent,
-          textcontent,
-          textcontent2,
-          mainImage{
-            asset->{
-              _id,
-              url
-            }
-          }
-        }`
-      )
-      .then((data) => {
-        if (data.length >= 2) {
-          // Cambiar a >= 2
-          const secondData = data[1]; // Cambiar a data[1]
-          setProjectData(secondData);
+
+  const fields1 = [
+    "content",
+    "content2",
+    "subcontent",
+    "textcontent",
+    "textcontent2",
+    `mainImage{
+        asset->{
+            _id,
+            url
         }
-      })
-      .catch(console.error);
-  }, []);
+    }
+    `,
+];
+  useEffect(() => {
+      dispatch(actionGetDataAsync("gestion", fields1));
+      if (data[8].gestion.length >= 2) {
+                // Cambiar a >= 2
+                const secondData = data[8].gestion[1]; // Cambiar a data[1]
+                setProjectData(secondData);
+              }
+  }, [dispatch]);
+
 
   const handleMouseEnter = () => {
     setMostrarContenido(true);
@@ -108,8 +102,8 @@ const EnvironmentalManagement = () => {
     setMostrarContenido4(false);
   };
 
-  const titulo = data?.titleContent;
-  const parrafoCompleto = data?.textContent || "";
+  const titulo = data1?.titleContent;
+  const parrafoCompleto = data1?.textContent || "";
   const parrafoCorto = `${parrafoCompleto.substring(0, 80)}...`;
 
   const titulo2 = data2.titleContent;

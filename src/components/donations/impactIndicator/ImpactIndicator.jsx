@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './impactIndicator.scss';
 import BtnKnowMore from '../btnKnowMore/BtnKnowMore';
 import CtaDonations from '../ctaDonations/CtaDonations';
 import client from '../../../sanity/client';
-//import CarouselSwiper from '../../carouselSwiper/CarouselSwiper';
 import 'swiper/css';
-// import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';

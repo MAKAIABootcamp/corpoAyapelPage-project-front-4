@@ -4,10 +4,11 @@ import "./EconomicManagement.scss";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../appLoader/Loader";
 import { setLoadingStatusFalse } from "../../redux/actions/actions";
+import { actionGetDataAsync } from "../../redux/actions/dataActions";
 
 const EconomicManagement = () => {
   const [projectData, setProjectData] = useState(null);
-  const [data, setData] = useState({});
+  const [data1, setData] = useState({});
   const [data2, setData2] = useState({});
 
   const [mostrarContenido, setMostrarContenido] = useState(false);
@@ -16,52 +17,54 @@ const EconomicManagement = () => {
   const { loading } = useSelector((store) => store.loading);
   const dispatch = useDispatch();
 
-
-  useEffect(() => {
-    client
-      .fetch(
-        `*[_type == "gestionEconomica"] {
-        titleContent,
-        textContent,
-      }`
-      )
-      .then((data) => {
-        if (data.length >= 1) {
-          setData(data[0]);
-        }
-        if (data.length >= 2) {
-          setData2(data[1]);
-        }
-      })
-      .catch(console.error);
-  }, []);
-
-  useEffect(() => {
-    client
-      .fetch(
-        `*[_type == "gestion"] {
-          content,
-          content2,
-          subcontent,
-          textcontent,
-          textcontent2,
-          mainImage{
-            asset->{
+  const { data } = useSelector((store) => store.data);
+  const fields = [
+      "titleContent",
+      "textContent",
+      "name",
+      `mainImage{
+          asset->{
               _id,
               url
-            }
           }
-        }`
-      )
-      .then((data) => {
-        if (data.length >= 1) {
-          const firstData = data[0];
-          setProjectData(firstData);
-          dispatch(setLoadingStatusFalse());
+      }
+      `,
+  ];
+
+  useEffect(() => {
+      dispatch(actionGetDataAsync("gestionEconomica", fields));
+      if (data[7]?.gestionEconomica.length >= 1) {
+                setData(data[7]?.gestionEconomica[0]);
+              }
+              if (data.length >= 2) {
+                setData2(data[7]?.gestionEconomica[1]);
+              }
+  }, [dispatch]);
+ 
+const fields2 = [
+    "content",
+    "content2",
+    "subcontent",
+    "textcontent",
+    "textcontent2",
+    `mainImage{
+        asset->{
+            _id,
+            url
         }
-      })
-      .catch(console.error);
-  }, []);
+    }
+    `,
+];
+
+  useEffect(() => {
+      dispatch(actionGetDataAsync("gestion", fields2));
+      if (data.length >= 1) {
+                const firstData = data[8]?.gestion[0];
+                setProjectData(firstData);
+                dispatch(setLoadingStatusFalse());
+              }
+  }, [dispatch]);
+
 
   const handleMouseEnter = () => {
     setMostrarContenido(true);
@@ -79,8 +82,8 @@ const EconomicManagement = () => {
     setMostrarContenido2(false);
   };
 
-  const titulo = data?.titleContent;
-  const parrafoCompleto = data?.textContent || "";
+  const titulo = data1?.titleContent;
+  const parrafoCompleto = data1?.textContent || "";
   const parrafoCorto = `${parrafoCompleto.substring(0, 80)}...`;
 
   const titulo2 = data2.titleContent;

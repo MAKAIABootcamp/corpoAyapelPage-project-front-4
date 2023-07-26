@@ -4,6 +4,7 @@ import client from "../../sanity/client";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../appLoader/Loader";
 import { setLoadingStatusFalse } from "../../redux/actions/actions";
+import { actionGetDataAsync } from "../../redux/actions/dataActions";
 // Import Swiper React components
 // import { Swiper, SwiperSlide } from "swiper/react";
 // import { EffectFade, Navigation, Pagination } from "swiper/modules";
@@ -17,26 +18,23 @@ const Bannerwhatwedo = () => {
   const [projectData, setProjectData] = useState([]);
   const { loading } = useSelector((store) => store.loading);
   const dispatch = useDispatch();
+  const { data } = useSelector((store) => store.data);
+  const fields = [
+      "content",
+      "content2",
+      `mainImage{
+          asset->{
+              _id,
+              url
+          }
+      }
+      `,
+  ];
 
   useEffect(() => {
-    client
-      .fetch(
-        `*[_type == "masProyectos"] {
-        content,
-        content2,
-        mainImage{
-          asset->{
-            _id,
-            url
-          }
-        }
-      }`
-      )
-      .then((data) => {
-        setProjectData(data)
-        dispatch(setLoadingStatusFalse())})
-      .catch(console.error);
-  }, []);
+      dispatch(actionGetDataAsync("masProyectos", fields));
+      setProjectData(data[6].masProyectos)
+  }, [dispatch]);
 
   const goToSlide = (index) => {
     setCurrentSlide(index);

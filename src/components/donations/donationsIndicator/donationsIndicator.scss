@@ -4,11 +4,9 @@
   &__container {
     margin-bottom: 1rem;
 
-    //  margin-top: 3rem;
     h3 {
       font-size: 3rem;
       color: #6EBE4A;
-      // margin-top: 5rem;
       margin-bottom: 1rem;
 
     }
@@ -67,7 +65,6 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    //margin-top: 3rem;
   }
 
   &__next {
@@ -77,8 +74,6 @@
   }
 
   &__image {
-    // min-width: 150px;
-    // min-height: 150px;
     width: 300px;
     height: 300px;
     border-radius: 50%;
@@ -123,7 +118,6 @@
 
 .swiper-slide-next {
   width: 100%;
-  // margin-left:30px;
 }
 
 
@@ -142,8 +136,6 @@
     &__container {
       margin-bottom: 1rem;
       width: 300px;
-
-      //  margin-top: 3rem;
       h3 {
         font-size: 1.5rem;
         color: #6EBE4A;
@@ -173,7 +165,6 @@
     &__containerCarousel {
       display: flex;
       flex-direction: column;
-      //flex-wrap: wrap;
       gap: 2rem;
       width: 100%;
 
@@ -189,9 +180,6 @@
       display: flex;
       flex-direction: row;
       gap: 2rem;
-
-      // width: 100%;
-      // gap: 2rem;
       p {
         color: black;
         font-size: .9rem;
@@ -227,8 +215,6 @@
     }
 
     &__image {
-      // min-width: 150px;
-      // min-height: 150px;
       width: 100px;
       height: 100px;
       border-radius: 50%;
@@ -238,17 +224,3 @@
     }
   }
 }
-
-@media screen and (min-width: 640px) {
-  // .swiper-container {
-  //   width: 640px !important;
-  // }
-}
-
-@media screen and (min-width: 768px) {
-  // .swiper-container {
-  //   width: 768px !important;
-  // }
-}
-
-@media (min-width: 640px) and (max-width: 991px) {}

@@ -6,25 +6,23 @@ import CtaDonations from '../ctaDonations/CtaDonations';
 import client from '../../../sanity/client';
 import { listSubscriptions } from '../../../epayco';
 import ProgressBar from './ProgressBar';
+import { useDispatch, useSelector } from 'react-redux';
+import { actionGetDataAsync } from '../../../redux/actions/dataActions';
 
 const DonorProgress = ({ handleGoToDonations, handleGoToDonationIndicator }) => {
 
-    const [allPostData, setAllPostData] = useState(null)
-    useEffect(() => {
-        client
-            .fetch(
-                `*[_type == "donorsGoals"] {
-          goal,
-          currentDonors
-        }`
-            )
-            .then((data) => setAllPostData(data))
-            .catch(console.error)
-    }, [])
+    const { data } = useSelector((store) => store.data);
+    const dispatch = useDispatch();
+    const fields = [
+        "goal",
+    ];
 
+    useEffect(() => {
+        dispatch(actionGetDataAsync("donorsGoals", fields));
+    }, [dispatch]);
 
     const [progress, setProgress] = useState(0);
-    const goal = allPostData?.[0].goal; // Meta esperada de donadores
+    const goal = data[11]?.donorsGoals?.[0].goal; // Meta esperada de donadores
     const [subscriptionFinded, setSubscriptionsFinded] = useState(null)
     const [activeSubscriptionsCount, setActiveSubscriptionsCount] = useState(0); // Variable para almacenar el conteo de suscripciones activas
     const totalDonors = subscriptionFinded?.length; // Total de donadores actual
@@ -41,7 +39,7 @@ const DonorProgress = ({ handleGoToDonations, handleGoToDonationIndicator }) => 
         try {
             const response = await listSubscriptions();
 
-            console.log(response)
+          //  console.log(response)
             setSubscriptionsFinded(response.data.filter((subscription) => subscription.status === "active"));
             setActiveSubscriptionsCount(subscriptionFinded.length);
         } catch (error) {
@@ -66,7 +64,7 @@ const DonorProgress = ({ handleGoToDonations, handleGoToDonationIndicator }) => 
                         <div className='donorProgress__goal'>
                             <GoGoal style={{ fontSize: '3rem' }} />
                             {/* <a href="https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688355815/ayapel/wv4shprazlxdoatxles9.gif"></a> */}
-                            <p style={{ textAlign: 'center', fontSize: '1rem' }}>300 Donantes</p>
+                            <p style={{ textAlign: 'center', fontSize: '1rem' }}>{goal} Donantes</p>
                         </div>
                     </article>
                     <div className='donorProgress__status'>

@@ -15,8 +15,7 @@ import StepsFormDonationRecurrent from './StepsFormDonationRecurrent';
 import { MdArrowBackIosNew, MdCancel } from 'react-icons/md';
 
 const FormDonationRecurrent = ({ handleClose, selectedAmount, dataFormDonationRecurrent, setDataFormDonationRecurrent }) => {
-  const dispatch = useDispatch();
-  const { suscriptionDonation } = useSelector((store) => store.suscriptionDonation);
+
   const [currentStep, setCurrentStep] = useState(0); // Estado local para el paso activo
 
   let initialValues = {
@@ -28,7 +27,7 @@ const FormDonationRecurrent = ({ handleClose, selectedAmount, dataFormDonationRe
     setDataFormDonationRecurrent(data)
   };
 
-  console.log(dataFormDonationRecurrent);
+ // console.log(dataFormDonationRecurrent);
 
   const { handleSubmit, handleChange, values, errors } = useFormik({
     initialValues: initialValues,
@@ -53,7 +52,7 @@ const FormDonationRecurrent = ({ handleClose, selectedAmount, dataFormDonationRe
     setCurrentStep(currentStep - 1);
   };
 
-  console.log(suscriptionDonation);
+ // console.log(suscriptionDonation);
 
   return (
     <>

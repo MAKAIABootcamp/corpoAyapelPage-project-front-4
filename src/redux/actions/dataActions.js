@@ -10,18 +10,20 @@ export const actionGetDataAsync = (typeOfData, fields) => {
         client
             .fetch(query)
             .then((data) => {
-                dispatch(actionGetDataSync(data));
+                dispatch(actionGetDataSync(data, typeOfData));
                 dispatch(setLoadingStatusFalse());
             })
             .catch(console.error);
     };
 };
 
-const actionGetDataSync = (data) => {
+const actionGetDataSync = (data, typeOfData) => {
     return {
         type: dataTypes.GET_DATA,
         payload: {
-            data: data,
+            data,
+            typeOfData,
+            
         },
     };
 };
