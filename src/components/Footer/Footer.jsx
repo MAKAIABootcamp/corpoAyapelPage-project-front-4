@@ -43,12 +43,8 @@ const Footer = () => {
               </ul>
               <ul className="mainFooter__ul">
               <Link to={''} className="bold">¿Cómo puedo ayudar?</Link>
-                {/* <Link to={'/ayapel'} >Destino: Ayapel</Link> */}
-                {/* <Link to={''}>Datos Importantes</Link>
-                <Link to={''}>Ubicación</Link> */}
-                {/* <Link to={''}>Que hacer en ayapel</Link> */}
-                {/* <Link to={''}>Flora y fauna</Link> */}
-                
+              <Link to={'/donaciones'}>Donaciones</Link>
+              <Link to={'https://corpoayapelartesanias.com/'} >Artesanias</Link>
               </ul>
             </section>
        
