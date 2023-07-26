@@ -41,6 +41,9 @@
         flex-wrap: wrap;
         .swiper-wrapper{
             justify-content: center;
+            @media screen and (max-width:910px) {
+                justify-content: unset;
+            }
           }
         @media screen and (max-width:535px) {
             transform: translateY(30px);
