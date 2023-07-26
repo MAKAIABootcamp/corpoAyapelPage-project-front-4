@@ -1,10 +1,9 @@
 import React from "react";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import "./OtherFooter.scss"
+import "./OtherFooter.scss";
 
 const OtherFooter = () => {
-
   return (
     <div className="Footer">
       <main className="main__Footer">
@@ -55,6 +54,12 @@ const OtherFooter = () => {
 
         <section className="Footer__Logo2">
           <section className="Footer__colums2">
+            <figure>
+              <img
+                src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1688432976/logo-blanco_x4th99.svg"
+                alt="Logo Ayapel"
+              />
+            </figure>
             <section className="mainFooter__colums-content2">
               <ul className="mainFooter__ul">
                 <Link to={"/nosotros"} className="bold">

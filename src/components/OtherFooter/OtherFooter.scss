@@ -72,8 +72,8 @@
         width: 100px;
       }
       @media screen and (max-width: 1167px) {
-        width: 150px;
-        display: none;
+        width: 250px;
+        // display: none;
       }
       width: 350px;
       height: auto;
@@ -177,6 +177,19 @@ textarea {
   .Footer__Logo2{
     display: block;
     transition: .5s;
+
+    figure {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-content: center;
+      flex-direction: column;
+    }
+    img {
+      margin-top: -100px;
+      width: 250px;
+      height: auto;
+    }
 
     .Footer__colums2 {
       height: 275px;
