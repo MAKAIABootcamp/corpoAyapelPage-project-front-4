@@ -2,29 +2,31 @@ import React, { useEffect, useState } from "react";
 import client from "../../sanity/client";
 import "./Documents.scss";
 import { BsFillFileEarmarkPdfFill } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import { actionGetDataAsync } from "../../redux/actions/dataActions";
 
 const Documents = () => {
   const [documentsData, setDocumentsData] = useState(null);
   const [selectedYear, setSelectedYear] = useState("");
+  const { data } = useSelector((store) => store.data);
+  const dispatch = useDispatch();
+  const fields = [
+      "title",
+      "year",
+      `manuscript{
+          asset->{
+              _id,
+              url
+          }
+      }
+      `,
+  ];
 
   useEffect(() => {
-    client
-      .fetch(
-        `*[_type == "documentos"] {
-          title,
-          year,
-          manuscript{
-            asset->{
-              url
-            }
-          }
-        }`
-      )
-      .then((data) => setDocumentsData(data))
-      .catch(console.error);
-  }, []);
+      dispatch(actionGetDataAsync("documentos", fields));
+      setDocumentsData(data[5].documentos);
+  }, [dispatch]);
 
-  // console.log(documentsData);
 
   if (!documentsData) {
     return <div>Loading...</div>;

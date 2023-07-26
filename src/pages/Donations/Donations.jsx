@@ -72,13 +72,13 @@ const Donations = ({ handleGoToDonorProgress }) => {
     }
   }
 
-  const donationAmounts = data?.[0] ? [
-    { amount: data[0].amount1 },
-    { amount: data[0].amount2 },
-    { amount: data[0].amount3 },
-    { amount: data[0].amount4 },
-    { amount: data[0].amount5 },
-    { amount: data[0].amount6 },
+  const donationAmounts = data[0]?.donationAmount?.[0] ? [
+    { amount: data[0].donationAmount[0].amount1 },
+    { amount: data[0].donationAmount[0].amount2 },
+    { amount: data[0].donationAmount[0].amount3 },
+    { amount: data[0].donationAmount[0].amount4 },
+    { amount: data[0].donationAmount[0].amount5 },
+    { amount: data[0].donationAmount[0].amount6 },
   ] : [];
 
   const handleToNextComponent = () => {
@@ -93,7 +93,7 @@ const Donations = ({ handleGoToDonorProgress }) => {
   //   handleToNextComponent();
   // }
   // window.addEventListener('scroll', handleScroll);
-  console.log(selectedAmount);
+  //console.log(selectedAmount);
 
 
   let initialValues = {

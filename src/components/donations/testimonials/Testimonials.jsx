@@ -1,42 +1,35 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './stylesTestimonials.scss';
 import { RiDoubleQuotesL, RiDoubleQuotesR } from 'react-icons/ri';
 import { AiFillLeftCircle, AiFillRightCircle } from 'react-icons/ai';
 import CtaDonations from '../ctaDonations/CtaDonations';
-import client from '../../../sanity/client';
 import { useDispatch, useSelector } from 'react-redux';
-import { setLoadingStatusFalse } from '../../../redux/actions/actions';
 import Loader from '../../appLoader/Loader';
 import BtnKnowMore from '../btnKnowMore/BtnKnowMore';
+import { actionGetDataAsync } from '../../../redux/actions/dataActions';
 
 
-const Testimonials = ({handleGoToDonations}) => {
+const Testimonials = ({ handleGoToDonations }) => {
 
     const { loading } = useSelector((store) => store.loading);
+    const { data } = useSelector((store) => store.data);
     const dispatch = useDispatch();
-
-    const [allPostData, setAllPostData] = useState(null)
-    useEffect(() => {
-        client
-            .fetch(
-                `*[_type == "testimonios"] {
-          nombre,
-          texto,
-          name,
-          mainImage{
+    const fields = [
+        "nombre",
+        "texto",
+        "name",
+        `mainImage{
             asset->{
-              _id,
-              url
+                _id,
+                url
             }
-          }
-        }`
-            )
-            .then((data) => {
-                setAllPostData(data);
-                dispatch(setLoadingStatusFalse());
-            })
-            .catch(console.error);
-    }, [])
+        }
+        `,
+    ];
+
+    useEffect(() => {
+        dispatch(actionGetDataAsync("testimonios", fields));
+    }, [dispatch]);
 
 
     const testimoniosRef = useRef(null);
@@ -59,7 +52,6 @@ const Testimonials = ({handleGoToDonations}) => {
         return text.length <= maxLength ? text : text.substring(0, maxLength) + "...";
     };
 
-
     return (
         <>
             {loading ? (
@@ -76,7 +68,7 @@ const Testimonials = ({handleGoToDonations}) => {
                                 <AiFillLeftCircle onClick={handleGoLeft} className="testimonials__container__RowLeft" />
                             </div>
                             <div className='testimonials__container__carousel' ref={testimoniosRef}>
-                                {allPostData && allPostData.map((data, index) => (
+                                {data && data[1]?.testimonios?.map((data, index) => (
                                     <section className="testimonialsCard" key={index}>
                                         <section className="testimonialsCard__gestion">
                                         </section>
@@ -109,9 +101,9 @@ const Testimonials = ({handleGoToDonations}) => {
                                 borderRadius={'2rem'}
                             />
                         </article>
-                         <article    onClick={handleGoToDonations} className="testimonials__next"  style={{transform: 'rotate(180deg)'}}>
-                        <BtnKnowMore style={{transform: 'rotate(180deg)'}}/>
-                    </article> 
+                        <article onClick={handleGoToDonations} className="testimonials__next" style={{ transform: 'rotate(180deg)' }}>
+                            <BtnKnowMore style={{ transform: 'rotate(180deg)' }} />
+                        </article>
                     </div>
                 </div>
             )}

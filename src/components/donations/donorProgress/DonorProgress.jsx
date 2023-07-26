@@ -41,7 +41,7 @@ const DonorProgress = ({ handleGoToDonations, handleGoToDonationIndicator }) => 
         try {
             const response = await listSubscriptions();
 
-            console.log(response)
+          //  console.log(response)
             setSubscriptionsFinded(response.data.filter((subscription) => subscription.status === "active"));
             setActiveSubscriptionsCount(subscriptionFinded.length);
         } catch (error) {

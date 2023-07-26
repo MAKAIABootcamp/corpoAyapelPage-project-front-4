@@ -18,7 +18,7 @@ export const createCardToken = async (data) => {
 
     const response = await axios.post(`${url_sdk}/token/card`, requestBody);
     const result = response.data;
-    console.log(result)
+   // console.log(result)
     return result;
   } catch (error) {
     console.log('error', error);
@@ -46,7 +46,7 @@ export const createNewCustomer = async (data) => {
 
     const response = await axios.post(`${url_sdk}/customer`, requestBody);
     const result = response.data;
-   console.log(result)
+   //console.log(result)
     return result;
   } catch (error) {
     console.log('error', error);
@@ -72,7 +72,7 @@ export const createPlanWithFreeAmount = async (selectedAmount) => {
 
     const response = await axios.post(`${url_sdk}/plan`, requestBody);
     const result = response.data;
-   console.log(result)
+  // console.log(result)
     return result;
   } catch (error) {
     console.log('error', error);
@@ -97,7 +97,7 @@ export const createSuscription = async (data) => {
 
     const response = await axios.post(`${url_sdk}/suscription`, requestBody);
     const result = response.data;
-   console.log(result)
+ //  console.log(result)
     return result;
   } catch (error) {
     console.log('error', error);
@@ -121,7 +121,7 @@ export const paySuscription = async (data) => {
 
     const response = await axios.post(`${url_sdk}/pay/suscription`, requestBody);
     const result = response.data;
-   console.log(result)
+  // console.log(result)
     return result;
   } catch (error) {
     console.log('error', error);
@@ -148,7 +148,7 @@ export const cancelSubscription = async (id_subscription) => {
   try {
     const response = await axios.get(`${url_sdk}/cancel/suscription?id_subscription=${id_subscription}`);
     const result = response.data;
-    console.log(result);
+  //  console.log(result);
     return result;
   } catch (error) {
     console.log('error', error);
@@ -161,7 +161,7 @@ export const listSubscriptions = async () => {
   try{
       const response = await axios.get(`${url_sdk}/list/subscription`);
       const result = response.data;
-     console.log(result)
+   //  console.log(result)
       return result;
     } catch (error) {
       console.log('error', error);
@@ -174,7 +174,7 @@ export const listPlans = async () => {
   try{
       const response = await axios.get(`${url_sdk}/list/plans`);
       const result = response.data;
-     console.log(result)
+    // console.log(result)
       return result;
     } catch (error) {
       console.log('error', error);

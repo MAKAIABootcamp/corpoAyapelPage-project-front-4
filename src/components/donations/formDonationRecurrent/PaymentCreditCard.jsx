@@ -6,22 +6,16 @@ import { ImCreditCard } from 'react-icons/im';
 import './formDonationsRecurrent.scss'
 import { FaLess } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateDataSuscription } from '../../../redux/actions/suscriptionDonationActions';
 import { BiSolidUser } from 'react-icons/bi';
 import { createCardToken } from '../../../epayco';
 import Swal from 'sweetalert2';
-import Loader from '../../appLoader/Loader';
 import LocalLoader from '../../appLoader/LocalLoader';
 
 
 const PaymentCreditCard = ({ selectedAmount, dataFormDonationRecurrent, setDataFormDonationRecurrent, currentStep, setCurrentStep }) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    //const [currentStep, setCurrentStep] = useState(1); // Estado local para el paso activo
-    console.log(dataFormDonationRecurrent);
-
-    const { suscriptionDonation } = useSelector((store) => store.suscriptionDonation);
-    console.log(suscriptionDonation)
+  //  console.log(dataFormDonationRecurrent);
 
     const dispatch = useDispatch();
 
@@ -33,56 +27,6 @@ const PaymentCreditCard = ({ selectedAmount, dataFormDonationRecurrent, setDataF
         codigoCVV: "",
     }
 
-    // const sendForm = async (data) => {
-    //     try {
-    //         console.log('hola');
-    //         console.log(data);
-    //         const updatedData = {
-    //             ...suscriptionDonation,
-    //             ...data,
-    //         };
-
-    //         // dispatch(updateDataSuscription({paymentInfo: updatedData}));
-
-    //         const tokenCard = {
-    //             ...suscriptionDonation,
-    //             ...data,
-    //         };
-
-    //         await setDataFormDonationRecurrent({ ...dataFormDonationRecurrent, ...data })
-    //         .then(()=> {
-    //             if (dataFormDonationRecurrent.email !== "" && dataFormDonationRecurrent !== "") {
-    //                 cardTokenResponse = createCardToken(dataFormDonationRecurrent);
-    //               }
-
-    //         })
-
-    //         console.log(dataFormDonationRecurrent);
-    //         let cardTokenResponse = {}
-
-
-  
-    //         console.log(cardTokenResponse);
-
-    //         //   const cardToken = {
-    //         //     ...suscriptionDonation,
-    //         //     ...cardTokenResponse,
-    //         //   };
-
-    //         //  setDataFormDonationRecurrent({...dataFormDonationRecurrent,  ...cardTokenResponse})
-
-    //         console.log(dataFormDonationRecurrent);
-
-    //         // dispatch(updateDataSuscription({cardToken: cardToken}));
-    //         console.log(suscriptionDonation)
-    //         setCurrentStep(2);
-    //     } catch (error) {
-    //         // Manejar errores si es necesario
-    //         console.error(error);
-    //     }
-    // };
-
-
     const sendForm = async (data) => {
         try {
             setIsSubmitting(true);
@@ -91,18 +35,16 @@ const PaymentCreditCard = ({ selectedAmount, dataFormDonationRecurrent, setDataF
       
           const cardTokenResponse = await createCardToken({ ...dataFormDonationRecurrent, ...data });
       
-          console.log(dataFormDonationRecurrent);
-          console.log(cardTokenResponse); // Imprimir cardTokenResponse aquí
+         // console.log(dataFormDonationRecurrent);
+        //  console.log(cardTokenResponse); // Imprimir cardTokenResponse aquí
           if (cardTokenResponse.status === false) {
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: `${cardTokenResponse?.message}`,
-          //  footer: '<a href="">Why do I have this issue?</a>'
           })
           setIsSubmitting(false);
         }else {
-
           setDataFormDonationRecurrent({cardTokenResponse, ...dataFormDonationRecurrent, ...data})
           console.log(dataFormDonationRecurrent);
           setCurrentStep(2);

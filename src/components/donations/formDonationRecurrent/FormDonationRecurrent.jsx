@@ -28,7 +28,7 @@ const FormDonationRecurrent = ({ handleClose, selectedAmount, dataFormDonationRe
     setDataFormDonationRecurrent(data)
   };
 
-  console.log(dataFormDonationRecurrent);
+ // console.log(dataFormDonationRecurrent);
 
   const { handleSubmit, handleChange, values, errors } = useFormik({
     initialValues: initialValues,
@@ -53,7 +53,7 @@ const FormDonationRecurrent = ({ handleClose, selectedAmount, dataFormDonationRe
     setCurrentStep(currentStep - 1);
   };
 
-  console.log(suscriptionDonation);
+ // console.log(suscriptionDonation);
 
   return (
     <>
