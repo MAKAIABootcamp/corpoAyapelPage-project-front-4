@@ -7,15 +7,12 @@
 }
 html {
     --cursor-color: #fff;
-    scroll-behavior: smooth;
-    
-    
+    scroll-behavior: smooth;    
   }
   
   html.dark-mode {
     --cursor-color: #fff
   }
-
 
   body {
     --primaryColor: #6EBE4A;
@@ -70,9 +67,7 @@ html {
     text-align: center;
     font-size: 18px;
     color: #6EBE4A;
-    margin-right: 0px !important;
-    /* Center slide text vertically */
-    
+    margin-right: 0px !important;   
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,12 +79,6 @@ html {
     height: 100%;
     object-fit: cover;
   }
-
-  .css-13xnipr {
-
-  }
- 
-
 
 .ball {
   fill: #6EBE4A;
@@ -131,8 +120,6 @@ html {
   font-size: 2rem;
   height: 100vh;
   width: 100vw;
-  //position: fixed;
- // z-index: 99;
   backdrop-filter: blur(8px); /* Agrega el efecto de desenfoque */
   background-color: rgba(189, 203, 183, 0.5); /* Agrega un color de fondo con transparencia */
 }
@@ -142,9 +129,7 @@ html {
 }
 
 .continuebutton {
-  button {
-
- 
+  button { 
   background: #6EBE4A !important;
   background-color: #6EBE4A !important;
 }
