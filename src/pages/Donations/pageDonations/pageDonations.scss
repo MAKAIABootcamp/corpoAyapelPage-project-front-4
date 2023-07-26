@@ -118,3 +118,13 @@
   display: none !important;
   visibility: hidden !important;
 }
+
+.donations__mobile {
+  display: none;
+}
+
+@media (max-width: 664px) {
+  .donations__mobile {
+    display: flex;
+  }
+}

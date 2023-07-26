@@ -2,7 +2,7 @@
     font-family: 'Mulish', sans-serif;
 
     &__background {
-        background-image:  linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689261454/ayapel/hcsttfi6ge54qntaiqc5.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689261454/ayapel/hcsttfi6ge54qntaiqc5.jpg');
         //background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg');
         //background-color: #6ebe4a;
         object-fit: cover;
@@ -52,16 +52,18 @@
 
         &__container {
             justify-content: center;
-           
+
         }
     }
-    &__cancelDonation {       
-            font-size: 1rem;
-            color: gray;
-            text-align: center;   
-            span {
-                color: #6EBE4A;
-            }     
+
+    &__cancelDonation {
+        font-size: 1rem;
+        color: gray;
+        text-align: center;
+
+        span {
+            color: #6EBE4A;
+        }
     }
 
     &__howToDonate {
@@ -87,7 +89,7 @@
 
     &__sectionDonate {
         width: 50%;
-        z-index: 1;        
+        z-index: 1;
     }
 
     &__contactForm {
@@ -96,23 +98,26 @@
         justify-content: center;
         align-items: center;
         background-color: #fff;
-      //  padding: 1rem;
+        //  padding: 1rem;
         min-width: 320px;
         max-width: 517px;
         height: 600px;
         border-radius: 1rem;
         box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-&__bg {
-    width: 100%;
-    padding: 5%;
-    p, h3 {
-        font-size: 1rem;
-        text-align: center;
-        margin-bottom: 1rem;
-        color: #6EBE4A;
 
-    }
-}
+        &__bg {
+            width: 100%;
+            padding: 5%;
+
+            p,
+            h3 {
+                font-size: 1rem;
+                text-align: center;
+                margin-bottom: 1rem;
+                color: #6EBE4A;
+
+            }
+        }
 
     }
 
@@ -125,10 +130,11 @@
         font-size: 1.5rem;
         border: none;
         box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-      //  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        //  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     }
 
-    &__btnTypeSelected-active, &__btnTypeSelected:hover {
+    &__btnTypeSelected-active,
+    &__btnTypeSelected:hover {
         padding: 1rem;
         background-color: #6EBE4A;
         border-radius: 1rem;
@@ -137,7 +143,7 @@
         font-size: 1.5rem;
         border: none;
         box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-       // box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        // box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     }
 
     &__btnDontationFixed {
@@ -219,8 +225,9 @@
         top: 0px;
         left: 0px;
         z-index: -1;
-        width: 450px;
-        height: 500px;
+        width: 100%;
+        height: 100%;
+        border-radius: 1rem;
         background-color: #fff;
     }
 
@@ -245,9 +252,10 @@
             border-radius: 1rem;
         }
     }
+
     &__btnConfirmAmount {
         background-color: #6EBE4A;
-        color:#fff;
+        color: #fff;
         border: none;
         border-radius: 0 8px 8px 0;
         padding: 0 5px;
@@ -303,80 +311,172 @@
             height: 310px;
             width: 220px;
         }
+
         &__main {
-           flex-direction: column;
+            flex-direction: column;
         }
+
         &__typeDonation {
             flex-direction: column;
         }
+
         &__sectionTypes {
             width: 100%;
-           padding: 0 .5px;
-            h3, p {
+            padding: 0 .5px;
+
+            h3,
+            p {
                 font-size: 10%;
             }
+
             p {
                 margin: 0;
             }
         }
+
         &__sectionDonate {
             width: 100%;
 
         }
+
         &__typeDonation {
             flex-direction: row;
         }
-        &__btnTypeSelected-active, &__btnTypeSelected:hover, &__btnTypeSelected {
+
+        &__btnTypeSelected-active,
+        &__btnTypeSelected:hover,
+        &__btnTypeSelected {
             font-size: 15%;
             padding: .3rem;
         }
+
         &__background {
             background-size: cover;
+        }
+
+        &__title {
+            font-size: 100%;
+
         }
     }
 }
+
 @media (max-width: 664px) {
+    .hs_email .hs-email .hs-fieldtype-text .field .hs-form-field {
+        margin-bottom: 0 !important;
+    }
+    .field {
+        margin-bottom: 0 !important;
+    }
+    .hubspot-link__container .sproket {
+        display: none !important;
+    }
     .donations {
         &__container {
             margin: 2% 5%;
-            height: 540px;
+            height: 430px;
         }
+
         &__main {
-           flex-direction: column;
+            flex-direction: column;
         }
+
         &__typeDonation {
             flex-direction: column;
         }
+
         &__sectionTypes {
             width: 100%;
-           padding: 0 .5px;
-            h3, p {
-                font-size: 20%;
+            padding: 0 1rem;
+            h3 {
+                margin-top: 3rem;
             }
+
+            h3,
+            p {
+                font-size: 100%;
+             
+            }
+
             p {
                 margin: 0;
+                margin-bottom: 1rem;
             }
         }
+
         &__sectionDonate {
             width: 100%;
         }
+
         &__typeDonation {
             flex-direction: row;
         }
-        &__btnTypeSelected-active, &__btnTypeSelected:hover, &__btnTypeSelected {
-            font-size: 15%;
+
+        &__btnTypeSelected-active,
+        &__btnTypeSelected:hover,
+        &__btnTypeSelected {
+            font-size: 100%;
             padding: .3rem;
+            height: 100%;
         }
+
         &__background {
             background-size: cover;
         }
-        
+
+        &__title {
+            font-size: 100%;
+
+        }
+        &__contactForm {
+            font-size: 5em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            //  padding: 1rem;
+            min-width: 320px;
+            max-width: 517px;
+            height: 430px;
+            border-radius: 1rem;
+            margin-top: .5rem;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    
+            &__bg {
+                width: 100%;
+                padding: 5%;
+                height: 430px;
+    
+                p,
+                h3 {
+                    font-size: 1rem;
+                    text-align: center;
+                    margin-bottom: 1rem;
+                    color: #6EBE4A;
+    
+                }
+                p {
+                    display: none;
+                }
+            }
+    
+        }
+    
     }
+    
+
     .btn-know-more {
         display: none;
     }
 
-
+    .selectDonate {
+        display: none;
+    }
+    .actions .hs-submit .hs_submit {
+        display: flex !important;
+        justify-content: center !important;
+    }
+    
 }
 
 @media (min-width: 665px) and (max-width: 991px) {
@@ -384,13 +484,17 @@
         &__typeDonation {
             flex-direction: column;
         }
+
         &__sectionTypes {
             width: 30%;
-           padding: 0 .5px;
-            h3, p {
-                font-size: 30%;
+            padding: 0 .5px;
+
+            h3,
+            p {
+                font-size: 100%;
             }
         }
+
         &__background {
             background-size: cover;
         }

@@ -10,33 +10,29 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../appLoader/Loader";
 import { setLoadingStatusFalse } from "../../redux/actions/actions";
+import { actionGetDataAsync } from "../../redux/actions/dataActions";
 const CircleCard = ({ title, text, img, sector }) => {
   const [allPostData, setAllPostData] = useState(null);
   const { loading } = useSelector((store) => store.loading);
+  const { data } = useSelector((store) => store.data);
   const dispatch = useDispatch();
+  const fields = [
+      "gestion",
+      "content",
+      "name",
+      `mainImage{
+          asset->{
+              _id,
+              url
+          }
+      }
+      `,
+  ];
 
   useEffect(() => {
-    client
-      .fetch(
-        `*[_type == "proyectos"] {
-        gestion,
-        content,
-        name,
-        mainImage{
-          asset->{
-            _id,
-            url
-          }
-        }
-      }`
-      )
-      .then((data) => {
-        setAllPostData(data);
-        dispatch(setLoadingStatusFalse());
-      })
-      .catch(console.error);
-  }, [])
-  // console.log(allPostData)
+      dispatch(actionGetDataAsync("proyectos", fields));
+  }, [dispatch]);
+
 
   return (
     <>
@@ -47,9 +43,10 @@ const CircleCard = ({ title, text, img, sector }) => {
       ) : (
         <>
           <Swiper
+          
             slidesPerView={1}
-            spaceBetween={1}
-            loop={true}
+            spaceBetween={0}
+            // loop={false}
             pagination={{
               clickable: true,
             }}
@@ -59,11 +56,11 @@ const CircleCard = ({ title, text, img, sector }) => {
             breakpoints={{
               640: {
                 slidesPerView: 1,
-                spaceBetween: 20,
+                spaceBetween: 0,
               },
               768: {
                 slidesPerView: 1,
-                spaceBetween: 40,
+                spaceBetween: 0,
               },
               1024: {
                 slidesPerView: 3,
@@ -71,8 +68,8 @@ const CircleCard = ({ title, text, img, sector }) => {
               },
             }}
           >
-            {allPostData &&
-              allPostData.map((data, index) => (
+            {data[3].proyectos &&
+              data[3].proyectos.map((data, index) => (
                 <SwiperSlide key={index}>
                   <section className="mainCircleCard" key={index}>
                     <section className="mainCircleCard__gestion">

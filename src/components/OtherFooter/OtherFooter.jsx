@@ -33,6 +33,9 @@ const OtherFooter = () => {
               <ul className="mainFooter__ul">
                 <Link to={"/como-ayudar"} className="bold">
                   ¿Cómo puedo ayudar?
+                </Link> 
+                <Link to={"/donaciones"} >
+                  Donaciones
                 </Link>
                 <Link to={"/donaciones"}>Donaciones</Link>
                 <Link to={"https://corpoayapelartesanias.com/"}>

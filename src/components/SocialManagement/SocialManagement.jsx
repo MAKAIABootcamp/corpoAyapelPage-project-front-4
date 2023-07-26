@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import client from "../../sanity/client";
 import "./SocialManagement.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { actionGetDataAsync } from "../../redux/actions/dataActions";
 
 const SocialManagement = () => {
   const [projectData, setProjectData] = useState(null);
-  const [data, setData] = useState({});
+  const [data1, setData] = useState({});
   const [data2, setData2] = useState({});
   const [data3, setData3] = useState({});
 
@@ -36,8 +38,8 @@ const SocialManagement = () => {
     setMostrarContenido3(false);
   };
 
-  const titulo = data?.titleContent;
-  const parrafoCompleto = data?.textContent || "";
+  const titulo = data1?.titleContent;
+  const parrafoCompleto = data1?.textContent || "";
   const parrafoCorto = `${parrafoCompleto.substring(0, 80)}...`;
 
   const titulo2 = data2.titleContent;
@@ -47,54 +49,49 @@ const SocialManagement = () => {
   const titulo3 = data3.titleContent;
   const parrafoCompleto3 = data3?.textContent || "";
   const parrafoCorto3 = `${parrafoCompleto3.substring(0, 50)}...`;
+  const { data } = useSelector((store) => store.data);
+  const dispatch = useDispatch();
+  const fields = [
+      "titleContent",
+      "textContent",
+  ];
 
   useEffect(() => {
-    client
-      .fetch(
-        `*[_type == "gestionSocial"] {
-        titleContent,
-        textContent,
-      }`
-      )
-      .then((data) => {
-        if (data.length >= 1) {
-          setData(data[0]);
-        }
-        if (data.length >= 2) {
-          setData2(data[1]);
-        }
-        if (data.length >= 3) {
-          setData3(data[2]);
-        }
-      })
-      .catch(console.error);
-  }, []);
-
-  useEffect(() => {
-    client
-      .fetch(
-        `*[_type == "gestion"] {
-            content,
-            content2,
-            subcontent,
-            textcontent,
-            textcontent2,
-            mainImage{
-              asset->{
-                _id,
-                url
+      dispatch(actionGetDataAsync("gestionSocial", fields));
+      if (data[10].gestionSocial.length >= 1) {
+                setData(data[10].gestionSocial[0]);
               }
-            }
-          }`
-      )
-      .then((data) => {
-        if (data.length >= 3) {
-          const firstData = data[2];
-          setProjectData(firstData);
+              if (data[10].gestionSocial.length >= 2) {
+                setData2(data[10].gestionSocial[1]);
+              }
+              if (data[10].gestionSocial.length >= 3) {
+                setData3(data[10].gestionSocial[2]);
+              }
+  }, [dispatch]);
+
+  const fields1 = [
+    "content",
+    "content2",
+    "subcontent",
+    "textcontent",
+    "textcontent2",
+    `mainImage{
+        asset->{
+            _id,
+            url
         }
-      })
-      .catch(console.error);
-  }, []);
+    }
+    `,
+];
+
+  useEffect(() => {
+    dispatch(actionGetDataAsync("gestion", fields1));
+    if (data[8]?.gestion.length >= 3) {
+              const firstData = data[8]?.gestion[2];
+              setProjectData(firstData);
+            }
+}, [dispatch]);
+  
 
   return (
     <>

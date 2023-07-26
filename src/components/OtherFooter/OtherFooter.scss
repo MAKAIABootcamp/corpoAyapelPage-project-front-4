@@ -49,6 +49,7 @@
       height: 70vh;
       gap: 0px;
     }
+
   }
   &__Logo {
     display: flex;
@@ -154,10 +155,10 @@
     font-weight: 800;
     color: #707070;
   }
-
   &__Logo2 {
     display: none;
   }
+
 }
 textarea {
   resize: none;
@@ -172,6 +173,7 @@ textarea {
   .Footer__Logo2 {
     display: block;
     transition: 0.5s;
+
 
     figure {
       display: flex;

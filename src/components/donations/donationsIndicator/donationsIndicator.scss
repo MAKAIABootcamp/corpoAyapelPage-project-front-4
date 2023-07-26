@@ -1,119 +1,100 @@
 .donationsIndicator {
-    font-family: 'Mulish', sans-serif;
-    &__container {
-      margin-bottom: 1rem;
-    //  margin-top: 3rem;
-      h3 {
-        font-size: 3rem;
-        color: #6EBE4A;
-       // margin-top: 5rem;
-        margin-bottom: 1rem;
-     
-      }
-    }
-    &__background {
-        background-image: url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689261454/ayapel/sqdgl9g1otdeoktooccs.jpg');
-        // background-color: #6ebe4a;
-       height: 100vh;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-size: cover;
-        z-index: 3;
-        flex-wrap: wrap;
-        border: 4px solid #fff;
-    }
-    &__containerCarousel {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 3rem;
-      img {
-        width: 140px;
-        height: 140px;
-        border-radius: 50%;
-      }
-   
-    }
-    &__content {
-      position: absolute;
-      top: 4rem;
-      left: 1.4rem; 
-      width: 80%;
-      p {
-        color: #fff;
-      }
-    }
-    &__counter {
-      font-size: 5rem;
+  font-family: 'Mulish', sans-serif;
+
+  &__container {
+    margin-bottom: 1rem;
+
+    h3 {
+      font-size: 3rem;
       color: #6EBE4A;
+      margin-bottom: 1rem;
+
     }
-    &__ctaDonations {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      //margin-top: 3rem;
+
+    h2 {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
   }
+
+  &__background {
+    background-image: url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689261454/ayapel/sqdgl9g1otdeoktooccs.jpg');
+    // background-color: #6ebe4a;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    z-index: 3;
+    flex-wrap: wrap;
+    border: 4px solid #fff;
+  }
+
+  &__containerCarousel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3rem;
+
+    img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+    }
+
+  }
+
+  &__content {
+    position: absolute;
+    top: 4rem;
+    left: 1.4rem;
+    width: 80%;
+
+    p {
+      color: #fff;
+    }
+  }
+
+  &__counter {
+    font-size: 4rem;
+    color: #6EBE4A;
+  }
+
+  &__ctaDonations {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
   &__next {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
-}
-&__image {
-  // min-width: 150px;
-  // min-height: 150px;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background-size: cover;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689261449/ayapel/cpefakxd4vij3uszdoc5.jpg');
-
-}
   }
-//     &__container {
-//         display: flex;
-//         flex-direction: row;
-//     }
-//     &__titles {
-//       display: flex;
-//       justify-content: space-around;
-//       flex-direction: column;
-//       color: #fff;
-//       font-weight: bold;
-//       font-size: 130%;
-//       text-align: center;
-//     }
-//     &__title {
-//       font-size: 180%;
-  
-//       width: 100%;
-//       &--ambiental {
-//         background-color: #6EBE4A;
-//         padding: 10px;
-//         border-radius: 10px;
-//       }
-//       &--social {
-//         background-color: #767679;
-//         padding: 10px;
-//         border-radius: 10px;
-//       }
-//       &--economic {
-//         background-color: #f0b224;
-//         padding: 10px;
-//         border-radius: 10px;
-//       }
 
-//     }
-// }
+  &__image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689261449/ayapel/cpefakxd4vij3uszdoc5.jpg');
+
+  }
+}
+
+
+.swiper-wrapper {
+  align-items: center;
+}
 
 
 
 .swiper {
   width: 100%;
   height: 100%;
- // background: #000;
- height: 510px;
+  // background: #000;
+  height: 510px;
 }
 
 .swiper-slide {
@@ -124,457 +105,122 @@
   padding: 0;
   margin: 0;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .swiper-slide-active {
- margin: 0;
+  margin: 0;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .swiper-slide-next {
   width: 100%;
- // margin-left:30px;
 }
 
+
+
+
+
 @media (max-width: 375px) {
-    .swiper-container {
-      width: auto !important;
-    }
+  .swiper-container {
+    width: auto !important;
   }
-  
-  @media (min-width: 375px) and (max-width: 639px) {
-   
-    .donationsIndicator {
-          &__container {
-        margin-bottom: 1rem;
-        width: 300px;
-      //  margin-top: 3rem;
-        h3 {
-          font-size: 2rem;
-          color: #6EBE4A;
-          margin-top: 5rem;
-          margin-bottom: 2rem;
-       
-        }
+}
+
+@media (min-width: 375px) and (max-width: 1002px) {
+
+  .donationsIndicator {
+    &__container {
+      margin-bottom: 1rem;
+      width: 300px;
+      h3 {
+        font-size: 1.5rem;
+        color: #6EBE4A;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+
       }
-      &__background {
-          height: 100vh;
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background-size: cover;
-          z-index: 3;
-          flex-wrap: wrap;
-          border: 4px solid #fff;
+
+      h2 {
+        color: #6EBE4A;
+        margin-bottom: 2rem;
       }
-      &__containerCarousel {
-        display: flex;
-        flex-direction: column;
-        //flex-wrap: wrap;
-        gap: 2rem;
-        width: 100%;
-        img {
-          width: 140px;
-          height: 140px;
-          border-radius: 50%;
-        }
-     
+    }
+
+    &__background {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      z-index: 3;
+      flex-wrap: wrap;
+      border: 4px solid #fff;
+    }
+
+    &__containerCarousel {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      width: 100%;
+
+      img {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
       }
-      &__content {
-        display: flex;
-        flex-direction: row;
-        gap:2rem;
-        
-       // width: 100%;
-       // gap: 2rem;
-        p {
-          color: black;
-          font-size: .9rem;
-          position: absolute;
-          width: 170px;
+
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      p {
+        color: black;
+        font-size: .9rem;
+        position: absolute;
+        width: 170px;
         align-items: center;
         top: -3rem;
-        left: 5rem; 
-        }
+        left: 5rem;
       }
-      &__counter {
-        font-size: 2.5rem;
-        color: #6EBE4A;
-        position: absolute;
-        align-items: center;
-        top: -2rem;
-        left: -6rem; 
-        width: 100%;
-      }
-      &__ctaDonations {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        //margin-top: 3rem;
     }
+
+    &__counter {
+      font-size: 1.6rem;
+      color: #6EBE4A;
+      position: absolute;
+      align-items: center;
+      top: -2rem;
+      left: -6rem;
+      width: 100%;
+    }
+
+    &__ctaDonations {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      //margin-top: 3rem;
+    }
+
     &__next {
       display: flex;
       justify-content: center;
       margin-top: 2rem;
-  }
-  &__image {
-    // min-width: 150px;
-    // min-height: 150px;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-size: cover;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689261449/ayapel/cpefakxd4vij3uszdoc5.jpg');
-  
-  }
+    }
+
+    &__image {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-size: cover;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689261449/ayapel/cpefakxd4vij3uszdoc5.jpg');
+
     }
   }
-
-  @media screen and (min-width: 640px) {
-    // .swiper-container {
-    //   width: 640px !important;
-    // }
-  }
-  
-  @media screen and (min-width: 768px) {
-    // .swiper-container {
-    //   width: 768px !important;
-    // }
-  }
-
-// .parallax-bg {
-//   position: absolute;
-//   left: 0;
-//   top: 0;
-//   width: 130%;
-//   height: 100%;
-//   -webkit-background-size: cover;
-//   background-size: cover;
-//   background-position: center;
-// }
-
-// .swiper-slide .title {
-//   font-size: 41px;
-//   font-weight: 300;
-// }
-
-// .swiper-slide .subtitle {
-//   font-size: 21px;
-// }
-
-// .swiper-slide .text {
-//   font-size: 14px;
-//   max-width: 400px;
-//   line-height: 1.3;
-// }
-
-
-
-
-
-//   .col h3 {
-//     margin: 0;
-//   }
-//   .circle {
-//     width: 125px;
-//     height: 125px;
-//     border: 15px solid transparent;
-//     border-radius: 50%;
-//     margin: 0;
-//     position: relative;
-//   }
-//   .circle1 {
-//     border-color: #6EBE4A;
-//     border-left-color: transparent;
-//     border-top-color: transparent;
-//   }
-//   .circle2 {
-//     border-color: #6EBE4A;
-//     border-right-color: transparent;
-//   }
-//   .circle3 {
-//     border-color: #6EBE4A;
-//     border-left-color: transparent;
-//   }
-//   .circle4 {
-//     border-color: #767679;
-//     border-right-color: transparent;
-//   }
-//   .circle5 {
-//     border-color: #767679;
-//     border-left-color: transparent;
-//   }
-//   .circle6 {
-//     border-color: #f0b224;
-//     border-right-color: transparent;
-//   }
-//   .circle7 {
-//     border-color: #f0b224;
-//     border-left-color: transparent;
-//   }
-//   .circle8 {
-//     border-color: #f0b224;
-//     border-right-color: transparent;
-//   }
-//   .circle h2 {
-//     display: table;
-//     margin: 5px 0 0 5px;
-//     width: 85px;
-//     height: 85px;
-//     background: #6EBE4A;
-//     border-radius: 50%;
-//   }
-//   .circle2 h2 {
-//     background: #6EBE4A;
-//   }
-//   .circle3 h2 {
-//     background: #6EBE4A;
-//   }
-//   .circle4 h2 {
-//     background: #767679;
-//   }
-//   .circle5 h2 {
-//     background: #767679;
-//   }
-//   .circle6 h2 {
-//     background: #f0b224;
-//   }
-//   .circle7 h2 {
-//     background: #f0b224;
-//   }
-//   .circle8 h2 {
-//     background: #1b5f8c;
-//   }
-//   .circle span {
-//     font-size: 12px;
-//     color: #fff;
-//     display: table-cell;
-//     vertical-align: middle;
-//     text-align: center;
-//   }
-//   .circle i,
-//   .circle b {
-//     font-weight: bold;
-//     font-style: normal;
-//     display: block;
-//   }
-//   .circle i {
-//     font-size: 24px;
-//   }
-//   .wrap {
-//     display: flex;
-//     flex-wrap: wrap;
-//     max-width: 980px;
-//     margin: auto;
-//   }
-//   .col {
-//     flex: 1 0 50%;
-//     display: flex;
-//     align-items: center;
-//     margin-bottom: -47px;
-//     position: relative;
-//     left: 23px;
-//   }
-//   .col2 {
-//     left: -24px;
-//   }
-//   .col1 {
-//     text-align: right;
-//     align-content: flex-end;
-//   }
-//   .col1 .content {
-//     order: -1;
-//   }
-//   .content {
-//     flex: 1 0 0%;
-//     padding: 1px 10px;
-//     margin:-20px 0;
-//   }
-//   .content h2 {
-//     font-size: 1rem;
-//   }
-//   .content p {
-//     margin: 0.5em 0 0 0;
-//     font-size: 160%;
-//     color: #666;
-//   }
-//   .circle1:before {
-//     content: "";
-//     height: 15px;
-//     width: 250px;
-//     position: absolute;
-//     right: 46px;
-//     top: -15px;
-//     background: #6EBE4A;
-//     background:linear-gradient(to left, #6EBE4A 0%, white 100%);
-//     z-index: -1;
-//     animation:shimmer 10s infinite forwards;
-//   }
-//   @keyframes shimmer{
-//     0% {width: 0;}
-//     5%{width: 250px;}
-//     100%{width: 250px;}
-//   }
-//   .circle1:after,
-//   .circle8:after {
-//     content: "";
-//     position: absolute;
-//     left: -15px;
-//     top: -15px;
-//     width: 97px;
-//     height: 97px;
-//     border: 15px solid transparent;
-//     border-color: #6EBE4A;
-//     border-left-color: transparent;
-//     border-top-color: transparent;
-//     transform: rotate(-45deg);
-//     border-radius: 50%;
-//     z-index: -1;
-//   }
-//   .circle8:after {
-//     border-color: #6EBE4A;
-//     border-right-color: transparent;
-//     border-bottom-color: transparent;
-//     transform: rotate(-45deg);
-//   }
-//   .circle8:before {
-//     content: "";
-//     height: 15px;
-//     width: 250px;
-//     position: absolute;
-//     right: -202px;
-//     bottom: -15px;
-//     background: #1b5f8c;
-//     background:linear-gradient(to right, #1b5f8c 0%, white 100%);
-//     z-index: -1;
-//   }
-//   .circle8 {
-//     border-bottom-color: transparent;
-//   }
-//   @media screen and (max-width: 600px) {
-//     .wrap {
-//       display: block;
-//     }
-//     .content{margin:0;}
-//     .col {
-//       margin: 10px 0;
-//       position: static;
-//     }
-//     .circle8:before,
-//     .circle8:after,
-//     .circle1:before,
-//     .circle2:after {
-//       display: none;
-//     }
-//     .circle1 {
-//       border-color: #6EBE4A;
-//     }
-//     .circle2 {
-//       border-color: #6EBE4A;
-//     }
-//     .circle3 {
-//       border-color: #6EBE4A;
-//     }
-//     .circle4 {
-//       border-color: #767679;
-//     }
-//     .circle5 {
-//       border-color: #767679;
-//     }
-//     .circle6 {
-//       border-color: #f0b224;
-//     }
-//     .circle7 {
-//       border-color: #f0b224;
-//     }
-//     .circle8 {
-//       border-color: #1b5f8c;
-//     }
-//   }
-  
-  
-//   /* the following css code is just for fun and can be removed*/
-//   /* it applies the shimmer down the spiral using <div class="shim"> which can also be removed */
-//   .shim{
-//     position:absolute;
-//     z-index:2;
-//     left:0;
-//     top:0;
-//     margin-top:0;
-//     width:100%;
-//     height:100%;
-//     animation:shim 1s linear forwards;
-//     transform:rotate(-90deg);
-//   }
-//   .shim:after{
-//     content:"";
-//     position:absolute;
-//     left:50%;
-//     top:-15px;
-//     margin-left:-8px;
-//     width:15px;
-//     height:15px;
-//     background:radial-gradient(#fff, rgba(255,255,255,0));
-//   }
-//   .shimx{transform:rotate(90deg);}
-//   .shimx{animation:shim2 1s linear .75s forwards;}
-  
-//   .shim2{animation-delay:.75s}
-//   .shim3{animation-delay:1.5s}
-//   .shim4{animation-delay:2.25s}
-//   .shim5{animation-delay:3s}
-//   .shim6{animation-delay:3.75s}
-//   .shim7{animation-delay:4.5s}
-//   .shim8{animation-delay:5.25s}
-  
-  
-//   @keyframes shim {
-//     from{transform:rotate(-90deg);}
-//     to{transform:rotate(270deg);}
-//   }
-//   @keyframes shim2 {
-//     from{transform:rotate(90deg);}
-//     to{transform:rotate(-270deg);}
-//   }
-  
-
-
-//   // ********************MEDIA QUERY**************************
-// @media (max-width: 750px) {
-//   .donationsIndicator {
-//     font-family: 'Mulish', sans-serif;
-//     &__background {
-//         //background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1688247025/ayapel/hyomekkahqrukj8ylpj3.jpg');
-//         // background-color: #6ebe4a;
-//         height: 100vh;
-//         width: 100%;
-//         display: flex;
-//         align-items: center;
-//         justify-content: center;
-//         background-size: cover;
-//         z-index: .5;
-//         flex-wrap: wrap;
-//     }
-//     &__container {
-//         display: flex;
-//         flex-direction: column;
-//     }
-//     &__titles {
-//       margin-bottom: 1rem;
-//       display: flex;
-//       justify-content: space-around;
-//       flex-direction: row;
-//       color: #fff;
-//       font-weight: bold;
-//       font-size: 100%;
-//       text-align: center;
-//     }
-//   }
-  
-//   .content p {
-//     margin: 0.5em 0 0 0;
-//     font-size: 100%;
-//     color: #666;
-//   }
-// }
+}

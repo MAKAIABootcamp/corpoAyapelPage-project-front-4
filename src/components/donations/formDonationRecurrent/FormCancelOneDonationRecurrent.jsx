@@ -1,33 +1,27 @@
 import React, { useState } from 'react';
-import { Button, Input, InputAdornment, InputLabel, TextField, FormControl, Grid } from '@mui/material';
+import { TextField } from '@mui/material';
 import { useFormik } from 'formik';
 import * as Yup from "yup";
-import { ImCreditCard } from 'react-icons/im';
 import './formDonationsRecurrent.scss'
-import { FaLess } from 'react-icons/fa';
-import { useDispatch, useSelector } from 'react-redux';
-import { updateDataSuscription } from '../../../redux/actions/suscriptionDonationActions';
-import { BiSolidUser } from 'react-icons/bi';
-import PaymentCreditCard from './PaymentCreditCard';
-import CustomerInformation from './CustomerInformation';
-import ConfirmationSuscription from './ConfirmationSuscription';
-import { cancelSubscription, cancelSuscription, listCustomers, listSubscriptions } from '../../../epayco';
+import { useSelector } from 'react-redux';
+import { cancelSubscription, listCustomers, listSubscriptions } from '../../../epayco';
 import LocalLoader from '../../appLoader/LocalLoader';
 import Swal from 'sweetalert2';
 
 
-const FormCancelOneDonationRecurrent = ({ handleClose, selectedAmount }) => {
+const FormCancelOneDonationRecurrent = ({ handleClose }) => {
 
-    const dispatch = useDispatch();
     const { loading } = useSelector((store) => store.loading);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const [currentStep, setCurrentStep] = useState('email');
+    const [currentStep] = useState('email');
 
     let initialValues = {
         email: "",
     }
 
     const sendForm = async (data) => {
+        setIsSubmitting(true);
         try {
             const responseAllCustomers = await listCustomers();
             const customerFindedFromData = responseAllCustomers.data.find((customer) => customer.email === data.email);
@@ -72,7 +66,6 @@ const FormCancelOneDonationRecurrent = ({ handleClose, selectedAmount }) => {
                             });
                         }
 
-                        // Call the handleClose function here or include it directly in this block if it doesn't require awaiting.
                         handleClose();
                     } catch (error) {
                         console.log(error);
@@ -89,6 +82,7 @@ const FormCancelOneDonationRecurrent = ({ handleClose, selectedAmount }) => {
                     title: 'Usuario no encontrado',
                     text: 'No se encontró ningún usuario con el correo proporcionado.'
                 });
+                setIsSubmitting(false);
             }
         } catch (error) {
             console.log(error);
@@ -97,6 +91,7 @@ const FormCancelOneDonationRecurrent = ({ handleClose, selectedAmount }) => {
                 title: 'Error',
                 text: 'Hubo un error al procesar su solicitud. Inténtelo de nuevo más tarde.'
             });
+            setIsSubmitting(false);
         }
     };
 
@@ -114,7 +109,10 @@ const FormCancelOneDonationRecurrent = ({ handleClose, selectedAmount }) => {
 
     return (
         <>
-            {loading && <LocalLoader />}
+        {isSubmitting ? 
+        <LocalLoader/>
+        :
+        <>
             {currentStep === 'email' && (
                 <form onSubmit={handleSubmit} className='formDonationsRecurrent'>
                     <p style={{ margin: '1rem', textAlign: 'center' }}>  Por favor ingrese el correo electrónico <br /> registrado en la suscripción de donación mensual</p>
@@ -137,9 +135,9 @@ const FormCancelOneDonationRecurrent = ({ handleClose, selectedAmount }) => {
 
                 </form>
             )}
+         </>
+}
         </>
-
-
     );
 }
 

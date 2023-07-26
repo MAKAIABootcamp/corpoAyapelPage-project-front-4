@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import FormCancelOneDonationRecurrent from './FormCancelOneDonationRecurrent';
@@ -23,7 +22,6 @@ export default function ModalFormCancelOneDonationRecurrent({selectedAmount}) {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-
     return (
         <>
             <span onClick={handleOpen} style={{ textDecoration: 'underline', fontWeight: 'bold' 
@@ -41,7 +39,7 @@ export default function ModalFormCancelOneDonationRecurrent({selectedAmount}) {
 
                     </Typography>
                     <>
-                        <FormCancelOneDonationRecurrent handleClose={handleClose} selectedAmount={selectedAmount}  />
+                        <FormCancelOneDonationRecurrent handleClose={handleClose}  />
                     </>
 
                 </Box>

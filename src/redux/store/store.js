@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { loadingReducer } from "../reducer/loadingReducer";
 import { suscriptionDonationReducer } from "../reducer/suscriptionDonationReducer";
+import { dataReducer } from "../reducer/dataReducer";
 
 const reducer = {
     loading: loadingReducer,
     suscriptionDonation: suscriptionDonationReducer,
+    data: dataReducer,
 
 };
 

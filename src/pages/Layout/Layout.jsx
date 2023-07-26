@@ -11,7 +11,7 @@ const Layout = () => {
       <Outlet />
 
       <AnimatedCursor color='110, 190, 74' innerSize={30} trailingSpeed={1}  outerStyle={{
-    mixBlendMode: 'exclusion'
+    mixBlendMode: 'exclusion',  zIndex: 9999999999, 
   }}/>
       
       <div className="social-media-fixed">

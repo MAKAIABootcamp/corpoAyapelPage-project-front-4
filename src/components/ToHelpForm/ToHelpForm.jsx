@@ -24,13 +24,14 @@ function ToHelpForm ({ titulo, direccion, descripcion, list , imgURL}) {
                 </div>
                 <div className="form__inputs__container">
                 <HubspotForm
-                    portalId='40152509'
-                    formId='91832b93-e78b-45ec-ac18-0fde40cb39f5'
+                    portalId='40813403'
+                    formId='b9d40750-a7ae-41d9-9b25-6898b4687363'
                     onSubmit={() => console.log('Informacion Enviada')}
                     onReady={(form) => console.log('Formulario listo')}
                     loading={<div>Cargando Formulario...</div>}
                 />            
                 </div>
+                <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
             </div>
         </div>
     )
