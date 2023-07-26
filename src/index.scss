@@ -7,15 +7,12 @@
 }
 html {
     --cursor-color: #fff;
-    scroll-behavior: smooth;
-    
-    
+    scroll-behavior: smooth;    
   }
   
   html.dark-mode {
     --cursor-color: #fff
   }
-
 
   body {
     --primaryColor: #6EBE4A;
@@ -36,7 +33,7 @@ html {
     height: 0 !important;
   
   }
-  .css-4reedn-MuiSpeedDial-root {
+  .MuiSpeedDial-root {
    bottom: 20px !important;
     left: -90% !important;
     display: flex;
@@ -70,9 +67,7 @@ html {
     text-align: center;
     font-size: 18px;
     color: #6EBE4A;
-    margin-right: 0px !important;
-    /* Center slide text vertically */
-    
+    margin-right: 0px !important;   
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,148 +79,6 @@ html {
     height: 100%;
     object-fit: cover;
   }
-
-  
-  // .swiper-wrapper{
-  //   justify-content: center;
-  // }
-  
-
-//   .slider-wrap {
-//     height: 500px;
-//     width: 100%;
-//   }
-//   .slider-wrap .slider {
-//     position: absolute;
-//     width: 100%;
-//     left: 50px;
-//     top: 250px;
-//   }
-  
-//   .slide-content {
-//     position: relative;
-//   }
-//   .swiper-slide {
-//     text-align: center;
-//     font-size: 18px;
-
-//     color: #6EBE4A;
-
-// }
-
-//   .slider-item {
-//     width: 530px;
-//     padding: 20px 0 25px 30px;
-//     border-radius: 10px;
-//     background-color: #4A7C59;
-//     display: flex;
-//     justify-content: flex-start;
-//     position: absolute;
-//     opacity: 0;
-//     z-index: 0;
-//     box-shadow: 0 4px 9px #f1f1f4;
-//     position: absolute;
-//     left: 0;
-//     top: 0;
-//   }
-//   .slider-item .animation-card_image {
-//     max-width: 60px;
-//     max-height: 60px;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     border-radius: 50%;
-//     box-shadow: 0 4px 9px rgba(241, 241, 244, 0.72);
-//     background-color: red;
-//   }
-//   .slider-item .animation-card_image img {
-//     width: 53px;
-//     height: 53px;
-//     border-radius: 50%;
-//     object-fit: cover;
-//   }
-//   .slider-item .animation-card_content {
-//     width: 100%;
-//     max-width: 374px;
-//     margin-left: 26px;
-//     /* font-family: "Open Sans", sans-serif; */
-//   }
-//   .slider-item .animation-card_content .animation-card_content_title {
-//     color: #4a4545;
-//     font-size: 16px;
-//     font-weight: 400;
-//     letter-spacing: -0.18px;
-//     line-height: 24px;
-//     margin: 0;
-//   }
-//   .slider-item .animation-card_content .animation-card_content_description {
-//     color: #696d74;
-//     font-size: 15px;
-//     font-weight: 300;
-//     letter-spacing: normal;
-//     line-height: 24px;
-//     margin: 10px 0 0 0;
-//   }
-//   .slider-item .animation-card_content .animation-card_content_city {
-//     font-size: 11px;
-//     margin: 10px 0 0 0;
-//     font-size: 12px;
-//     font-weight: 500;
-//     text-transform: uppercase;
-//     color: #696d74;
-//   }
-
-/// Animacion temporal
-// * {
-//   box-sizing: border-box;
-//   -webkit-animation: fadeIn 0.5s;
-//           animation: fadeIn 0.5s;
-// }
-// body {
-//   background-color: #222;
-//   color: #fafafa;
-//   text-align: center;
-// }
-// .loading-bay {
-//   width: 200px;
-//   height: 200px;
-//   border: 2px solid #c0c0c0;
-//   border-radius: 20px;
-//   position: relative;
-//   display: inline-block;
-//   margin: 10px;
-//   overflow: hidden;
-//   background-color: #333;
-// }
-// .loading-bay:before {
-//   display: block;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   color: #fff;
-//   font-size: 18px;
-//   padding: 5px;
-// }
-
-// @-webkit-keyframes fadeIn {
-//   from {
-//     opacity: 0;
-//   }
-//   to {
-//     opacity: 1;
-//   }
-// }
-// @keyframes fadeIn {
-//   from {
-//     opacity: 0;
-//   }
-//   to {
-//     opacity: 1;
-//   }
-// }
-
-  
-
 
 .ball {
   fill: #6EBE4A;
@@ -267,8 +120,6 @@ html {
   font-size: 2rem;
   height: 100vh;
   width: 100vw;
-  //position: fixed;
- // z-index: 99;
   backdrop-filter: blur(8px); /* Agrega el efecto de desenfoque */
   background-color: rgba(189, 203, 183, 0.5); /* Agrega un color de fondo con transparencia */
 }
@@ -278,9 +129,7 @@ html {
 }
 
 .continuebutton {
-  button {
-
- 
+  button { 
   background: #6EBE4A !important;
   background-color: #6EBE4A !important;
 }
