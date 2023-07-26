@@ -23,8 +23,8 @@ const SocialMediaButton = () => {
         linkInstagram,
         linkFacebook,
         linkYoutube,
-        //linkDonations
-        // linkEmail
+        linkDonations
+        linkEmail
         }`
             )
             .then((data) => setAllPostData(data))
@@ -49,10 +49,10 @@ const handleGoTo = (direction) => {
             window.open(allPostData?.[0].linkYoutube, '_blank');
             break;
           case 'email':
-            // window.open(allPostData?.[0].linkEmail, '_blank');
+             window.open(allPostData?.[0].linkEmail, '_blank');
             break;
           case 'donations':
-            // window.open(allPostData?.[0].linkDonations, '_blank');
+             window.open(allPostData?.[0].linkDonations, '_blank');
             break;
           default:
             break;
