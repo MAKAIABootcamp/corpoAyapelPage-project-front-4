@@ -93,6 +93,7 @@ En caso de no tener node instalado puede instalarlo con el comando:
    npm install node
    ```
 ### Proceso de instalación
+
 1. Clonar el proyecto corpoAyapelPage-project-front-4
    
    -Asegurarse de crear una carpeta en su directorio antes de correr el siguiente comando
@@ -103,7 +104,6 @@ En caso de no tener node instalado puede instalarlo con el comando:
      ```sh
    cd corpoAyapelPage-project-front-4
    ```
-   
 2. Instalación de paquetes y dependencias
    ```sh
    npm install
@@ -137,7 +137,6 @@ En caso de no tener node instalado puede instalarlo con el comando:
 
 ### Proceso de despliegue
 
-      
 1. Iniciar el deploy en la terminal
    ```sh
    npm run build
