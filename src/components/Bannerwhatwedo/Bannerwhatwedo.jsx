@@ -1,10 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import "./Bannerwhatwedo.scss";
 import client from "../../sanity/client";
-import { useDispatch, useSelector } from "react-redux";
-import Loader from "../appLoader/Loader";
-import { setLoadingStatusFalse } from "../../redux/actions/actions";
-import { actionGetDataAsync } from "../../redux/actions/dataActions";
 // Import Swiper React components
 // import { Swiper, SwiperSlide } from "swiper/react";
 // import { EffectFade, Navigation, Pagination } from "swiper/modules";
@@ -16,25 +12,24 @@ import { actionGetDataAsync } from "../../redux/actions/dataActions";
 const Bannerwhatwedo = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [projectData, setProjectData] = useState([]);
-  const { loading } = useSelector((store) => store.loading);
-  const dispatch = useDispatch();
-  const { data } = useSelector((store) => store.data);
-  const fields = [
-      "content",
-      "content2",
-      `mainImage{
-          asset->{
-              _id,
-              url
-          }
-      }
-      `,
-  ];
 
   useEffect(() => {
-      dispatch(actionGetDataAsync("masProyectos", fields));
-      setProjectData(data[6].masProyectos)
-  }, [dispatch]);
+    client
+      .fetch(
+        `*[_type == "masProyectos"] {
+        content,
+        content2,
+        mainImage{
+          asset->{
+            _id,
+            url
+          }
+        }
+      }`
+      )
+      .then((data) => setProjectData(data))
+      .catch(console.error);
+  }, []);
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
@@ -51,12 +46,6 @@ const Bannerwhatwedo = () => {
 
   return (
     <>
-    {loading ? (
-      <>
-        <Loader />
-      </>
-    ) : (
-      <>
       <div className="carousel">
         {/* <Swiper
           spaceBetween={30}
@@ -105,8 +94,6 @@ const Bannerwhatwedo = () => {
           {/* </SwiperSlide>
         </Swiper> */}
       </div>
-      </>
-      )}
     </>
   );
 };
