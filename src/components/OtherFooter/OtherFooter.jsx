@@ -31,9 +31,13 @@ const OtherFooter = () => {
                 <Link to={"/pqr"}>PQR</Link>
               </ul>
               <ul className="mainFooter__ul">
-                <Link to={""} className="bold">
+                <Link to={"/como-ayudar"} className="bold">
                   ¿Cómo puedo ayudar?
+                </Link> 
+                <Link to={"/donaciones"} >
+                  Donaciones
                 </Link>
+                <Link to={'https://corpoayapelartesanias.com/'} >Artesanias</Link>
               </ul>
             </section>
           </section>
