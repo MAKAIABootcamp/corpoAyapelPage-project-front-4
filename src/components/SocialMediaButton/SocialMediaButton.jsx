@@ -21,17 +21,19 @@ const SocialMediaButton = () => {
         "linkFacebook",
         "linkDonations",
         "linkEmail",
+        "linkYoutube",
     ];
 
     useEffect(() => {
         dispatch(actionGetDataAsync("socialsMediaUrl", fields));
     }, [dispatch]);
 
-    const generateMailtoLink = () => {
-      const donationsLink = data[4]?.socialsMediaUrl?.[0].linkEmail
-      const mailtoLink = `mailto:${donationsLink}`;
-      window.open(mailtoLink, '_blank');
-    };
+   const generateMailtoLink = () => {
+    const emailLink = data[4]?.socialsMediaUrl?.[0].linkEmail;
+    if (emailLink) {
+        window.location.href = `mailto:${emailLink}`;
+    }
+};
 
 const handleGoTo = (direction) => {
     switch (direction) {

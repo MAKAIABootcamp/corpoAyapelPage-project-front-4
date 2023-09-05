@@ -10,7 +10,7 @@ import { Helmet } from "react-helmet";
 
 const Home = () => {
   return (
-    <div className="background">
+<div className="background" style={{backgroundImage: `url('https://res.cloudinary.com/dgnwqr93n/image/upload/q_100/v1689218731/_MG_9667_eujqjn.webp')`}}>
       <Helmet title="Corpo Ayapel – Una entidad sin ánimo de lucro que promueve el desarrollo sostenible del complejo cenagoso de Ayapel y de su comunidad.  Trabajamos bajo tres líneas estratégicas: social, ambiental y económica."/>
       <main className="mainHome">
         <section className="mainHome__text">
