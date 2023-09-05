@@ -4,7 +4,7 @@
   </a>
 </div>
 
-# CorpoAyapel: Conexiones Solidarias para Causas Benéficas
+# CorpoAyapel
 
 CorpoAyapel LadingPage es un proyecto de software diseñado para crear una experiencia de usuario intuitiva, dirigido tanto a organizaciones como a individuos comprometidos con hacer una diferencia a través de donaciones y contribuciones benéficas.
 
