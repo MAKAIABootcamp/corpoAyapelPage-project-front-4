@@ -11,44 +11,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../../appLoader/Loader';
 import { actionGetDataAsync } from '../../../redux/actions/dataActions';
 
-const Counter = ({ stopValue }) => {
-
-    const [count, setCount] = useState(0);
-    const lastTwoDigits = stopValue % 100;
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCount((prevCount) => {
-                if (prevCount === lastTwoDigits) {
-                    clearInterval(interval);
-                    return prevCount;
-                }
-                return (prevCount + 1) % 100;
-            });
-        }, 60);
-
-        return () => {
-            clearInterval(interval);
-        };
-    }, [lastTwoDigits]);
-
-    const fullValue = stopValue - lastTwoDigits + count;
-    const formattedValue = formatWithCommas(fullValue);
-
-    return (
-        <div>
-            <div className="donationsIndicator__counter">
-                {formattedValue}
-            </div>
-        </div>
-    );
-};
-
-
-function formatWithCommas(number) {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-}
-
 
 const DonationsIndicator = ({ handleGoToDonations, handleGoToTestimonials }) => {
 
@@ -107,7 +69,11 @@ const DonationsIndicator = ({ handleGoToDonations, handleGoToTestimonials }) => 
                                             <div className="donationsIndicator__image" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${data.mainImage.asset.url}')` }}>
                                             </div>
                                             <div className='donationsIndicator__content' >
-                                                <Counter stopValue={Number(data.indicator)} />
+                                                <div>
+                                                    <div className="donationsIndicator__counter">
+                                                        {Number(data.indicator)}
+                                                    </div>
+                                                </div>
                                                 <p>{data.text}</p>
                                             </div>
                                         </article>
@@ -138,7 +104,11 @@ const DonationsIndicator = ({ handleGoToDonations, handleGoToTestimonials }) => 
                                             <div className="donationsIndicator__image" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${data.mainImage.asset.url}')` }}>
                                             </div>
                                             <div className='donationsIndicator__content' >
-                                                <Counter stopValue={Number(data.indicator)} />
+                                                <div>
+                                                    <div className="donationsIndicator__counter">
+                                                        {Number(data.indicator)}
+                                                    </div>
+                                                </div>
                                                 <p>{data.text}</p>
                                             </div>
                                         </article>
@@ -170,7 +140,11 @@ const DonationsIndicator = ({ handleGoToDonations, handleGoToTestimonials }) => 
                                             <div className="donationsIndicator__image" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${data.mainImage.asset.url}')` }}>
                                             </div>
                                             <div className='donationsIndicator__content' >
-                                                <Counter stopValue={Number(data.indicator)} />
+                                                <div>
+                                                    <div className="donationsIndicator__counter">
+                                                        {Number(data.indicator)}
+                                                    </div>
+                                                </div>
                                                 <p>{data.text}</p>
                                             </div>
                                         </article>

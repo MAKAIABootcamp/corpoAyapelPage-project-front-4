@@ -40,9 +40,9 @@ const PageDonations = () => {
   return (
     <>
       <main className="container__mainDonations">
-        <div className="div" style={{height:'100vh'}}>
+        {/* <div className="div" style={{height:'100vh'}}>
         <BannerDonations handleGoToDonations={handleGoToDonations}/>
-        </div>   
+        </div>    */}
          <div className="div" ref={donationsRef} >
           <Donations handleGoToDonorProgress={handleGoToDonorProgress}/>
         </div> 
