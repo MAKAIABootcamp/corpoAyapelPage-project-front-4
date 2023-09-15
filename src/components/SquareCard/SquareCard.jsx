@@ -89,14 +89,14 @@ const SquareCard = () => {
         }}
       >
         {newsData.map((data, index) => (
-          <SwiperSlide >
+          <SwiperSlide key={index}>
             <section className="mainSquareCard" key={index}>
               <section className="mainSquareCard__img">
                 <figure>
                   <img src={data.mainImage.asset.url} alt="" />
                 </figure>
               </section>
-              <section className="mainSquareCard__content">
+              <section className="mainSquareCard__content" key={index}>
                 <span className="mainSquareCard__title">{data.title}</span>
                 <p className="mainSquareCard__text">{data.preview}</p>
                 <section className="mainSquareCard__buttons">
