@@ -27,10 +27,8 @@ const AppRouter = () => {
             <Route path="nosotros" Component={Us} />
             <Route path="cultura" Component={Culture} />
             {/* <Route path="novedades" Component={News} /> */}
-            <Route path="donaciones" Component={PageDonations} />
             <Route path="novedades" Component={News} exact />
             <Route path="novedades/:slug" Component={News} />
-            <Route path="donaciones" Component={Donations} />
             <Route path="programas" Component={Programs} />
             <Route path="conoce-ayapel" Component={Ayapel} />
             <Route path="que-hacemos" Component={WhatWeDo} />
@@ -38,6 +36,7 @@ const AppRouter = () => {
             {/* <Route path="historia2" Component={UsTwo} /> */}
             <Route path="ayapel" Component={Ayapel} />
             <Route path="como-ayudar" Component={HowToHelp} />
+            <Route path="donaciones" Component={PageDonations} />
           </Route>
           <Route path="banner" Component={BannerDonations} />
           <Route path="*" Component={Error404} />

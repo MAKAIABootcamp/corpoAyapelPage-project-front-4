@@ -63,7 +63,7 @@
 
     &__content {
         background-color: white;
-        height: 350px;
+        height: 200px;
         transform: translateY(-80px);
         z-index: 1;
         display: flex;
@@ -106,7 +106,7 @@
     border-radius: 10%;
     background-color: rgba(193, 196, 191, 0.5);
     width: 291px;
-    height: 259px;
+    height: 225px;
     object-fit: cover;
     position: absolute;
     top: 100px;
@@ -131,7 +131,7 @@
 }
 
 .icon__quote__right {
-    top: 200px;
+    top: 160px;
     left: 210px;
 }
 
@@ -173,7 +173,7 @@
         color: #FFF;
         text-align: center;
         font-size: 2rem;
-        margin-bottom: 3rem;
+       // margin-bottom: 3rem;
         margin-top: 5rem;
     }
 }

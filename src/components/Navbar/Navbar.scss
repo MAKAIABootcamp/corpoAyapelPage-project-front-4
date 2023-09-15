@@ -4,6 +4,7 @@
     position: absolute;
     width: 98.8vw;
     z-index: 2;
+    backdrop-filter: blur(100px);
     // padding-top: 20px;
     @media screen and (max-width:710px) {
         

@@ -19,6 +19,7 @@ import { FaDonate } from 'react-icons/fa';
 import ModalFormCancelOneDonationRecurrent from '../../components/donations/formDonationRecurrent/ModalFormCancelOneDonationRecurrent';
 import HubspotContactForm from '../../components/hubspotContactForm/HubspotContactForm';
 import { actionGetDataAsync } from '../../redux/actions/dataActions';
+import Navbar from '../../components/Navbar/Navbar';
 
 const Donations = ({ handleGoToDonorProgress }) => {
 
