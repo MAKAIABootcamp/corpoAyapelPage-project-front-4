@@ -26,7 +26,7 @@ const Footer = ({BackGroundImage}) => {
               </ul>
               <ul className="mainFooter__ul">
                 <Link to={'/documentos'} className="bold">Documentos</Link>
-                <Link to={'/pqr'}>PQR</Link>
+                {/* <Link to={'/pqr'}>PQR</Link> */}
               </ul>
               <ul className="mainFooter__ul">
               <Link to={'/como-ayudar'} className="bold">¿Cómo puedo ayudar?</Link>
