@@ -2,11 +2,12 @@
 
 .mainNav{
     position: absolute;
-    width: 98.8vw;
+    width: 99%;
     z-index: 2;
+    backdrop-filter: blur(100px);
     // padding-top: 20px;
     @media screen and (max-width:710px) {
-        
+      height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,11 +29,12 @@
     }
     }
     @media screen and (max-width:910px) {
-      width: 100vw;
+      width: 97.5%;
     }
     
     // background-color: transparent;
    &__nav{
+    
        margin: 0;
        padding: 0;
        overflow: hidden;
@@ -47,6 +49,7 @@
            color: white;
            font-weight: 600;
            font-family: 'Mulish', sans-serif;
+           height: 60px;
              @media screen and (max-width:710px) {
                  flex-direction: column;
                  align-items: flex-end !important;
@@ -56,6 +59,29 @@
             text-decoration: none;
             color: white;
             
+            display: flex;
+            position: relative;
+            &:hover{
+              opacity: 1;
+            }
+            &::before {
+              transition: 300ms;
+              height: 5px;
+              content: "";
+              position: absolute;
+              background-color: #e3e3e3;
+              
+            }
+            
+            &.effect::before {
+              width: 100%;
+              bottom: 15px;
+              opacity: 0;
+            }
+            &.effect:hover::before {
+              bottom: -10px;
+              opacity: 1;
+            }
            
             
            }
@@ -73,12 +99,12 @@
     }
     img{
         width: 150px;
-        // @media screen and (max-width:710px) {
-        //     position: absolute;
-        //     width: 150px;
-        //     left: 0;
-        //     top: 0;
-        // }
+        @media screen and (max-width:710px) {
+            position: absolute;
+            width: 120px;
+            left: 0;
+            top: -3.3px;
+        }
     }
     figure{
         @media screen and (max-width:765px) {
@@ -168,8 +194,15 @@
     top: 30px;
   
     @media screen and (max-width:910px) {
-      top:20px;
+      // top:20px;
     }
+    @media screen and (max-width:768px) {
+      right: 15px;
+      top: 28px;
+    }
+    // @media screen {
+      
+    // }
   }
   
   /* Color/shape of burger icon bars */
@@ -205,6 +238,7 @@
   .bm-menu-wrap {
    width: 60% !important;
     height: 100% !important;
+    top: 0px;
   }
   
   /* General sidebar styles */
@@ -235,3 +269,5 @@
   .bm-overlay {
     background: rgba(0, 0, 0, 0.3);
   }
+
+  

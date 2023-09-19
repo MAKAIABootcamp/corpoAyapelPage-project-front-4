@@ -4,7 +4,7 @@
   </a>
 </div>
 
-# CorpoAyapel: Conexiones Solidarias para Causas Benéficas
+# CorpoAyapel
 
 CorpoAyapel LadingPage es un proyecto de software diseñado para crear una experiencia de usuario intuitiva, dirigido tanto a organizaciones como a individuos comprometidos con hacer una diferencia a través de donaciones y contribuciones benéficas.
 
@@ -158,6 +158,8 @@ En caso de no tener node instalado puede instalarlo con el comando:
    - Eliminar los archivos exceptuando: backup.zip | .htaccess | google34549c30e72072c7.html
    - Dar click en cargar y adjuntar el archivo comprimido build.zip
    - Al finalizar la carga dar click en volver a /home/corpoaya/public_html
+   - Seleccionar el archivo buil.zip y con click derecho extraer
+   - Cuando la carpeta este descomprimida, seleccionar todos los archivos y dar click en mover indicando la ruta /public_html/
  
 5. Verificar que el proyecto esté corriendo perfectamente
 

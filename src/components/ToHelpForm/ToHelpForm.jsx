@@ -31,7 +31,7 @@ function ToHelpForm ({ titulo, direccion, descripcion, list , imgURL}) {
                     loading={<div>Cargando Formulario...</div>}
                 />            
                 </div>
-                <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+                <script  type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
             </div>
         </div>
     )

@@ -89,14 +89,14 @@ const SquareCard = () => {
         }}
       >
         {newsData.map((data, index) => (
-          <SwiperSlide >
+          <SwiperSlide key={index}>
             <section className="mainSquareCard" key={index}>
               <section className="mainSquareCard__img">
                 <figure>
                   <img src={data.mainImage.asset.url} alt="" />
                 </figure>
               </section>
-              <section className="mainSquareCard__content">
+              <section className="mainSquareCard__content" key={index}>
                 <span className="mainSquareCard__title">{data.title}</span>
                 <p className="mainSquareCard__text">{data.preview}</p>
                 <section className="mainSquareCard__buttons">
@@ -118,20 +118,20 @@ const SquareCard = () => {
                 {selectedCard === index && (
                   <div className={`share-buttons ${selectedCard === index ? 'show fade-in' : ''}`}>
                     <FacebookShareButton
-                      url={`https://corpoayapel.org/${data.slug.current}`}
+                      url={`https://corpoayapel.org/novedades/${data.slug.current}`}
                       quote={newsData.title}
                       hashtag={"#corpoayapel"}
                     >
                       <FacebookIcon size={32} round />
                     </FacebookShareButton>
                     <WhatsappShareButton
-                      url={`https://corpoayapel.org/${data.slug.current}`}
+                      url={`https://corpoayapel.org/novedades/${data.slug.current}`}
                       title={newsData.title}
                     >
                       <WhatsappIcon size={32} round />
                     </WhatsappShareButton>
                     <TwitterShareButton
-                      url={`https://corpoayapel.org/${data.slug.current}`}
+                      url={`https://corpoayapel.org/novedades/${data.slug.current}`}
                       title={newsData.title}
                       hashtags={["corpoayapel"]}
                     >

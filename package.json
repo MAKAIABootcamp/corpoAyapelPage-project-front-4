@@ -1,7 +1,7 @@
 {
   "name": "corpoayapel-lading",
   "version": "0.1.0",
-  "home":"https://corpoayapel.org/",
+  "home": "https://corpoayapel.org/",
   "private": true,
   "dependencies": {
     "@aaronhayes/react-use-hubspot-form": "^2.1.1",
@@ -9,6 +9,7 @@
     "@emotion/styled": "^11.11.0",
     "@googlemaps/react-wrapper": "^1.1.35",
     "@mui/material": "^5.13.6",
+    "@popperjs/core": "^2.11.8",
     "@portabletext/react": "^3.0.4",
     "@react-google-maps/api": "^2.18.1",
     "@reduxjs/toolkit": "^1.9.5",

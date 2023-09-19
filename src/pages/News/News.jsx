@@ -90,7 +90,7 @@ const News = () => {
   if (!newsData && !projectId && !dataset) return   <Loader />;
   return (
     <main className="mainNew">
-      <section className="mainNew__fondo-1">
+      {/* <section className="mainNew__fondo-1">
         <figure>
           <img
             src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1688423761/fondo-1-1_fvxyjv.png"
@@ -106,7 +106,7 @@ const News = () => {
             alt=""
           />
         </figure>
-      </section>
+      </section> */}
 
       <section className="mainNew__head">
         <figure className="mainNew__image">
@@ -119,20 +119,20 @@ const News = () => {
         <section className="mainNew__social-share">
           <section className="mainNew__social-icons"> 
             <FacebookShareButton
-              url={`https://corpoayapel.org/${newsData.slug.current}`}
+              url={`https://corpoayapel.org/novedades/${newsData.slug.current}`}
               quote={newsData.title}
               hashtag={"#corpoayapel"}
             >
               <FacebookIcon size={32} round />
             </FacebookShareButton>
             <WhatsappShareButton
-              url={`https://corpoayapel.org/${newsData.slug.current}`}
+              url={`https://corpoayapel.org/novedades/${newsData.slug.current}`}
               title={newsData.title}
             >
               <WhatsappIcon size={32} round />
             </WhatsappShareButton>
             <TwitterShareButton
-              url={`https://corpoayapel.org/${newsData.slug.current}`}
+              url={`https://corpoayapel.org/novedades/${newsData.slug.current}`}
               title={newsData.title}
               hashtags={["corpoayapel"]}
             >

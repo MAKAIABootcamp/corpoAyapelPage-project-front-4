@@ -37,7 +37,6 @@ const OtherFooter = () => {
                 <Link to={"/donaciones"} >
                   Donaciones
                 </Link>
-                <Link to={"/donaciones"}>Donaciones</Link>
                 <Link to={"https://corpoayapelartesanias.com/"}>
                   Artesanias
                 </Link>
@@ -80,7 +79,7 @@ const OtherFooter = () => {
                 <Link to={"/documentos"} className="bold">
                   Documentos
                 </Link>
-                <Link to={"/pqr"}>PQR</Link>
+                {/* <Link to={"/pqr"}>PQR</Link> */}
               </ul>
               <ul className="mainFooter__ul">
                 <Link to={""} className="bold">
