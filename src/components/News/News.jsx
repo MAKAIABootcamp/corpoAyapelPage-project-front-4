@@ -1,12 +1,11 @@
 import React from "react";
-import CircleCard from "../CircleCard/CircleCard";
+
 import "./News.scss";
-import DonationButton from "../DonationButton/DonationButton";
-import { Link } from "react-router-dom";
+
 import SquareCard from "../SquareCard/SquareCard";
-const News = () => {
+const News = ({BackGroundImage}) => {
   return (
-    <div className="background-4">
+    <div className="background-4" style={BackGroundImage}>
       <div className="mainNews">
         <main className="mainNews__container">
           <section className="mainNews__title">

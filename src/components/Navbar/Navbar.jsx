@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import './Navbar.scss';
-import { NavLink, useLocation, useParams } from 'react-router-dom';
-import '../../pages/FullPage/FullPage.scss';
-import { slide as Menu } from 'react-burger-menu';
- // Import the CSS file for react-burger-menu
+import React, { useState, useEffect } from "react";
+import "./Navbar.scss";
+import { NavLink, useLocation, useParams } from "react-router-dom";
+import "../../pages/FullPage/FullPage.scss";
+import { slide as Menu } from "react-burger-menu";
+// Import the CSS file for react-burger-menu
 
 const Navbar = () => {
   let { slug } = useParams();
@@ -11,10 +11,10 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMenuItemClick = (url) => {
-    window.open(url, '_blank');
+    window.open(url, "_blank");
   };
 
   // Define the threshold widths for showing different navbars
@@ -26,10 +26,10 @@ const Navbar = () => {
       setScreenWidth(window.innerWidth);
     };
 
-    window.addEventListener('resize', handleWindowResize);
+    window.addEventListener("resize", handleWindowResize);
 
     return () => {
-      window.removeEventListener('resize', handleWindowResize);
+      window.removeEventListener("resize", handleWindowResize);
     };
   }, []);
 
@@ -44,21 +44,31 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  if (screenWidth < breakpointX ) {
+  if (screenWidth < breakpointX) {
     return (
-      <div className={slug ? 'mainNav bg-green' : (location.pathname === '/ayapel' ? 'mainNav bg-green' : 'mainNav')}>
+      <div
+        className={
+          slug
+            ? "mainNav bg-green"
+            : location.pathname === "/ayapel"
+            ? "mainNav bg-green"
+            : "mainNav"
+        }
+      >
         <section>
-        <NavLink to={'/'}>
+          <NavLink to={"/"}>
             <figure>
-              <img src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1688432976/logo-blanco_x4th99.svg" alt="Logo"  />
+              <img
+                src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1688432976/logo-blanco_x4th99.svg"
+                alt="Logo"
+              />
             </figure>
           </NavLink>
-          </section>
+        </section>
 
-        <nav className='mainNav__nav'>
-          
+        <nav className="mainNav__nav">
           <Menu
-            width={'100px'}
+            width={"100px"}
             right
             // isOpen={isOpen}
             // onOpen={handleOnOpen}
@@ -66,14 +76,14 @@ const Navbar = () => {
             // customCrossIcon={<img src='https://res.cloudinary.com/dgnwqr93n/image/upload/v1689103575/menu_crcpkr.png' alt='Close' height={'50px'} width={'50px'}/>}
             // customBurgerIcon={<img src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1689103575/menu_crcpkr.png" alt="Menu" height={'50px'} width={'50px'}/>}
           >
-            <NavLink to={'/nosotros'}>Nosotros</NavLink>
-            <NavLink to={'/que-hacemos'}>Nuestros proyectos</NavLink>
+            <NavLink to={"/nosotros"}>Nosotros</NavLink>
+            <NavLink to={"/que-hacemos"}>Nuestros proyectos</NavLink>
             {/* <NavLink to={'https://corpoayapelartesanias.com/'}>Artesanias</NavLink> */}
-            <NavLink to={'/donaciones'}>Donaciones</NavLink>
-            <NavLink to={'/como-ayudar'}>¿Cómo puedo ayudar?</NavLink>
+            <NavLink to={"/donaciones"}>Donaciones</NavLink>
+            <NavLink to={"/como-ayudar"}>¿Cómo puedo ayudar?</NavLink>
             {/* <NavLink to={'/ayapel'}>Ayapel</NavLink> */}
-            <NavLink to={'/documentos'}>Documentos</NavLink>
-            <NavLink to={'/cultura'}>Cultura</NavLink>
+            <NavLink to={"/documentos"}>Documentos</NavLink>
+            <NavLink to={"/cultura"}>Cultura</NavLink>
           </Menu>
         </nav>
       </div>
@@ -82,69 +92,98 @@ const Navbar = () => {
 
   if (screenWidth > breakpointY) {
     return (
-      <div className={slug ? 'mainNav bg-green div' : (location.pathname === '/ayapel' ? 'mainNav div bg-green' : 'mainNav div')}>
-        <nav className='mainNav__nav'>
+      <div
+        className={
+          slug
+            ? "mainNav bg-green div"
+            : location.pathname === "/ayapel"
+            ? "mainNav div bg-green"
+            : "mainNav div"
+        }
+      >
+        <nav className="mainNav__nav">
           <ul>
-            <NavLink to={'/nosotros'}>Nosotros</NavLink>
-            <NavLink to={'/que-hacemos'}>Nuestros proyectos</NavLink>
-            <NavLink to={'https://corpoayapelartesanias.com/'}>Artesanias</NavLink>
-            <NavLink to={''}>
+            <NavLink to={"/nosotros"} className='effect'>Nosotros</NavLink>
+            <NavLink to={"/que-hacemos"} className='effect'>Nuestros proyectos</NavLink>
+            <NavLink to={"https://corpoayapelartesanias.com/"} className='effect'>
+              Artesanias
+            </NavLink>
+            <NavLink to={""}>
               <figure>
-                <img src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1688432976/logo-blanco_x4th99.svg" alt="" />
+                <img
+                  src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1688432976/logo-blanco_x4th99.svg"
+                  alt=""
+                />
               </figure>
             </NavLink>
-            <NavLink to={'/donaciones'}>Donaciones</NavLink>
-            <NavLink to={'/como-ayudar'}>¿Cómo puedo ayudar?</NavLink>
-            <div className={`menu-container ${isOpen ? 'open' : ''}`}>
-              <span className="menu-trigger" onClick={handleMenuClick}>
+            <NavLink to={"/donaciones"} className='effect'>Donaciones</NavLink>
+            <NavLink to={"/como-ayudar"} className='effect'>¿Cómo puedo ayudar?</NavLink>
+            <div className={`menu-container ${isOpen ? "open" : ""}`} >
+              <span className="menu-trigger" onClick={handleMenuClick} >
                 Ayapel
               </span>
               {isOpen && (
                 <ul className="menu-dropdown">
-                  <li onClick={() => handleMenuItemClick('https://corpoayapel.sanity.studio/')}>Administracion</li>
-                  
+                  <li
+                    onClick={() =>
+                      handleMenuItemClick("https://corpoayapel.sanity.studio/")
+                    }
+                  >
+                    Administracion
+                  </li>
                 </ul>
               )}
             </div>
-            
           </ul>
         </nav>
       </div>
     );
   }
 
-  return(
-    <div className={slug ? 'mainNav bg-green div' : (location.pathname === '/donaciones' ? 'mainNav div bg-green' : 'mainNav div')}>
-    <section>
-
-    <NavLink to={'/'}>
-        <figure>
-          <img src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1688432976/logo-blanco_x4th99.svg" alt="Logo"  />
-        </figure>
-      </NavLink>
+  return (
+    <div
+      className={
+        slug
+          ? "mainNav bg-green div"
+          : location.pathname === "/donaciones"
+          ? "mainNav div bg-green"
+          : "mainNav div"
+      }
+    >
+      <section>
+        <NavLink to={"/"}>
+          <figure>
+            <img
+              src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1688432976/logo-blanco_x4th99.svg"
+              alt="Logo"
+            />
+          </figure>
+        </NavLink>
       </section>
 
-    <nav className='mainNav__nav'>
-      <Menu
-        width={'100px'}
-        right
-        isOpen={isOpen}
-        onOpen={handleOnOpen}
-        onClose={handleOnClose}
-        // customCrossIcon={<img src='https://res.cloudinary.com/dgnwqr93n/image/upload/v1689103575/menu_crcpkr.png' alt='Close' height={'50px'} width={'50px'}/>}
-        // customBurgerIcon={<img src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1689103575/menu_crcpkr.png" alt="Menu" height={'50px'} width={'50px'}/>}
-      >
-        <NavLink to={'/nosotros'}>Nosotros</NavLink>
-        <NavLink to={'/que-hacemos'}>Nuestros proyectos</NavLink>
-        <NavLink to={'https://corpoayapelartesanias.com/'}>Artesanias</NavLink>
-        <NavLink to={'/donaciones'}>Donaciones</NavLink>
-        <NavLink to={'/como-ayudar'}>¿Cómo puedo ayudar?</NavLink>
-        <NavLink to={'/ayapel'}>Ayapel</NavLink>
-        <NavLink to={'/documentos'}>Documentos</NavLink>
-        <NavLink to={'/cultura'}>Cultura</NavLink>
-      </Menu>
-    </nav>
-  </div>
+      <nav className="mainNav__nav">
+        <Menu
+          width={"100px"}
+          right
+          isOpen={isOpen}
+          onOpen={handleOnOpen}
+          onClose={handleOnClose}
+          // customCrossIcon={<img src='https://res.cloudinary.com/dgnwqr93n/image/upload/v1689103575/menu_crcpkr.png' alt='Close' height={'50px'} width={'50px'}/>}
+          // customBurgerIcon={<img src="https://res.cloudinary.com/dgnwqr93n/image/upload/v1689103575/menu_crcpkr.png" alt="Menu" height={'50px'} width={'50px'}/>}
+        >
+          <NavLink to={"/nosotros"}>Nosotros</NavLink>
+          <NavLink to={"/que-hacemos"}>Nuestros proyectos</NavLink>
+          <NavLink to={"https://corpoayapelartesanias.com/"}>
+            Artesanias
+          </NavLink>
+          <NavLink to={"/donaciones"}>Donaciones</NavLink>
+          <NavLink to={"/como-ayudar"}>¿Cómo puedo ayudar?</NavLink>
+          <NavLink to={"/ayapel"}>Ayapel</NavLink>
+          <NavLink to={"/documentos"}>Documentos</NavLink>
+          <NavLink to={"/cultura"}>Cultura</NavLink>
+        </Menu>
+      </nav>
+    </div>
   ); // Handle the case when the screen width doesn't match any condition
 };
 
