@@ -42,6 +42,7 @@ const Donations = ({ handleGoToDonorProgress }) => {
   const dispatch = useDispatch();
   const { loading } = useSelector((store) => store.loading);
   const { data } = useSelector((store) => store.data);
+  const [videoData, setVideoData] = useState('');
   const fields = [
     "amount1",
     "amount2",
@@ -55,7 +56,27 @@ const Donations = ({ handleGoToDonorProgress }) => {
   useEffect(() => {
 
     dispatch(actionGetDataAsync("donationAmount", fields));
+    client
+    .fetch(
+      `*[_type == "video"] {
+        title,
+        videoFile{
+          asset->{
+            _id,
+            url
+          }
+        }
+      }`
+    )
+    .then((data) => {
+      setVideoData(data);
+    })
+    .catch(console.error);
+  
+
   }, [dispatch]);
+
+  console.log(videoData);
 
   const handleCancelRecurrentDonation = () => {
     console.log('Cancelar donación')
@@ -160,8 +181,23 @@ const Donations = ({ handleGoToDonorProgress }) => {
                 <section className='donations__sectionDonate'>
                   <div className='donations__container'>
                     {selectedAmount === null ?
-                      <img className='donations__videoBackground' src="https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689261448/ayapel/oczq1l3syf3bbj8ja09e.webp" alt="" />
-
+                      // <img className='donations__videoBackground' src="https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689261448/ayapel/oczq1l3syf3bbj8ja09e.webp" alt="" />
+                      <video
+                      controls
+                      autoPlay  // Cambiamos "autoplay" a "autoPlay" (mayúscula P)
+                      loop
+                      muted
+                      className="donations__videoBackground"
+                      // poster="ruta_a_la_miniatura_del_video.jpg"
+                    >
+                      {videoData.length > 0 && videoData.map((video) => (
+                        <source key={video.videoFile.asset._id} src={video.videoFile.asset.url} type="video/mp4" />
+                      ))}
+                      Tu navegador no admite el elemento de video.
+                    </video>
+                    
+                    
+                    
                       :
                       <>
                         <div className='donations__videoBackground-inactive'></div>
@@ -351,8 +387,8 @@ const Donations = ({ handleGoToDonorProgress }) => {
                 <section className='donations__sectionDonate'>
                   <div className='donations__contactForm'>
                     <article className='donations__contactForm__bg'>
-                      <h3>¿Deseas realizar una donación en especie?</h3>
-                      <p>¡Puedes diligenciar el formulario y te contatámos!</p>
+                      {/* <h3>¿Deseas realizar una donación en especie?</h3> */}
+                      {/* <p>¡Puedes diligenciar el formulario y te contatámos!</p> */}
                       <HubspotContactForm id={"40813403"} idForm={"1e4a6dc2-cddc-4cac-b4ed-363e045b10ca"} />
                     </article>
                   </div>
