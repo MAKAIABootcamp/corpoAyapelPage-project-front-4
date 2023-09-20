@@ -1,26 +1,13 @@
 import React from "react";
 import "./Footer.scss";
-import ButtonActions from "../ButtonActions/ButtonActions";
-//import { useHubspotForm } from '@aaronhayes/react-use-hubspot-form';
 import {FaFacebook, FaInstagram, FaYoutube} from "react-icons/fa"
 import { Link } from "react-router-dom";
 import HubspotContactForm from "../hubspotContactForm/HubspotContactForm";
 
-const Footer = () => {
-//   const { loaded, error, formCreated } = useHubspotForm({
-//     region:"na1",
-//     portalId: "40152509",
-//     formId: "9b378b3a-c3fd-45fb-b429-af5f68038ab4",
-//     target: '#my-hubspot-form'
-// });
-
-
-
-// console.log(loaded, error, formCreated)
-// console.log(useHubspotForm)
+const Footer = ({BackGroundImage}) => {
 
   return (
-    <div className="background-5">
+    <div className="background-5" style={BackGroundImage}>
       <main className="mainFooter">
         <section className="mainFooter__logo">
           <figure>
@@ -39,7 +26,7 @@ const Footer = () => {
               </ul>
               <ul className="mainFooter__ul">
                 <Link to={'/documentos'} className="bold">Documentos</Link>
-                <Link to={'/pqr'}>PQR</Link>
+                {/* <Link to={'/pqr'}>PQR</Link> */}
               </ul>
               <ul className="mainFooter__ul">
               <Link to={'/como-ayudar'} className="bold">¿Cómo puedo ayudar?</Link>
@@ -61,7 +48,7 @@ const Footer = () => {
      
        <section>
        <HubspotContactForm id={"40813403"} idForm={"4d545a4d-5f25-4134-badd-0ac920662be3"} targetForm={'#hubspotForm'} />
-       <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+       <script type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
 
        </section>
        </section>

@@ -3,9 +3,9 @@ import "./WeAre.scss";
 import ButtonActions from "../ButtonActions/ButtonActions";
 import DonationButton from "../DonationButton/DonationButton";
 import { Link } from "react-router-dom";
-const WeAre = () => {
+const WeAre = ({BackGroundImage}) => {
   return (
-    <div className="background-2">
+    <div className="background-2" style={BackGroundImage}>
       <main className="mainWeAre">
         <main className="mainWeAre__container">
           <section className="mainWeAre__title">

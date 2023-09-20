@@ -5,20 +5,22 @@
     margin-bottom: 1rem;
 
     h3 {
-      font-size: 3rem;
+      font-size: 1.8rem;
       color: #6EBE4A;
       margin-bottom: 1rem;
+      margin-top: 3rem;
 
     }
 
     h2 {
-      margin-top: 2rem;
+      //margin-top: 2rem;
       margin-bottom: 2rem;
     }
   }
 
   &__background {
-    background-image: url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689261454/ayapel/sqdgl9g1otdeoktooccs.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689261454/ayapel/sqdgl9g1otdeoktooccs.jpg');
+
     // background-color: #6ebe4a;
     height: 100vh;
     width: 100%;
@@ -47,8 +49,8 @@
 
   &__content {
     position: absolute;
-    top: 4rem;
-    left: 1.4rem;
+    top: 2.5rem;
+    left:1.4rem;
     width: 80%;
 
     p {
@@ -57,7 +59,8 @@
   }
 
   &__counter {
-    font-size: 4rem;
+    font-size: 2.5rem;
+    font-weight: bold;
     color: #6EBE4A;
   }
 
@@ -74,8 +77,8 @@
   }
 
   &__image {
-    width: 300px;
-    height: 300px;
+    width: 230px;
+    height: 230px;
     border-radius: 50%;
     background-size: cover;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dd8l8bm6q/image/upload/v1689261449/ayapel/cpefakxd4vij3uszdoc5.jpg');
@@ -136,11 +139,12 @@
     &__container {
       margin-bottom: 1rem;
       width: 300px;
+      margin-top: 2rem;
       h3 {
         font-size: 1.5rem;
         color: #6EBE4A;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
+        margin-top: 3rem;
+       // margin-bottom: 2rem;
 
       }
 
@@ -186,7 +190,7 @@
         position: absolute;
         width: 170px;
         align-items: center;
-        top: -3rem;
+        top: -1rem;
         left: 5rem;
       }
     }
@@ -196,7 +200,7 @@
       color: #6EBE4A;
       position: absolute;
       align-items: center;
-      top: -2rem;
+      top: -.5rem;
       left: -6rem;
       width: 100%;
     }

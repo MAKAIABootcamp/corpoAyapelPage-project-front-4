@@ -39,6 +39,7 @@
       flex-direction: column;
       min-width: fit-content;
       border-radius: 5px 5px 0px 0px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     }
     
     &__title {
@@ -66,6 +67,7 @@
       align-items: center;
       display: flex;
       max-height: fit-content;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
     }
     
@@ -80,6 +82,8 @@
         
         img {
           width: 50%;
+          margin: 5px;
+          border-radius: 4px;
         }
       }
       
@@ -105,8 +109,9 @@
           background-color: #56bc277a;
           color: #418d1d;
           text-decoration: none;
-          padding: 5px 10px;
-          border-radius: 10px;
+          padding: 3.3px 10px;
+          border-radius: 5px;
+          margin: 0px 2px;
         }
       }
     }

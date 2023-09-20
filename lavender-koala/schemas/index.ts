@@ -13,7 +13,8 @@ import environmentalManagement from './environmentalManagement'
 import socialManagement from './socialManagement'
 import ourProjects from './ourProjects'
 import ImpactIndicator from './impactIndicator'
-// import pagesBackground from './pagesBackground'
+import pagesBackground from './pagesBackground'
+import video from './videoDonations'
 
 export const schemaTypes = [
   projects,
@@ -31,10 +32,11 @@ export const schemaTypes = [
   youtube,
   management,
   ImpactIndicator,
-
+ pagesBackground,
+ video
 ]
 
-// pagesBackground,
+
 // Las siguientes variables podrán impletarse cuando se tenga la información para la sección del turismo
 
 // import peopleImpacted from './peopleImpacted'

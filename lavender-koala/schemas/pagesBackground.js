@@ -1,17 +1,24 @@
-// export default {
-//   name: 'Imagenes de Fondo',
-//   type: 'document',
-//   title: 'Imagenes de Fondo',
-//   fields: [
-//     {
-//       name: 'title',
-//       type: 'string',
-//       title: 'Titulo',
-//     },
-//     {
-//       name: 'Imagen',
-//       title: 'Imnagen de Fondo',
-//       type: 'image',
-//     },
-//   ],
-// }
+export default {
+  name: "paginas",
+  title: "Paginas",
+  type: "document",
+  fields: [
+    {
+      name: "titulo",
+      title: "Título",
+      type: "string",
+    },
+    {
+      title: 'fondos',
+      name: 'fondos',
+      type: 'array',
+      of: [{ type: 'image' }],
+    },
+    {
+      title: 'Sub Contenido',
+      name: 'subcontent',
+      type: 'array',
+      of: [{ type: 'image' }],
+    },
+  ],
+};

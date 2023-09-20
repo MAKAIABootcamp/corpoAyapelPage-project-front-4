@@ -61,13 +61,8 @@ const PaymentCreditCard = ({ selectedAmount, dataFormDonationRecurrent, setDataF
         initialValues: initialValues,
         validationSchema: Yup.object({
             cardNumber: Yup.string()
-                // .matches(/^(?:3[47]\d{13}|4(?:\d{12}|\d{15})|(?:5[1-5]\d{14}|6011\d{12}))$/, 'El número de tarjeta debe contener solo números')
-                .min(13, 'El número de tarjeta debe tener al menos 13 números')
-                .max(16, 'El número de tarjeta no debe tener más de 16 números')
                 .required('El número de tarjeta es obligatorio'),
-            names: Yup.string().matches(/^[a-zA-Z]+\s[a-zA-Z]+$/, 'El nombre debe contener solo letras')
-                .min(5, 'El nombre debe tener al menos 3 caracteres.')
-                .max(20, 'El nombre no debe tener más de 15 caracteres.')
+            names: Yup.string()
                 .required('El nombre es obligatorio.'),
             expiryMonth: Yup.string()
                 .test('valid', 'El mes debe estar entre 01 y 12', (value) => {
@@ -89,7 +84,6 @@ const PaymentCreditCard = ({ selectedAmount, dataFormDonationRecurrent, setDataF
             codigoCVV: Yup.string()
                 .matches(/^[0-9]+$/, 'El código CVV debe contener solo números')
                 .min(3, 'El código CVV debe tener al menos 3 digitos')
-                .max(4, 'El código CVV no debe tener más de 4 digitos')
                 .required('El código CVV es obligatorio'),
         }),
         onSubmit: sendForm,

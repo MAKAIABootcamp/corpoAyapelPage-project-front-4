@@ -10,6 +10,7 @@ import "../../FullPage/FullPage.scss";
 import { Helmet } from 'react-helmet';
 import BannerDonations from '../bannerDonations/BannerDonations';
 import { useRef } from 'react';
+import AnimatedCursor from 'react-animated-cursor';
 
 const PageDonations = () => {
   const donationsRef = useRef(null);
@@ -37,12 +38,18 @@ const PageDonations = () => {
     testimonialsRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
+  
+
   return (
     <>
+
+<AnimatedCursor color='110, 190, 74' innerSize={30} trailingSpeed={1}  outerStyle={{
+    mixBlendMode: 'exclusion',  zIndex: 9999999999, 
+  }}/>
       <main className="container__mainDonations">
-        <div className="div" style={{height:'100vh'}}>
+        {/* <div className="div" style={{height:'100vh'}}>
         <BannerDonations handleGoToDonations={handleGoToDonations}/>
-        </div>   
+        </div>    */}
          <div className="div" ref={donationsRef} >
           <Donations handleGoToDonorProgress={handleGoToDonorProgress}/>
         </div> 
