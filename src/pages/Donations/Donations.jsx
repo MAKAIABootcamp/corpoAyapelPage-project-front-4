@@ -76,7 +76,7 @@ const Donations = ({ handleGoToDonorProgress }) => {
 
   }, [dispatch]);
 
-  console.log(videoData);
+//  console.log(videoData);
 
   const handleCancelRecurrentDonation = () => {
     console.log('Cancelar donación')
@@ -104,7 +104,7 @@ const Donations = ({ handleGoToDonorProgress }) => {
   ] : [];
 
   const handleToNextComponent = () => {
-    console.log('voy al next')
+   // console.log('voy al next')
     setShowImpactIndicator(true);
   }
 
