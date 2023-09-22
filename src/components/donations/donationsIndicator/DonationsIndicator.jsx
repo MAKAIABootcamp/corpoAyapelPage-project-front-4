@@ -64,7 +64,7 @@ const DonationsIndicator = ({ handleGoToDonations, handleGoToTestimonials }) => 
                                 <h2>Gestión ambiental</h2>
                                 <div className='donationsIndicator__containerCarousel'>
                                     {data[2] && data[2].ImpactIndicator?.[0].gestionAmbiental.map((data, index) => (
-                                        <article index={index} style={{ position: 'relative' }}>
+                                        <article index={index} style={{ position: 'relative' }} key={index}>
 
                                             <div className="donationsIndicator__image" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${data.mainImage.asset.url}')` }}>
                                             </div>
@@ -99,7 +99,7 @@ const DonationsIndicator = ({ handleGoToDonations, handleGoToTestimonials }) => 
                                 <h2>Gestión social</h2>
                                 <div className='donationsIndicator__containerCarousel'>
                                     {data[2] && data[2].ImpactIndicator?.[0].getionSocial.map((data, index) => (
-                                        <article index={index} style={{ position: 'relative' }}>
+                                        <article index={index} style={{ position: 'relative' }} key={index}>
 
                                             <div className="donationsIndicator__image" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${data.mainImage.asset.url}')` }}>
                                             </div>
@@ -135,7 +135,7 @@ const DonationsIndicator = ({ handleGoToDonations, handleGoToTestimonials }) => 
                                 <h2>Gestión económica</h2>
                                 <div className='donationsIndicator__containerCarousel'>
                                     {data[2] && data[2].ImpactIndicator?.[0].gestionEconomica.map((data, index) => (
-                                        <article index={index} style={{ position: 'relative' }}>
+                                        <article index={index} style={{ position: 'relative' }} key={index}>
 
                                             <div className="donationsIndicator__image" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${data.mainImage.asset.url}')` }}>
                                             </div>

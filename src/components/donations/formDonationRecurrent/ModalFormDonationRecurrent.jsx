@@ -32,10 +32,10 @@ export default function ModalFormDonationRecurrent({selectedAmount}) {
             <Button onClick={handleOpen} className='donations__container__ctaBtns' style={{
                 width: '90%',
                 height: '2.5rem',
-                bgColor: 'orange',
-                backgroundColor: 'orange',
+                bgColor: 'green',
+                backgroundColor: '#6EBE4A',
                 borderRadius: '2rem',
-                color: 'black', border: '2px solid gray', fontSize: '.8rem', fontWeight: 'bold'
+                color: 'white', border: '2px solid gray', fontSize: '.8rem', fontWeight: 'bold'
             }}>Confirmar donación mensual</Button>
             <Modal
                 open={open}
