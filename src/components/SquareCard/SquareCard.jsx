@@ -138,7 +138,7 @@ const SquareCard = () => {
                       <TwitterIcon size={32} round />
                     </TwitterShareButton>
                   </div>
-                  
+
                 )}
               </section>
             </section>
