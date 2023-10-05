@@ -95,11 +95,11 @@ const CustomerInformation = ({ selectedAmount, dataFormDonationRecurrent, setDat
     initialValues: initialValues,
     validationSchema: Yup.object({
       name: Yup.string().matches(/^[a-zA-Z\s']+$/, 'El nombre debe contener solo letras')
-        .min(3, 'El nombre debe tener al menos 3 caracteres.')
+        .min(1, 'El nombre debe tener al menos 1 caracter.')
         .max(15, 'El nombre no debe tener más de 15 caracteres.')
         .required('El nombre es obligatorio.'),
       lastName: Yup.string().matches(/^[a-zA-Z\s']+$/, 'El apellido debe contener solo letras')
-        .min(5, 'El apellido debe tener al menos 3 caracteres.')
+        .min(1, 'El apellido debe tener al menos 1 caracter.')
         .max(15, 'El apellido no debe tener más de 15 caracteres.')
         .required('El apellido es obligatorio.'),
       documentType: Yup.string().required("Debes seleccionar un tipo de documento."),
