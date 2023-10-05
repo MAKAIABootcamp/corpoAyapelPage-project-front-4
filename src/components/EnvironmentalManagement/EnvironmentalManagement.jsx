@@ -1,19 +1,13 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import client from "../../sanity/client";
 import "./CardWhatWeDo.scss";
 
-const EnvironmentalManagement = () => {
-  const [projectData, setProjectData] = useState(null); // Cambiar a null
-  const [data, setData] = useState({});
-  const [data2, setData2] = useState({});
-  const [data3, setData3] = useState({});
-  const [data4, setData4] = useState({});
+const EnvironmentalManagement = ({BackGroundImage}) => {
+  const [projectData, setProjectData] = useState(null);
+  const [data, setData] = useState([]);
   const [listContent, setListContent] = useState([]);
 
-  const [mostrarContenido, setMostrarContenido] = useState(false);
-  const [mostrarContenido2, setMostrarContenido2] = useState(false);
-  const [mostrarContenido3, setMostrarContenido3] = useState(false);
-  const [mostrarContenido4, setMostrarContenido4] = useState(false);
+  const [mostrarContenido, setMostrarContenido] = useState([]);
 
   useEffect(() => {
     client
@@ -21,23 +15,12 @@ const EnvironmentalManagement = () => {
         `*[_type == "gestionAmbiental"] {
         titleContent,
         textContent,
-        listContent
       }`
       )
       .then((data) => {
-        if (data.length >= 1) {
-          setData(data[0]);
-        }
-        if (data.length >= 2) {
-          setData2(data[1]);
-          setListContent(data[1].listContent || []);
-        }
-        if (data.length >= 3) {
-          setData3(data[2]);
-        }
-        if (data.length >= 4) {
-          setData4(data[3]);
-        }
+        setData(data);
+        // setListContent(data[1]?.listContent || []);
+        // setMostrarContenido(new Array(data.length).fill(false));
       })
       .catch(console.error);
   }, []);
@@ -61,71 +44,40 @@ const EnvironmentalManagement = () => {
       )
       .then((data) => {
         if (data.length >= 2) {
-          // Cambiar a >= 2
-          const secondData = data[1]; // Cambiar a data[1]
+          const secondData = data[1];
           setProjectData(secondData);
         }
       })
       .catch(console.error);
   }, []);
 
-  const handleMouseEnter = () => {
-    setMostrarContenido(true);
+  const handleMouseEnter = (index) => {
+    setMostrarContenido((prevState) => {
+      const newState = [...prevState];
+      newState[index] = true;
+      return newState;
+    });
   };
 
-  const handleMouseLeave = () => {
-    setMostrarContenido(false);
+  const handleMouseLeave = (index) => {
+    setMostrarContenido((prevState) => {
+      const newState = [...prevState];
+      newState[index] = false;
+      return newState;
+    });
   };
-
-  const handleMouseEnter2 = () => {
-    setMostrarContenido2(true);
-  };
-
-  const handleMouseLeave2 = () => {
-    setMostrarContenido2(false);
-  };
-
-  const handleMouseEnter3 = () => {
-    setMostrarContenido3(true);
-  };
-
-  const handleMouseLeave3 = () => {
-    setMostrarContenido3(false);
-  };
-
-  const handleMouseEnter4 = () => {
-    setMostrarContenido4(true);
-  };
-
-  const handleMouseLeave4 = () => {
-    setMostrarContenido4(false);
-  };
-
-  const titulo = data?.titleContent;
-  const parrafoCompleto = data?.textContent || "";
-  const parrafoCorto = `${parrafoCompleto.substring(0, 80)}...`;
-
-  const titulo2 = data2.titleContent;
-  const parrafoCompleto2 = data2?.textContent || "";
-  const parrafoCorto2 = `${parrafoCompleto2.substring(0, 50)}...`;
-
-  const titulo3 = data3.titleContent;
-  const parrafoCompleto3 = data3?.textContent || "";
-  const parrafoCorto3 = `${parrafoCompleto3.substring(0, 50)}...`;
-
-  const titulo4 = data4.titleContent;
-  const parrafoCompleto4 = data4?.textContent || "";
-  const parrafoCorto4 = `${parrafoCompleto4.substring(0, 50)}...`;
+  // console.log(data);
+  // console.log(projectData);
 
   return (
     <>
-      <div className="content">
+      <div className="content" style={BackGroundImage}>
         {projectData && projectData.mainImage && (
           <div
             className="content__img-Ambiental"
-            style={{
-              backgroundImage: `url(${projectData.mainImage.asset.url})`,
-            }}
+            // style={{
+            //   backgroundImage: `url(${projectData.mainImage.asset.url})`,
+            // }}
           >
             <div className="content-Ambiental">
               <h2>
@@ -135,69 +87,40 @@ const EnvironmentalManagement = () => {
               <p>{projectData.textcontent}</p>
               <p>{projectData.textcontent2}</p>
             </div>
+            <section className="cardsContent-Env">
+              {data.map((item, index) => (
+                <div key={index}>
 
-            <div
-              className={`containerGestionAmbiental ${
-                mostrarContenido ? "see" : ""
-              }`}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <div className="title">{titulo}</div>
-              <div className="contentText">
-                {mostrarContenido ? parrafoCompleto : parrafoCorto}
-              </div>
-            </div>
+                <div
+                  key={index}
+                  className={`containerGestionAmbiental ${
+                    mostrarContenido[index] ? "see" : ""
+                  }`}
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={() => handleMouseLeave(index)}
+                >
+                  <div className="title">{item.titleContent}</div>
+                  <div className="contentText">
+                    {mostrarContenido[index]
+                      ? item.textContent
+                      : `${item.textContent.substring(0, 50)}...`}
+                  </div>
+                </div>
+                </div>
 
-            <div
-              className={`containerGestionAmbiental2 ${
-                mostrarContenido2 ? "see" : ""
-              }`}
-              onMouseEnter={handleMouseEnter2}
-              onMouseLeave={handleMouseLeave2}
-            >
-              <div className="title">{titulo2}</div>
-              <div className="contentText">
-                {mostrarContenido2 ? parrafoCompleto2 : parrafoCorto2}
-              </div>
-              {listContent.length > 0 && (
-                <ul className="listContent">
-                  {listContent.map((item, index) => (
-                    <li key={index} className="listItem">
-                      <span className="listDot"></span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+              ))}
+            </section>
 
-            <div
-              className={`containerGestionAmbiental3 ${
-                mostrarContenido3 ? "see" : ""
-              }`}
-              onMouseEnter={handleMouseEnter3}
-              onMouseLeave={handleMouseLeave3}
-            >
-              <div className="title">{titulo3}</div>
-              <div className="contentText">
-                {mostrarContenido3 ? parrafoCompleto3 : parrafoCorto3}
-              </div>
-            </div>
-
-            <div
-              className={`containerGestionAmbiental4 ${
-                mostrarContenido4 ? "see" : ""
-              }`}
-              onMouseEnter={handleMouseEnter4}
-              onMouseLeave={handleMouseLeave4}
-            >
-              <div className="title">{titulo4}</div>
-              <div className="contentText">
-                {mostrarContenido4 ? parrafoCompleto4 : parrafoCorto4}
-              </div>
-            </div>
-
+            {listContent.length > 0 && (
+              <ul className="listContent">
+                {listContent.map((item, index) => (
+                  <li key={index} className="listItem">
+                    <span className="listDot"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         )}
       </div>
@@ -219,68 +142,34 @@ const EnvironmentalManagement = () => {
               <p>{projectData.textcontent2}</p>
             </div>
 
-            <div
-              className={`containerGestionAmbiental ${
-                mostrarContenido ? "see" : ""
-              }`}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <div className="title">{titulo}</div>
-              <div className="contentText">
-                {mostrarContenido ? parrafoCompleto : parrafoCorto}
+            {data.map((item, index) => (
+              <div
+                key={index}
+                className={`containerGestionAmbiental ${
+                  mostrarContenido[index] ? "see" : ""
+                }`}
+                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseLeave={() => handleMouseLeave(index)}
+              >
+                <div className="title">{item.titleContent}</div>
+                <div className="contentText">
+                  {mostrarContenido[index]
+                    ? item.textContent
+                    : `${item.textContent.substring(0, 50)}...`}
+                </div>
               </div>
-            </div>
+            ))}
 
-            <div
-              className={`containerGestionAmbiental2 ${
-                mostrarContenido2 ? "see" : ""
-              }`}
-              onMouseEnter={handleMouseEnter2}
-              onMouseLeave={handleMouseLeave2}
-            >
-              <div className="title">{titulo2}</div>
-              <div className="contentText">
-                {mostrarContenido2 ? parrafoCompleto2 : parrafoCorto2}
-              </div>
-              {listContent.length > 0 && (
-                <ul className="listContent">
-                  {listContent.map((item, index) => (
-                    <li key={index} className="listItem">
-                      <span className="listDot"></span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-
-            <div
-              className={`containerGestionAmbiental3 ${
-                mostrarContenido3 ? "see" : ""
-              }`}
-              onMouseEnter={handleMouseEnter3}
-              onMouseLeave={handleMouseLeave3}
-            >
-              <div className="title">{titulo3}</div>
-              <div className="contentText">
-                {mostrarContenido3 ? parrafoCompleto3 : parrafoCorto3}
-              </div>
-            </div>
-
-            <div
-              className={`containerGestionAmbiental4 ${
-                mostrarContenido4 ? "see" : ""
-              }`}
-              onMouseEnter={handleMouseEnter4}
-              onMouseLeave={handleMouseLeave4}
-            >
-              <div className="title">{titulo4}</div>
-              <div className="contentText">
-                {mostrarContenido4 ? parrafoCompleto4 : parrafoCorto4}
-              </div>
-            </div>
-
+            {listContent.length > 0 && (
+              <ul className="listContent">
+                {listContent.map((item, index) => (
+                  <li key={index} className="listItem">
+                    <span className="listDot"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         )}
       </div>

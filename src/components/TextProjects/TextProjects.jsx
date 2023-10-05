@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./TextProjects.scss";
 import client from "../../sanity/client";
 
-const Test = () => {
+const Test = ({BackGroundImage}) => {
   const [postData, setPostData] = useState(null);
 
   useEffect(() => {
@@ -34,15 +34,15 @@ const Test = () => {
 
   return (
     <div>
-      <div className="other">
+      <div className="other" style={BackGroundImage}>
         {postData &&
           postData.map((data, index) => (
             <div
               key={index}
               className="other__one"
-              style={{
-                backgroundImage: `url(${data.mainImage.asset.url})`,
-              }}
+              // style={{
+              //   backgroundImage: `url(${data.mainImage.asset.url})`,
+              // }}
             >
               <div className="title">
                 <h2>

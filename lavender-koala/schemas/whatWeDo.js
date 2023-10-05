@@ -2,7 +2,7 @@
 export default {
     name: 'masProyectos',
     type: 'document',
-      title: 'MasProyectos',
+      title: 'Carrousel Proyectos',
     fields: [
         {
             name: 'mainImage',
@@ -22,6 +22,5 @@ export default {
         type: 'string',
         title: 'Sub Titulo Principal'
       }
-    
     ]
   }

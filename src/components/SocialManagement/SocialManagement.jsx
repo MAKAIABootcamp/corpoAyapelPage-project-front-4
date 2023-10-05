@@ -1,52 +1,23 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import client from "../../sanity/client";
 import "./SocialManagement.scss";
 
-const SocialManagement = () => {
+const SocialManagement = ({BackGroundImage}) => {
   const [projectData, setProjectData] = useState(null);
-  const [data, setData] = useState({});
-  const [data2, setData2] = useState({});
-  const [data3, setData3] = useState({});
+  const [data, setData] = useState([]);
+  const [mostrarContenido, setMostrarContenido] = useState(Array(3).fill(false));
 
-  const [mostrarContenido, setMostrarContenido] = useState(false);
-  const [mostrarContenido2, setMostrarContenido2] = useState(false);
-  const [mostrarContenido3, setMostrarContenido3] = useState(false);
-
-  const handleMouseEnter = () => {
-    setMostrarContenido(true);
+  const handleMouseEnter = (index) => {
+    const newMostrarContenido = [...mostrarContenido];
+    newMostrarContenido[index] = true;
+    setMostrarContenido(newMostrarContenido);
   };
 
-  const handleMouseLeave = () => {
-    setMostrarContenido(false);
+  const handleMouseLeave = (index) => {
+    const newMostrarContenido = [...mostrarContenido];
+    newMostrarContenido[index] = false;
+    setMostrarContenido(newMostrarContenido);
   };
-
-  const handleMouseEnter2 = () => {
-    setMostrarContenido2(true);
-  };
-
-  const handleMouseLeave2 = () => {
-    setMostrarContenido2(false);
-  };
-
-  const handleMouseEnter3 = () => {
-    setMostrarContenido3(true);
-  };
-
-  const handleMouseLeave3 = () => {
-    setMostrarContenido3(false);
-  };
-
-  const titulo = data?.titleContent;
-  const parrafoCompleto = data?.textContent || "";
-  const parrafoCorto = `${parrafoCompleto.substring(0, 80)}...`;
-
-  const titulo2 = data2.titleContent;
-  const parrafoCompleto2 = data2?.textContent || "";
-  const parrafoCorto2 = `${parrafoCompleto2.substring(0, 50)}...`;
-
-  const titulo3 = data3.titleContent;
-  const parrafoCompleto3 = data3?.textContent || "";
-  const parrafoCorto3 = `${parrafoCompleto3.substring(0, 50)}...`;
 
   useEffect(() => {
     client
@@ -57,15 +28,7 @@ const SocialManagement = () => {
       }`
       )
       .then((data) => {
-        if (data.length >= 1) {
-          setData(data[0]);
-        }
-        if (data.length >= 2) {
-          setData2(data[1]);
-        }
-        if (data.length >= 3) {
-          setData3(data[2]);
-        }
+        setData(data);
       })
       .catch(console.error);
   }, []);
@@ -74,18 +37,18 @@ const SocialManagement = () => {
     client
       .fetch(
         `*[_type == "gestion"] {
-            content,
-            content2,
-            subcontent,
-            textcontent,
-            textcontent2,
-            mainImage{
-              asset->{
-                _id,
-                url
-              }
+          content,
+          content2,
+          subcontent,
+          textcontent,
+          textcontent2,
+          mainImage{
+            asset->{
+              _id,
+              url
             }
-          }`
+          }
+        }`
       )
       .then((data) => {
         if (data.length >= 3) {
@@ -96,66 +59,54 @@ const SocialManagement = () => {
       .catch(console.error);
   }, []);
 
+  console.log(data);
+  console.log(projectData);
+
   return (
     <>
-      <div className="content">
-        {projectData &&
-          projectData.mainImage && ( // Verificar projectData.mainImage
-            <div
-              className="content__img-Social"
-              style={{
-                backgroundImage: `url(${projectData.mainImage.asset.url})`,
-              }}
-            >
-              <div className="content-Social">
-                <h2>
-                  {projectData.content} <span>{projectData.content2}</span>
-                </h2>
-                <h3>{projectData.subcontent}</h3>
-                <p>{projectData.textcontent}</p>
+      <div className="content" style={BackGroundImage}>
+        {projectData && projectData.mainImage && (
+          <div
+            className="content__img-Social"
+            // style={{
+            //   backgroundImage: `url(${projectData.mainImage.asset.url})`,
+            // }}
+          >
+            <div className="content-Social">
+              <h2>
+                {projectData.content} <span>{projectData.content2}</span>
+              </h2>
+              <h3>{projectData.subcontent}</h3>
+              <p>{projectData.textcontent}</p>
               <p>{projectData.textcontent2}</p>
-              </div>
-
-              <div
-                className={`containerGestionSocial ${
-                  mostrarContenido ? "see" : ""
-                }`}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              >
-                <div className="title">{titulo}</div>
-                <div className="contentText">
-                  {mostrarContenido ? parrafoCompleto : parrafoCorto}
-                </div>
-              </div>
-
-              <div
-                className={`containerGestionSocial2 ${
-                  mostrarContenido2 ? "see2" : ""
-                }`}
-                onMouseEnter={handleMouseEnter2}
-                onMouseLeave={handleMouseLeave2}
-              >
-                <div className="title2">{titulo2}</div>
-                <div className="contentText2">
-                  {mostrarContenido2 ? parrafoCompleto2 : parrafoCorto2}
-                </div>
-              </div>
-
-              <div
-                className={`containerGestionSocial3 ${
-                  mostrarContenido3 ? "see3" : ""
-                }`}
-                onMouseEnter={handleMouseEnter3}
-                onMouseLeave={handleMouseLeave3}
-              >
-                <div className="title3">{titulo3}</div>
-                <div className="contentText3">
-                  {mostrarContenido3 ? parrafoCompleto3 : parrafoCorto3}
-                </div>
-              </div>
             </div>
-          )}
+            <section className="cardsContent-Soc">
+
+            {data.map((item, index) => (
+            <div key={index}>
+
+              <div
+                key={index}
+                className={`containerGestionSocial ${
+                  mostrarContenido[index] ? "see" : ""
+                }`}
+                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseLeave={() => handleMouseLeave(index)}
+              >
+                <div className="title">{item.titleContent}</div>
+                <div className="contentText">
+                  {mostrarContenido[index]
+                    ? item.textContent
+                    : `${item.textContent.substring(0, 50)}...`}
+                </div>
+              </div>
+              </div>
+
+            ))}
+            </section>
+
+          </div>
+        )}
       </div>
 
       <div className="contentnone">
@@ -175,46 +126,23 @@ const SocialManagement = () => {
               <p>{projectData.textcontent2}</p>
             </div>
 
-            <div className="prueba">
+            {data.map((item, index) => (
               <div
+                key={index}
                 className={`containerGestionSocial ${
-                  mostrarContenido ? "see" : ""
+                  mostrarContenido[index] ? "see" : ""
                 }`}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseLeave={() => handleMouseLeave(index)}
               >
-                <div className="title">{titulo}</div>
+                <div className="title">{item.titleContent}</div>
                 <div className="contentText">
-                  {mostrarContenido ? parrafoCompleto : parrafoCorto}
+                  {mostrarContenido[index]
+                    ? item.textContent
+                    : `${item.textContent.substring(0, 50)}...`}
                 </div>
               </div>
-
-              <div
-                className={`containerGestionSocial2 ${
-                  mostrarContenido2 ? "see2" : ""
-                }`}
-                onMouseEnter={handleMouseEnter2}
-                onMouseLeave={handleMouseLeave2}
-              >
-                <div className="title2">{titulo2}</div>
-                <div className="contentText2">
-                  {mostrarContenido2 ? parrafoCompleto2 : parrafoCorto2}
-                </div>
-              </div>
-
-              <div
-                className={`containerGestionSocial3 ${
-                  mostrarContenido3 ? "see3" : ""
-                }`}
-                onMouseEnter={handleMouseEnter3}
-                onMouseLeave={handleMouseLeave3}
-              >
-                <div className="title3">{titulo3}</div>
-                <div className="contentText3">
-                  {mostrarContenido3 ? parrafoCompleto3 : parrafoCorto3}
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         )}
       </div>
@@ -223,22 +151,3 @@ const SocialManagement = () => {
 };
 
 export default SocialManagement;
-
-// .then((responseData) => setData(responseData))
-
-// {data &&
-//   data.map((item, index) => (
-//     <div
-//       key={index}
-//       className={`containerProject ${
-//         mostrarContenido ? "see" : ""
-//       }`}
-//       onMouseEnter={handleMouseEnter}
-//       onMouseLeave={handleMouseLeave}
-//     >
-//       <div className="title">{item.titleContent}</div>
-//       <div className="contentText">
-//         {mostrarContenido ? item.textContent : parrafoCorto}
-//       </div>
-//     </div>
-//   ))}

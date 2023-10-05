@@ -1,6 +1,6 @@
 export default {
   name: "paginas",
-  title: "Paginas",
+  title: "Fondos Paginas",
   type: "document",
   fields: [
     {
