@@ -195,9 +195,6 @@ const Donations = ({ handleGoToDonorProgress }) => {
                       ))}
                       Tu navegador no admite el elemento de video.
                     </video>
-                    
-                    
-                    
                       :
                       <>
                         <div className='donations__videoBackground-inactive'></div>

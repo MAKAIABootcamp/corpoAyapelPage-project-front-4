@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import client from "../../sanity/client";
 import { useParams } from "react-router-dom";
 import BlockContent from "@sanity/block-content-to-react";
-import {PortableText} from '@portabletext/react'
 import urlBuilder from '@sanity/image-url'
 import {getImageDimensions} from '@sanity/asset-utils'
 import getYouTubeId from 'get-youtube-id'
@@ -12,7 +11,6 @@ import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
 
 import "./News.scss";
 import {
-  EmailShareButton,
   FacebookIcon,
   FacebookShareButton,
   TwitterIcon,
@@ -72,7 +70,7 @@ const News = () => {
       youtube: ({ node }) => {
         const { url } = node || {};
         const id = getYouTubeId(url);
-        return <LiteYouTubeEmbed id={id} />;
+        return <LiteYouTubeEmbed id={id} rel="0" />;
       },
     },
     blocks: {
@@ -81,7 +79,7 @@ const News = () => {
         component: ({ node }) => {
           const { url } = node || {};
           const id = getYouTubeId(url);
-          return <LiteYouTubeEmbed id={id} />;
+          return <LiteYouTubeEmbed id={id} rel="0"/>;
         },
       },
     },

@@ -8,7 +8,7 @@ const UsTwo = () => {
     clickable: true,
     renderBullet: function (index, className) {
       const paddedIndex = (index + 1).toString().padStart(2, "0");
-      return '<span class="' + className + '">' + paddedIndex + "</span>";
+      return '<span className="' + className + '">' + paddedIndex + "</span>";
     },
   };
   return (

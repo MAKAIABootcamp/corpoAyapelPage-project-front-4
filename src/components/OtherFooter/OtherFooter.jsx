@@ -17,18 +17,18 @@ const OtherFooter = () => {
           <section className="Footer__colums">
             <section className="mainFooter__colums-content">
               <ul className="mainFooter__ul">
-                <Link to={"/nosotros"} className="bold">
+                <Link to={"/cultura"} className="bold">
                   Nosotros
                 </Link>
-                <Link to={"/historia"}>Historia</Link>
-                <Link to={"/cultura"}>Corporativo</Link>
+                <Link to={"/nosotros"}>Historia</Link>
+                {/* <Link to={"/cultura"}>Corporativo</Link> */}
                 <Link to={"/que-hacemos"}>Nuestros proyectos</Link>
               </ul>
               <ul className="mainFooter__ul">
                 <Link to={"/documentos"} className="bold">
                   Documentos
                 </Link>
-                <Link to={"/pqr"}>PQR</Link>
+                {/* <Link to={"/pqr"}>PQR</Link> */}
               </ul>
               <ul className="mainFooter__ul">
                 <Link to={"/como-ayudar"} className="bold">
@@ -68,11 +68,11 @@ const OtherFooter = () => {
             </figure>
             <section className="mainFooter__colums-content2">
               <ul className="mainFooter__ul">
-                <Link to={"/nosotros"} className="bold">
+                <Link to={"/cultura"} className="bold">
                   Nosotros
                 </Link>
-                <Link to={"/historia"}>Historia</Link>
-                <Link to={"/cultura"}>Corporativo</Link>
+                {/* <Link to={"/historia"}>Historia</Link> */}
+                <Link to={"/historia"}>Nosotros</Link>
                 <Link to={"/que-hacemos"}>Nuestros proyectos</Link>
               </ul>
               <ul className="mainFooter__ul">

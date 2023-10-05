@@ -88,7 +88,7 @@ const Testimonials = ({ handleGoToDonations }) => {
                                     </section>
                                 ))}
                             </div>
-                            <div class="col-1  d-flex aling-items-center">
+                            <div className="col-1  d-flex aling-items-center">
                                 <AiFillRightCircle onClick={handleGoRight} className="testimonials__container__RowLeft" />
                             </div>
                         </div>
