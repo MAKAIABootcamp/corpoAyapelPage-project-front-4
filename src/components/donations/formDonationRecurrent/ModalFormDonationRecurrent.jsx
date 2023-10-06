@@ -17,6 +17,10 @@ const style = {
     border: '2px solid #000',
     boxShadow: 24,
     p: 4,
+    '@media (max-width: 600px)': {
+        width: '95%', // Cambiar el ancho del modal en pantallas más pequeñas
+        // Otros estilos específicos para pantallas más pequeñas...
+      },
 };
 
 export default function ModalFormDonationRecurrent({selectedAmount}) {
