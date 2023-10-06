@@ -65,22 +65,6 @@ CorpoAyapel LadingPage es un proyecto de software diseñado para crear una exper
 - Cloudinary: Una plataforma de gestión de medios basada en la nube que te permite almacenar, gestionar y entregar imágenes y videos para tu aplicación.
 
 
-## Demo
-
-Insert gif or link to demo
-
-
-## FAQ
-
-#### Question 1
-
-Answer 1
-
-#### Question 2
-
-Answer 2
-
-
 ## Instalación
 
 ### Requisitos previos:
@@ -216,10 +200,5 @@ En caso de no tener node instalado puede instalarlo con el comando:
 Este proyecto es usado por:
 
 - [https://corpoayapel.com](https://corpoayapel.org/)
-
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
 
 
