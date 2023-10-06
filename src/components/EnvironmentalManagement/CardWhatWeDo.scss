@@ -8,22 +8,54 @@ $secondary-color: rgb(110, 190, 74);
   color: black;
   transition: 0.5s;
   padding: 5px;
-  // position: absolute;
-  left: $left;
-  bottom: $bottom;
+  left: 48%;
+  bottom: 60%;
   font-family: "Mulish", sans-serif;
   background: rgba(255, 255, 255, 0.7);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  width: 270px;
-  height: 100px;
+  width: 195px;
+  // height: 100px;
   border-radius: 3px;
   overflow: hidden;
   transition: height 0.3s;
+  @media screen and (max-width:870px) {
+    height: 60px;
+  }
 
   &.see {
     height: auto;
+    @media screen and (max-width: 930px) {
+    height: 80px;
+    height: 280px;
+    position: absolute;
+    top: 25%;
+    left: 2.5%;
+    width: 95vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 18px;
+  }
+
+    @media screen and (max-width: 930px) {
+      .title{
+
+      font-size: 19px;
+      }
+      .contentText{
+      font-size: 16px;
+      padding: 10px;
+      font-weight: 400;
+      line-height: 130%;
+      }
+
+    }
+    // @media screen and (max-width: 775px) {
+    //   height: 80px;
+    // }
   }
 
   .title {
@@ -77,9 +109,17 @@ $secondary-color: rgb(110, 190, 74);
     background-position: center;
     padding: 20px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items:center;
     font-family: "Mulish", sans-serif;
+    justify-content: space-evenly;
+    @media screen and (max-width:870px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    @media screen and (max-width: 870px) {
+      padding: 3rem 20px 0rem 20px;
+    }
 
     .content-Ambiental {
       background: rgba(255, 255, 255, 0.7);
@@ -89,17 +129,15 @@ $secondary-color: rgb(110, 190, 74);
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       max-width: 500px;
-      position: relative;
+      // position: relative;
       top: 20%;
-      width: 50%;
+      /* width: 50%; */
       color: #000;
       font-size: 24px;
       text-align: left;
       word-wrap: break-word;
       overflow: hidden;
-      @media screen and (max-width: 870px) {
-        top: 15%;
-      }
+     
 
       h2 {
         font-weight: 600;
@@ -112,6 +150,10 @@ $secondary-color: rgb(110, 190, 74);
         }
         @media screen and (max-width: 775px) {
           font-size: 30px;
+          line-height: 0;
+        }
+        @media screen and (max-width: 378px) {
+          line-height: 5px;
         }
 
         span {
@@ -124,7 +166,10 @@ $secondary-color: rgb(110, 190, 74);
             font-size: 90px;
           }
           @media screen and (max-width: 775px) {
-            font-size: 80px;
+            font-size: 75px;
+          }
+          @media screen and (max-width: 378px) {
+            font-size: 70px;
           }
         }
       }
@@ -140,11 +185,27 @@ $secondary-color: rgb(110, 190, 74);
         font-size: 18px;
         margin: 0 0 10px;
         line-height: 1.2;
+        @media screen and (max-width: 775px) {
+          font-size: 16px;
+        }
+        @media screen and (max-width: 378px) {
+        font-size: 16px;
+        }
+
       }
     }
 
     .containerGestionAmbiental {
+      @media screen and (max-width: 775px) {
+        width: 180px;
+      }
+      @media screen and (max-width: 378px) {
+          height: 60px;
+          width: 155px;
+        }
       @include container-styles(48%, 60%);
+      // width: 180px
+      
     }
 
     .containerGestionAmbiental2 {
@@ -172,6 +233,9 @@ $secondary-color: rgb(110, 190, 74);
         }
       }
     }
+  }
+  @media screen and (max-width:870px) {
+    flex-direction: column;
   }
 }
 
@@ -295,11 +359,10 @@ $secondary-color: rgb(110, 190, 74);
 .cardsContent-Env{
   transition: 0.5s;
   padding: 5px;
-  position: absolute;
+  /* position: absolute; */
   right: 10vw;
   top: 30vh;
-
-  width: 45%;
+  /* width: 45%; */
   /* height: 100px; */
   border-radius: 3px;
   overflow: hidden;
@@ -310,4 +373,25 @@ $secondary-color: rgb(110, 190, 74);
   justify-content: center;
   align-items: center;
   gap: 10px;
+  @media screen and (max-width: 870px) {
+    transition: 0.5s;
+    padding: 5px;
+    /* position: absolute; */
+    right: 10vw;
+    top: 30vh;
+    /* width: 45%; */
+    /* height: 100px; */
+    border-radius: 3px;
+    overflow: hidden;
+    transition: height 0.3s;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  @media screen and (max-width: 378px) {
+  // background-color: red;
+  }
 }

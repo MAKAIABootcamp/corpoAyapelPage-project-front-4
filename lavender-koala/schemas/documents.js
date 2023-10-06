@@ -2,6 +2,7 @@ export default {
     title: 'Documentos',
     name: 'documentos',
     type: 'document',
+    // icon: DashboardIcon,
     fields: [
       {
         name: 'title',
