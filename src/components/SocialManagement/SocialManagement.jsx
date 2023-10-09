@@ -2,21 +2,36 @@ import React, { useState, useEffect } from "react";
 import client from "../../sanity/client";
 import "./SocialManagement.scss";
 
-const SocialManagement = ({BackGroundImage}) => {
+const SocialManagement = ({ BackGroundImage }) => {
   const [projectData, setProjectData] = useState(null);
   const [data, setData] = useState([]);
   const [mostrarContenido, setMostrarContenido] = useState(Array(3).fill(false));
+  const [isMobile, setIsMobile] = useState(false); // Variable para detectar dispositivo móvil
 
   const handleMouseEnter = (index) => {
-    const newMostrarContenido = [...mostrarContenido];
-    newMostrarContenido[index] = true;
-    setMostrarContenido(newMostrarContenido);
+    if (!isMobile) {
+      const newMostrarContenido = [...mostrarContenido];
+      newMostrarContenido[index] = true;
+      setMostrarContenido(newMostrarContenido);
+    }
   };
 
   const handleMouseLeave = (index) => {
-    const newMostrarContenido = [...mostrarContenido];
-    newMostrarContenido[index] = false;
-    setMostrarContenido(newMostrarContenido);
+    if (!isMobile) {
+      const newMostrarContenido = [...mostrarContenido];
+      newMostrarContenido[index] = false;
+      setMostrarContenido(newMostrarContenido);
+    }
+  };
+
+  const handleClick = (index) => {
+    if (isMobile) {
+      setMostrarContenido((prevState) => {
+        const newMostrarContenido = [...prevState];
+        newMostrarContenido[index] = !prevState[index];
+        return newMostrarContenido;
+      });
+    }
   };
 
   useEffect(() => {
@@ -59,19 +74,29 @@ const SocialManagement = ({BackGroundImage}) => {
       .catch(console.error);
   }, []);
 
-  console.log(data);
-  console.log(projectData);
+  useEffect(() => {
+    // Detectar si estamos en un dispositivo móvil
+    const isMobileDevice = window.innerWidth <= 768; // Ajusta el ancho máximo según tu criterio
+    setIsMobile(isMobileDevice);
+
+    // Agregar un listener para detectar cambios en el tamaño de la ventana
+    const handleResize = () => {
+      const isMobileDevice = window.innerWidth <= 768; // Ajusta el ancho máximo según tu criterio
+      setIsMobile(isMobileDevice);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <>
       <div className="content" style={BackGroundImage}>
         {projectData && projectData.mainImage && (
-          <div
-            className="content__img-Social"
-            // style={{
-            //   backgroundImage: `url(${projectData.mainImage.asset.url})`,
-            // }}
-          >
+          <div className="content__img-Social">
             <div className="content-Social">
               <h2>
                 {projectData.content} <span>{projectData.content2}</span>
@@ -81,30 +106,26 @@ const SocialManagement = ({BackGroundImage}) => {
               <p>{projectData.textcontent2}</p>
             </div>
             <section className="cardsContent-Soc">
-
-            {data.map((item, index) => (
-            <div key={index}>
-
-              <div
-                key={index}
-                className={`containerGestionSocial ${
-                  mostrarContenido[index] ? "see" : ""
-                }`}
-                onMouseEnter={() => handleMouseEnter(index)}
-                onMouseLeave={() => handleMouseLeave(index)}
-              >
-                <div className="title">{item.titleContent}</div>
-                <div className="contentText">
-                  {mostrarContenido[index]
-                    ? item.textContent
-                    : `${item.textContent.substring(0, 50)}...`}
+              {data.map((item, index) => (
+                <div key={index}>
+                  <div
+                    className={`containerGestionSocial ${
+                      mostrarContenido[index] ? "see" : ""
+                    }`}
+                    onMouseEnter={() => handleMouseEnter(index)}
+                    onMouseLeave={() => handleMouseLeave(index)}
+                    onClick={() => handleClick(index)}
+                  >
+                    <div className="title">{item.titleContent}</div>
+                    <div className="contentText">
+                      {mostrarContenido[index]
+                        ? item.textContent
+                        : `${item.textContent.substring(0, 50)}...`}
+                    </div>
+                  </div>
                 </div>
-              </div>
-              </div>
-
-            ))}
+              ))}
             </section>
-
           </div>
         )}
       </div>
@@ -134,6 +155,7 @@ const SocialManagement = ({BackGroundImage}) => {
                 }`}
                 onMouseEnter={() => handleMouseEnter(index)}
                 onMouseLeave={() => handleMouseLeave(index)}
+                onClick={() => handleClick(index)}
               >
                 <div className="title">{item.titleContent}</div>
                 <div className="contentText">
