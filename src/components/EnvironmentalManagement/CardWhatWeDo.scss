@@ -21,7 +21,7 @@ $secondary-color: rgb(110, 190, 74);
   overflow: hidden;
   transition: height 0.3s;
   @media screen and (max-width:870px) {
-    height: 60px;
+    height: 80px;
   }
 
   &.see {
@@ -200,10 +200,11 @@ $secondary-color: rgb(110, 190, 74);
 
     .containerGestionAmbiental {
       @media screen and (max-width: 775px) {
-        width: 180px;
+        width: 190px;
+        height: 80px;
       }
       @media screen and (max-width: 378px) {
-          height: 60px;
+          height: 80px;
           width: 155px;
         }
       @include container-styles(48%, 60%);
@@ -378,23 +379,68 @@ $secondary-color: rgb(110, 190, 74);
   gap: 10px;
   @media screen and (max-width: 870px) {
     transition: 0.5s;
-    padding: 5px;
-    /* position: absolute; */
-    right: 10vw;
-    top: 30vh;
-    /* width: 45%; */
-    /* height: 100px; */
-    border-radius: 3px;
-    overflow: hidden;
-    transition: height 0.3s;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+  padding: 5px;
+  right: 10vw;
+  top: 30vh;
+  border-radius: 3px;
+  overflow-x: auto; /* Permitir scroll horizontal */
+  white-space: nowrap; /* Evitar el ajuste automático del contenido a varias líneas */
+  display: flex;
+  flex-wrap: nowrap; /* Evitar que el contenido se divida en varias líneas */
+  justify-content: flex-start; /* Alinear el contenido a la izquierda */
+  align-items: center;
+  gap: 10px;
   }
   @media screen and (max-width: 378px) {
   // background-color: red;
+  }
+}
+
+.pepe.swiper{
+  height: 20%;
+}
+
+.pepe.swiper swiper-slide{
+  height: auto;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  color: white;
+  padding: 20px;
+  flex-direction: column;
+
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 16px;
+    width: 50%;
+    @media screen and (max-width:870px){
+      width: 100%;
+    }
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #6ebe4a;
+    padding: 5px 10px;
+    margin-top:10px;
+    border-radius: 4px;
   }
 }
