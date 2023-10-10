@@ -20,24 +20,24 @@ import BannerDonations from "../pages/Donations/bannerDonations/BannerDonations"
 const AppRouter = () => {
   return (
     <BrowserRouter>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<FullPage />} />
-            <Route path="nosotros" Component={Us} />
-            <Route path="cultura" Component={Culture} />
-            <Route path="novedades" Component={News} exact />
-            <Route path="novedades/:slug" Component={News} />
-            <Route path="programas" Component={Programs} />
-            <Route path="conoce-ayapel" Component={Ayapel} />
-            <Route path="que-hacemos" Component={WhatWeDo} />
-            <Route path="documentos" Component={Documents} />
-            <Route path="ayapel" Component={Ayapel} />
-            <Route path="como-ayudar" Component={HowToHelp} />
-            <Route path="donaciones" Component={PageDonations} />
-          </Route>
-          <Route path="banner" Component={BannerDonations} />
-          <Route path="*" Component={Error404} />
-        </Routes>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<FullPage />} />
+          <Route path="nosotros" Component={Us} />
+          <Route path="cultura" Component={Culture} />
+          <Route path="novedades" Component={News} exact />
+          <Route path="novedades/:slug" Component={News} />
+          <Route path="programas" Component={Programs} />
+          <Route path="conoce-ayapel" Component={Ayapel} />
+          <Route path="que-hacemos" Component={WhatWeDo} />
+          <Route path="documentos" Component={Documents} />
+          <Route path="ayapel" Component={Ayapel} />
+          <Route path="como-ayudar" Component={HowToHelp} />
+          <Route path="donaciones" Component={PageDonations} />
+        </Route>
+        <Route path="banner" Component={BannerDonations} />
+        <Route path="*" Component={Error404} />
+      </Routes>
     </BrowserRouter>
   );
 };
