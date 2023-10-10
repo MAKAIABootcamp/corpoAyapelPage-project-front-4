@@ -64,7 +64,7 @@ function HowToHelp({
   const mapBackGround = backgroundData.map((background) => {
     return background;
   });
-  console.log(mapBackGround);
+  // console.log(mapBackGround);
 
   return (
     <div className="toHelp">

@@ -19,9 +19,13 @@ const Footer = ({BackGroundImage}) => {
           <section className="mainFooter__colums">
             <section className="mainFooter__colums-content">
               <ul className="mainFooter__ul">
-                <Link to={'/nosotros'} className="bold">Nosotros</Link>
-                <Link to={'/historia'}>Historia</Link>
-                <Link to={'/cultura'}>Corporativo</Link>
+{/* 
+              <Link to={"/nosotros"}>Historia</Link>
+                <Link to={"/cultura"}>Corporativo</Link> */}
+
+                <Link to={'/cultura'} className="bold">Nosotros</Link>
+                <Link to={'/nosotros'}>Historia</Link>
+                {/* <Link to={'/cultura'}>Corporativo</Link> */}
                 <Link to={'/que-hacemos'}>Nuestros proyectos</Link>
               </ul>
               <ul className="mainFooter__ul">

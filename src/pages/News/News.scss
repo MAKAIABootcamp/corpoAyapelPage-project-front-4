@@ -8,7 +8,7 @@
       padding: 2rem 0.5rem 1rem  0.5rem;
     }
 
-  
+
 
     &__social-share{
       display: flex;
@@ -30,7 +30,7 @@
       display: flex;
       gap: 5px;
     }
-    
+
     &__head {
       padding: 2rem;
       background-color: white;
@@ -41,7 +41,7 @@
       border-radius: 5px 5px 0px 0px;
       box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     }
-    
+
     &__title {
       font-size: 3rem;
       margin-bottom: 4px;
@@ -49,16 +49,16 @@
         font-size: 2rem;
       }
     }
-    
+
     &__image {
       padding-bottom: 10px;
-      
+
       img {
         object-fit: cover;
         width: 100%;
       }
     }
-    
+
     &__body {
       padding: 10px 35px;
       background-color: white;
@@ -70,27 +70,27 @@
       box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
     }
-    
+
     div {
       width: 100%;
-      
+
       figure {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 100%;
-        
+
         img {
           width: 50%;
           margin: 5px;
           border-radius: 4px;
         }
       }
-      
+
       display: flex;
       flex-direction: column;
       justify-content: center;
-      
+
       p {
         text-align: left;
         margin: 0 0 15px;
@@ -99,23 +99,25 @@
         @media screen and (max-width:535px) {
           z-index: 1;
           text-align: justify;
-        } 
+        }
 
         @media screen and (max-width:910px) {
           z-index: 1;
         }
-        
+
         a {
-          background-color: #56bc277a;
-          color: #418d1d;
-          text-decoration: none;
-          padding: 3.3px 10px;
-          border-radius: 5px;
-          margin: 0px 2px;
+             /* background-color: rgba(86, 188, 39, 0.4784313725); */
+    color: #418d1d;
+    text-decoration: none;
+    /* padding: 3.3px 10px; */
+    /* border-radius: 5px; */
+    margin: 0px 2px;
+    font-weight: 700;
+    border-bottom: 1px solid #418d1d;
         }
       }
     }
-    
+
     &__date {
       background-color: #6ebf4968;
       width: 10%;
@@ -143,7 +145,7 @@
         display: none;
       }
     }
-    
+
     &__fondo-2 {
       position: fixed;
       top: auto;
@@ -155,6 +157,5 @@
       }
       // transform: translateY(100%);
     }
-    
+
   }
-  

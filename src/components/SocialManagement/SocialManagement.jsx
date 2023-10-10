@@ -1,92 +1,46 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import client from "../../sanity/client";
 import "./SocialManagement.scss";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Scrollbar } from "swiper/modules";
 
-const SocialManagement = () => {
+const SocialManagement = ({ BackGroundImage }) => {
   const [projectData, setProjectData] = useState(null);
-  const [data, setData] = useState({});
-  const [data2, setData2] = useState({});
-  const [data3, setData3] = useState({});
-
-  const [mostrarContenido, setMostrarContenido] = useState(false);
-  const [mostrarContenido2, setMostrarContenido2] = useState(false);
-  const [mostrarContenido3, setMostrarContenido3] = useState(false);
-
-  const handleMouseEnter = () => {
-    setMostrarContenido(true);
-  };
-
-  const handleMouseLeave = () => {
-    setMostrarContenido(false);
-  };
-
-  const handleMouseEnter2 = () => {
-    setMostrarContenido2(true);
-  };
-
-  const handleMouseLeave2 = () => {
-    setMostrarContenido2(false);
-  };
-
-  const handleMouseEnter3 = () => {
-    setMostrarContenido3(true);
-  };
-
-  const handleMouseLeave3 = () => {
-    setMostrarContenido3(false);
-  };
-
-  const titulo = data?.titleContent;
-  const parrafoCompleto = data?.textContent || "";
-  const parrafoCorto = `${parrafoCompleto.substring(0, 80)}...`;
-
-  const titulo2 = data2.titleContent;
-  const parrafoCompleto2 = data2?.textContent || "";
-  const parrafoCorto2 = `${parrafoCompleto2.substring(0, 50)}...`;
-
-  const titulo3 = data3.titleContent;
-  const parrafoCompleto3 = data3?.textContent || "";
-  const parrafoCorto3 = `${parrafoCompleto3.substring(0, 50)}...`;
+  const [data, setData] = useState([]);
+  const [mostrarContenido, setMostrarContenido] = useState(Array(3).fill(false));
+  const [isMobile, setIsMobile] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
+    // Fetch social data
     client
-      .fetch(
-        `*[_type == "gestionSocial"] {
+      .fetch(`*[_type == "gestionSocial"] {
         titleContent,
         textContent,
-      }`
-      )
+      }`)
       .then((data) => {
-        if (data.length >= 1) {
-          setData(data[0]);
-        }
-        if (data.length >= 2) {
-          setData2(data[1]);
-        }
-        if (data.length >= 3) {
-          setData3(data[2]);
-        }
+        setData(data);
       })
       .catch(console.error);
   }, []);
 
   useEffect(() => {
+    // Fetch project data (third item in the array)
     client
-      .fetch(
-        `*[_type == "gestion"] {
-            content,
-            content2,
-            subcontent,
-            textcontent,
-            textcontent2,
-            mainImage{
-              asset->{
-                _id,
-                url
-              }
-            }
-          }`
-      )
+      .fetch(`*[_type == "gestion"] {
+        content,
+        content2,
+        subcontent,
+        textcontent,
+        textcontent2,
+        mainImage{
+          asset->{
+            _id,
+            url
+          }
+        }
+      }`)
       .then((data) => {
         if (data.length >= 3) {
           const firstData = data[2];
@@ -96,149 +50,171 @@ const SocialManagement = () => {
       .catch(console.error);
   }, []);
 
+  useEffect(() => {
+    // Check for mobile device
+    const isMobileDevice = window.innerWidth <= 768;
+    setIsMobile(isMobileDevice);
+
+    const handleResize = () => {
+      const isMobileDevice = window.innerWidth <= 768;
+      setIsMobile(isMobileDevice);
+    };
+
+    // Add and remove resize event listener
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const handleMouseEnter = (index) => {
+    if (!isMobile) {
+      const newMostrarContenido = [...mostrarContenido];
+      newMostrarContenido[index] = true;
+      setMostrarContenido(newMostrarContenido);
+    }
+  };
+
+  const handleMouseLeave = (index) => {
+    if (!isMobile) {
+      const newMostrarContenido = [...mostrarContenido];
+      newMostrarContenido[index] = false;
+      setMostrarContenido(newMostrarContenido);
+    }
+  };
+
+  const handleClick = (index) => {
+    if (isMobile) {
+      setSelectedItem(data[index]);
+      setIsModalOpen(true);
+    }
+  };
+
+  const closeModal = () => {
+    setSelectedItem(null);
+    setIsModalOpen(false);
+  };
+  const openModal = (item) => {
+    setSelectedItem(item);
+    setIsModalOpen(true);
+  };
+
   return (
-    <>
-      <div className="content">
-        {projectData &&
-          projectData.mainImage && ( // Verificar projectData.mainImage
-            <div
-              className="content__img-Social"
-              style={{
-                backgroundImage: `url(${projectData.mainImage.asset.url})`,
-              }}
-            >
-              <div className="content-Social">
-                <h2>
-                  {projectData.content} <span>{projectData.content2}</span>
-                </h2>
-                <h3>{projectData.subcontent}</h3>
-                <p>{projectData.textcontent}</p>
-              <p>{projectData.textcontent2}</p>
-              </div>
-
-              <div
-                className={`containerGestionSocial ${
-                  mostrarContenido ? "see" : ""
-                }`}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              >
-                <div className="title">{titulo}</div>
-                <div className="contentText">
-                  {mostrarContenido ? parrafoCompleto : parrafoCorto}
-                </div>
-              </div>
-
-              <div
-                className={`containerGestionSocial2 ${
-                  mostrarContenido2 ? "see2" : ""
-                }`}
-                onMouseEnter={handleMouseEnter2}
-                onMouseLeave={handleMouseLeave2}
-              >
-                <div className="title2">{titulo2}</div>
-                <div className="contentText2">
-                  {mostrarContenido2 ? parrafoCompleto2 : parrafoCorto2}
-                </div>
-              </div>
-
-              <div
-                className={`containerGestionSocial3 ${
-                  mostrarContenido3 ? "see3" : ""
-                }`}
-                onMouseEnter={handleMouseEnter3}
-                onMouseLeave={handleMouseLeave3}
-              >
-                <div className="title3">{titulo3}</div>
-                <div className="contentText3">
-                  {mostrarContenido3 ? parrafoCompleto3 : parrafoCorto3}
-                </div>
-              </div>
-            </div>
-          )}
-      </div>
-
-      <div className="contentnone">
-        {projectData && (
-          <div
-            className="contentnone__img"
-            style={{
-              backgroundImage: `url(${projectData.mainImage.asset.url})`,
-            }}
-          >
-            <div className="textAmbiental">
-              <h2>
-                {projectData.content} <span>{projectData.content2}</span>
-              </h2>
-              <h3>{projectData.subcontent}</h3>
-              <p>{projectData.textcontent}</p>
-              <p>{projectData.textcontent2}</p>
-            </div>
-
-            <div className="prueba">
-              <div
-                className={`containerGestionSocial ${
-                  mostrarContenido ? "see" : ""
-                }`}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              >
-                <div className="title">{titulo}</div>
-                <div className="contentText">
-                  {mostrarContenido ? parrafoCompleto : parrafoCorto}
-                </div>
-              </div>
-
-              <div
-                className={`containerGestionSocial2 ${
-                  mostrarContenido2 ? "see2" : ""
-                }`}
-                onMouseEnter={handleMouseEnter2}
-                onMouseLeave={handleMouseLeave2}
-              >
-                <div className="title2">{titulo2}</div>
-                <div className="contentText2">
-                  {mostrarContenido2 ? parrafoCompleto2 : parrafoCorto2}
-                </div>
-              </div>
-
-              <div
-                className={`containerGestionSocial3 ${
-                  mostrarContenido3 ? "see3" : ""
-                }`}
-                onMouseEnter={handleMouseEnter3}
-                onMouseLeave={handleMouseLeave3}
-              >
-                <div className="title3">{titulo3}</div>
-                <div className="contentText3">
-                  {mostrarContenido3 ? parrafoCompleto3 : parrafoCorto3}
-                </div>
-              </div>
-            </div>
+    <div className="contentSocial" style={BackGroundImage}>
+      {projectData && projectData.mainImage && (
+        <div className="contentSocial__img-Social">
+          <div className="content-Social">
+            <h2>
+              {projectData.content} <span>{projectData.content2}</span>
+            </h2>
+            <h3>{projectData.subcontent}</h3>
+            <p>{projectData.textcontent}</p>
           </div>
-        )}
-      </div>
-    </>
+          {isMobile ? (
+            <MobileView
+              data={data}
+              mostrarContenido={mostrarContenido}
+              handleMouseEnter={handleMouseEnter}
+              handleMouseLeave={handleMouseLeave}
+              handleClick={handleClick}
+            />
+          ) : (
+            <DesktopView
+              data={data}
+              mostrarContenido={mostrarContenido}
+              handleMouseEnter={handleMouseEnter}
+              handleMouseLeave={handleMouseLeave}
+              handleClick={handleClick}
+              openModal={openModal}
+            />
+          )}
+        </div>
+      )}
+      {isModalOpen && (
+        <div className="modal">
+          {selectedItem && (
+            <>
+              <h2>{selectedItem.titleContent}</h2>
+              <p>{selectedItem.textContent}</p>
+            </>
+          )}
+          <button onClick={closeModal}>Cerrar</button>
+        </div>
+      )}
+    </div>
   );
 };
 
+const MobileView = ({
+  data,
+  mostrarContenido,
+  handleMouseEnter,
+  handleMouseLeave,
+  handleClick,
+}) => (
+  <Swiper
+    slidesPerView={1.7}
+    spaceBetween={5}
+    scrollbar={{ hide: true }}
+    modules={[Scrollbar]}
+    className="mySwiper pepe"
+  >
+    <section className="cardsContent-Soc">
+      {data.map((item, index) => (
+        <SwiperSlide key={index}>
+          <div key={index}>
+            <div
+              className={`containerGestionSocial ${
+                mostrarContenido[index] ? "see" : ""
+              }`}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={() => handleMouseLeave(index)}
+              onClick={() => handleClick(index)}
+            >
+              <div className="title">{item.titleContent}</div>
+              <div className="contentText">
+                {mostrarContenido[index]
+                  ? item.textContent
+                  : `${item.textContent.substring(0, 50)}...`}
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
+      ))}
+    </section>
+  </Swiper>
+);
+
+const DesktopView = ({
+  data,
+  mostrarContenido,
+  handleMouseEnter,
+  handleMouseLeave,
+  handleClick,
+  openModal,
+}) => (
+  <section className="cardsContent-Soc">
+    {data.map((item, index) => (
+      <div key={index}>
+        <div
+          className={`containerGestionSocial ${
+            mostrarContenido[index] ? "see" : ""
+          }`}
+          onMouseEnter={() => handleMouseEnter(index)}
+          onMouseLeave={() => handleMouseLeave(index)}
+          onClick={() => openModal(item)}
+        >
+          <div className="title">{item.titleContent}</div>
+          <div className="contentText">
+            {mostrarContenido[index]
+              ? item.textContent
+              : `${item.textContent.substring(0, 50)}...`}
+          </div>
+        </div>
+      </div>
+    ))}
+  </section>
+);
+
 export default SocialManagement;
-
-// .then((responseData) => setData(responseData))
-
-// {data &&
-//   data.map((item, index) => (
-//     <div
-//       key={index}
-//       className={`containerProject ${
-//         mostrarContenido ? "see" : ""
-//       }`}
-//       onMouseEnter={handleMouseEnter}
-//       onMouseLeave={handleMouseLeave}
-//     >
-//       <div className="title">{item.titleContent}</div>
-//       <div className="contentText">
-//         {mostrarContenido ? item.textContent : parrafoCorto}
-//       </div>
-//     </div>
-//   ))}

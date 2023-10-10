@@ -25,6 +25,7 @@ const FormDonationRecurrent = ({ handleClose, selectedAmount, dataFormDonationRe
   const sendForm = (data) => {
     // dispatch(updateDataSuscription({email: data}));
     setDataFormDonationRecurrent(data)
+    setCurrentStep(1);
   };
 
  // console.log(dataFormDonationRecurrent);
@@ -40,8 +41,11 @@ const FormDonationRecurrent = ({ handleClose, selectedAmount, dataFormDonationRe
   });
 
   const handleConfirmTdc = () => {
-    setCurrentStep(1); // Avanzar al paso de pago (paso 1)
+    if (dataFormDonationRecurrent.length !== 0) {
+      setCurrentStep(1); // Avanzar al paso de pago (paso 1)
+    }
   };
+  
 
   const handleConfirmation = () => {
     setCurrentStep(3); // Avanzar al paso de confirmación (paso 3)
@@ -73,19 +77,19 @@ const FormDonationRecurrent = ({ handleClose, selectedAmount, dataFormDonationRe
                helperText={errors.email}
                className='aaa'
              />
-             <button type='submit' className='formDonationsRecurrent__btnConfirmEmail'>Confirmar</button>
+             <button type='submit' className='formDonationsRecurrent__btnConfirmEmail' >Confirmar</button>
            </div>
-           <div className='formDonationsRecurrent__stepOne'>
+           {/* <div className='formDonationsRecurrent__stepOne'>
              {Object.keys(dataFormDonationRecurrent).length !== 0 && 
              <>
-               {/* <p className='formDonationsRecurrent__stepOne__title'>Paso 1 Seleccione el método de pago</p> */}
+             
                <div onClick={handleConfirmTdc} className={Object.keys(dataFormDonationRecurrent).length === 0 ? 'formDonationsRecurrent__selectCard' : 'formDonationsRecurrent__selectCard-active'}>
                  <ImCreditCard className='formDonationsRecurrent__iconCard' />
                  <p>Tarjeta de Crédito</p>
                </div>
              </>
              } 
-           </div>
+           </div> */}
           
          </form>
       )}

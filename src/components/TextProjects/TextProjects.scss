@@ -3,6 +3,9 @@
   display: flex;
   flex-direction: column;
   transition: 0.5s;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   &__one {
     background-size: cover;
@@ -56,7 +59,8 @@
       }
       h2 {
         font-size: 33px;
-        line-height: 123px;
+        // line-height: 123px;
+        line-height: 2.5rem;
         color: #535353;
         font-weight: 400;
         @media (max-width: 810px) {

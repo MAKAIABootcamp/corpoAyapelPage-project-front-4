@@ -129,7 +129,7 @@ const Navbar = () => {
                       handleMenuItemClick("https://corpoayapel.sanity.studio/")
                     }
                   >
-                    Administracion
+                    Administración
                   </li>
                 </ul>
               )}

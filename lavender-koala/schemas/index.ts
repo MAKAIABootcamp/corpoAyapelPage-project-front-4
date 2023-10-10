@@ -15,6 +15,7 @@ import ourProjects from './ourProjects'
 import ImpactIndicator from './impactIndicator'
 import pagesBackground from './pagesBackground'
 import video from './videoDonations'
+import history from './history'
 
 export const schemaTypes = [
   projects,
@@ -33,7 +34,8 @@ export const schemaTypes = [
   management,
   ImpactIndicator,
  pagesBackground,
- video
+ video,
+ history
 ]
 
 
