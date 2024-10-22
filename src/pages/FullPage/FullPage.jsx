@@ -32,7 +32,7 @@ const FullPage = () => {
     return background;
   });
 
-  console.log(mapBackGround);
+  // console.log(mapBackGround);
 
   return (
     <main className="container">

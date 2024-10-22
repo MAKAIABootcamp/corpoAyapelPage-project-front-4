@@ -37,7 +37,7 @@ const NavbarGreen = () => {
 
   if (screenWidth < breakpointX ) {
     return (
-      <div className={slug ? 'mainNav bg-green' : (location.pathname === '/donaciones' || location.pathname === '/ayapel' ? 'mainNav bg-green' : 'mainNav')}>
+      <div className={slug ? 'mainNavbar bg-green' : (location.pathname === '/donaciones' || location.pathname === '/ayapel' ? 'mainNavbar bg-green' : 'mainNavbar')}>
         <section>
 
         <NavLink to={'/'}>
@@ -47,7 +47,7 @@ const NavbarGreen = () => {
           </NavLink>
           </section>
 
-        <nav className='mainNav__nav'>
+        <nav className='mainNavbar__nav'>
           
           <Menu
             width={'100px'}
@@ -74,7 +74,7 @@ const NavbarGreen = () => {
 
   if (screenWidth > breakpointY) {
     return (
-      <div className={slug ? 'mainNav bg-green div' : (location.pathname === '/donaciones' ? 'mainNav div bg-green' : 'mainNav div')}>
+      <div className={slug ? 'mainNavbar bg-green div' : (location.pathname === '/donaciones' ? 'mainNavbar div bg-green' : 'mainNavbar div')}>
         <nav className='mainNav__nav'>
           <ul>
             <NavLink to={'/nosotros'}>Nosotros</NavLink>

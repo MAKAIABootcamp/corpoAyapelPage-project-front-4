@@ -34,5 +34,28 @@ export default {
             type: "string",
             title: "Monto Donación N° 6"
         },
-    ]
+        {
+            name: 'temporaryConfig',
+            title: 'Configuración Temporal',
+            type: 'object',
+            fields: [
+                {
+                    name: 'startDate',
+                    title: 'Fecha de Inicio',
+                    type: 'date',
+                },
+                {
+                    name: 'endDate',
+                    title: 'Fecha de Fin',
+                    type: 'date',
+                },
+                {
+                    name: 'newOneTimeAmount',
+                    title: 'Nuevo Monto para Donación Única',
+                    type: 'string',
+                }
+            ]
+        }
+    ],
+    
 }
