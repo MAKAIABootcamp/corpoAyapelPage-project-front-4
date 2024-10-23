@@ -3,7 +3,7 @@ import './donorProgress.scss'
 import { GoGoal } from "react-icons/go";
 import BtnKnowMore from '../btnKnowMore/BtnKnowMore';
 import CtaDonations from '../ctaDonations/CtaDonations';
-import client from '../../../sanity/client';
+// import client from '../../../sanity/client';
 import { listSubscriptions } from '../../../epayco';
 import ProgressBar from './ProgressBar';
 import { useDispatch, useSelector } from 'react-redux';
